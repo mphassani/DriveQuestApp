@@ -7,7 +7,8 @@ export default function IntersectionScreen({ navigation }) {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text
                 onPress={() => navigation.navigate('Home')}
-                style={{ fontSize: 26, fontWeight: 'bold' }}>Intersection Screen</Text>
+                style={{ fontSize: 26, fontWeight: 'bold' }}>Intersection Screen
+            </Text>
         </View>
     );
 }
