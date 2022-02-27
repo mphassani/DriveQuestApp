@@ -113,7 +113,7 @@ const MyComponent = () => {
     intersection: Intersectionroute,
     comments: CommentsRoute,
     turns: TurnsRoute,
-    lane_change: Lane_ChangeRoute
+    lane_change: Lane_ChangeRoute,
   });
 
   return (

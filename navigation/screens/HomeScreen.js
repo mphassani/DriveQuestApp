@@ -6,11 +6,12 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { Provider as PaperProvider, Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 // import {Restart} from 'fiction-expo-restart';
+
 
 export default function HomeScreen({ navigation }) {
   // Parsa's Page
