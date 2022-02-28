@@ -21,6 +21,7 @@ npm install react-native-gesture-handler
 npm install @react-native-masked-view/masked-view
 ```
 
+Use this in your .js file to modify things
 ```bash
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
