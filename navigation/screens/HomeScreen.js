@@ -24,21 +24,21 @@ export default function HomeScreen({ navigation }) {
             style={{
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: 20,
+              paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10,
             }}
           >
             Pre-Drive
           </Button>
-          <Button mode="contained" style={{ marginBottom: 20, marginTop: 20, color: "#00677F" }}>
+          <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F" }}>
             Parking Lot
           </Button>
-          <Button mode="contained" style={{ marginBottom: 20, marginTop: 20, color: "#00677F"  }}>
+          <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F"  }}>
             Residential
           </Button>
-          <Button mode="contained" style={{ marginBottom: 20, marginTop: 20, color: "#00677F"  }}>
+          <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F"  }}>
             Freeway
           </Button>
-          <Button mode="contained" style={{ marginBottom: 20, marginTop: 20, color: "#00677F"  }}>
+          <Button mode="contained" style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F"  }}>
             Test result
           </Button>
           <Icon name="md-warning" style={styles.icon}></Icon>
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     // width: 86,
     // height: 107,
     //marginLeft: 22,
+    paddingLeft: 138,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
