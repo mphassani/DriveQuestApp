@@ -24,7 +24,7 @@ export default function TurnScreen({ navigation }) {
                 <List.Section>
                 <List.Item 
                     title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "emoji_people" />}
+                    left={(props) => <Avatar.Icon {...props} color = "white" />}
                     right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
                     />
                                     
