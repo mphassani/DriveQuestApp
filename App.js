@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Fragment} from 'react'
+import { Fragment } from 'react'
 import MainContainer from './navigation/MainContainer';
 import BottomNav from './navigation/BottomNav';
 import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton } from "react-native-paper";
@@ -12,69 +12,53 @@ import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
 import TurnScreen from './navigation/screens/TurnScreen';
 import LogIn from './navigation/screens/LogIn';
+import MainHome from './HomeScreen'
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Stack = createStackNavigator();
 
 const _goBack = () => console.log('Went back');
 
-let isLoggedIn = true;
+let isLoggedIn = false;
 
-let chosenScreen = <LogIn/>
+let chosenScreen = <LogIn />
 
-// global.test = true;
-
-
-
-function MainHome(){
-  const [visible, setVisible] = React.useState(false);
-
-  const openMenu = () => setVisible(true);
-
-  const closeMenu = () => setVisible(false);
+global.test = true;
+function MyStack() {
   return (
-
-      <PaperProvider>
-        <PaperProvider theme={theme}>
-          <Appbar.Header>
-            <Appbar.Action icon="menu" onPress={_goBack}/>
-            <Appbar.Content title="DriveQuest"/>
-            <Menu
-            visible={visible}
-            onDismiss={closeMenu}
-            anchor={<IconButton icon="dots-vertical" onPress={openMenu} color="white"/>}>
-            <Menu.Item onPress={() => {}} title="Settings" icon={"cog"} />
-            <Divider />
-            <Menu.Item onPress={() => {}} title="Credits" icon= "information" />
-          </Menu>
-          </Appbar.Header>
-          <MyComponent/>  
-        </PaperProvider>
-
-      </PaperProvider>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={MainHome} />
+      <Stack.Screen name="LogIn" component={LogIn} />
+    </Stack.Navigator>
   );
-
 }
+
 function App() {
-  if(isLoggedIn == false)
-  {
-    chosenScreen = <LogIn/>
+  return (
+    <PaperProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen name="Home" component={MainHome} />
+        </Stack.Navigator>
+      </NavigationContainer>
 
-  }
-  else
-  {
-    chosenScreen = <MainHome/>
-  }
-  return(
-    chosenScreen
+    </PaperProvider>
+
+
   );
 
-}
 
-function DrawerMain(){
-  return(
-    <Drawer.Section/>
+
+}
+function DrawerMain() {
+  return (
+    <Drawer.Section />
   );
 }
-function SettingsPanel(){
-  
+function SettingsPanel() {
+
 
 }
 
@@ -88,41 +72,5 @@ const theme = {
   },
 };
 
-const HomeRoute = () => <HomeScreen/>
-
-const Intersectionroute = () => <IntersectionScreen/>
-
-const TurnsRoute = () => <TurnScreen/>
-
-const CommentsRoute = () => <CommentsScreen/>
-
-const Lane_ChangeRoute = () => <LaneChangeScreen/>
-
-const MyComponent = () => {
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: 'home', title: 'Home', icon: 'home' },
-    { key: 'intersection', title: 'Intersection', icon: 'traffic-light' },
-    { key: 'comments', title: 'Comments', icon: 'comment' },
-    { key: 'turns', title: 'Turns', icon: 'directions' },
-    { key: 'lane_change', title: 'Lane Change', icon: 'road' },
-  ]);
-
-  const renderScene = BottomNavigation.SceneMap({
-    home: HomeRoute,
-    intersection: Intersectionroute,
-    comments: CommentsRoute,
-    turns: TurnsRoute,
-    lane_change: Lane_ChangeRoute,
-  });
-
-  return (
-    <BottomNavigation
-      navigationState={{ index, routes }}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-    />
-  );
-};
 
 export default App;
