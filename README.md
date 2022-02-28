@@ -20,3 +20,8 @@ npm install react-native-gesture-handler
 ```bash
 npm install @react-native-masked-view/masked-view
 ```
+
+```bash
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+```
