@@ -10,7 +10,7 @@ import {
   Platform
 } from "react-native";
 import { Provider as PaperProvider, Button, TextInput, Appbar, DefaultTheme } from "react-native-paper";
-import HomeScreen from "../../HomeScreen";
+import HomeScreen from "../../AllScreen";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
