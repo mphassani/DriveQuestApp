@@ -15,6 +15,7 @@ import LogIn from './navigation/screens/LogIn';
 import MainHome from './AllScreen'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import PreDriveScreen from './navigation/screens/PreDriveScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,7 @@ function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="LogIn" component={LogIn} />
           <Stack.Screen name="Home" component={MainHome} />
+          <Stack.Screen name="PreDrive" component={PreDriveScreen} />
         </Stack.Navigator>
       </NavigationContainer>
 
