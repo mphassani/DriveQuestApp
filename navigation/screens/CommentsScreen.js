@@ -14,6 +14,7 @@ export default function CommentsScreen({ navigation }) {
     const hideDialog2 = () => setVisible2(false);
     const hideDialog3 = () => setVisible3(false);
     const [checked, setChecked] = React.useState('first');
+    const [soundChecked, setSoundChecked] = React.useState('first');
 
     return (
     <PaperProvider>
@@ -89,36 +90,36 @@ export default function CommentsScreen({ navigation }) {
                     <View style= {{flex:1, padding:10}}>
                         <Text style= {{fontSize: 9}}>Bell</Text>
                         <RadioButton value = "first"
-                        status={checked==='first'?'checked':'unchecked}'}
-                        onPress={() => setChecked('first')}
+                        status={soundChecked==='first'?'checked':'unchecked}'}
+                        onPress={() => setSoundChecked('first')}
                         />
                     </View>
                     <View style= {{flex:1, padding:10}}>
                         <Text style= {{fontSize: 9}}>Horn</Text>
                         <RadioButton value = "second"
-                        status={checked==='second'?'checked':'unchecked}'}
-                        onPress={() => setChecked('second')}
+                        status={soundChecked==='second'?'checked':'unchecked}'}
+                        onPress={() => setSoundChecked('second')}
                         />
                     </View>
                     <View style= {{flex:1, padding:10}}>
                         <Text style= {{fontSize: 9}}>Oink</Text>
-                        <RadioButton value = "second"
-                        status={checked==='second'?'checked':'unchecked}'}
-                        onPress={() => setChecked('second')}
+                        <RadioButton value = "third"
+                        status={soundChecked==='third'?'checked':'unchecked}'}
+                        onPress={() => setSoundChecked('third')}
                         />
                     </View>
                     <View style= {{flex:1, padding:10}}>
                         <Text style= {{fontSize: 9}}>Police Siren</Text>
-                        <RadioButton value = "second"
-                        status={checked==='second'?'checked':'unchecked}'}
-                        onPress={() => setChecked('second')}
+                        <RadioButton value = "fourth"
+                        status={soundChecked==='fourth'?'checked':'unchecked}'}
+                        onPress={() => setSoundChecked('fourth')}
                         />
                     </View>
                     <View style= {{flex:1, padding:10}}>
                         <Text style= {{fontSize: 9}}>Piano</Text>
-                        <RadioButton value = "second"
-                        status={checked==='second'?'checked':'unchecked}'}
-                        onPress={() => setChecked('second')}
+                        <RadioButton value = "fifth"
+                        status={soundChecked==='fifth'?'checked':'unchecked}'}
+                        onPress={() => setSoundChecked('fifth')}
                         />
                     </View>
                     <Button onPress={hideDialog2}>Ok</Button>
