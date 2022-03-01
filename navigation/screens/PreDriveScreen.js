@@ -6,7 +6,7 @@ const { height } = Dimensions.get('window');
 
 //pre-drive screen display 
 
-export default function PreDriveScreen(){
+export default function PreDriveScreen({navigation}){
     return(
     //FIXME: need to add theme={theme}
     <PaperProvider style={styles.container}>
