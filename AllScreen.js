@@ -23,6 +23,24 @@ const TurnsRoute = () => <TurnScreen />
 const CommentsRoute = () => <CommentsScreen />
 
 const Lane_ChangeRoute = () => <LaneChangeScreen />
+const MyComponent2 = () => {
+    const [active, setActive] = React.useState('');
+
+    return (
+        <Drawer.Section title="Some title">
+            <Drawer.Item
+                label="First Item"
+                active={active === 'first'}
+                onPress={() => setActive('first')}
+            />
+            <Drawer.Item
+                label="Second Item"
+                active={active === 'second'}
+                onPress={() => setActive('second')}
+            />
+        </Drawer.Section>
+    );
+};
 
 const MyComponent = () => {
     const [index, setIndex] = React.useState(0);
@@ -61,7 +79,7 @@ export default function MainHome() {
         <PaperProvider>
             <PaperProvider theme={theme}>
                 <Appbar.Header>
-                    <Appbar.Action icon="menu" onPress={_goBack} />
+                    <Appbar.Action icon="menu" onPress={MyComponent2} />
                     <Appbar.Content title="DriveQuest" />
                     <Menu
                         visible={visible}
