@@ -11,6 +11,7 @@ import CommentsScreen from './navigation/screens/CommentsScreen';
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
 import TurnScreen from './navigation/screens/TurnScreen';
+import DrawerSide from './DrawerSide'
 
 const _goBack = () => console.log('Went back');
 
@@ -25,6 +26,7 @@ const CommentsRoute = () => <CommentsScreen />
 const Lane_ChangeRoute = () => <LaneChangeScreen />
 const MyComponent2 = () => {
     const [active, setActive] = React.useState('');
+
 
     return (
         <Drawer.Section title="Some title">
@@ -43,6 +45,7 @@ const MyComponent2 = () => {
 };
 
 const MyComponent = () => {
+    const [active, setActive] = React.useState('');
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home' },
@@ -66,6 +69,7 @@ const MyComponent = () => {
             onIndexChange={setIndex}
             renderScene={renderScene}
         />
+
     );
 };
 export default function MainHome() {
@@ -79,7 +83,7 @@ export default function MainHome() {
         <PaperProvider>
             <PaperProvider theme={theme}>
                 <Appbar.Header>
-                    <Appbar.Action icon="menu" onPress={MyComponent2} />
+                    <Appbar.Action icon="menu" onPress={DrawerSide} />
                     <Appbar.Content title="DriveQuest" />
                     <Menu
                         visible={visible}
