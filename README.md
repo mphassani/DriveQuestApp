@@ -26,3 +26,7 @@ Use this in your .js file to modify things
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 ```
+Use this to import Async Storage to handle storage
+```bash 
+npm install @react-native-async-storage/async-storage
+```
