@@ -1,14 +1,138 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import {
+    View,
+    Image,
+    Text,
+    ScrollView, 
+} from 'react-native';
+import { Provider as PaperProvider, Button, List,IconButton, Avatar} from "react-native-paper";
+import Icon from "react-native-vector-icons/Ionicons";
 
 // Stephanie's Page
 export default function ResidentialScreen({ navigation }) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text
-                onPress={() => navigation.navigate('Home')}
-                style={{ fontSize: 26, fontWeight: 'bold' }}>Residential Screen
-            </Text>
-        </View>
+        <PaperProvider>
+            <ScrollView>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
+                    <Text
+                        style={{ fontSize: 25, fontWeight: 'bold' }}>Residential
+                    </Text>
+                </View>
+                <List.Section>
+                <List.Item 
+                    title="Safe Distance" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Good Positioning" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Observation" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Safe Speed" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                </List.Section>
+                                    
+
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%"}}>
+                    <Text
+                        style={{ fontSize: 25, fontWeight: 'bold' }}>Business
+                    </Text>
+                </View>
+                <List.Section>
+                <List.Item 
+                    title="Safe Distance" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-multiple" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Good Positioning" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-multiple" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Observation" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Safe Speed" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Signal" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Mirrors" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                </List.Section>
+
+
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%"}}>
+                    <Text
+                        style={{ fontSize: 25, fontWeight: 'bold' }}>Pulling up to the curb
+                    </Text>
+                </View>
+                <List.Section>
+                <List.Item 
+                    title="Safe Speed" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Avoids Hitting Curb" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Signal" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                </List.Section>
+
+
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%"}}>
+                    <Text
+                        style={{ fontSize: 25, fontWeight: 'bold' }}>Reversing
+                    </Text>
+                </View>
+                <List.Section>
+                <List.Item 
+                    title="Right Shoulder" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "account-arrow-right" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Avoids Hitting Curb" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Mirrors" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="Safe Speed" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                </List.Section>
+            </ScrollView>
+        </PaperProvider>
     );
 }
