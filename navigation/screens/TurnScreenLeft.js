@@ -12,7 +12,7 @@ import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from 
 
 // CECE's PAGE
 
-export default function TurnScreen({ navigation }) {
+export default function TurnScreenLeft({ navigation }) {
     return (
         <PaperProvider>
             <ScrollView>

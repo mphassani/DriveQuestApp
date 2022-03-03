@@ -10,7 +10,7 @@ import HomeScreen from './navigation/screens/HomeScreen';
 import CommentsScreen from './navigation/screens/CommentsScreen';
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
-import TurnScreen from './navigation/screens/TurnScreen';
+import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
 import DrawerSide from './DrawerSide'
 
 const _goBack = () => console.log('Went back');
@@ -19,7 +19,7 @@ const HomeRoute = () => <HomeScreen />
 
 const Intersectionroute = () => <IntersectionScreen />
 
-const TurnsRoute = () => <TurnScreen />
+const TurnsRoute = () => <TurnScreenLeft />
 
 const CommentsRoute = () => <CommentsScreen />
 
