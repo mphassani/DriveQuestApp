@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     flexDirection:'row', 
     justifyContent: 'center',
     top: 5,
+    left: 5,
   },
   text: {
     fontSize: 20,
