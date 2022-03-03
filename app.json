@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "christianSprint1",
-    "slug": "christianSprint1",
+    "name": "DriveQuestApp",
+    "slug": "DriveQuestApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,5 +30,5 @@
     },
     "sdkVersion": "44.0.0"
   },
-  "name": "christiansprint"
+  "name": "DriveQuestApp"
 }
