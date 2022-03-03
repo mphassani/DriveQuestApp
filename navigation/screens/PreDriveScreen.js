@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, TextInput} from 'react-native';
-import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, Provider } from 'react-native-paper';
+import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Provider } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
@@ -24,8 +24,7 @@ export default function PreDriveScreen({ navigation }){
     const navigator = useNavigation();
 
     return(
-    //FIXME: need to add theme={theme}
-    <PaperProvider style={styles.container}>
+    <PaperProvider>
         <Portal>
             <Dialog visible={visible} dismissable={false} onDismiss={showDialog2}>
                 <Dialog.Title>Freeway Driving</Dialog.Title>
@@ -137,7 +136,7 @@ export default function PreDriveScreen({ navigation }){
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Through
+                        style={{ fontSize: 25, fontWeight: 'bold' }}>Pre-Drive Checklist
                     </Text>
                 </View>
                 <List.Section>
@@ -161,60 +160,7 @@ export default function PreDriveScreen({ navigation }){
                     left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
                     right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
                     />
-                </List.Section>
-                                    
-
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%"}}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Stop
-                    </Text>
-                </View>
-                <List.Section>
-                <List.Item 
-                    title="Gap/Limit Line" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                <List.Item 
-                    title="Braking" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                <List.Item 
-                    title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                <List.Item 
-                    title="Full Stop" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                </List.Section>
-
-
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%"}}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Start
-                    </Text>
-                </View>
-                <List.Section>
-                <List.Item 
-                    title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                <List.Item 
-                    title="Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                <List.Item 
-                    title="Yield" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                </List.Section>
+                </List.Section>                     
             </ScrollView>
         </PaperProvider>
         

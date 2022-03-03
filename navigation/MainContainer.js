@@ -9,7 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import CommentsScreen from './screens/CommentsScreen';
 import IntersectionScreen from './screens/IntersectionScreen';
 import LaneChangeScreen from './screens/LaneChangeScreen';
-import TurnScreen from './screens/TurnScreen';
+import TurnScreenLeft from './screens/TurnScreenLeft';
 
 //Screen names
 const homeName = "Home";
