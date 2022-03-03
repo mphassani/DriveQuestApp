@@ -1,20 +1,13 @@
 import * as React from 'react'
-import { Fragment } from 'react'
-import MainContainer from './navigation/MainContainer';
-import BottomNav from './navigation/BottomNav';
+
 import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton } from "react-native-paper";
-import { Ionicons } from '@expo/vector-icons';
 
-
-import HomeScreen from './navigation/screens/HomeScreen';
-import CommentsScreen from './navigation/screens/CommentsScreen';
-import IntersectionScreen from './navigation/screens/IntersectionScreen';
-import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
-import TurnScreen from './navigation/screens/TurnScreen';
 import LogIn from './navigation/screens/LogIn';
 import MainHome from './AllScreen'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import PreDriveScreen from './navigation/screens/PreDriveScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -33,6 +26,7 @@ function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="LogIn" component={LogIn} />
           <Stack.Screen name="Home" component={MainHome} />
+          <Stack.Screen name="PreDrive" component={PreDriveScreen} />
         </Stack.Navigator>
       </NavigationContainer>
 
@@ -44,15 +38,7 @@ function App() {
 
 
 }
-function DrawerMain() {
-  return (
-    <Drawer.Section />
-  );
-}
-function SettingsPanel() {
 
-
-}
 
 const theme = {
   ...DefaultTheme,
