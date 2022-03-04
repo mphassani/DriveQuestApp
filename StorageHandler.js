@@ -29,7 +29,7 @@ const getData = async (key) => {
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
-  console.log("Finished get string data as followed: " + key + "/" + key);
+  console.log("Finished get string data as followed: " + key + "/" + value);
 };
 
 const getObjectData = async (key) => {
