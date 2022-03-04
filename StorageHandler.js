@@ -20,21 +20,21 @@ const storeObjectData = async (key, value) => {
   console.log("Finished storing object data as followed: " + key + "/" + value);
 };
 
-const getData = async (value) => {
+const getData = async (key) => {
   try {
-    const value = await AsyncStorage.getItem(value);
+    const value = await AsyncStorage.getItem(key);
     if (value !== null) {
       console.log("Attempted to see a value already stored.");
     }
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
-  console.log("Finished get string data as followed: " + key + "/" + value);
+  console.log("Finished get string data as followed: " + key + "/" + key);
 };
 
-const getObjectData = async (value) => {
+const getObjectData = async (key) => {
   try {
-    const jsonValue = await AsyncStorage.getItem(value);
+    const jsonValue = await AsyncStorage.getItem(key);
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
     console.log("Exception in DropDown: " + e);
