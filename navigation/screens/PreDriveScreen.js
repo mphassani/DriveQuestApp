@@ -134,7 +134,7 @@ export default function PreDriveScreen({ navigation }){
         
         {/* Stacy and Kevin's work */}
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "10%", paddingTop: "5%"}}>
                     <Text
                         style={{ fontSize: 25, fontWeight: 'bold' }}>Pre-Drive Checklist
                     </Text>
