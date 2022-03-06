@@ -141,22 +141,87 @@ export default function PreDriveScreen({ navigation }){
                 </View>
                 <List.Section>
                 <List.Item 
-                    title="Traffic Check" 
+                    title="1. Driver window" 
                     left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
                     right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
                     />
                 <List.Item 
-                    title="Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
-                <List.Item 
-                    title="Unnecessary Stop" 
+                    title="2. Windshield" 
                     left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
                     right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
                     />
                 <List.Item 
-                    title="Yield" 
+                    title="3. Rear view mirrors" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="4. Turn signals" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="5. Brake lights" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="6. Tires" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="7. Foot brake" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="8. Horn" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="9. Emergency/parking brake" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="10. Arm signals" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="11. Windshield wipers" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="12. Defroster" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="13. Emergency flasher" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="14. Headlights" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="15. Passenger door" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="16. Glove box" 
+                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
+                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    />
+                <List.Item 
+                    title="17. Seat belts" 
                     left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
                     right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
                     />
