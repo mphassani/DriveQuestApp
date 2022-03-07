@@ -8,13 +8,13 @@ import {
     ImageBackground,
     ScrollView
   } from "react-native";
-import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Appbar } from "react-native-paper";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Appbar, DefaultTheme } from "react-native-paper";
 
 // Moises's page
 export default function TurnScreen({ navigation }) {
     return (
         <PaperProvider>
-            <Appbar.Header>
+            <Appbar.Header theme={theme}>
                     <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Home')}/>
                 </Appbar.Header>
             <ScrollView>
@@ -133,4 +133,14 @@ export default function TurnScreen({ navigation }) {
         
     );
 }
+
+const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#12414F',
+      accent: '#90C96A',
+    },
+  };
 
