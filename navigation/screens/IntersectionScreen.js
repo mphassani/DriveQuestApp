@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar} from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import Counter from '../../components/Counter';
 
 // Stephanie's Page
 export default function IntersectionScreen({ navigation }) {
@@ -19,25 +20,35 @@ export default function IntersectionScreen({ navigation }) {
                     </Text>
                 </View>
                 <List.Section>
+
                 <List.Item 
-                    title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                        title="Traffic Check" 
+                        left={(props) => 
+                        <Image 
+                            style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
+                        right={(props) =><Counter/>}
                     />
+
                 <List.Item 
                     title="Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
-                <List.Item 
-                    title="Unnecessary Stop" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                <List.Item
+                    title="Unnecessary Stop"
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item 
                     title="Yield" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 </List.Section>
                                     
@@ -48,25 +59,33 @@ export default function IntersectionScreen({ navigation }) {
                     </Text>
                 </View>
                 <List.Section>
-                <List.Item 
-                    title="Gap/Limit Line" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                <List.Item
+                    title="Gap/Limit Line"
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/GapLimitLine.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
-                <List.Item 
-                    title="Braking" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                <List.Item
+                    title="Braking"
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Breaking.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                    <Image 
+                        style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Full Stop" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/FullStop.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 </List.Section>
 
@@ -79,18 +98,24 @@ export default function IntersectionScreen({ navigation }) {
                 <List.Section>
                 <List.Item 
                     title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                    <Image 
+                        style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Yield" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 </List.Section>
             </ScrollView>

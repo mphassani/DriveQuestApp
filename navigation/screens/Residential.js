@@ -21,23 +21,31 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Section>
                 <List.Item 
                     title="Safe Distance" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/spacing.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Good Positioning" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Positioning" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Observation" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/observation.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Safe Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Speed" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 </List.Section>
                                     
@@ -50,33 +58,45 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Section>
                 <List.Item 
                     title="Safe Distance" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-multiple" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/spacing.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Good Positioning" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-multiple" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Positioning" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Observation" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/observation.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Safe Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Speed" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
-                <List.Item 
-                    title="Signal" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
+                <List.Item
+                    title="Signal"
+                    left={(props) => 
+                    <Image 
+                        style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props) =><Counter/>}
+                    /> 
                 <List.Item 
                     title="Mirrors" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 </List.Section>
 
@@ -88,20 +108,26 @@ export default function ResidentialScreen({ navigation }) {
                 </View>
                 <List.Section>
                 <List.Item 
-                    title="Safe Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Speed" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Avoids Hitting Curb" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Avoids Curb" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/avoidsCurb.png')}/>}
+                    right={(props) =><Counter/>}
                     />
-                <List.Item 
-                    title="Signal" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
+                <List.Item
+                    title="Signal"
+                    left={(props) => 
+                    <Image 
+                        style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props) =><Counter/>}
+                    /> 
                 </List.Section>
 
 
@@ -113,23 +139,31 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Section>
                 <List.Item 
                     title="Right Shoulder" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "account-arrow-right" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rightShoulder.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Avoids Hitting Curb" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Avoids Curb" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/avoidsCurb.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Mirrors" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
-                    title="Safe Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    title="Speed" 
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 </List.Section>
             </ScrollView>
