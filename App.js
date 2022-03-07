@@ -7,6 +7,8 @@ import MainHome from './AllScreen'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import PreDriveScreen from './navigation/screens/PreDriveScreen';
+import Residential from './navigation/screens/Residential'
+import TurnScreen from './navigation/screens/FreewayDriving'
 
 
 const Stack = createStackNavigator();
@@ -25,8 +27,10 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="LogIn" component={LogIn} />
-          <Stack.Screen name="Home" component={MainHome} />
+          <Stack.Screen name="Freeway" component={TurnScreen}/>
           <Stack.Screen name="PreDrive" component={PreDriveScreen} />
+          <Stack.Screen name="Home" component={MainHome} />
+          <Stack.Screen name="Residential" component={Residential} />
         </Stack.Navigator>
       </NavigationContainer>
 

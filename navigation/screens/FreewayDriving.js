@@ -8,12 +8,15 @@ import {
     ImageBackground,
     ScrollView
   } from "react-native";
-import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Appbar } from "react-native-paper";
 
 // Moises's page
 export default function TurnScreen({ navigation }) {
     return (
         <PaperProvider>
+            <Appbar.Header>
+                    <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Home')}/>
+                </Appbar.Header>
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text

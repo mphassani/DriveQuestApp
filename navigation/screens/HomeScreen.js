@@ -10,39 +10,38 @@ import {
 } from "react-native";
 import { Provider as PaperProvider, Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import App from '../../App'
+import { useNavigation } from '@react-navigation/native';
 
 // import {Restart} from 'fiction-expo-restart';
 
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
+  const navigation = useNavigation();
   // Parsa's Page
   return (
+    
     <PaperProvider>
       <ScrollView>
-        <Button
-          mode="contained"
-          onPress={() => alert("TEST")}
-          style={{
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10,
-          }}
-        >
-          Pre-Drive
-        </Button>
-        <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F" }}>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}>
+          <Button mode="contained" onPress={() => alert("TEST")}>Pre-Drive</Button>
+        </View>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Button mode="contained">
           Parking Lot
-        </Button>
-        <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F" }}>
+        </Button></View>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}>
+          <Button mode="contained" onPress={() => navigation.navigate('Residential')}>
           Residential
-        </Button>
-        <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F" }}>
+        </Button></View>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Button mode="contained" onPress={() => navigation.navigate('Freeway')}>
           Freeway
-        </Button>
-        <Button mode="contained" style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, marginTop: 10, color: "#00677F" }}>
+        </Button></View>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Button mode="contained">
           Test result
-        </Button>
-        <Icon name="md-warning" style={styles.icon}></Icon>
+        </Button></View>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Icon name="md-warning" style={styles.icon}></Icon></View>
       </ScrollView>
 
 
@@ -59,16 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   icon: {
-    //position: "relative",
     color: "rgba(205,50,50,1)",
     fontSize: 98,
-    // width: 86,
-    // height: 107,
-    //marginLeft: 22,
-    paddingLeft: 138,
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
   },
 });
 

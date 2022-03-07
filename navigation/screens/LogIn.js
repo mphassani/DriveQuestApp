@@ -45,7 +45,7 @@ export default function LogIn({ navigation }) {
 
 
       <View style={{ padding: "10%" }}>
-        <Button mode="contained" onPress={() => navigation.navigate('Home')}>Log In</Button>
+        <Button mode="contained" onPress={() => navigation.navigate('PreDrive')}>Log In</Button>
       </View>
 
 
