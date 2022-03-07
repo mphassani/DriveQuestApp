@@ -9,6 +9,7 @@ import {
     ScrollView
   } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
+import Counter from '../../components/Counter';
 
 // CECE's PAGE
 
@@ -16,42 +17,63 @@ export default function TurnScreenLeft({ navigation }) {
     return (
         <PaperProvider>
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
+                <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
+                        <Button mode="contained" style={{color: "#00677F" }}>Left</Button>
+                    </View>
+                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
+                        <Button mode="contained" style={{color: "#00677F" }}>Right</Button>
+                    </View>
+                </View>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%",paddingTop: 5}}>
                     <Text
                         style={{ fontSize: 25, fontWeight: 'bold' }}>Approach
                     </Text>
                 </View>
                 <List.Section>
+
                 <List.Item 
                     title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                    <Image 
+                        style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                                     
                 <List.Item
                     title="Signal"
-                    left={(props) => <Avatar.Icon {...props} color= "white" icon = "arrow-left-right-bold" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    />
+                    left={(props) => 
+                    <Image 
+                        style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props) =><Counter/>}
+                    /> 
                 <List.Item
                     title="Braking"
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon = "plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Breaking.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Yield" 
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item
                     title="Lane Use"
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item
                     title="Unnecessary Stop"
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
@@ -61,23 +83,31 @@ export default function TurnScreenLeft({ navigation }) {
                 </View>
                 <List.Item
                     title="Gap/Limit Line"
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon = "plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/GapLimitLine.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item
                     title="Traffic Check"
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/TrafficCheck.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item
                     title="Wheels Straight"
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/WheelsStraight.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item 
                     title="Full Stop" 
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/FullStop.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
@@ -87,43 +117,59 @@ export default function TurnScreenLeft({ navigation }) {
                 </View>
                 <List.Item 
                     title="Traffic Check" 
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/TrafficCheck.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item 
                     title="Steering Control" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "steering-off" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/SteeringControl.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item 
                     title="Too Wide" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Too Short" 
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 400/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props)  =><Counter/>}
                     />
                 <List.Item 
                     title="Yield" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Correct Lane" 
-                    left={(props) => <Avatar.Icon {...props} color = "white"  />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Speed" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 <List.Item 
                     title="Signal" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold"/>}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) => 
+                        <Image 
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                    right={(props) =><Counter/>}
                     />
                 </List.Section>
             </ScrollView>
