@@ -11,6 +11,7 @@ import CommentsScreen from './navigation/screens/CommentsScreen';
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
+import TurnScreen from './navigation/screens/TurnScreenLeft';
 import DrawerSide from './DrawerSide'
 
 
@@ -84,7 +85,7 @@ export default function MainHome() {
         <PaperProvider>
             <PaperProvider theme={theme}>
                 <Appbar.Header>
-                    <Appbar.Action icon="menu" onPress={DrawerSide} />
+                    <Appbar.Action icon="logout" onPress={() => alert("Logged out")} />
                     <Appbar.Content title="DriveQuest" />
                     <Menu
                         visible={visible}

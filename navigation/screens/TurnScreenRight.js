@@ -10,10 +10,12 @@ import {
   } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import Counter from '../../components/Counter';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 // CECE's PAGE
 
-export default function TurnScreenRight({ navigation }) {
+export default function TurnScreenRight() {
+    const navigation = useNavigation();
     return (
         <PaperProvider>
         <ScrollView>

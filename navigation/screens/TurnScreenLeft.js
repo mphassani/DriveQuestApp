@@ -10,10 +10,12 @@ import {
   } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import Counter from '../../components/Counter';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 // CECE's PAGE
 
-export default function TurnScreenLeft({ navigation }) {
+export default function TurnScreenLeft() {
+    const navigation = useNavigation();
     return (
         <PaperProvider>
             <ScrollView>
@@ -22,7 +24,7 @@ export default function TurnScreenLeft({ navigation }) {
                         <Button mode="contained" color = "gray" >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" color = '#87181A'>Right</Button>
+                        <Button mode="contained" color = '#87181A' >Right</Button>
                     </View>
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%",paddingTop: 5}}>
