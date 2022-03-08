@@ -19,10 +19,10 @@ export default function TurnScreenLeft({ navigation }) {
             <ScrollView>
                 <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" style={{color: "#00677F" }}>Left</Button>
+                        <Button mode="contained" color = "gray" >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" style={{color: "#00677F" }}>Right</Button>
+                        <Button mode="contained" color = '#87181A'>Right</Button>
                     </View>
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%",paddingTop: 5}}>
