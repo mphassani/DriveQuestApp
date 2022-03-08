@@ -35,8 +35,8 @@ export default function TurnScreenLeft({ navigation }) {
                 <List.Item 
                     title="Traffic Check" 
                     left={(props) => 
-                    <Image 
-                        style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
+                    <Avatar.Image 
+                        style={{ backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
                     right={(props) =><Counter/>}
                     />
                                     
@@ -71,8 +71,8 @@ export default function TurnScreenLeft({ navigation }) {
                 <List.Item
                     title="Unnecessary Stop"
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
+                        <Avatar.Image 
+                            style={{backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
                     right={(props)  =><Counter/>}
                     />
 
