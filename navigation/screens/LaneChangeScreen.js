@@ -9,63 +9,74 @@ import {
   ImageBackground,
   ScrollView
 } from "react-native";
-import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB,DefaultTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import Counter from '../../components/Counter';
 
+const theme = {
+    ...DefaultTheme,
+    //roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#87181A',
+      accent: '#FFFFFF',
+    },
+  };
 
 //Christians page
 export default function LaneChangeScreen({ navigation }) {
     
     return (
     
-        <PaperProvider>
+        <PaperProvider theme={theme}>
             <ScrollView>
                 <List.Section>
                 <List.Item 
                     title="Driver Side Mirror" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-arrow-right" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props}  source={require('../../assets/driverSideMirror.png')} />}
+                    //right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    right={(props) => <Counter/>}
                     />
                                     
                 <List.Item
                     title="Rear View Mirror"
-                    left={(props) => <Avatar.Icon {...props} color= "white" icon = "car-off" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Passenger Side Mirror"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-arrow-left" />}
-                    right={(props) =><IconButton {...props} icon = "plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/passengerSideMirror.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item 
                     title="Left Shoulder" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon="account-arrow-left" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/leftShoulder.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Right Shoulder"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "account-arrow-right" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Signal"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Speed"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon = "plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/speed.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Spacing"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-multiple" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Steering Control"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "steering-off" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/SteeringControl.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 </List.Section>
             </ScrollView>
