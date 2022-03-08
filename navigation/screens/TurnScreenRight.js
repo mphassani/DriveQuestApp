@@ -9,6 +9,7 @@ import {
     ScrollView
   } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
+import Counter from '../../components/Counter';
 
 // CECE's PAGE
 
