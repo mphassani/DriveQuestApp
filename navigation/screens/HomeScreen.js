@@ -25,23 +25,23 @@ export default function HomeScreen() {
     
     <PaperProvider>
       <ScrollView>
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}>
-          <Button mode="contained" onPress={() => alert("TEST")}>Pre-Drive</Button>
+        <View style={styles.buttonView}>
+          <Button mode="contained" color="#90C96A" onPress={() => alert("TEST")}>Pre-Drive</Button>
         </View>
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Button mode="contained">
+        <View style={styles.buttonView}><Button color="#90C96A" mode="contained">
           Parking Lot
         </Button></View>
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}>
-          <Button mode="contained" onPress={() => navigation.navigate('Residential')}>
+        <View style={styles.buttonView}>
+          <Button mode="contained" color="#90C96A" onPress={() => navigation.navigate('Residential')}>
           Residential
         </Button></View>
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Button mode="contained" onPress={() => navigation.navigate('Freeway')}>
+        <View style={styles.buttonView}><Button mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>
           Freeway
         </Button></View>
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Button mode="contained">
+        <View style={styles.buttonView}><Button color="#90C96A" mode="contained">
           Test result
         </Button></View>
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}><Icon name="md-warning" style={styles.icon}></Icon></View>
+        <View style={styles.buttonView}><Icon name="md-warning" style={styles.icon}></Icon></View>
       </ScrollView>
 
 
@@ -60,6 +60,13 @@ const styles = StyleSheet.create({
   icon: {
     color: "rgba(205,50,50,1)",
     fontSize: 98,
+  },
+  buttonView:{
+    alignContent: "center", 
+    justifyContent: "center", 
+    flexDirection: "row", 
+    paddingTop: "10%", 
+    paddingBottom: "5%" ,
   },
 });
 

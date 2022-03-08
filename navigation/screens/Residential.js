@@ -5,7 +5,7 @@ import {
     Text,
     ScrollView, 
 } from 'react-native';
-import { Provider as PaperProvider, Button, List,IconButton, Avatar} from "react-native-paper";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, Appbar, DefaultTheme} from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 
@@ -13,6 +13,10 @@ import Counter from '../../components/Counter';
 export default function ResidentialScreen({ navigation }) {
     return (
         <PaperProvider>
+            <Appbar.Header theme={theme}>
+                    <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Home')}/>
+                </Appbar.Header>
+
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text
@@ -171,3 +175,12 @@ export default function ResidentialScreen({ navigation }) {
         </PaperProvider>
     );
 }
+const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#12414F',
+      accent: '#90C96A',
+    },
+  };
