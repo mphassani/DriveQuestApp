@@ -134,13 +134,17 @@ export default function PreDriveScreen({ navigation }) {
                 </Portal>
                 
                 {/* Stacy and Kevin's work */}
-                <ScrollView>
+                {/* Enables the scroll bar feature for the page */}
+                <ScrollView> 
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "10%", paddingTop: "5%" }}>
+                       {/* Sets properties for the title text */}
                         <Text
                             style={{ fontSize: 25, fontWeight: 'bold' }}>Pre-Drive Checklist
                         </Text>
                     </View>
-                    <List.Section>
+                    {/* consists of the 17 pre-drive checklist items */}
+                    <List.Section> 
+                        {/* Each list item has a title (the item name), a left (the icon), and a right (the checkbox) attribute */}
                         <List.Item
                             title="1. Driver window"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
@@ -150,85 +154,86 @@ export default function PreDriveScreen({ navigation }) {
                         <List.Item
                             title="2. Windshield"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="3. Rear view mirrors"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="4. Turn signals"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="arrow-left-right-bold" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem /> }
                         />
                         <List.Item
                             title="5. Brake lights"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="6. Tires"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="7. Foot brake"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="8. Horn"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="9. Emergency/parking brake"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="10. Arm signals"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="11. Windshield wipers"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="12. Defroster"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="13. Emergency flasher"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="14. Headlights"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="15. Passenger door"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="16. Glove box"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="17. Seat belts"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={() => <ChecklistItem/>}
+                            right={ () => <CheckboxItem />}
                         />
                     </List.Section>
 
+                    {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
                     <Button mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
                     </View>
@@ -242,51 +247,44 @@ export default function PreDriveScreen({ navigation }) {
 
 }
 
+/* Code to create each individual checkbox */
 const CheckboxItem = () => {
-    const [checked, setChecked] = React.useState(false);
+
+    /* Originally, each checkbox is set to notChecked */
+    const [notChecked, setNotChecked] = React.useState(false);
   
     return (
-      <Checkbox
-        status={checked ? 'checked' : 'unchecked'}
+        /* Uses checkboxBase style for not checked checkbox, and checkboxChecked for checked checkbox */
+        /* Essentially creates the "box" part of the checkbox */
+      <View style={[styles.checkboxBase, notChecked && styles.checkboxChecked]}>
+          {/* Code that creates the checkbox, counts the number of checkboxes checked to be used in calculating the number of errors */}
+          <Checkbox
+        color="#FFFFFF" status={notChecked ? 'checked' : 'unchecked'}
         onPress={() => {
-          setChecked(!checked);
+          setNotChecked(!notChecked);
+          if (notChecked){
+              decrementVal();
+          }
+          else{
+              incrementVal();
+          }
         }}
       />
+      </View>
+      
     );
   };
 
-
-const ChecklistItem = ( props ) => {
-    const [notChecked, isChecked] = React.useState(false);
-
-    function onBoxPress(){
-        isChecked(!notChecked);
-        if (notChecked){
-            decrementVal();
-        }
-        else{
-            incrementVal();
-        }  
-    }
-
-    return(
-                <Pressable
-                style={[styles.checkboxBase, notChecked && styles.checkboxChecked]}
-                onPress={onBoxPress}>
-                {notChecked && <Ionicons name="checkmark" size={50} color="white" />}
-                </Pressable> 
-    )
-}
-
-
-//counter
+//counter - counts the number of pre-drive checklist items marked correct for later use in viewing results 
 var counter = 0;
 
+//increments the value of counter by 1, logging it to the console for now 
 export function incrementVal () {
     ++counter;
     console.log(counter);
   }
 
+//decrements the value of counter by 1, logging it to the console for now 
 export function decrementVal () {
     --counter;
     console.log(counter);
@@ -294,75 +292,22 @@ export function decrementVal () {
 
 //style-sheet 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#FFFFFF',
-    },
-    itemsWrapper:{
-      paddingTop: 30,
-      paddingHorizontal: 10,
-    },
-    title:{
-      fontSize: 36, 
-    },
-    greyRectangle: {
-        backgroundColor: '#EDEDED',
-        padding: 15,
-        flexDirection: 'row-reverse',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-
-    whiteRectangle: {
-        backgroundColor: '#FFFFFF',
-        padding: 15,
-        flexDirection: 'row-reverse',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-
-    itemRight:{
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-
-    multipleItemsRight:{
-      alignItems: 'center',
-      flexDirection: 'row-reverse',
-      flexWrap: 'wrap',
-  },
-
-    itemText:{
-
-    },
+    /* Creates outline for the checkbox with no fill; used when item is incorrect */
     checkboxBase: {
         width: 60,
         height: 60,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 10,
+        borderWidth: 7,
         borderRadius: 10,
-        borderColor: '#90C96A',
+        borderColor: '#00677F',
         backgroundColor: 'transparent',
         margin: 1.5,
 
     },
 
+    /* Creates filled in checkbox, used when item is marked correct */
     checkboxChecked: { //checkbox color 
-        backgroundColor: '#90C96A',
+        backgroundColor: '#00677F',
     },
-
-    container: {
-        flex: 1,
-        backgroundColor: "#FFFFFF",
-      },
-      scrollview: {
-        flexGrow: 1,
-      },
-      content: {
-        flexGrow: 1,
-        justifyContent: "space-between",
-        padding: 0,
-      },
   });
