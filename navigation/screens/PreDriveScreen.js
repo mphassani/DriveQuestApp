@@ -4,8 +4,6 @@ import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pres
 import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import Icon from '@mdi/react'
-import { mdiCarBrakeAlert } from '@mdi/js'
 
 const { height } = Dimensions.get('window');
 
