@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, TextInput } from 'react-native';
-import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Provider } from 'react-native-paper';
+import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
@@ -132,102 +132,108 @@ export default function PreDriveScreen({ navigation }) {
                         </Dialog.Actions>
                     </Dialog>
                 </Portal>
-
+                
                 {/* Stacy and Kevin's work */}
-                <ScrollView>
+                {/* Enables the scroll bar feature for the page */}
+                <ScrollView> 
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "10%", paddingTop: "5%" }}>
+                       {/* Sets properties for the title text */}
                         <Text
                             style={{ fontSize: 25, fontWeight: 'bold' }}>Pre-Drive Checklist
                         </Text>
                     </View>
-                    <List.Section>
+                    {/* consists of the 17 pre-drive checklist items */}
+                    <List.Section> 
+                        {/* Each list item has a title (the item name), a left (the icon), and a right (the checkbox) attribute */}
                         <List.Item
                             title="1. Driver window"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
+                        
                         <List.Item
                             title="2. Windshield"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="3. Rear view mirrors"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="4. Turn signals"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="arrow-left-right-bold" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem /> }
                         />
                         <List.Item
                             title="5. Brake lights"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="6. Tires"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="7. Foot brake"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="8. Horn"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="9. Emergency/parking brake"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="10. Arm signals"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="11. Windshield wipers"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="12. Defroster"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="13. Emergency flasher"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="14. Headlights"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="15. Passenger door"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="16. Glove box"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                         <List.Item
                             title="17. Seat belts"
                             left={(props) => <Avatar.Icon {...props} color="white" icon="" />}
-                            right={(props) => <IconButton {...props} icon="plus-circle-outline" onPress={() => { }} />}
+                            right={ () => <CheckboxItem />}
                         />
                     </List.Section>
 
+                    {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
                     <Button mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
                     </View>
@@ -235,5 +241,73 @@ export default function PreDriveScreen({ navigation }) {
                 </ScrollView>
             </SafeAreaView>
         </PaperProvider>
+
     );
+
+
 }
+
+/* Code to create each individual checkbox */
+const CheckboxItem = () => {
+
+    /* Originally, each checkbox is set to notChecked */
+    const [notChecked, setNotChecked] = React.useState(false);
+  
+    return (
+        /* Uses checkboxBase style for not checked checkbox, and checkboxChecked for checked checkbox */
+        /* Essentially creates the "box" part of the checkbox */
+      <View style={[styles.checkboxBase, notChecked && styles.checkboxChecked]}>
+          {/* Code that creates the checkbox, counts the number of checkboxes checked to be used in calculating the number of errors */}
+          <Checkbox
+        color="#FFFFFF" status={notChecked ? 'checked' : 'unchecked'}
+        onPress={() => {
+          setNotChecked(!notChecked);
+          if (notChecked){
+              decrementVal();
+          }
+          else{
+              incrementVal();
+          }
+        }}
+      />
+      </View>
+      
+    );
+  };
+
+//counter - counts the number of pre-drive checklist items marked correct for later use in viewing results 
+var counter = 0;
+
+//increments the value of counter by 1, logging it to the console for now 
+export function incrementVal () {
+    ++counter;
+    console.log(counter);
+  }
+
+//decrements the value of counter by 1, logging it to the console for now 
+export function decrementVal () {
+    --counter;
+    console.log(counter);
+}
+
+//style-sheet 
+const styles = StyleSheet.create({
+    /* Creates outline for the checkbox with no fill; used when item is incorrect */
+    checkboxBase: {
+        width: 60,
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 7,
+        borderRadius: 10,
+        borderColor: '#00677F',
+        backgroundColor: 'transparent',
+        margin: 1.5,
+
+    },
+
+    /* Creates filled in checkbox, used when item is marked correct */
+    checkboxChecked: { //checkbox color 
+        backgroundColor: '#00677F',
+    },
+  });

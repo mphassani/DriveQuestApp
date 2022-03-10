@@ -3,16 +3,27 @@ import {
     View,
     Image,
     Text,
+    StyleSheet,
     ScrollView, 
 } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, Appbar, DefaultTheme} from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 
+const theme = {
+    ...DefaultTheme,
+    //roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#87181A',
+      accent: '#FFFFFF',
+    },
+  };
+
 // Stephanie's Page
 export default function ResidentialScreen({ navigation }) {
     return (
-        <PaperProvider>
+        <PaperProvider theme={theme}>
             <Appbar.Header theme={theme}>
                     <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Home')}/>
                 </Appbar.Header>
@@ -65,7 +76,7 @@ export default function ResidentialScreen({ navigation }) {
                     title="Safe Distance" 
                     left={(props) => 
                         <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/spacing.png')}/>}
+                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/spacing.png')}/>}
                     right={(props) =><Counter/>}
                     />
                 <List.Item 
@@ -175,12 +186,3 @@ export default function ResidentialScreen({ navigation }) {
         </PaperProvider>
     );
 }
-const theme = {
-    ...DefaultTheme,
-    roundness: 2,
-    colors: {
-      ...DefaultTheme.colors,
-      primary: '#12414F',
-      accent: '#90C96A',
-    },
-  };
