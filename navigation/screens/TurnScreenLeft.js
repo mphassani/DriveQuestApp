@@ -10,19 +10,21 @@ import {
   } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import Counter from '../../components/Counter';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 // CECE's PAGE
 
-export default function TurnScreenLeft({ navigation }) {
+export default function TurnScreenLeft() {
+    const navigation = useNavigation();
     return (
         <PaperProvider>
             <ScrollView>
                 <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" style={{color: "#00677F" }}>Left</Button>
+                        <Button mode="contained" color = "gray" >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" style={{color: "#00677F" }}>Right</Button>
+                        <Button mode="contained" color = '#87181A' >Right</Button>
                     </View>
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%",paddingTop: 5}}>
@@ -35,9 +37,15 @@ export default function TurnScreenLeft({ navigation }) {
                 <List.Item 
                     title="Traffic Check" 
                     left={(props) => 
+<<<<<<< HEAD
                     <Image 
                         style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
                     right={(props) =><Counter storageKey={"turns_approach_traffic_check"}/>}
+=======
+                    <Avatar.Image 
+                        style={{ backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
+                    right={(props) =><Counter/>}
+>>>>>>> c893976f866112cb50bcd034a47377fe357e3455
                     />
                                     
                 <List.Item
@@ -71,9 +79,15 @@ export default function TurnScreenLeft({ navigation }) {
                 <List.Item
                     title="Unnecessary Stop"
                     left={(props) => 
+<<<<<<< HEAD
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
                     right={(props)  =><Counter storageKey="turns_approach_unnecessary_stop"/>}
+=======
+                        <Avatar.Image 
+                            style={{backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
+                    right={(props)  =><Counter/>}
+>>>>>>> c893976f866112cb50bcd034a47377fe357e3455
                     />
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>

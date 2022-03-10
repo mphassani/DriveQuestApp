@@ -10,7 +10,11 @@ import PreDriveScreen from './navigation/screens/PreDriveScreen';
 import Residential from './navigation/screens/Residential'
 import TurnScreen from './navigation/screens/FreewayDriving'
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
+<<<<<<< HEAD
 
+=======
+import TurnScreenRight from './navigation/screens/TurnScreenRight';
+>>>>>>> c893976f866112cb50bcd034a47377fe357e3455
 
 
 const Stack = createStackNavigator();
@@ -27,12 +31,15 @@ function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, gestureEnabled: false }}>
           <Stack.Screen name="LogIn" component={LogIn} />
           <Stack.Screen name="Freeway" component={TurnScreen}/>
           <Stack.Screen name="PreDrive" component={PreDriveScreen} />
           <Stack.Screen name="Home" component={MainHome} />
           <Stack.Screen name="Residential" component={Residential} />
+          <Stack.Screen name="turnscreenleft" component={TurnScreenLeft} />
+          <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
+
         </Stack.Navigator>
       </NavigationContainer>
 

@@ -1,71 +1,82 @@
-/*import * as React from "react";
-import {useState} from "react";
+import * as React from 'react';
 import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-  ImageBackground,
-  ScrollView
-} from "react-native";
-import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    Dimensions,
+    ImageBackground,
+    ScrollView
+  } from "react-native";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Appbar, DefaultTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import Counter from '../../components/Counter';
 
 
-//Moises page (need freeway icon)
+//Moises page 
 export default function FreewayLaneChangeScreen({ navigation }) {
-    
     return (
-    
         <PaperProvider>
+            <Appbar.Header theme={theme}>
+                    <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Freeway')}/>
+                </Appbar.Header>
             <ScrollView>
+            <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
+                        <Button mode="contained" color = '#12414F' >Freeway</Button>
+                    </View>
+                </View>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
+                    <Text
+                        style={{ fontSize: 25, fontWeight: 'bold' }}>Freeway Entering
+                    </Text>
+                </View>
                 <List.Section>
                 <List.Item 
                     title="Driver Side Mirror" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-arrow-right" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props}  source={require('../../assets/driverSideMirror.png')} />}
+                    right={(props) => <Counter/>}
                     />
                                     
                 <List.Item
                     title="Rear View Mirror"
-                    left={(props) => <Avatar.Icon {...props} color= "white" icon = "car-off" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Passenger Side Mirror"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-arrow-left" />}
-                    right={(props) =><IconButton {...props} icon = "plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/passengerSideMirror.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item 
                     title="Left Shoulder" 
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon="account-arrow-left" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/leftShoulder.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Right Shoulder"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "account-arrow-right" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Signal"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "arrow-left-right-bold" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Speed"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "speedometer" />}
-                    right={(props) =><IconButton {...props} icon = "plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/speed.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Spacing"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "car-multiple" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 <List.Item
                     title="Steering Control"
-                    left={(props) => <Avatar.Icon {...props} color = "white" icon = "steering-off" />}
-                    right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/SteeringControl.png')} />}
+                    right={(props) => <Counter/>}
                     />
                 </List.Section>
             </ScrollView>
@@ -74,12 +85,12 @@ export default function FreewayLaneChangeScreen({ navigation }) {
     );
 }
 
-const styles = StyleSheet.create({
-    fab: {
-        position: 'absolute',
-        margin: 16,
-        right: 0,
-        bottom: 0,
+const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#12414F',
+      accent: '#90C96A',
     },
-  });
-*/
+  };

@@ -5,14 +5,24 @@ import {
     Text,
     ScrollView, 
 } from 'react-native';
-import { Provider as PaperProvider, Button, List,IconButton, Avatar} from "react-native-paper";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, DefaultTheme} from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
+
+const theme = {
+    ...DefaultTheme,
+    //roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#87181A',
+      accent: '#FFFFFF',
+    },
+  };
 
 // Stephanie's Page
 export default function IntersectionScreen({ navigation }) {
     return (
-        <PaperProvider>
+        <PaperProvider theme={theme}>
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text
