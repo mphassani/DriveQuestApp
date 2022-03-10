@@ -18,13 +18,13 @@ export default function FreewayLaneChangeScreen({ navigation }) {
     return (
         <PaperProvider>
             <Appbar.Header theme={theme}>
-                    <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Freeway')}/>
+                    <Appbar.Action icon="arrow-left"/>
                 </Appbar.Header>
             <ScrollView>
             <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
-                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
+                    {/* <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
                         <Button mode="contained" color = '#12414F' >Freeway</Button>
-                    </View>
+                    </View> */}
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text
