@@ -9,6 +9,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import PreDriveScreen from './navigation/screens/PreDriveScreen';
 import Residential from './navigation/screens/Residential'
 import TurnScreen from './navigation/screens/FreewayDriving'
+import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
+
 
 
 const Stack = createStackNavigator();

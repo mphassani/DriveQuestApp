@@ -37,7 +37,7 @@ export default function TurnScreenLeft({ navigation }) {
                     left={(props) => 
                     <Image 
                         style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey={"turns_approach_traffic_check"}/>}
                     />
                                     
                 <List.Item
@@ -45,35 +45,35 @@ export default function TurnScreenLeft({ navigation }) {
                     left={(props) => 
                     <Image 
                         style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_approach_signal"/>}
                     /> 
                 <List.Item
                     title="Braking"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Breaking.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_approach_braking"/>}
                     />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_approach_yield"/>}
                     />
                 <List.Item
                     title="Lane Use"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_approach_lane_use"/>}
                     />
                 <List.Item
                     title="Unnecessary Stop"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_approach_unnecessary_stop"/>}
                     />
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
@@ -86,28 +86,28 @@ export default function TurnScreenLeft({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/GapLimitLine.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_stop_gap_limit_line"/>}
                     />
                 <List.Item
                     title="Traffic Check"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_stop_traffic_check"/>}
                     />
                 <List.Item
                     title="Wheels Straight"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/WheelsStraight.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_stop_wheels_straight"/>}
                     />
                 <List.Item 
                     title="Full Stop" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/FullStop.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_stop_full_stop"/>}
                     />
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
@@ -120,56 +120,56 @@ export default function TurnScreenLeft({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_during_traffic_check"/>}
                     />
                 <List.Item 
                     title="Steering Control" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/SteeringControl.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_during_steering_control"/>}
                     />
                 <List.Item 
                     title="Too Wide" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_during_too_wide"/>}
                     />
                 <List.Item 
                     title="Too Short" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 400/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props)  =><Counter/>}
+                    right={(props)  =><Counter storageKey="turns_during_too_short"/>}
                     />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_during_yield"/>}
                     />
                 <List.Item 
                     title="Correct Lane" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_during_correct_lane"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_during_speed"/>}
                     />
                 <List.Item 
                     title="Signal" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="turns_during_signal"/>}
                     />
                 </List.Section>
             </ScrollView>

@@ -1,16 +1,19 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+  
 
-const storeStringData = async (key, value) => {
+
+export async function storeStringData(key, value) {
   try {
-    const store = stringify(key);
-    await AsyncStorage.setItem("@" + stringify(store), value);
+    // const store = stringify(key);
+    await AsyncStorage.setItem("@" + key, value);
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
   console.log("Finished storing string data as followed: " + key + "/" + value);
-};
+}
 
-const storeObjectData = async (key, value) => {
+
+export async function storeObjectData(key, value) {
   try {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem("@" + stringify(key), jsonValue);
@@ -18,31 +21,38 @@ const storeObjectData = async (key, value) => {
     console.log("Exception in DropDown: " + e);
   }
   console.log("Finished storing object data as followed: " + key + "/" + value);
-};
+}
 
-const getData = async (key) => {
+export async function getData(key) {
   try {
-    const value = await AsyncStorage.getItem(key);
+    const value = await AsyncStorage.getItem("@" + key);
     if (value !== null) {
-      console.log("Attempted to see a value already stored.");
+      console.log("Attempted to get a value that exists.");
+      console.log("Returned Value in StorageHandler.js: ", value);
+      return value;
     }
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
   console.log("Finished get string data as followed: " + key + "/" + value);
-};
+}
 
-const getObjectData = async (key) => {
+export const _getStorageValue = async (key) => {
+  const value = await AsyncStorage.getItem("@" + key)
+  return value;
+}
+
+export async function getObjectData(key) {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
-  console.log("Finished storing object data as followed: " + key + "/" + value);
-};
+  console.log("Finished get object data as followed: " + key + "/" + value);
+}
 
-const checkString = async (key, value) => {
+export async function checkString(key, value) {
   try {
     const store = stringify(key);
     const keyValue = await AsyncStorage.getItem(store);
@@ -52,9 +62,9 @@ const checkString = async (key, value) => {
     console.log("Exception in checkString: " + e);
   }
   console.log("Finished checking data. Returned: " + (value == keyValue));
-};
+}
 
-const checkObject = async (key, value) => {
+export async function checkObject(key, value) {
   try {
     const jsonValue = JSON.stringify(value);
     const store = stringify(key);
@@ -65,4 +75,4 @@ const checkObject = async (key, value) => {
     console.log("Exception in checkString: " + e);
   }
   console.log("Finished checking data. Returned: " + (jsonValue == keyValue));
-};
+}
