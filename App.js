@@ -10,15 +10,9 @@ import PreDriveScreen from './navigation/screens/PreDriveScreen';
 import Residential from './navigation/screens/Residential'
 import TurnScreen from './navigation/screens/FreewayDriving'
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
-<<<<<<< HEAD
-
-=======
 import TurnScreenRight from './navigation/screens/TurnScreenRight';
-<<<<<<< HEAD
->>>>>>> c893976f866112cb50bcd034a47377fe357e3455
-=======
 import FreewayLaneChangeScreen from './navigation/screens/FreewayLaneChange'
->>>>>>> 151a717ca2a2c2efcca8994d9935cbf88559e7df
+
 
 
 const Stack = createStackNavigator();

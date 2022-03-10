@@ -37,15 +37,9 @@ export default function TurnScreenLeft() {
                 <List.Item 
                     title="Traffic Check" 
                     left={(props) => 
-<<<<<<< HEAD
-                    <Image 
-                        style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storageKey={"turns_approach_traffic_check"}/>}
-=======
                     <Avatar.Image 
                         style={{ backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
                     right={(props) =><Counter/>}
->>>>>>> c893976f866112cb50bcd034a47377fe357e3455
                     />
                                     
                 <List.Item
@@ -79,15 +73,9 @@ export default function TurnScreenLeft() {
                 <List.Item
                     title="Unnecessary Stop"
                     left={(props) => 
-<<<<<<< HEAD
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
-                    right={(props)  =><Counter storageKey="turns_approach_unnecessary_stop"/>}
-=======
                         <Avatar.Image 
                             style={{backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
                     right={(props)  =><Counter/>}
->>>>>>> c893976f866112cb50bcd034a47377fe357e3455
                     />
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
