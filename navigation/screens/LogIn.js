@@ -26,7 +26,7 @@ import { mdiVideoMinusOutline } from "@mdi/js";
 
 export default function LogIn({ navigation }) {
   const [text, setText] = React.useState("");
-  StorageHandler.clearAll();
+  // StorageHandler.clearAllStoredData();
   useEffect(() => {
     checkIfLoggedIn();
   }, []);

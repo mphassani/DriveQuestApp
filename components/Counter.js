@@ -7,11 +7,7 @@ import * as StorageHandler from '../StorageHandler';
 
 const Counter = (props) => {
 
-  // var count = 0;
   const [count, setCount] = useState(0);
-  // function setCount(val) {
-  //   count = val;
-  // }
   
   useEffect(() =>
   {
@@ -20,7 +16,7 @@ const Counter = (props) => {
   
   function setCountersToInitalSavedValues() {
     var value = StorageHandler.getData(props.storageKey).then(res => {
-      console.log("Initial Value", res);
+      // console.log("Initial Value", res);
       if (res != null) {
         setCount(parseInt(res));
       }
@@ -31,50 +27,24 @@ const Counter = (props) => {
     });
   }
 
-  
-  
 
   
   const onAdd = () => {
-    // StorageHandler.clearAll();
     setCount(prevCount => count < 4 ? prevCount + 1: prevCount);
 
-    // if (count < 4) {
-    //   count += 1;
-    // }
-    
-    console.log("onAdd count: ", count);
-    // console.log("key: ", props.storageKey, " count: ", count);
-    StorageHandler.storeStringData(props.storageKey, count);
-    // console.log("READING VALUE: " , StorageHandler.getData("@" + props.storageKey));
-
+    if (count < 4) {
+      // console.log("onAdd count: ", count + 1);
+      StorageHandler.storeStringData(props.storageKey, count + 1);
+    }
   }
+
   const onDecrement = () => {
     setCount(prevCount => count > 0 ? prevCount - 1 : prevCount);
     
-    // if (count > 0) {
-    //   count -= 1;
-    // }
-
-    console.log("onDecrement count: ", count);
-    // console.log("key: ", props.storageKey, " count: ", count);
-    StorageHandler.storeStringData(props.storageKey, count);
-
-
-
-    // var val = StorageHandler.getData("turns_approach_traffic_check").then(
-    //   (result) => { 
-    //       return result;
-    //   });
-
-    // var val = StorageHandler.getData("TURNS_LEFT_APPROACH_TRAFFIC_CHECK");
-    // var val = StorageHandler.promise_resolver("TURNS_LEFT_APPROACH_TRAFFIC_CHECK");
-    
-
-    // var val = StorageHandler._getStorageValue("turns_approach_traffic_check");
-    // console.log("THE VALUE from Counter.js: ", val);
-
-    // getValue()
+    if (count > 0) {
+      // console.log("onDecrement count: ", count - 1);
+      StorageHandler.storeStringData(props.storageKey, count - 1);
+    }
   }
 
   //Visibility Stuff
@@ -96,7 +66,6 @@ const Counter = (props) => {
           {shouldShow ? (
             <Text style={styles.text}>{count}</Text>
           ) : null }
-          
           <IconButton icon = "plus-circle-outline" onPress={onAdd} />
 
         </View>
@@ -120,9 +89,8 @@ const styles = StyleSheet.create({
     marginTop: 11,
     alignItems: 'center',
     color: 'red',
-    fontWeight: 500,
-  },
-
+    fontWeight: "500",
+  }
 
 })
 

@@ -40,27 +40,6 @@ export async function getData(key) {
 }
 
 
-// const getData = async (key) => {
-//   try {
-//     const value = await AsyncStorage.getItem("@" + key)
-//     if(value !== null) {
-//       // value previously stored
-//     }
-//   } catch(e) {
-//     // error reading value
-//   }
-// }
-
-
-// export function promise_resolver(key) {
-//   return getData(key);
-// }
-
-export const _getStorageValue = async (key) => {
-  const value = await AsyncStorage.getItem("@" + key)
-  return value;
-}
-
 export async function getObjectData(key) {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
@@ -97,12 +76,12 @@ export async function checkObject(key, value) {
 }
 
 
-export async function clearAll() {
+export async function clearAllStoredData() {
   try {
     await AsyncStorage.clear()
   } catch(e) {
     // clear error
   }
 
-  console.log('Done.')
+  console.log('Cleared all saved data!');
 }

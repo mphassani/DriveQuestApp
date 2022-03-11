@@ -4,6 +4,7 @@ import MainContainer from './navigation/MainContainer';
 import BottomNav from './navigation/BottomNav';
 import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton } from "react-native-paper";
 import { Ionicons } from '@expo/vector-icons';
+import {clearAllStoredData} from './StorageHandler';
 
 
 import HomeScreen from './navigation/screens/HomeScreen';
@@ -92,6 +93,7 @@ export default function MainHome() {
                         onDismiss={closeMenu}
                         anchor={<IconButton icon="dots-vertical" onPress={openMenu} color="white" />}>
                         <Menu.Item onPress={() => { }} title="Settings" icon={"cog"} />
+                        <Menu.Item onPress={() => {clearAllStoredData();}} title="Clear Saved Data" icon={"delete"} />
                         <Divider />
                         <Menu.Item onPress={() => { }} title="Credits" icon="information" />
                     </Menu>
