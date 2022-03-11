@@ -25,20 +25,20 @@ import * as StorageHandler from "../../StorageHandler";
 import { mdiVideoMinusOutline } from "@mdi/js";
 
 export default function LogIn({ navigation }) {
-  // const [text, setText] = React.useState("");
-  // StorageHandler.clearAll();
-  // useEffect(() => {
-  //   checkIfLoggedIn();
-  // }, []);
+  const [text, setText] = React.useState("");
+  StorageHandler.clearAll();
+  useEffect(() => {
+    checkIfLoggedIn();
+  }, []);
 
-  // function checkIfLoggedIn() {
-  //   let value = StorageHandler.getData("IS_LOGGED_IN");
-  //   if (value === null || value === undefined) {
-  //     console.log("Not logged in");
-  //   } else {
-  //     navigation.navigate("PreDrive");
-  //   }
-  // }
+  function checkIfLoggedIn() {
+    let value = StorageHandler.getData("IS_LOGGED_IN");
+    if (value === null || value === undefined) {
+      console.log("Not logged in");
+    } else {
+      navigation.navigate("PreDrive");
+    }
+  }
 
   return (
     //   <View style={styles.container}>
