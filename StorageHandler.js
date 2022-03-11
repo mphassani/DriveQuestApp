@@ -1,5 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-  
+/*
+ To import use 
+ import * as StorageHandler from '../StorageHandler';
+*/
 
 
 export async function storeStringData(key, value) {
@@ -27,15 +30,31 @@ export async function getData(key) {
   try {
     const value = await AsyncStorage.getItem("@" + key);
     if (value !== null) {
-      console.log("Attempted to get a value that exists.");
-      console.log("Returned Value in StorageHandler.js: ", value);
+      // console.log("Returned Value in StorageHandler.js: ", value);
       return value;
     }
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
-  console.log("Finished get string data as followed: " + key + "/" + value);
+  // console.log("Finished get string data as followed: " + key + "/" + value);
 }
+
+
+// const getData = async (key) => {
+//   try {
+//     const value = await AsyncStorage.getItem("@" + key)
+//     if(value !== null) {
+//       // value previously stored
+//     }
+//   } catch(e) {
+//     // error reading value
+//   }
+// }
+
+
+// export function promise_resolver(key) {
+//   return getData(key);
+// }
 
 export const _getStorageValue = async (key) => {
   const value = await AsyncStorage.getItem("@" + key)
@@ -75,4 +94,15 @@ export async function checkObject(key, value) {
     console.log("Exception in checkString: " + e);
   }
   console.log("Finished checking data. Returned: " + (jsonValue == keyValue));
+}
+
+
+export async function clearAll() {
+  try {
+    await AsyncStorage.clear()
+  } catch(e) {
+    // clear error
+  }
+
+  console.log('Done.')
 }

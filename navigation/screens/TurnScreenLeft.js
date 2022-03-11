@@ -39,7 +39,7 @@ export default function TurnScreenLeft() {
                     left={(props) => 
                     <Avatar.Image 
                         style={{ backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_TRAFFIC_CHECK"/>}
                     />
                                     
                 <List.Item
@@ -47,21 +47,21 @@ export default function TurnScreenLeft() {
                     left={(props) => 
                     <Image 
                         style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter storageKey="turns_approach_signal"/>}
+                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_SIGNAL"/>}
                     /> 
                 <List.Item
                     title="Braking"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Breaking.png')}/>}
-                    right={(props) =><Counter storageKey="turns_approach_braking"/>}
+                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_BRAKING"/>}
                     />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter storageKey="turns_approach_yield"/>}
+                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_YIELD"/>}
                     />
                 <List.Item
                     title="Lane Use"
