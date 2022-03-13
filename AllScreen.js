@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Fragment } from 'react'
 import MainContainer from './navigation/MainContainer';
 import BottomNav from './navigation/BottomNav';
-import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton } from "react-native-paper";
+import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton, FAB, Portal } from "react-native-paper";
 import { Ionicons } from '@expo/vector-icons';
-import {clearAllStoredData} from './StorageHandler';
+import { clearAllStoredData } from './StorageHandler';
 
 
 import HomeScreen from './navigation/screens/HomeScreen';
@@ -53,7 +53,6 @@ const MyComponent = () => {
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home' },
         { key: 'intersection', title: 'Intersection', icon: 'traffic-light' },
-        { key: 'comments', title: 'Comments', icon: 'comment' },
         { key: 'turns', title: 'Turns', icon: 'directions' },
         { key: 'lane_change', title: 'Lane Change', icon: 'road' },
     ]);
@@ -61,7 +60,6 @@ const MyComponent = () => {
     const renderScene = BottomNavigation.SceneMap({
         home: HomeRoute,
         intersection: Intersectionroute,
-        comments: CommentsRoute,
         turns: TurnsRoute,
         lane_change: Lane_ChangeRoute,
     });
@@ -75,16 +73,51 @@ const MyComponent = () => {
 
     );
 };
-export default function MainHome() {
+export default function MainHome({navigation}) {
     const [visible, setVisible] = React.useState(false);
 
     const openMenu = () => setVisible(true);
 
     const closeMenu = () => setVisible(false);
+
+    const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+    const [state, setState] = React.useState({ open: false });
+
+    const onStateChange = ({ open }) => setState({ open });
+
+    const { open } = state;
     return (
 
-        <PaperProvider>
+        <PaperProvider theme={theme}>
+            <Portal >
+                <FAB.Group
+                    style={{paddingBottom: "25%"}}
+                    open={open}
+                    icon={open ? 'minus' : 'plus'}
+                    actions={[
+                        {
+                            icon: 'alert',
+                            label: 'Automatic DQ',
+                            onPress: () => console.log('Pressed email'),
+                            small: false,
+                        },
+                        {
+                            icon: 'comment',
+                            label: 'Comment',
+                            onPress: () => navigation.navigate('commentscreen'),
+                            small: false,
+                        },
+                    ]}
+                    onStateChange={onStateChange}
+                    onPress={() => {
+                        if (open) {
+                            // do something if the speed dial is open
+                        }
+                    }}
+                />
+            </Portal>
             <PaperProvider theme={theme}>
+
                 <Appbar.Header>
                     <Appbar.Action icon="logout" onPress={() => alert("Logged out")} />
                     <Appbar.Content title="DriveQuest" />
@@ -93,7 +126,7 @@ export default function MainHome() {
                         onDismiss={closeMenu}
                         anchor={<IconButton icon="dots-vertical" onPress={openMenu} color="white" />}>
                         <Menu.Item onPress={() => { }} title="Settings" icon={"cog"} />
-                        <Menu.Item onPress={() => {clearAllStoredData();}} title="Clear Saved Data" icon={"delete"} />
+                        <Menu.Item onPress={() => { clearAllStoredData(); }} title="Clear Saved Data" icon={"delete"} />
                         <Divider />
                         <Menu.Item onPress={() => { }} title="Credits" icon="information" />
                     </Menu>
@@ -112,6 +145,6 @@ const theme = {
     colors: {
         ...DefaultTheme.colors,
         primary: '#12414F',
-        accent: '#90C96A',
+        accent: '#12414F',
     },
 };
