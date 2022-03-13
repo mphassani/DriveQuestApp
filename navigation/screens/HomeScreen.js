@@ -56,17 +56,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+
   },
   icon: {
     color: "rgba(205,50,50,1)",
     fontSize: 98,
   },
   buttonView:{
-    alignContent: "center", 
+    flexDirection: "row",
+    alignItems: "center", 
     justifyContent: "center", 
-    flexDirection: "row", 
-    paddingTop: "10%", 
-    paddingBottom: "5%" ,
+    // marginTop: 50,
+    height:100,
+    // paddingTop: "10%", 
+    // paddingBottom: "5%" ,
   },
 });
 
