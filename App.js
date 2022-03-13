@@ -44,7 +44,7 @@ function App() {
           <Stack.Screen name="Residential" component={Residential} />
           <Stack.Screen name="turnscreenleft" component={TurnScreenLeft} />
           <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
-          <Stack.Screen name="commentscreen" component={CommentsScreen} />
+          <Stack.Screen name="commentscreen" component={CommentsScreen} options={{presentation: 'transparentModal', cardOverlayEnabled: true}}/>
           <Stack.Screen name="autodq" component={AutoDQ} options={{presentation: 'transparentModal', cardOverlayEnabled: true}}/>
 
 

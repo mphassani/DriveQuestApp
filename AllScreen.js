@@ -73,6 +73,7 @@ const MyComponent = () => {
 
     );
 };
+
 export default function MainHome({navigation}) {
     const [visible, setVisible] = React.useState(false);
 
@@ -98,7 +99,7 @@ export default function MainHome({navigation}) {
                         {
                             icon: 'alert',
                             label: 'Automatic DQ',
-                            onPress: () => console.log('Pressed email'),
+                            onPress: () => navigation.navigate('autodq'),
                             small: false,
                         },
                         {
@@ -138,6 +139,8 @@ export default function MainHome({navigation}) {
     );
 
 }
+
+
 
 const theme = {
     ...DefaultTheme,

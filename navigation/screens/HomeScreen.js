@@ -57,7 +57,6 @@ export default function HomeScreen() {
             </Card.Actions>
           </Card>
         </View>
-        <View style={styles.buttonView}><Icon name="md-warning" style={styles.icon} onPress={() => navigation.navigate('autodq')}></Icon></View>
       </ScrollView>
 
 
