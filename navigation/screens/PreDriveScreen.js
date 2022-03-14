@@ -1,20 +1,11 @@
 import * as React from "react";
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, TextInput } from 'react-native';
+import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, Image, TextInput } from 'react-native';
 import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider, DefaultTheme} from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 const { height } = Dimensions.get('window');
-
-const theme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      primary: '#90C96A',
-      accent: '#FFFFFF',
-    },
-  };
 
 //pre-drive screen display 
 
@@ -33,7 +24,7 @@ export default function PreDriveScreen({ navigation }) {
     const navigator = useNavigation();
 
     return (
-        <PaperProvider theme={theme}>
+        <PaperProvider>
             <SafeAreaView>
                 <Portal>
                     <Dialog visible={visible} dismissable={false} onDismiss={showDialog2}>
@@ -160,97 +151,97 @@ export default function PreDriveScreen({ navigation }) {
                         {/* Each list item has a title (the item name), a left (the icon), and a right (the checkbox) attribute */}
                         <List.Item
                             title="1. Driver window"
-                            left={(props) =><Avatar.Image {...props} source={require('../../assets/driverSideWindow.png')} />}
+                            left={(props) =><Image style={styles.greenCircle} source={require('../../assets/driverSideWindow.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_DRIVER_WINDOW"/>}
                         />
 
                         <List.Item
                             title="2. Windshield"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/windshield.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/windshield.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_WINDSHIELD"/>}
                         />
                         <List.Item
                             title="3. Rear view mirrors"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/rearViewMirror.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_REAR_VIEW_MIRRORS"/>}
                         />
                         {/*FIXME: add other turn signal*/}
                         <List.Item
                             title="4. Turn signals"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/Signal.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/Signal.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_TURN_SIGNAL"/>}
                         />
                         <List.Item
                             title="5. Brake lights"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/brakeLights.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/brakeLights.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_BRAKE_LIGHTS"/>}
                         />
                         <List.Item
                             title="6. Tires"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/tires.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/tires.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_TIRES"/>}
                         />
                         <List.Item
                             title="7. Foot brake"
-                            left={(props) => <Avatar.Image {...props}source={require('../../assets/Breaking.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle}source={require('../../assets/Breaking.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_FOOT_BRAKES"/>}
                         />
                         <List.Item
                             title="8. Horn"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/horn.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/horn.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_HORN"/>}
                         />
                         <List.Item
                             title="9. Emergency/parking brake"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/parkingBrake.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/parkingBrake.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_PARKING_BRAKE"/>}
                         />
                         {/*FIXME: add other arm signals*/}
                         <List.Item
                             title="10. Arm signals"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/armSignals.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/armSignals.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_RIGHT_ARM_SIGNAL"/>}
                         />
                         <List.Item
                             title="11. Windshield wipers"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/windshieldWipers.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/windshieldWipers.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_WINDSHIELD_WIPERS"/>}
                         />
                         <List.Item
                             title="12. Defroster"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/defroster.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/defroster.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_DEFROSTER"/>}
                         />
                         <List.Item
                             title="13. Emergency flasher"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/emergencyLights.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/emergencyLights.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_EMERGENCY_FLASHER"/>}
                         />
                         <List.Item
                             title="14. Headlights"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/headlights.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/headlights.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_HEADLIGHTS"/>}
                         />
                         <List.Item
                             title="15. Passenger door"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/passengerDoor.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/passengerDoor.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_PASSENGER_DOOR"/>}
                         />
                         <List.Item
                             title="16. Glove box"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/gloveBox.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/gloveBox.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_GLOVE_BOX"/>}
                         />
                         <List.Item
                             title="17. Seat belts"
-                            left={(props) => <Avatar.Image {...props} source={require('../../assets/seatbelts.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/seatbelts.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_SEATBELTS"/>}
                         />
                     </List.Section>
 
                     {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
-                        <Button color="#00677F" mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
+                        <Button mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
                     </View>
 
                 </ScrollView>
@@ -324,5 +315,12 @@ const styles = StyleSheet.create({
     /* Creates filled in checkbox, used when item is marked correct */
     checkboxChecked: { //checkbox color 
         backgroundColor: '#00677F',
+    },
+
+    greenCircle: {
+        height: 64,
+        width: 64, 
+        borderRadius: 32, 
+        backgroundColor: "#90C96A",
     },
 });
