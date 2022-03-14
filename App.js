@@ -40,10 +40,7 @@ function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator  initialRouteName="Home"
-        screenOptions={{
-          header: CustomNavigationBar,
-        }}>
+        <Stack.Navigator  initialRouteName="LogIn" screenOptions={{header: CustomNavigationBar}}>
 
             <Stack.Screen name="LogIn" component={LogIn} />
             <Stack.Screen name="PreDrive" component={PreDriveScreen} />
