@@ -13,23 +13,23 @@ export default function CommentsScreen({ navigation }) {
     return (
     <PaperProvider>
         <Portal>
-                    <Dialog visible={visible} dismissable={false} onDismiss={console.log('done')}>
-                        <Dialog.Title>Comment</Dialog.Title>
-                        <Dialog.Content>
-                            <Paragraph>Type your comment below:</Paragraph>
-                            <Divider />
-                            <TextInput
-                            mode="outlined"
-                            multiline = {true}
-                            numLines = {5}
-                            placeholder="Add a comment here"
-                            keyboardType="default" />
-                        </Dialog.Content>
-                        <Dialog.Actions>
-                            <Button onPress= {() => {hideDialog; navigation.goBack()}}>Submit</Button>
-                        </Dialog.Actions>
-                    </Dialog>
-                </Portal>
+            <Dialog style={{alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginBottom: 200}} visible={visible} dismissable={false} onDismiss={console.log('done')}>
+                <Dialog.Title>Comment</Dialog.Title>
+                <Dialog.Content>
+                    <Paragraph>Type your comment below:</Paragraph>
+                    <Divider />
+                    <TextInput
+                    mode="outlined"
+                    multiline = {true}
+                    numLines = {5}
+                    placeholder="Add a comment here"
+                    keyboardType="default" />
+                </Dialog.Content>
+                <Dialog.Actions>
+                    <Button onPress= {() => {hideDialog; navigation.goBack()}}>Submit</Button>
+                </Dialog.Actions>
+            </Dialog>
+        </Portal>
         {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> 
             <Text
                 style={{ fontSize: 26, fontWeight: 'bold' }}>Comment Screen</Text>
