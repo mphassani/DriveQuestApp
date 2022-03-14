@@ -4,6 +4,10 @@ Lucas Torti 3-7-22 work for the previous week
 
 - Pair programmed with Kevan to create additional function in StorageHandler.js
 
+Lucas Torti 3-14-22 work for the previous week
+
+- Group programmed with Kevan and Mark to implement storage handler functionality in the login screen
+
 All Files required for App
 
 ## Installation
