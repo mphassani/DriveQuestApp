@@ -10,7 +10,7 @@ import { clearAllStoredData } from './StorageHandler';
 import HomeScreen from './navigation/screens/HomeScreen';
 import CommentsScreen from './navigation/screens/CommentsScreen';
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
-import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
+import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
 import TurnScreen from './navigation/screens/TurnScreenLeft';
 import DrawerSide from './DrawerSide'
@@ -26,7 +26,7 @@ const TurnsRoute = () => <TurnScreenLeft />
 
 const CommentsRoute = () => <CommentsScreen />
 
-const Lane_ChangeRoute = () => <LaneChangeScreen />
+const Lane_ChangeRoute = () => <LaneChangeScreenLeft />
 const MyComponent2 = () => {
     const [active, setActive] = React.useState('');
 

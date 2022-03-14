@@ -12,6 +12,7 @@ import {
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB,DefaultTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
+import { useNavigation } from "@react-navigation/native";
 
 const theme = {
     ...DefaultTheme,
@@ -24,8 +25,8 @@ const theme = {
   };
 
 //Christians page
-export default function LaneChangeScreen({ navigation }) {
-    
+export default function LaneChangeScreenLeft() {
+    const navigation = useNavigation();
     return (
     
         <PaperProvider theme={theme}>
@@ -35,7 +36,7 @@ export default function LaneChangeScreen({ navigation }) {
                         <Button mode="contained" color = "#87181A" disabled="true" >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" color = '#87181A' onPress={() => navigation.navigate("lanechangescreenright")}>Right</Button>
+                        <Button mode="contained" color = '#87181A' onPress={() => navigation.navigate("lanechangeright")}>Right</Button>
                     </View>
                 </View>
                 <List.Section>
