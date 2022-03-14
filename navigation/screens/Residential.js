@@ -37,28 +37,28 @@ export default function ResidentialScreen({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/spacing.png')}/>}
-                    right={(props) =><Counter storagekey="residential_residential_safe_distance"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE"/>}
                     />
                 <List.Item 
                     title="Positioning" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter storagekey="residential_residential_positioning"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_RESIDENTIAL_POSITIONING"/>}
                     />
                 <List.Item 
                     title="Observation" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/observation.png')}/>}
-                    right={(props) =><Counter storagekey="residential_residential_observation"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_RESIDENTIAL_OBSERVATION"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storagekey="residential_residential_speed"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_RESIDENTIAL_SPEED"/>}
                     />
                 </List.Section>
                                     
@@ -74,42 +74,42 @@ export default function ResidentialScreen({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/spacing.png')}/>}
-                    right={(props) =><Counter storagekey="residential_business_safe_distance"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_BUSINESS_SAFE_DISTANCE"/>}
                     />
                 <List.Item 
                     title="Positioning" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter storagekey="residential_business_positioning"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_BUSINESS_POSITIONING"/>}
                     />
                 <List.Item 
                     title="Observation" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/observation.png')}/>}
-                    right={(props) =><Counter storagekey="residential_business_observation"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_BUSINESS_OBSERVATION"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storagekey="residential_business_speed"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_BUSINESS_SPEED"/>}
                     />
                 <List.Item
                     title="Signal"
                     left={(props) => 
                     <Image 
                         style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter storagekey="residential_business_signal"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_BUSINESS_SIGNAL"/>}
                     /> 
                 <List.Item 
                     title="Mirrors" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
-                    right={(props) =><Counter storagekey="residential_business_mirrors"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_BUSINESS_MIRRORS"/>}
                     />
                 </List.Section>
 
@@ -125,21 +125,21 @@ export default function ResidentialScreen({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storagekey="residential_curb_speed"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_CURB_SPEED"/>}
                     />
                 <List.Item 
                     title="Avoids Curb" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/avoidsCurb.png')}/>}
-                    right={(props) =><Counter storagekey="residential_curb_avoids_curb"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_CURB_AVOIDS_CURB"/>}
                     />
                 <List.Item
                     title="Signal"
                     left={(props) => 
                     <Image 
                         style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter storagekey="residential_curb_signal"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_CURB_SIGNAL"/>}
                     /> 
                 </List.Section>
 
@@ -155,28 +155,28 @@ export default function ResidentialScreen({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rightShoulder.png')}/>}
-                    right={(props) =><Counter storagekey="residential_reversing_right_shoulder"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER"/>}
                     />
                 <List.Item 
                     title="Avoids Curb" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/avoidsCurb.png')}/>}
-                    right={(props) =><Counter storagekey="residential_reversing_avoids_curb"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_REVERSING_AVOIDS_CURB"/>}
                     />
                 <List.Item 
                     title="Mirrors" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
-                    right={(props) =><Counter storagekey="residential_reversing_mirrors"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_REVERSING_MIRRORS"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storagekey="residential_reversing_speed"/>}
+                    right={(props) =><Counter storagekey="RESIDENTIAL_REVERSING_SPEED"/>}
                     />
                 </List.Section>
             </ScrollView>

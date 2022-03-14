@@ -36,7 +36,7 @@ export default function IntersectionScreen({ navigation }) {
                         left={(props) => 
                         <Image 
                             style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
-                        right={(props) =><Counter storagekey="intersection_through_traffic_check"/>}
+                        right={(props) =><Counter storagekey="INTERSECTION_THROUGH_TRAFFIC_CHECK"/>}
                     />
 
                 <List.Item 
@@ -44,21 +44,21 @@ export default function IntersectionScreen({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_through_speed"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_THROUGH_SPEED"/>}
                     />
                 <List.Item
                     title="Unnecessary Stop"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/UnnecessaryStop.png')}/>}
-                    right={(props)  =><Counter storagekey="intersection_through_unnecessary_stop"/>}
+                    right={(props)  =><Counter storagekey="INTERSECTION_THROUGH_UNNECESSARY_STOP"/>}
                     />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_through_yield"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_THROUGH_YIELD"/>}
                     />
                 </List.Section>
                                     
@@ -74,28 +74,28 @@ export default function IntersectionScreen({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/GapLimitLine.png')}/>}
-                    right={(props)  =><Counter storagekey="intersection_stop_gap_limit_line"/>}
+                    right={(props)  =><Counter storagekey="INTERSECTION_STOP_GAP_LIMIT_LINE"/>}
                     />
                 <List.Item
                     title="Braking"
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Breaking.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_stop_braking"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_STOP_BRAKING"/>}
                     />
                 <List.Item 
                     title="Traffic Check" 
                     left={(props) => 
                     <Image 
                         style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_stop_traffic_check"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_STOP_TRAFFIC_CHECK"/>}
                     />
                 <List.Item 
                     title="Full Stop" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/FullStop.png')}/>}
-                    right={(props)  =><Counter storagekey="intersection_stop_full_stop"/>}
+                    right={(props)  =><Counter storagekey="INTERSECTION_STOP_FULL_STOP"/>}
                     />
                 </List.Section>
 
@@ -111,21 +111,21 @@ export default function IntersectionScreen({ navigation }) {
                     left={(props) => 
                     <Image 
                         style={{height:50,width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_start_traffic_check"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_START_TRAFFIC_CHECK"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_start_speed"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_START_SPEED"/>}
                     />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter storagekey="intersection_start_yield"/>}
+                    right={(props) =><Counter storagekey="INTERSECTION_START_YIELD"/>}
                     />
                 </List.Section>
             </ScrollView>
