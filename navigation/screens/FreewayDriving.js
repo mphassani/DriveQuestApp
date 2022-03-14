@@ -146,7 +146,6 @@ const theme = {
       ...DefaultTheme.colors,
       primary: '#12414F',
       accent: '#90C96A',
-      mode: "exact"
     },
   };
 
