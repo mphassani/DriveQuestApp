@@ -45,9 +45,6 @@ export default function LogIn({ navigation }) {
     //   <Text>To share a photo from your phone with a friend, just press the button below!</Text>
     // </View>
     <PaperProvider theme={theme}>
-      <Appbar.Header>
-        <Appbar.Content title="DriveQuest"></Appbar.Content>
-      </Appbar.Header>
 
       <View
         style={{
@@ -139,5 +136,6 @@ const theme = {
     ...DefaultTheme.colors,
     primary: "#87181A",
     accent: "#90C96A",
+     
   },
 };

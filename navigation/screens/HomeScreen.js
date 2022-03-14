@@ -12,7 +12,6 @@ import { Provider as PaperProvider, Button, Card, Title, Paragraph, Avatar, FAB,
 import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import App from '../../App'
 import { useNavigation } from '@react-navigation/native';
 
 // import {Restart} from 'fiction-expo-restart';
@@ -94,6 +93,7 @@ const theme = {
     ...DefaultTheme.colors,
     primary: '#12414F',
     accent: '#12414F',
+     
   },
 };
 
