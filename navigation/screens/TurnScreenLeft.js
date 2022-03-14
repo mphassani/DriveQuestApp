@@ -55,7 +55,7 @@ export default function TurnScreenLeft() {
                     title="Signal"
                     left={(props) => 
                         <Avatar.Image {...props} source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counte storageKey="TURNS_LEFT_APPROACH_SIGNAL"r/>}
+                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_SIGNAL"r/>}
                     /> 
 
                 <List.Item
@@ -162,7 +162,7 @@ export default function TurnScreenLeft() {
                 <List.Item 
                     title="Correct Lane" 
                     left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/correctlane.png')}/>}
                     right={(props) =><Counter  storageKey="turns_during_correct_lane"/>}
 
                     />
