@@ -317,6 +317,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#00677F',
     },
 
+    /* creates green circle to use for lefthand icons */
     greenCircle: {
         height: 64,
         width: 64, 
