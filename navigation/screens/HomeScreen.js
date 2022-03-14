@@ -20,6 +20,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
+
   // Parsa's Page
   return (
     
@@ -72,6 +73,8 @@ const styles = StyleSheet.create({
     // paddingBottom: "5%" ,
   },
 });
+
+
 
 const win = Dimensions.get("window");
 const ratio = win.width / 500;

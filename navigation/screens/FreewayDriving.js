@@ -18,7 +18,7 @@ export default function TurnScreen({ navigation }) {
     return (
         <PaperProvider>
             <Appbar.Header theme={theme}>
-                    <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Home')}/>
+                    <Appbar.Action icon="arrow-left" onPress={() => navigation.goBack()}/>
                 </Appbar.Header>
             <ScrollView>
             <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
