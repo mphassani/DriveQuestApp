@@ -13,9 +13,6 @@ import Counter from '../../components/Counter';
 export default function ParkingLot({ navigation }) {
     return (
         <PaperProvider>
-            <Appbar.Header theme={theme}>
-                    <Appbar.Action icon="arrow-left" onPress={() => navigation.navigate('Home')}/>
-                </Appbar.Header>
 
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>

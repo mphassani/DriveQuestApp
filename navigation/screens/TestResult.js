@@ -8,10 +8,6 @@ import { List, Provider as PaperProvider, Appbar, DefaultTheme } from 'react-nat
 const MyComponent = () => (
 
   <PaperProvider>
-    <Appbar.Header theme={theme}>
-      <Appbar.Action icon="logout" onPress={() => alert("Logged out")} />
-      <Appbar.Content title="Test Results" />
-    </Appbar.Header>
     <List.AccordionGroup>
 
       <List.Accordion title="Pre-Drive Check Results" id="1">

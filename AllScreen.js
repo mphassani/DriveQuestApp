@@ -119,19 +119,6 @@ export default function MainHome({navigation}) {
             </Portal>
             <PaperProvider theme={theme}>
 
-                <Appbar.Header>
-                    <Appbar.Action icon="logout" onPress={() => alert("Logged out")} />
-                    <Appbar.Content title="DriveQuest" />
-                    <Menu
-                        visible={visible}
-                        onDismiss={closeMenu}
-                        anchor={<IconButton icon="dots-vertical" onPress={openMenu} color="white" />}>
-                        <Menu.Item onPress={() => { }} title="Settings" icon={"cog"} />
-                        <Menu.Item onPress={() => { clearAllStoredData(); }} title="Clear Saved Data" icon={"delete"} />
-                        <Divider />
-                        <Menu.Item onPress={() => { }} title="Credits" icon="information" />
-                    </Menu>
-                </Appbar.Header>
                 <MyComponent />
             </PaperProvider>
 

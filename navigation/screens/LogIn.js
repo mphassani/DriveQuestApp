@@ -25,29 +25,26 @@ import * as StorageHandler from "../../StorageHandler";
 import { mdiVideoMinusOutline } from "@mdi/js";
 
 export default function LogIn({ navigation }) {
-  const [text, setText] = React.useState("");
-  // StorageHandler.clearAllStoredData();
-  useEffect(() => {
-    checkIfLoggedIn();
-  }, []);
+  // const [text, setText] = React.useState("");
+  // // StorageHandler.clearAllStoredData();
+  // useEffect(() => {
+  //   checkIfLoggedIn();
+  // }, []);
 
-  function checkIfLoggedIn() {
-    let value = StorageHandler.getData("IS_LOGGED_IN");
-    if (value === null || value === undefined) {
-      console.log("Not logged in");
-    } else {
-      navigation.navigate("PreDrive");
-    }
-  }
+  // function checkIfLoggedIn() {
+  //   let value = StorageHandler.getData("IS_LOGGED_IN");
+  //   if (value === null || value === undefined) {
+  //     console.log("Not logged in");
+  //   } else {
+  //     navigation.navigate("PreDrive");
+  //   }
+  // }
 
   return (
     //   <View style={styles.container}>
     //   <Text>To share a photo from your phone with a friend, just press the button below!</Text>
     // </View>
     <PaperProvider theme={theme}>
-      <Appbar.Header>
-        <Appbar.Content title="DriveQuest"></Appbar.Content>
-      </Appbar.Header>
 
       <View
         style={{

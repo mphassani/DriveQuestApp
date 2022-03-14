@@ -11,20 +11,17 @@ import {
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Appbar, DefaultTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
+import { useNavigation } from '@react-navigation/native';
 
 
 // Moises's page
-export default function TurnScreen({ navigation }) {
+export default function FreewayDriving() {
+    const navigation = useNavigation();
     return (
         <PaperProvider>
-            <Appbar.Header theme={theme}>
-                    <Appbar.Action icon="arrow-left" onPress={() => navigation.goBack()}/>
-                </Appbar.Header>
             <ScrollView>
-            <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
-                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" color = '#12414F' >Lane Change</Button>
-                    </View>
+                <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
+                <Button mode='contained' onPress={() => navigation.navigate("freelanechange")}>Freeway Lange Change</Button>
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text

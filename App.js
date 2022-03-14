@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import PreDriveScreen from './navigation/screens/PreDriveScreen';
 import Residential from './navigation/screens/Residential'
-import TurnScreen from './navigation/screens/FreewayDriving'
+import FreewayDriving from './navigation/screens/FreewayDriving'
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
 import TurnScreenRight from './navigation/screens/TurnScreenRight';
 import FreewayLaneChangeScreen from './navigation/screens/FreewayLaneChange'
@@ -28,24 +28,35 @@ let isLoggedIn = false;
 let chosenScreen = <LogIn />
 
 global.test = true;
-
+function CustomNavigationBar({ navigation, back }) {
+  return (
+    <Appbar.Header>
+      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+      <Appbar.Content title="DriveQuest" />
+    </Appbar.Header>
+  );
+}
 function App() {
   return (
-    <PaperProvider>
+    <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="LogIn" component={LogIn} />
-          <Stack.Screen name="freelanechange" component={FreewayLaneChangeScreen} />
-          <Stack.Screen name="testresult" component={TestResult} />
-          <Stack.Screen name="parkinglot" component={ParkingLot}/>
-          <Stack.Screen name="Freeway" component={TurnScreen} />
-          <Stack.Screen name="PreDrive" component={PreDriveScreen} />
-          <Stack.Screen name="Home" component={MainHome} />
-          <Stack.Screen name="Residential" component={Residential} />
-          <Stack.Screen name="turnscreenleft" component={TurnScreenLeft} />
-          <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
-          <Stack.Screen name="commentscreen" component={CommentsScreen} options={{presentation: 'transparentModal', cardOverlayEnabled: true}}/>
-          <Stack.Screen name="autodq" component={AutoDQ} options={{presentation: 'transparentModal', cardOverlayEnabled: true}}/>
+        <Stack.Navigator  initialRouteName="Home"
+        screenOptions={{
+          header: CustomNavigationBar,
+        }}>
+
+            <Stack.Screen name="LogIn" component={LogIn} />
+            <Stack.Screen name="PreDrive" component={PreDriveScreen} />
+            <Stack.Screen name="freelanechange" component={FreewayLaneChangeScreen} />
+            <Stack.Screen name="testresult" component={TestResult} />
+            <Stack.Screen name="parkinglot" component={ParkingLot} />
+            <Stack.Screen name="Freeway" component={FreewayDriving} />
+            <Stack.Screen name="Home" component={MainHome} />
+            <Stack.Screen name="Residential" component={Residential} />
+            <Stack.Screen name="commentscreen" component={CommentsScreen} options={{ presentation: 'transparentModal', cardOverlayEnabled: true }} />
+            <Stack.Screen name="autodq" component={AutoDQ} options={{ presentation: 'transparentModal', cardOverlayEnabled: true }} />
+            <Stack.Screen name="turnscreenleft" component={TurnScreenLeft} />
+            <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
 
 
         </Stack.Navigator>

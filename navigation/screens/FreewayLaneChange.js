@@ -17,9 +17,6 @@ import Counter from '../../components/Counter';
 export default function FreewayLaneChangeScreen({ navigation }) {
     return (
         <PaperProvider>
-            <Appbar.Header theme={theme}>
-                    <Appbar.Action icon="arrow-left"/>
-                </Appbar.Header>
             <ScrollView>
             <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                     {/* <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
