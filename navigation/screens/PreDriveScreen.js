@@ -250,7 +250,7 @@ export default function PreDriveScreen({ navigation }) {
 
                     {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
-                        <Button mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
+                        <Button color="#00677F" mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
                     </View>
 
                 </ScrollView>
@@ -324,11 +324,5 @@ const styles = StyleSheet.create({
     /* Creates filled in checkbox, used when item is marked correct */
     checkboxChecked: { //checkbox color 
         backgroundColor: '#00677F',
-    },
-
-    greenCircle: {
-        height: 50, 
-        borderRadius: 50/2, 
-        backgroundColor: "#90C96A",
     },
 });
