@@ -21,10 +21,10 @@ export default function TurnScreenRight() {
         <ScrollView>
             <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
             <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" color = '#87181A' >Left</Button>
+                        <Button mode="contained" color = '#87181A' onPress={() => navigation.navigate("turnscreenleft")} >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" color = "gray">Right</Button>
+                        <Button mode="contained" color = "#87181A" disabled="true">Right</Button>
                     </View>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>

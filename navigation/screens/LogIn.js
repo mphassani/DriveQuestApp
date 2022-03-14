@@ -7,30 +7,65 @@ import {
   Dimensions,
   ImageBackground,
   ScrollView,
-  Platform
+  Platform,
 } from "react-native";
-import { Provider as PaperProvider, Button, TextInput, Appbar, DefaultTheme } from "react-native-paper";
+
+import { useEffect, useState } from "react";
+import {
+  Provider as PaperProvider,
+  Button,
+  TextInput,
+  Appbar,
+  DefaultTheme,
+} from "react-native-paper";
 import HomeScreen from "../../AllScreen";
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import * as StorageHandler from "../../StorageHandler";
+import { mdiVideoMinusOutline } from "@mdi/js";
 
 export default function LogIn({ navigation }) {
   const [text, setText] = React.useState("");
+  // StorageHandler.clearAllStoredData();
+  useEffect(() => {
+    checkIfLoggedIn();
+  }, []);
+
+  function checkIfLoggedIn() {
+    let value = StorageHandler.getData("IS_LOGGED_IN");
+    if (value === null || value === undefined) {
+      console.log("Not logged in");
+    } else {
+      navigation.navigate("PreDrive");
+    }
+  }
+
   return (
     //   <View style={styles.container}>
     //   <Text>To share a photo from your phone with a friend, just press the button below!</Text>
     // </View>
-    < PaperProvider theme={theme} >
-      <Appbar.Header>
-        <Appbar.Content title="DriveQuest"></Appbar.Content>
-      </Appbar.Header>
+    <PaperProvider theme={theme}>
 
-
-      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", paddingTop: "10%" }}>
-        <Image source={require('../../assets/logo.png')} />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingTop: "10%",
+        }}
+      >
+        <Image source={require("../../assets/logo.png")} />
       </View>
 
-      <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingTop: "10%", paddingBottom: "5%" }}>
+      <View
+        style={{
+          alignContent: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+          paddingTop: "10%",
+          paddingBottom: "5%",
+        }}
+      >
         <Text style={styles.header}>Welcome Back</Text>
       </View>
 
@@ -38,50 +73,59 @@ export default function LogIn({ navigation }) {
         <TextInput
           label="Log In Key"
           value={text}
-          onChangeText={text => setText(text)}
-          mode='outlined'
+          onChangeText={(text) => setText(text)}
+          mode="outlined"
         />
       </View>
 
-
       <View style={{ padding: "10%" }}>
-        <Button mode="contained" onPress={() => navigation.navigate('PreDrive')}>Log In</Button>
+        <Button
+          mode="contained"
+          onPress={() => checkPassword(navigation, text)}
+        >
+          Log In
+        </Button>
       </View>
-
-
-    </PaperProvider >
+    </PaperProvider>
   );
+}
+
+function checkPassword(navigationVal, code) {
+  if (code == "123") {
+    StorageHandler.storeStringData("IS_LOGGED_IN", "true");
+    navigationVal.navigate("PreDrive");
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   content: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   header: {
     fontSize: 26,
     color: "#87181A",
-    fontWeight: 'bold',
+    fontWeight: "bold",
     justifyContent: "center",
     alignItems: "center",
     justifyContent: "center",
     alignItems: "center",
   },
   forgotPassword: {
-    width: '100%',
-    alignItems: 'flex-end',
+    width: "100%",
+    alignItems: "flex-end",
     marginBottom: 24,
   },
   row: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 4,
   },
 });
@@ -90,8 +134,8 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#87181A',
-    accent: '#90C96A',
+    primary: "#87181A",
+    accent: "#90C96A",
+     
   },
 };
-

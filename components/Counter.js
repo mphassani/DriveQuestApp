@@ -1,19 +1,58 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { render } from 'react-dom';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, PanResponder } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
+import * as StorageHandler from '../StorageHandler';
 
 const Counter = (props) => {
 
   const [count, setCount] = useState(0);
-  const onAdd = () => setCount(prevCount => count < 4 ? prevCount + 1: prevCount);
-  const onDecrement = () => setCount(prevCount => count > 0 ? prevCount - 1 : prevCount);
+  
+  useEffect(() =>
+  {
+    setCountersToInitalSavedValues();
+  }, [])
+  
+  function setCountersToInitalSavedValues() {
+    var value = StorageHandler.getData(props.storageKey).then(res => {
+      // console.log("Initial Value", res);
+      if (res != null) {
+        setCount(parseInt(res));
+      }
+      else {
+        setCount(0);
+      }
+      return res;
+    });
+  }
+
+
+  
+  const onAdd = () => {
+    setCount(prevCount => count < 4 ? prevCount + 1: prevCount);
+
+    if (count < 4) {
+      // console.log("onAdd count: ", count + 1);
+      StorageHandler.storeStringData(props.storageKey, count + 1);
+    }
+  }
+
+  const onDecrement = () => {
+    setCount(prevCount => count > 0 ? prevCount - 1 : prevCount);
+    
+    if (count > 0) {
+      // console.log("onDecrement count: ", count - 1);
+      StorageHandler.storeStringData(props.storageKey, count - 1);
+    }
+  }
 
   //Visibility Stuff
   const [shouldShow, setShouldShow] = useState(true);
 
   // shouldShow = false ? count > 0: true;
 
+  
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View>
@@ -27,7 +66,6 @@ const Counter = (props) => {
           {shouldShow ? (
             <Text style={styles.text}>{count}</Text>
           ) : null }
-          
           <IconButton icon = "plus-circle-outline" onPress={onAdd} />
 
         </View>
@@ -44,16 +82,15 @@ const styles = StyleSheet.create({
   counter: {
     flexDirection:'row', 
     justifyContent: 'center',
-    top: 5,
-    left: 5,
+    left: 15,
   },
   text: {
     fontSize: 20,
-    top: 11,
+    marginTop: 11,
     alignItems: 'center',
     color: 'red',
-  },
-
+    fontWeight: "500",
+  }
 
 })
 
