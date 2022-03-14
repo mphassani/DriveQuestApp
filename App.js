@@ -40,10 +40,14 @@ function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator  initialRouteName="LogIn" screenOptions={{header: CustomNavigationBar}}>
+        <Stack.Navigator initialRouteName="LogIn" screenOptions={{ header: CustomNavigationBar }}>
 
+          <Stack.Group>
             <Stack.Screen name="LogIn" component={LogIn} />
             <Stack.Screen name="PreDrive" component={PreDriveScreen} />
+          </Stack.Group>
+
+          <Stack.Group>
             <Stack.Screen name="freelanechange" component={FreewayLaneChangeScreen} />
             <Stack.Screen name="testresult" component={TestResult} />
             <Stack.Screen name="parkinglot" component={ParkingLot} />
@@ -54,6 +58,7 @@ function App() {
             <Stack.Screen name="autodq" component={AutoDQ} options={{ presentation: 'transparentModal', cardOverlayEnabled: true }} />
             <Stack.Screen name="turnscreenleft" component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
+          </Stack.Group>
 
 
         </Stack.Navigator>
@@ -74,6 +79,7 @@ const theme = {
     ...DefaultTheme.colors,
     primary: '#12414F',
     accent: '#90C96A',
+     
   },
 };
 
