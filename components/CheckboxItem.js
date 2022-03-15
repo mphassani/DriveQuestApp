@@ -7,7 +7,7 @@ import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Port
 const CheckboxItem = () => {
 
     /* Originally, each checkbox is set to notChecked */
-    const [notChecked, setNotChecked] = useState(false);
+    const [notChecked, setNotChecked] = useState(false); 
 
     return (
         /* Uses checkboxBase style for not checked checkbox, and checkboxChecked for checked checkbox */
