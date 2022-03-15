@@ -14,19 +14,19 @@ import Counter from '../../components/Counter';
 
 
 //Moises page 
-export default function FreewayLaneChangeScreen({ navigation }) {
+export default function FreewayLaneChangeRightScreen({ navigation }) {
     return (
         <PaperProvider>
             <ScrollView>
             View style={{ flexDirection:"row", justifyContent: "space-around" }}>
-                {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+                <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" color = "#87181A" disabled="true" >Left</Button>
+                        <Button mode="contained" color = "#87181A" disabled="true" onPress={() => navigation.navigate("FreewayLaneChange")}>Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" color = '#87181A' onPress={() => navigation.navigate("FreewayLaneChangeRight")}>Right</Button>
+                        <Button mode="contained" color = '#87181A' disabled="true">Right</Button>
                     </View>
-                </View> */}
+                </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                     <Text
                         style={{ fontSize: 25, fontWeight: 'bold' }}>Freeway Lane Change
@@ -36,48 +36,48 @@ export default function FreewayLaneChangeScreen({ navigation }) {
                 <List.Item 
                     title="Driver Side Mirror" 
                     left={(props) =><Avatar.Image {...props}  source={require('../../assets/driverSideMirror.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_DRIVER_SIDE_MIRROR"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_DRIVER_SIDE_MIRROR"/>}
                     />
                                     
                 <List.Item
                     title="Rear View Mirror"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_REAR_VIEW_MIRROR"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_REAR_VIEW_MIRROR"/>}
                     />
                 <List.Item
                     title="Passenger Side Mirror"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/passengerSideMirror.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_PASSENGER_SIDE_MIRROR"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_PASSENGER_SIDE_MIRROR"/>}
                     />
                 <List.Item 
                     title="Left Shoulder" 
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/leftShoulder.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_LEFT_SHOULDER"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_LEFT_SHOULDER"/>}
                     />
                 <List.Item
                     title="Right Shoulder"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_RIGHT_SHOULDER"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_RIGHT_SHOULDER"/>}
                     />
                 <List.Item
                     title="Signal"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_SIGNAL"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_SIGNAL"/>}
                     />
                 <List.Item
                     title="Speed"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_SPEED"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_SPEED"/>}
                     />
                 <List.Item
                     title="Spacing"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_SPACING"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_SPACING"/>}
                     />
                 <List.Item
                     title="Steering Control"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/SteeringControl.png')} />}
-                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_STEERING_CONTROL"/>}
+                    right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_RIGHT_STEERING_CONTROL"/>}
                     />
                 </List.Section>
             </ScrollView>

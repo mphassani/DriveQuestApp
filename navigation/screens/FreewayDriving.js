@@ -32,28 +32,28 @@ export default function FreewayDriving() {
                   <List.Item 
                       title="Scanning" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/scanning.png')} />}
-                      right={(props) =><Counter storageKey="freeway_entering_scanning"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_SCANNING"/>}
                       />
                                       
                   <List.Item
                       title="Traffic Check"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="freeway_entering_traffic_check"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_TRAFFIC_CHECK"/>}
                       />
                   <List.Item
                       title="Enter Speed"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="freeway_entering_enter_speed"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_ENTER_SPEED"/>}
                       />
                   <List.Item 
                       title="Positioning" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/positioning.png')} />}
-                      right={(props) =><Counter storageKey="freeway_entering_positioning"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_POSITIONING"/>}
                       />
                   <List.Item
                       title="Signal"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/Signal.png')} />}
-                      right={(props) =><Counter storageKey="freeway_entering_signal"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_SIGNAL"/>}
                       />
   
                   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
@@ -64,17 +64,17 @@ export default function FreewayDriving() {
                   <List.Item
                       title="Traffic Check"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="freeway_driving_traffic_check"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_TRAFFIC_CHECK"/>}
                       />
                   <List.Item
                       title="Speed"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="freeway_driving_speed"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_SPEED"/>}
                       />
                   <List.Item
                       title="Positioning"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/positioning.png')} />}
-                      right={(props) =><Counter storageKey="freeway_driving_positioning"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_POSITIONING"/>}
                       />
                   <List.Item 
                       title="Signal" 
@@ -90,37 +90,37 @@ export default function FreewayDriving() {
                   <List.Item 
                       title="Traffic Check" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_traffic_check"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_TRAFFIC_CHECK"/>}
                       />
                   <List.Item 
                       title="Exit Speed" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_exit_speed"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_EXIT_SPEED"/>}
                       />
                   <List.Item 
                       title="Positioning" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/positioning.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_positioning"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_POSITIONING"/>}
                       />
                   <List.Item 
                       title="Signal" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/Signal.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_signal"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_SIGNAL"/>}
                       />
                   <List.Item 
                       title="Yield" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/Yield.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_yield"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_YIELD"/>}
                       />
                   <List.Item 
                       title="Correct Lane" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/spacing.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_correct_lane"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_CORRECT_LANE"/>}
                       />
                   <List.Item 
                       title="Speed" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="freeway_exiting_speed"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_SPEED"/>}
                       />
                   </List.Section>
             </ScrollView>
