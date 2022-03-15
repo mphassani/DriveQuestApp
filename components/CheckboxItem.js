@@ -1,13 +1,38 @@
 import * as React from 'react';
 import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, Image, TextInput } from 'react-native';
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider, DefaultTheme} from 'react-native-paper';
+import * as StorageHandler from '../StorageHandler';
 
 /* Code to create each individual checkbox */
-const CheckboxItem = () => {
+const CheckboxItem = (props) => {
 
     /* Originally, each checkbox is set to notChecked */
     const [notChecked, setNotChecked] = useState(false); 
+
+    /* Getting initial values from storage*/
+    useEffect(() =>
+    {
+      setCheckboxToInitalSavedValue();
+    }, [])
+    
+    function setCheckboxToInitalSavedValue() {
+      var value = StorageHandler.getData(props.storageKey).then(res => {
+        // console.log("Initial Value", res);
+        if (res != null) {
+            if (res == "true") {
+                setNotChecked(true);
+            }
+            else {
+                setNotChecked(false);
+            }
+        }
+        else {
+            setNotChecked(false);
+        }
+        return res;
+      });
+    }
 
     return (
         /* Uses checkboxBase style for not checked checkbox, and checkboxChecked for checked checkbox */
@@ -18,6 +43,7 @@ const CheckboxItem = () => {
                 color="#FFFFFF" status={notChecked ? 'checked' : 'unchecked'}
                 onPress={() => {
                     setNotChecked(!notChecked);
+                    StorageHandler.storeStringData(props.storageKey, (!notChecked).toString());
                 }}
             />
         </View>

@@ -34,8 +34,9 @@ const Counter = (props) => {
 
     if (count < 4) {
       // console.log("onAdd count: ", count + 1);
-      StorageHandler.storeStringData(props.storageKey, count + 1);
+      StorageHandler.storeStringData(props.storageKey, (count + 1).toString());
     }
+    // StorageHandler.clearAllStoredData();
   }
 
   const onDecrement = () => {
@@ -43,7 +44,7 @@ const Counter = (props) => {
     
     if (count > 0) {
       // console.log("onDecrement count: ", count - 1);
-      StorageHandler.storeStringData(props.storageKey, count - 1);
+      StorageHandler.storeStringData(props.storageKey, (count - 1).toString());
     }
   }
 

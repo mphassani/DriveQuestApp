@@ -19,6 +19,7 @@ import CommentsScreen from './navigation/screens/CommentsScreen';
 import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
 import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
+import { clearAllStoredData } from './StorageHandler';
 
 
 
@@ -34,7 +35,7 @@ global.test = true;
 function CustomNavigationBarFirst({ navigation, back }) {
   return (
     <Appbar.Header>
-      <Appbar.Action icon={'logout'} onPress={() => alert("logged out")}/>
+      <Appbar.Action icon={'logout'} onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}/>
       <Appbar.Content title="DriveQuest" />
     </Appbar.Header>
   );

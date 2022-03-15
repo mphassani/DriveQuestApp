@@ -8,7 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export async function storeStringData(key, value) {
   try {
     // const store = stringify(key);
-    await AsyncStorage.setItem("@" + key, value.toString());
+    await AsyncStorage.setItem("@" + key, value);
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
@@ -31,7 +31,7 @@ export async function getData(key) {
     const value = await AsyncStorage.getItem("@" + key);
     if (value !== null) {
       // console.log("Returned Value in StorageHandler.js: ", value);
-      return value.toString();
+      return value;
     }
   } catch (e) {
     console.log("Exception in DropDown: " + e);

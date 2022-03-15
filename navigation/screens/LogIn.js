@@ -32,12 +32,17 @@ export default function LogIn({ navigation }) {
   }, []);
 
   function checkIfLoggedIn() {
-    let value = StorageHandler.getData("IS_LOGGED_IN");
-    if (value === null || value === undefined) {
-      console.log("Not logged in");
-    } else {
-      navigation.navigate("PreDrive");
-    }
+    let value = StorageHandler.getData("IS_LOGGED_IN").then(res => {
+      // console.log("Initial Value", res);
+      if (res == "true") {
+        console.log("Is logged in: ", res);
+        navigation.navigate("PreDrive");
+      } else {
+        console.log("Not logged in", res);
+      }
+      return res;
+    });;
+
   }
 
   return (
