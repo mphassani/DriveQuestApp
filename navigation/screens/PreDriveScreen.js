@@ -5,6 +5,7 @@ import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Port
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import CheckboxItem from "../../components/CheckboxItem";
+import Sound from "react-native-sound";
 
 const { height } = Dimensions.get('window');
 
