@@ -26,28 +26,28 @@ export default function ParkingLot({ navigation }) {
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="PARKINGLOT_MIRRORS"/>}
                     />
                 <List.Item 
                     title="Positioning" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="PARKINGLOT_POSITIONING"/>}
                     />
                 <List.Item 
                     title="Signal" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="PARKINGLOT_SIGNAL"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Image 
                             style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter/>}
+                    right={(props) =><Counter storageKey="PARKINGLOT_SPEED"/>}
                     />
                 </List.Section>
          
