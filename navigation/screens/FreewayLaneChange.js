@@ -16,7 +16,7 @@ import Counter from '../../components/Counter';
 //Moises page 
 export default function FreewayLaneChangeScreen({ navigation }) {
     return (
-        <PaperProvider>
+        <PaperProvider theme={theme}>
             <ScrollView>
             View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                 {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
@@ -91,7 +91,7 @@ const theme = {
     roundness: 2,
     colors: {
       ...DefaultTheme.colors,
-      primary: '#12414F',
+      primary: '#707070',
       accent: '#90C96A',
        
     },

@@ -13,12 +13,22 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 import { useNavigation } from '@react-navigation/native';
 
+const theme = {
+    ...DefaultTheme,
+    //roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#707070',
+      accent: '#FFFFFF',
+    },
+  };
+
 
 // Moises's page
 export default function FreewayDriving() {
     const navigation = useNavigation();
     return (
-        <PaperProvider>
+        <PaperProvider theme={theme}>
             <ScrollView>
                 <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
                 <Button mode='contained' onPress={() => navigation.navigate("freelanechange")}>Freeway Lange Change</Button>
