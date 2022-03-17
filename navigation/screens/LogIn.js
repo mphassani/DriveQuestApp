@@ -71,12 +71,12 @@ export default function LogIn({ navigation }) {
           paddingBottom: "5%",
         }}
       >
-        <Text style={styles.header}>Welcome Back</Text>
+        <Text style={styles.header}>Welcome</Text>
       </View>
 
       <View style={{ paddingRight: "10%", paddingLeft: "10%" }}>
         <TextInput
-          label="Log In Key"
+          label="Login Key"
           value={text}
           onChangeText={(text) => setText(text)}
           mode="outlined"
@@ -88,7 +88,7 @@ export default function LogIn({ navigation }) {
           mode="contained"
           onPress={() => checkPassword(navigation, text)}
         >
-          Log In
+          Login
         </Button>
       </View>
     </PaperProvider>
