@@ -125,12 +125,12 @@ export default function IntersectionScreen({ navigation }) {
     );
 }
 
-const styles = StyleSheet.create({
-    fab: {
-        position: 'absolute',
-        margin: 16,
-        right: 0,
-        bottom: 0,
-    },
-  });
+// const styles = StyleSheet.create({
+//     fab: {
+//         position: 'absolute',
+//         margin: 16,
+//         right: 0,
+//         bottom: 0,
+//     },
+//   });
 
