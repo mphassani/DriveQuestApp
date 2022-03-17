@@ -35,29 +35,25 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Item 
                     title="Safe Distance" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/spacing.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/spacing.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE"/>}
                     />
                 <List.Item 
                     title="Positioning" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_RESIDENTIAL_POSITIONING"/>}
                     />
                 <List.Item 
                     title="Observation" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/observation.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/observation.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_RESIDENTIAL_OBSERVATION"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_RESIDENTIAL_SPEED"/>}
                     />
                 </List.Section>
@@ -72,43 +68,37 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Item 
                     title="Safe Distance" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A'}}source={require('../../assets/spacing.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/spacing.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_BUSINESS_SAFE_DISTANCE"/>}
                     />
                 <List.Item 
                     title="Positioning" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_BUSINESS_POSITIONING"/>}
                     />
                 <List.Item 
                     title="Observation" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/observation.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/observation.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_BUSINESS_OBSERVATION"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_BUSINESS_SPEED"/>}
                     />
                 <List.Item
                     title="Signal"
                     left={(props) => 
-                    <Image 
-                        style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_BUSINESS_SIGNAL"/>}
                     /> 
                 <List.Item 
                     title="Mirrors" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/rearViewMirror.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_BUSINESS_MIRRORS"/>}
                     />
                 </List.Section>
@@ -123,22 +113,19 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_CURB_SPEED"/>}
                     />
                 <List.Item 
                     title="Avoids Curb" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/avoidsCurb.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/avoidsCurb.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_CURB_AVOIDS_CURB"/>}
                     />
                 <List.Item
                     title="Signal"
                     left={(props) => 
-                    <Image 
-                        style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_CURB_SIGNAL"/>}
                     /> 
                 </List.Section>
@@ -153,29 +140,25 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Item 
                     title="Right Shoulder" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rightShoulder.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/rightShoulder.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER"/>}
                     />
                 <List.Item 
                     title="Avoids Curb" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/avoidsCurb.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/avoidsCurb.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_AVOIDS_CURB"/>}
                     />
                 <List.Item 
                     title="Mirrors" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/rearViewMirror.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_MIRRORS"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_SPEED"/>}
                     />
                 </List.Section>
@@ -183,3 +166,12 @@ export default function ResidentialScreen({ navigation }) {
         </PaperProvider>
     );
 }
+
+const styles = StyleSheet.create({
+    fab: {
+        position: 'absolute',
+        margin: 16,
+        right: 0,
+        bottom: 0,
+    },
+  });
