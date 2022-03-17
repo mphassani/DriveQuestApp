@@ -29,7 +29,7 @@ export default function CommentsScreen({ navigation }) {
             setText(res);
           }
           else {
-            setCount("");
+            setText("");
           }
           return res;
         });

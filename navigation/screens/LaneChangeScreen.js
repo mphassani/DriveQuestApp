@@ -44,48 +44,48 @@ export default function LaneChangeScreenRight() {
                     title="Driver Side Mirror" 
                     left={(props) =><Avatar.Image {...props}  source={require('../../assets/driverSideMirror.png')} />}
                     //right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Driver_Side_Mirror" />}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_DRIVER_SIDE_MIRROR" />}
                     />
                                     
                 <List.Item
                     title="Rear View Mirror"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Rear_View_Mirror"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_REAR_VIEW_MIRROR"/>}
                     />
                 <List.Item
                     title="Passenger Side Mirror"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/passengerSideMirror.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Passenger_Side_Mirror"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_PASSENGER_SIDE_MIRROR"/>}
                     />
                 <List.Item 
                     title="Left Shoulder" 
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/leftShoulder.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Left_Shoulder"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_LEFT_SHOULDER"/>}
                     />
                 <List.Item
                     title="Right Shoulder"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Right_Shoulder"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_RIGHT_SHOULDER"/>}
                     />
                 <List.Item
                     title="Signal"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Signal"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_SIGNAL"/>}
                     />
                 <List.Item
                     title="Speed"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Speed"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_SPEED"/>}
                     />
                 <List.Item
                     title="Spacing"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Spacing"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_SPACING"/>}
                     />
                 <List.Item
                     title="Steering Control"
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/SteeringControl.png')} />}
-                    right={(props) => <Counter storageKey="LaneChange_Right_Steering_Control"/>}
+                    right={(props) => <Counter storageKey="LANECHANGE_RIGHT_STEERING_CONTROL"/>}
                     />
                 </List.Section>
             </ScrollView>
