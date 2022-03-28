@@ -16,8 +16,7 @@ export default function TestResults({ navigation }) {
   function calculateScore() {
     testPass = false
     score = passPredriveSection()
-    console.log("SCORE: ")
-    console.log(score)
+    //console.log(score)
     // if (passAutoDQ()) {
     //   if (passPredriveSection()) {
     //     if (passDrivingSection()) {
@@ -29,23 +28,15 @@ export default function TestResults({ navigation }) {
   }
 
   function passPredriveSection() {
-    let value = StorageHandler.getData("PREDRIVE_DRIVER_WINDOW").then(res => {
-      if (res == "true") {
-        console.log("is = to 1")
-      } else {
-        console.log("is not = to 1")
-      }
-      return res;
-    });;
-
-    // console.log("in predrive check")
     // armSignalScore = 0
     // if ((StorageHandler.getData("PREDRIVE_RIGHT_ARM_SIGNAL") + StorageHandler.getData("PREDRIVE_LEFT_ARM_SIGNAL") + StorageHandler.getData("PREDRIVE_STOP_ARM_SIGNAL")) == 3) {
     //   armSignalScore = 1
     // }
-    // mechanicalScore = 0
-    // console.log(StorageHandler.getData("PREDRIVE_DRIVER_WINDOW"))
-    // mechanicalScore = StorageHandler.getData("PREDRIVE_DRIVER_WINDOW") + StorageHandler.getData("PREDRIVE_WINDSHIELD") + StorageHandler.getData("PREDRIVE_REAR_VIEW_MIRRORS") + StorageHandler.getData("PREDRIVE_LEFT_TURN_SIGNAL") + StorageHandler.getData("PREDRIVE_RIGHT_TURN_SIGNAL") + StorageHandler.getData("PREDRIVE_BRAKE_LIGHTS") + StorageHandler.getData("PREDRIVE_TIRES") + StorageHandler.getData("PREDRIVE_FOOT_BRAKES") + StorageHandler.getData("PREDRIVE_HORN") + StorageHandler.getData("PREDRIVE_PASSENGER_DOOR") + StorageHandler.getData("PREDRIVE_GLOVE_BOX") + StorageHandler.getData("PREDRIVE_SEATBELTS")
+    mechanicalScore = 0
+    console.log("MECHANICAL SCORE")
+    mechanicalScore = calculateMechanicalScore()
+    console.log(mechanicalScore)
+    //console.log(mechanicalScore)
     // operationalScore = 0
     // operationalScore = StorageHandler.getData("PREDRIVE_PARKING_BRAKE") + armSignalScore + StorageHandler.getData("PREDRIVE_WINDSHIELD_WIPERS") + StorageHandler.getData("PREDRIVE_DEFROSTER") + StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER") + StorageHandler.getData("PREDRIVE_PREDRIVE_HEADLIGHTS")
     // if (!(mechanicalScore == 12)) {
@@ -60,6 +51,40 @@ export default function TestResults({ navigation }) {
     // else {
     //   return true
     // }
+  }
+
+  function calculateMechanicalScore() {
+    totalScore = 0
+    // let keyArray = ["PREDRIVE_DRIVER_WINDOW", "PREDRIVE_WINDSHIELD", "PREDRIVE_REAR_VIEW_MIRRORS"]
+    // for (key in keyArray) {
+    //   let value = StorageHandler.getData(key).then(res => {
+    //     if (res == "true") {
+    //       totalScore += 1
+    //     } else {
+    //       console.log("not = to 1")
+    //     }
+    //     return res;
+    //   });;
+    // }
+  
+    let value = StorageHandler.getData("PREDRIVE_DRIVER_WINDOW").then(res => {
+      if (res == "true") {
+        //increaseTotalScore()
+        console.log("increasing score")
+        console.log(totalScore)
+      } else {
+        console.log("not = to 1")
+      }
+      return res;
+    }).then(increaseTotalScore());
+    console.log("total score variable")
+    console.log(totalScore)
+   
+    function increaseTotalScore(){
+      totalScore = totalScore + 1
+    }
+
+    return totalScore
   }
 
 
