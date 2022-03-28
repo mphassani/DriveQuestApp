@@ -1,21 +1,32 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { List, Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
+import { List, Provider as PaperProvider, Appbar, DefaultTheme, Button } from 'react-native-paper';
 import * as StorageHandler from "../../StorageHandler";
 import { useEffect, useState } from "react";
 
 
 
 export default function TestResults({ navigation }) {
+
+  var totalScore;
+
   useEffect(() => {
-    console.log("testing");
-    score = calculateScore();
-    console.log(score)
+    const calcTotalScore = async () => {
+      const data = await calculateScore();
+      console.log("Use Effect Total Score: ", data);
+    }
+
+    calcTotalScore();
   }, []);
 
-  function calculateScore() {
-    testPass = false
-    score = passPredriveSection()
+  async function calculateScore() {
+    var testPass = false;
+    var score = 0;
+
+    
+    score += await calculatePredrive();
+
+    return score;
     //console.log(score)
     // if (passAutoDQ()) {
     //   if (passPredriveSection()) {
@@ -27,34 +38,32 @@ export default function TestResults({ navigation }) {
     // return testPass
   }
 
-  function passPredriveSection() {
-    // armSignalScore = 0
-    // if ((StorageHandler.getData("PREDRIVE_RIGHT_ARM_SIGNAL") + StorageHandler.getData("PREDRIVE_LEFT_ARM_SIGNAL") + StorageHandler.getData("PREDRIVE_STOP_ARM_SIGNAL")) == 3) {
-    //   armSignalScore = 1
-    // }
-    mechanicalScore = 0
-    console.log("MECHANICAL SCORE")
-    mechanicalScore = calculateMechanicalScore()
-    console.log(mechanicalScore)
-    //console.log(mechanicalScore)
-    // operationalScore = 0
-    // operationalScore = StorageHandler.getData("PREDRIVE_PARKING_BRAKE") + armSignalScore + StorageHandler.getData("PREDRIVE_WINDSHIELD_WIPERS") + StorageHandler.getData("PREDRIVE_DEFROSTER") + StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER") + StorageHandler.getData("PREDRIVE_PREDRIVE_HEADLIGHTS")
-    // if (!(mechanicalScore == 12)) {
-    //   console.log(mechanicalScore)
-    //   console.log("fail mechanical score")
-    //   return false
-    // }
-    // if (operationalScore <= 4) {
-    //   console.log("fail operational score")
-    //   return false
-    // }
-    // else {
-    //   return true
-    // }
+  async function calculatePredrive() {
+
+    var score = 0
+    const value1 = await StorageHandler.getData("PREDRIVE_DRIVER_WINDOW");
+    const value2 = await StorageHandler.getData("PREDRIVE_WINDSHIELD");
+    const value3 = await StorageHandler.getData("PREDRIVE_REAR_VIEW_MIRRORS");
+
+    if (value1 == "true") {
+      score += 1;
+    }
+
+    if (value2 == "true") {
+      score += 1;
+    }
+    
+    if (value3 == "true") {
+      score += 1;
+    }
+
+    console.log("PreDrive Score: ", (score))
+
+    return score;
   }
 
   function calculateMechanicalScore() {
-    totalScore = 0
+    var score = 0
     // let keyArray = ["PREDRIVE_DRIVER_WINDOW", "PREDRIVE_WINDSHIELD", "PREDRIVE_REAR_VIEW_MIRRORS"]
     // for (key in keyArray) {
     //   let value = StorageHandler.getData(key).then(res => {
@@ -67,26 +76,13 @@ export default function TestResults({ navigation }) {
     //   });;
     // }
   
-    let value = StorageHandler.getData("PREDRIVE_DRIVER_WINDOW").then(res => {
-      if (res == "true") {
-        //increaseTotalScore()
-        console.log("increasing score")
-        console.log(totalScore)
-      } else {
-        console.log("not = to 1")
-      }
-      return res;
-    }).then(increaseTotalScore());
-    console.log("total score variable")
-    console.log(totalScore)
-   
-    function increaseTotalScore(){
-      totalScore = totalScore + 1
-    }
-
-    return totalScore
+    return score;
   }
 
+  async function getTotalScore() {
+    var getScore = await calculatePredrive();
+    console.log("Total Score: ", getScore);
+  }
 
 
   return (
@@ -140,6 +136,13 @@ export default function TestResults({ navigation }) {
 
             Overall Score: PASS/NOT PASS
           </Text>
+
+          <Button
+          mode="contained"
+          onPress={() => getTotalScore()}
+          >
+            Test
+          </Button>
         </View>
       </List.AccordionGroup>
     </PaperProvider>
@@ -171,11 +174,11 @@ export default function TestResults({ navigation }) {
   
   
   function passDrivingSection() {
-    residentialCount = 0
-    intersectionCount = 0
-    turnsCount = 0
-    lanechangeCount = 0
-    freewayCount = 0
+    var residentialCount = 0
+    var intersectionCount = 0
+    var turnsCount = 0
+    var lanechangeCount = 0
+    var freewayCount = 0
     totalCount = parkinglotCount + residentialCount + businessCount + reversingCount + freewayCount + intersectionCount + turnsCount + lanechangeCount
     if (totalCount > 15) {
       return false
@@ -186,7 +189,7 @@ export default function TestResults({ navigation }) {
   }
   
   function passAutoDQ() {
-    autoDQ = false
+    var autoDQ = false
     if (autoDQ){
       return false
     }
