@@ -26,7 +26,7 @@ export default function TestResults() {
   useEffect(() => {
     const calcTotalScore = async () => {
       const data = await calculateScore();
-      // console.log("Total Score: ", data);
+      console.log("Total Fake Score: ", data);
     }
 
     calcTotalScore();
@@ -34,27 +34,27 @@ export default function TestResults() {
 
   async function calculateScore() {
     var passedTest = true;
-    var score = 0;
+    var totalFakescore = 0;
 
     // Get scores for each section
     var preDriveMechanicalScore = await calculateMechanicalScore();
     var preDriveOperationalScore = await calculateOperationalScore();
     var parkingLotScore = await calculateParkingLotScore();
-    var ResidentialScore = await calculateResidentialScore();
-    var FreewayScore = await calculateFreewayScore();
-    var IntersectionScore = await calculateIntersectionScore();
-    var TurningScore = await calculateTurningScore();
-    var LaneChangeScore = await calculateLaneChangeScore();
+    var residentialScore = await calculateResidentialScore();
+    var freewayScore = await calculateFreewayScore();
+    var intersectionScore = await calculateIntersectionScore();
+    var turningScore = await calculateTurningScore();
+    var laneChangeScore = await calculateLaneChangeScore();
     
     // Show the scores in the front end
     setMechanicalDisplay(preDriveMechanicalScore);
     setOperationalDisplay(preDriveOperationalScore);
     setParkinglotDisplay(parkingLotScore);
-    setResidentialDisplay(ResidentialScore);
-    setFreewayDisplay(FreewayScore);
-    setIntersectionDisplay(IntersectionScore);
-    setTurningDisplay(TurningScore);
-    setLangechangeDisplay(LaneChangeScore);
+    setResidentialDisplay(residentialScore);
+    setFreewayDisplay(freewayScore);
+    setIntersectionDisplay(intersectionScore);
+    setTurningDisplay(turningScore);
+    setLangechangeDisplay(laneChangeScore);
 
     // Auto DQ Check
     const auto_dq = await StorageHandler.getData("AUTO_DQ");
@@ -64,23 +64,23 @@ export default function TestResults() {
     }
 
     // Mechanical Section Check
-    // if (preDriveMechanicalScore < 8) {
-    //   passedTest = false;
-    // }
+    if (preDriveMechanicalScore != 12) {
+      passedTest = false;
+    }
 
     // Operational Section Check
-    // if (preDriveOperationalScore < 4) {
-    //   passedTest = false;
-    // }
+    if (preDriveOperationalScore <= 4) {
+      passedTest = false;
+    }
 
     // Driving Section Check
-    var totalDrivingScore = parkingLotScore + ResidentialScore + FreewayScore + IntersectionScore + TurningScore + LaneChangeScore;
+    var totalDrivingScore = parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore;
 
     if (totalDrivingScore > 15) {
       passedTest = false;
     }
     
-    // score += preDriveMechanicalScore + preDriveOperationalScore;
+    totalFakescore += preDriveMechanicalScore + preDriveOperationalScore + parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore;
 
 
     if (passedTest) {
@@ -91,22 +91,22 @@ export default function TestResults() {
     }
 
 
-    // return score;
+    return totalFakeScore;
   }
 
-  // Mechanical
+  // Mechanical = 12
   async function calculateMechanicalScore() {
 
     var score = 0
     const value1 = await StorageHandler.getData("PREDRIVE_DRIVER_WINDOW");
     const value2 = await StorageHandler.getData("PREDRIVE_WINDSHIELD");
     const value3 = await StorageHandler.getData("PREDRIVE_REAR_VIEW_MIRRORS");
-    const value4 = await StorageHandler.getData("PREDRIVE_LEFT_TURN_SIGNAL");
-    const value5 = await StorageHandler.getData("PREDRIVE_RIGHT_TURN_SIGNAL");
+    const value4 = await StorageHandler.getData("PREDRIVE_RIGHT_TURN_SIGNAL");
+    const value5 = await StorageHandler.getData("PREDRIVE_LEFT_TURN_SIGNAL");
     const value6 = await StorageHandler.getData("PREDRIVE_BRAKE_LIGHTS");
     const value7 = await StorageHandler.getData("PREDRIVE_TIRES");
     const value8 = await StorageHandler.getData("PREDRIVE_FOOT_BRAKES");
-    const value9 = await StorageHandler.getData("PREDRIVE_HORN");
+    const value9 = await StorageHandler.getData("PREDRIVE_HEADLIGHTS");
     const value10 = await StorageHandler.getData("PREDRIVE_PASSENGER_DOOR");
     const value11 = await StorageHandler.getData("PREDRIVE_GLOVE_BOX");
     const value12 = await StorageHandler.getData("PREDRIVE_SEATBELTS");
@@ -124,18 +124,18 @@ export default function TestResults() {
     return score;
   }
 
-  // Operational
+  // Operational = 8
   async function calculateOperationalScore() {
 
     var score = 0
-    const value1 = await StorageHandler.getData("PREDRIVE_PARKING_BRAKE");
-    const value2 = await StorageHandler.getData("PREDRIVE_RIGHT_ARM_SIGNAL");
-    const value3 = await StorageHandler.getData("PREDRIVE_LEFT_ARM_SIGNAL");
-    const value4 = await StorageHandler.getData("PREDRIVE_STOP_ARM_SIGNAL");
-    const value5 = await StorageHandler.getData("PREDRIVE_WINDSHIELD_WIPERS");
-    const value6 = await StorageHandler.getData("PREDRIVE_DEFROSTER");
-    const value7 = await StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER");
-    const value8 = await StorageHandler.getData("PREDRIVE_HEADLIGHTS");
+    const value1 = await StorageHandler.getData("PREDRIVE_HORN");
+    const value2 = await StorageHandler.getData("PREDRIVE_PARKING_BRAKE");
+    const value3 = await StorageHandler.getData("PREDRIVE_RIGHT_ARM_SIGNAL");
+    const value4 = await StorageHandler.getData("PREDRIVE_LEFT_ARM_SIGNAL");
+    const value5 = await StorageHandler.getData("PREDRIVE_STOP_ARM_SIGNAL");
+    const value6 = await StorageHandler.getData("PREDRIVE_WINDSHIELD_WIPERS");
+    const value7 = await StorageHandler.getData("PREDRIVE_DEFROSTER");
+    const value8 = await StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER");
     
     const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8];
 
@@ -150,22 +150,118 @@ export default function TestResults() {
     return score;
   }
 
-  // Parking Lot
+  // Parking Lot = 4
   async function calculateParkingLotScore() {
 
+    var score = 0;
+    const value1 = await StorageHandler.getData("PARKINGLOT_MIRRORS");
+    const value2 = await StorageHandler.getData("PARKINGLOT_POSITIONING");
+    const value3 = await StorageHandler.getData("PARKINGLOT_SIGNAL");
+    const value4 = await StorageHandler.getData("PARKINGLOT_SPEED");
+    const stringArray = await [value1, value2, value3, value4];
+
+    for (var i in stringArray) {
+      if (stringArray[i] != null) {
+        score += parseInt(stringArray[i]);
+      }
+    }
+
+    console.log("Parking Lot Score: ", (score))
+
+    return score;
   }
 
-  // Residential
+  // Residential = 17
   async function calculateResidentialScore() {
 
+    var score = 0;
+    const value1 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE");
+    const value2 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_POSITIONING");
+    const value3 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_OBSERVATION");
+    const value4 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SPEED");
+
+    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SAFE_DISTANCE");
+    const value6 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_POSITIONING");
+    const value7 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_OBSERVATION");
+    const value8 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SPEED");
+    const value9 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SIGNAL");
+    const value10 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_MIRRORS");
+
+    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
+    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_AVOIDS_CURB");
+    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
+
+    const value14 = await StorageHandler.getData("RESIDENTIAL_REVERSING_RIGHT_SHOULDER");
+    const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_AVOIDS_CURB");
+    const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_MIRRORS");
+    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
+    const stringArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17];
+
+    for (var i in stringArray) {
+      if (stringArray[i] != null) {
+        score += parseInt(stringArray[i]);
+      }
+    }
+
+    console.log("Residential Score: ", (score))
+
+    return score;
   }
 
-  // Freeway
+  // Freeway = 34
   async function calculateFreewayScore() {
 
+    var score = 0;
+    const value1 = await StorageHandler.getData("FREEWAY_ENTERING_SCANNING");
+    const value2 = await StorageHandler.getData("FREEWAY_ENTERING_TRAFFIC_CHECK");
+    const value3 = await StorageHandler.getData("FREEWAY_ENTERING_ENTER_SPEED");
+    const value4 = await StorageHandler.getData("FREEWAY_ENTERING_POSITIONING");
+    const value5 = await StorageHandler.getData("FREEWAY_ENTERING_SIGNAL");
+    const value6 = await StorageHandler.getData("FREEWAY_DRIVING_TRAFFIC_CHECK");
+    const value7 = await StorageHandler.getData("FREEWAY_DRIVING_SPEED");
+    const value8 = await StorageHandler.getData("FREEWAY_DRIVING_POSITIONING");
+    const value9 = await StorageHandler.getData("FREEWAY_DRIVING_SIGNAL");
+
+    const value10 = await StorageHandler.getData("FREEWAY_EXITING_TRAFFIC_CHECK");
+    const value11 = await StorageHandler.getData("FREEWAY_EXITING_EXIT_SPEED");
+    const value12 = await StorageHandler.getData("FREEWAY_EXITING_POSITIONING");
+    const value13 = await StorageHandler.getData("FREEWAY_EXITING_SIGNAL");
+    const value14 = await StorageHandler.getData("FREEWAY_EXITING_YIELD");
+    const value15 = await StorageHandler.getData("FREEWAY_EXITING_CORRECT_LANE");
+    const value16 = await StorageHandler.getData("FREEWAY_EXITING_SPEED");
+
+    const value17 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_DRIVER_SIDE_MIRROR");
+    const value18 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_REAR_VIEW_MIRROR");
+    const value19 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_PASSENGER_SIDE_MIRROR");
+    const value20 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_LEFT_SHOULDER");
+    const value21 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_RIGHT_SHOULDER");
+    const value22 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_SIGNAL");
+    const value23 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_SPEED");
+    const value24 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_SPACING");
+    const value25 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_LEFT_STEERING_CONTROL");
+    const value26 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_DRIVER_SIDE_MIRROR");
+    const value27 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_REAR_VIEW_MIRROR");
+    const value28 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_PASSENGER_SIDE_MIRROR");
+    const value29 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_LEFT_SHOULDER");
+    const value30 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_RIGHT_SHOULDER");
+    const value31 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_SIGNAL");
+    const value32 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_SPEED");
+    const value33 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_SPACING");
+    const value34 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_STEERING_CONTROL");
+    const stringArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19, value20, value21, value22, value23, value24, value25, value26, value27, value28, value29, value30, value31, value32, value33, value34];
+
+    for (var i in stringArray) {
+      if (stringArray[i] != null) {
+        score += parseInt(stringArray[i]);
+      }
+    }
+
+    console.log("Freeway Score: ", (score))
+
+    return score;
   }
 
-  // Intersection
+  // Intersection = 11
   async function calculateIntersectionScore() {
 
     var score = 0
@@ -194,7 +290,7 @@ export default function TestResults() {
     return score;
   }
 
-  // Turning
+  // Turning = 36
   async function calculateTurningScore() {
 
     var score = 0
@@ -249,7 +345,7 @@ export default function TestResults() {
     return score;
   }
 
-  // Lane Change
+  // Lane Change = 18
   async function calculateLaneChangeScore() {
 
     var score = 0
