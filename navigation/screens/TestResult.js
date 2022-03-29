@@ -22,67 +22,66 @@ export default function TestResults({ navigation }) {
   async function calculateScore() {
     var testPass = false;
     var score = 0;
-
+    var preDriveMechanicalScore = await calculateMechanicalScore();
+    var preDriveOperationalScore = await calculateOperationalScore();
     
-    score += await calculatePredrive();
+    score += preDriveMechanicalScore + preDriveOperationalScore;
 
     return score;
-    //console.log(score)
-    // if (passAutoDQ()) {
-    //   if (passPredriveSection()) {
-    //     if (passDrivingSection()) {
-    //       testPass = true
-    //     }
-    //   }
-    // }
-    // return testPass
   }
 
-  async function calculatePredrive() {
+  async function calculateMechanicalScore() {
 
     var score = 0
     const value1 = await StorageHandler.getData("PREDRIVE_DRIVER_WINDOW");
     const value2 = await StorageHandler.getData("PREDRIVE_WINDSHIELD");
     const value3 = await StorageHandler.getData("PREDRIVE_REAR_VIEW_MIRRORS");
-
-    if (value1 == "true") {
-      score += 1;
-    }
-
-    if (value2 == "true") {
-      score += 1;
-    }
+    const value4 = await StorageHandler.getData("PREDRIVE_LEFT_TURN_SIGNAL");
+    const value5 = await StorageHandler.getData("PREDRIVE_RIGHT_TURN_SIGNAL");
+    const value6 = await StorageHandler.getData("PREDRIVE_BRAKE_LIGHTS");
+    const value7 = await StorageHandler.getData("PREDRIVE_TIRES");
+    const value8 = await StorageHandler.getData("PREDRIVE_FOOT_BRAKES");
+    const value9 = await StorageHandler.getData("PREDRIVE_HORN");
+    const value10 = await StorageHandler.getData("PREDRIVE_PASSENGER_DOOR");
+    const value11 = await StorageHandler.getData("PREDRIVE_GLOVE_BOX");
+    const value12 = await StorageHandler.getData("PREDRIVE_SEATBELTS");
+    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12];
     
-    if (value3 == "true") {
-      score += 1;
+    for (var i in stringArray) {
+      if (stringArray[i] == "true"){
+        score += 1
+      }
     }
 
-    console.log("PreDrive Score: ", (score))
+    console.log("PreDrive Mechanical Score: ", (score))
 
     return score;
   }
 
-  function calculateMechanicalScore() {
+  async function calculateOperationalScore() {
+
     var score = 0
-    // let keyArray = ["PREDRIVE_DRIVER_WINDOW", "PREDRIVE_WINDSHIELD", "PREDRIVE_REAR_VIEW_MIRRORS"]
-    // for (key in keyArray) {
-    //   let value = StorageHandler.getData(key).then(res => {
-    //     if (res == "true") {
-    //       totalScore += 1
-    //     } else {
-    //       console.log("not = to 1")
-    //     }
-    //     return res;
-    //   });;
-    // }
-  
+    const value1 = await StorageHandler.getData("PREDRIVE_PARKING_BRAKE");
+    const value2 = await StorageHandler.getData("PREDRIVE_RIGHT_ARM_SIGNAL");
+    const value3 = await StorageHandler.getData("PREDRIVE_LEFT_ARM_SIGNAL");
+    const value4 = await StorageHandler.getData("PREDRIVE_STOP_ARM_SIGNAL");
+    const value5 = await StorageHandler.getData("PREDRIVE_WINDSHIELD_WIPERS");
+    const value6 = await StorageHandler.getData("PREDRIVE_DEFROSTER");
+    const value7 = await StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER");
+    const value8 = await StorageHandler.getData("PREDRIVE_HEADLIGHTS");
+    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8];
+
+    for (var i in stringArray) {
+      if (stringArray[i] == "true"){
+        score += 1
+      }
+    }
+
+    console.log("PreDrive Operational Score: ", (score))
+
     return score;
   }
 
-  async function getTotalScore() {
-    var getScore = await calculatePredrive();
-    console.log("Total Score: ", getScore);
-  }
 
 
   return (
