@@ -32,7 +32,7 @@ export default function TestResults() {
 
   async function calculateScore() {
     var passedTest = true;
-    var totalFakescore = 0;
+    var totalFakeScore = 0;
 
     // Get scores for each section
     var preDriveMechanicalScore = await calculateMechanicalScore();
@@ -78,7 +78,7 @@ export default function TestResults() {
       passedTest = false;
     }
     
-    totalFakescore += preDriveMechanicalScore + preDriveOperationalScore + parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore;
+    totalFakeScore += (preDriveMechanicalScore + preDriveOperationalScore + parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore);
 
 
     if (passedTest) {
@@ -384,7 +384,7 @@ export default function TestResults() {
   return (
     <View>
 
-      <View style={{alignItems: 'center', justifyContent: 'center', padding: "15px"}}>
+      <View style={{alignItems: 'center', justifyContent: 'center', padding: 15}}>
       <Text style={styles.title}>Results</Text>
       </View>
 
@@ -458,29 +458,35 @@ const styles = StyleSheet.create({
       height: 45,
       borderRadius: 10,
       backgroundColor: 'white',
-      marginLeft: '15px',
-      marginRight: '15px',
-      marginBottom: '10px',
-      justifyContent: 'center',
-      padding: '15px',
-      display: 'inline-block',
-      alignItems: 'baseline'
+      marginLeft: 15,
+      marginRight: 15,
+      marginBottom: 10,
+      
+      paddingLeft: 15,
+      paddingRight: 15,
+      paddingTop: 15,
+      paddingBottom: 5,
+      alignItems: 'baseline',
+      flexDirection:'row', 
+      flexWrap:'wrap'
   },
   sectionName: {
-    float: 'left',
+    flex: 1,
+    textAlign: "left",
     fontSize: 22,
-    marginTop: '-6px'
+    marginTop: -6
   },
   sectionResult: {
-    float: 'right',
+    textAlign: "right",
     fontSize: 22,
-    marginTop: '-6px',
-    color: 'green'
+    marginTop: -6,
+    color: 'green',
+    fontWeight: "500"
   },
   sendButtonContainer: {
-    marginLeft: '15px',
-    marginRight: '15px',
-    marginBottom: '15px',
+    marginLeft: 15,
+    marginRight: 15,
+    marginBottom: 15,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -488,16 +494,20 @@ const styles = StyleSheet.create({
     height: 45,
     borderRadius: 10,
     backgroundColor: 'green',
-    marginLeft: '15px',
-    marginRight: '15px',
-    marginBottom: '15px',
+    marginLeft: 15,
+    marginRight: 15,
+    marginBottom: 15,
     justifyContent: 'center',
-    padding: '15px',
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 15,
+    paddingBottom: 5,
     alignItems: 'center'
   },
   finalResultsText: {
     color: 'white',
     fontSize: 22,
+    marginTop: -10,
     fontWeight: 'bold'
   }
 });
