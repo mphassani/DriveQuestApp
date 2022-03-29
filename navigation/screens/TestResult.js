@@ -58,7 +58,7 @@ export default function TestResults() {
     }
 
     // Operational Section Check
-    if (preDriveOperationalScore > 4) {
+    if (preDriveOperationalScore >= 4) {
       passedTest = false;
       setOperationalDisplay(preDriveOperationalScore);
     }
