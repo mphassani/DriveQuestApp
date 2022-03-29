@@ -52,7 +52,7 @@ export default function HomeScreen() {
           <Card>
             <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1644&q=80' }} />
             <Card.Actions>
-              <Button color="#90C96A" mode="contained" onPress={() => navigation.navigate('testresult')}>Test result</Button>
+              <Button color="#90C96A" mode="contained" onPress={() => navigation.navigate('testresult')}>Test Results</Button>
             </Card.Actions>
           </Card>
         </View>

@@ -37,6 +37,7 @@ export default function LogIn({ navigation }) {
       if (res == "true") {
         console.log("Is logged in: ", res);
         navigation.navigate("PreDrive");
+        // navigation.navigate("testresult");
       } else {
         console.log("Not logged in", res);
       }
