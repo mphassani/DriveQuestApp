@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, Linking } from 'react-native';
 import { List, Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
 import * as StorageHandler from "../../StorageHandler";
 import { useEffect, useState } from "react";
@@ -10,8 +10,10 @@ import { useNavigation } from '@react-navigation/native';
 export default function TestResults() {
   const navigation = useNavigation();
 
-  const [mechanicalDisplay, setMechanicalDisplay] = useState(0);
-  const [operationalDisplay, setOperationalDisplay] = useState(0);
+  const [emailBody, setEmailBody] = useState("Can't find email text");
+
+  const [mechanicalDisplay, setMechanicalDisplay] = useState("Passed");
+  const [operationalDisplay, setOperationalDisplay] = useState("Passed");
   const [parkinglotDisplay, setParkinglotDisplay] = useState(0);
   const [residentialDisplay, setResidentialDisplay] = useState(0);
   const [freewayDisplay, setFreewayDisplay] = useState(0);
@@ -24,7 +26,7 @@ export default function TestResults() {
   useEffect(() => {
     const calcTotalScore = async () => {
       const data = await calculateScore();
-      console.log("Total Fake Score: ", data);
+      console.log("Total Number of Errors: ", data);
     }
 
     calcTotalScore();
@@ -32,7 +34,7 @@ export default function TestResults() {
 
   async function calculateScore() {
     var passedTest = true;
-    var totalFakeScore = 0;
+    var totalNumErrors = 0;
 
     // Get scores for each section
     var preDriveMechanicalScore = await calculateMechanicalScore();
@@ -45,8 +47,45 @@ export default function TestResults() {
     var laneChangeScore = await calculateLaneChangeScore();
     
     // Show the scores in the front end
-    setMechanicalDisplay(preDriveMechanicalScore);
-    setOperationalDisplay(preDriveOperationalScore);
+
+    // Mechanical Section Check
+    if (preDriveMechanicalScore > 0) {
+      passedTest = false;
+      setMechanicalDisplay(preDriveMechanicalScore);
+    }
+    else {
+      setMechanicalDisplay("Passed");
+    }
+
+    // Operational Section Check
+    if (preDriveOperationalScore > 4) {
+      passedTest = false;
+      setOperationalDisplay(preDriveOperationalScore);
+    }
+    else {
+      setOperationalDisplay("Passed");
+    }
+
+
+    // // Parking Lot [Trying this]
+    // if (parkingLotScore == 0) {
+    //   setParkinglotDisplay("None");
+    // }
+    // else
+    // {
+    //   setParkinglotDisplay(parkingLotScore);
+    // }
+
+    // // Residential [Trying this]
+    // if (residentialScore == 0) {
+    //   setResidentialDisplay("None");
+    // }
+    // else
+    // {
+    //   setResidentialDisplay(residentialScore);
+    // }
+
+
     setParkinglotDisplay(parkingLotScore);
     setResidentialDisplay(residentialScore);
     setFreewayDisplay(freewayScore);
@@ -61,15 +100,7 @@ export default function TestResults() {
       passedTest = false;
     }
 
-    // Mechanical Section Check
-    if (preDriveMechanicalScore != 12) {
-      passedTest = false;
-    }
 
-    // Operational Section Check
-    if (preDriveOperationalScore <= 4) {
-      passedTest = false;
-    }
 
     // Driving Section Check
     var totalDrivingScore = parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore;
@@ -78,18 +109,30 @@ export default function TestResults() {
       passedTest = false;
     }
     
-    totalFakeScore += (preDriveMechanicalScore + preDriveOperationalScore + parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore);
+    totalNumErrors += (preDriveMechanicalScore + preDriveOperationalScore + parkingLotScore + residentialScore + freewayScore + intersectionScore + turningScore + laneChangeScore);
 
+    var emailTextString = "";
 
     if (passedTest) {
       setFinalResultDisplay("Passed");
+      emailTextString += "You have passed the test!\n\n";
     }
     else {
       setFinalResultDisplay("Failed");
+      emailTextString += "You have failed the test :(\n\n";
     }
+    
+    // Email Stuff
+    emailTextString += "Total Number of Errors: " + totalNumErrors + "\n\n";
+
+    const comments = await StorageHandler.getData("COMMENTS");
+
+    emailTextString += "Instructor Comments:\n" + comments;
+
+    setEmailBody(emailTextString);
 
 
-    return totalFakeScore;
+    return totalNumErrors;
   }
 
   // Mechanical = 12
@@ -117,7 +160,9 @@ export default function TestResults() {
       }
     }
 
-    console.log("PreDrive Mechanical Score: ", (score))
+    score = 12 - score;
+
+    console.log("PreDrive Mechanical Errors: ", (score))
 
     return score;
   }
@@ -143,7 +188,9 @@ export default function TestResults() {
       }
     }
 
-    console.log("PreDrive Operational Score: ", (score))
+    score = 8 - score;
+
+    console.log("PreDrive Operational Errors: ", (score))
 
     return score;
   }
@@ -164,7 +211,7 @@ export default function TestResults() {
       }
     }
 
-    console.log("Parking Lot Score: ", (score))
+    console.log("Parking Lot Errors: ", (score))
 
     return score;
   }
@@ -201,7 +248,7 @@ export default function TestResults() {
       }
     }
 
-    console.log("Residential Score: ", (score))
+    console.log("Residential Errors: ", (score))
 
     return score;
   }
@@ -254,7 +301,7 @@ export default function TestResults() {
       }
     }
 
-    console.log("Freeway Score: ", (score))
+    console.log("Freeway Errors: ", (score))
 
     return score;
   }
@@ -283,7 +330,7 @@ export default function TestResults() {
       }
     }
 
-    console.log("Intersection Score: ", (score))
+    console.log("Intersection Errors: ", (score))
 
     return score;
   }
@@ -338,7 +385,7 @@ export default function TestResults() {
       }
     }
 
-    console.log("Turning Score: ", (score))
+    console.log("Turning Errors: ", (score))
 
     return score;
   }
@@ -375,7 +422,7 @@ export default function TestResults() {
       }
     }
 
-    console.log("Lane Change Score: ", (score))
+    console.log("Lane Change Errors: ", (score))
 
     return score;
   }
@@ -439,8 +486,9 @@ export default function TestResults() {
 
       <View style={styles.sendButtonContainer}>
         <Button 
-          // onPress={}
-          title="Send Results"
+          onPress={() => Linking.openURL(`mailto:student@example.com?subject=Drive Quest Test Results&body=${emailBody}`) }
+
+          title="Email Results"
           color="#841584"
         />
       </View>
