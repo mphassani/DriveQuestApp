@@ -10,8 +10,6 @@ import { useNavigation } from '@react-navigation/native';
 export default function TestResults() {
   const navigation = useNavigation();
 
-  var totalScore;
-
   const [mechanicalDisplay, setMechanicalDisplay] = useState(0);
   const [operationalDisplay, setOperationalDisplay] = useState(0);
   const [parkinglotDisplay, setParkinglotDisplay] = useState(0);
