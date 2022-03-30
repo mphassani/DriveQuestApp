@@ -222,7 +222,7 @@ export default function PreDriveScreen({ navigation }) {
                         />
                         <List.Item
                             title=" Left Arm Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/armSignals.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/leftArmSignal.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_ARM_SIGNAL"/>}
                             onPress = {onButtonPress}
                         />
