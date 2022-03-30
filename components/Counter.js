@@ -61,13 +61,13 @@ const Counter = (props) => {
         <View style={styles.counter}>  
 
           {shouldShow ? (
-            <IconButton icon = "minus-circle-outline" onPress={onDecrement} />
+            <IconButton icon = "minus-circle-outline" size={35} onPress={onDecrement} />
           ) : null }
 
           {shouldShow ? (
             <Text style={styles.text}>{count}</Text>
           ) : null }
-          <IconButton icon = "plus-circle-outline" onPress={onAdd} />
+          <IconButton icon = "plus-circle-outline" size={35} onPress={onAdd} />
 
         </View>
 
@@ -83,11 +83,11 @@ const styles = StyleSheet.create({
   counter: {
     flexDirection:'row', 
     justifyContent: 'center',
-    left: 15,
+    left: 13,
   },
   text: {
-    fontSize: 20,
-    marginTop: 11,
+    fontSize: 26,
+    marginTop: 16,
     alignItems: 'center',
     color: 'red',
     fontWeight: "500",

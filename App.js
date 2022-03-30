@@ -21,6 +21,8 @@ import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
 import { clearAllStoredData } from './StorageHandler';
 
+import FreewayLaneChangeRightScreen from './navigation/screens/FreewayLaneChangeRight';
+
 
 
 const Stack = createStackNavigator();
@@ -62,6 +64,7 @@ function App() {
 
           <Stack.Group screenOptions={{ header: CustomNavigationBarSecond}}>
             <Stack.Screen name="freelanechange" component={FreewayLaneChangeScreen} />
+            <Stack.Screen name="freelanechangeRight" component={FreewayLaneChangeRightScreen} />
             <Stack.Screen name="testresult" component={TestResult} />
             <Stack.Screen name="parkinglot" component={ParkingLot} />
             <Stack.Screen name="Freeway" component={FreewayDriving} />

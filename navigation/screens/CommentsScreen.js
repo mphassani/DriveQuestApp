@@ -29,7 +29,7 @@ export default function CommentsScreen({ navigation }) {
             setText(res);
           }
           else {
-            setCount("");
+            setText("");
           }
           return res;
         });
@@ -43,7 +43,7 @@ export default function CommentsScreen({ navigation }) {
                 <Dialog.Content>
                     {/* <Paragraph>Type your comment below:</Paragraph> */}
                     {/* <Divider /> */}
-                    <TextInput style={styles.textInput}
+                    <TextInput
                     mode="outlined"
                     multiline = {true}
                     numLines = {10}
@@ -54,6 +54,7 @@ export default function CommentsScreen({ navigation }) {
                 </Dialog.Content>
                 <Dialog.Actions>
                     <Button onPress= {() => {saveText(text); hideDialog; navigation.goBack();}}>Save</Button>
+                    <Button onPress= {() => {hideDialog; navigation.goBack();}}>Cancel</Button>
                 </Dialog.Actions>
             </Dialog>
         </Portal>
@@ -100,10 +101,5 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
         padding: 10,
-      },
-      textInpdut: {
-        borderWidth: 1,
-        width: "100%",
-        borderRadius: "10px",
-      },
+      }
 })
