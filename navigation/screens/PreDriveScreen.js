@@ -173,13 +173,13 @@ export default function PreDriveScreen({ navigation }) {
                         {/*FIXME: add other turn signal*/}
                         <List.Item
                             title=" Right Turn Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/Signal.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/RightSignal.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_RIGHT_TURN_SIGNAL"/>}
                             onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Left Turn Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/Signal.png')} /> }
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/LeftSignal.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_TURN_SIGNAL"/>}
                             onPress = {onButtonPress}
                         />
@@ -228,7 +228,7 @@ export default function PreDriveScreen({ navigation }) {
                         />
                         <List.Item
                             title=" Stop Arm Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/armSignals.png')} />}
+                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/stopArmSignal.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_STOP_ARM_SIGNAL"/>}
                             onPress = {onButtonPress}
                         />
