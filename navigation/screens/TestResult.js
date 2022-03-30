@@ -23,20 +23,22 @@ export default function TestResults() {
   const [autodqDisplay, setAutoDQDisplay] = useState("None");
   const [finalResultDisplay, setFinalResultDisplay] = useState("Passed");  
 
+  const [resultBackgroundColor, setResultBackgroundColor] = useState('green');
+
   useEffect(() => {
-    const calcTotalScore = async () => {
+    const calculateResultsOnPageLoad = async () => {
       const data = await calculateScore();
       console.log("Total Number of Errors: ", data);
     }
 
-    calcTotalScore();
+    calculateResultsOnPageLoad();
   }, []);
 
   async function calculateScore() {
     var passedTest = true;
     var totalNumErrors = 0;
 
-    // Get scores for each section
+    // Get number of errors for each section
     var preDriveMechanicalScore = await calculateMechanicalScore();
     var preDriveOperationalScore = await calculateOperationalScore();
     var parkingLotScore = await calculateParkingLotScore();
@@ -115,22 +117,34 @@ export default function TestResults() {
 
     if (passedTest) {
       setFinalResultDisplay("Passed");
+      setResultBackgroundColor("green");
       emailTextString += "You have passed the test!\n\n";
     }
     else {
       setFinalResultDisplay("Failed");
+      setResultBackgroundColor("red");
       emailTextString += "You have failed the test :(\n\n";
     }
     
     // Email Stuff
-    emailTextString += "Total Number of Errors: " + totalNumErrors + "\n\n";
-
+    emailTextString += "Error Breakdown:\n";
+    emailTextString += "Pre-Drive Mechanical: " + preDriveMechanicalScore;
+    emailTextString += "\nPre-Drive Operational: " + preDriveOperationalScore;
+    emailTextString += "\nParking Lot: " + parkingLotScore;
+    emailTextString += "\nResidential: " + residentialScore;
+    emailTextString += "\nFreeway: " + freewayScore;
+    emailTextString += "\nIntersection: " + intersectionScore;
+    emailTextString += "\nTurning: " + turningScore;
+    emailTextString += "\nLane Change: " + laneChangeScore;
+    emailTextString += "\n\nTotal Number of Errors: " + totalNumErrors + "\n\n";
+    
     const comments = await StorageHandler.getData("COMMENTS");
 
-    emailTextString += "Instructor Comments:\n" + comments;
+    if (comments != null && comments != "") {
+      emailTextString += "Instructor Comments:\n" + comments;
+    }
 
     setEmailBody(emailTextString);
-
 
     return totalNumErrors;
   }
@@ -203,11 +217,13 @@ export default function TestResults() {
     const value2 = await StorageHandler.getData("PARKINGLOT_POSITIONING");
     const value3 = await StorageHandler.getData("PARKINGLOT_SIGNAL");
     const value4 = await StorageHandler.getData("PARKINGLOT_SPEED");
-    const stringArray = await [value1, value2, value3, value4];
+    
+    const valuesArray = await [value1, value2, value3, value4];
+    const namesArray = ["PARKINGLOT_MIRRORS", "PARKINGLOT_POSITIONING", "PARKINGLOT_SIGNAL", "PARKINGLOT_SPEED"];
 
-    for (var i in stringArray) {
-      if (stringArray[i] != null) {
-        score += parseInt(stringArray[i]);
+    for (var i in valuesArray) {
+      if (valuesArray[i] != null) {
+        score += parseInt(valuesArray[i]);
       }
     }
 
@@ -431,7 +447,7 @@ export default function TestResults() {
   return (
     <View>
 
-      <View style={{alignItems: 'center', justifyContent: 'center', padding: 15}}>
+      <View style={{alignItems: 'center', justifyContent: 'center', padding: 25}}>
       <Text style={styles.title}>Results</Text>
       </View>
 
@@ -480,7 +496,7 @@ export default function TestResults() {
         <Text style={styles.sectionResult}>{autodqDisplay}</Text>
       </View>
 
-      <View style={styles.finalResultRow}>
+      <View style={[styles.finalResultRow, {backgroundColor: resultBackgroundColor}]}>
         <Text style={styles.finalResultsText}>Test {finalResultDisplay}</Text>
       </View>
 
@@ -495,7 +511,6 @@ export default function TestResults() {
     </View>
   );
 }
-  
   
 const styles = StyleSheet.create({
   title: {
@@ -541,7 +556,7 @@ const styles = StyleSheet.create({
   finalResultRow: {
     height: 45,
     borderRadius: 10,
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 15,
