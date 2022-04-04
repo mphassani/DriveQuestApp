@@ -89,7 +89,7 @@ export default function FreewayDriving() {
                   <List.Item 
                       title="Signal" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/Signal.png')} />}
-                      right={(props) =><Counter/>}
+                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_SIGNAL"/>}
                       />
   
                   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>

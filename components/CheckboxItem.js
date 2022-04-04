@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pres
 import { useState, useEffect } from 'react';
 import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider, DefaultTheme} from 'react-native-paper';
 import * as StorageHandler from '../StorageHandler';
+import { Ionicons } from '@expo/vector-icons';
 
 /* Code to create each individual checkbox */
 const CheckboxItem = (props) => {
@@ -37,15 +38,18 @@ const CheckboxItem = (props) => {
     return (
         /* Uses checkboxBase style for not checked checkbox, and checkboxChecked for checked checkbox */
         /* Essentially creates the "box" part of the checkbox */
-        <View style={[styles.checkboxBase, notChecked && styles.checkboxChecked]}>
+        <View>
             {/* Code that creates the checkbox, counts the number of checkboxes checked to be used in calculating the number of errors */}
-            <Checkbox
-                color="#FFFFFF" status={notChecked ? 'checked' : 'unchecked'}
+            <Pressable style={[styles.checkboxBase, notChecked && styles.checkboxChecked]}
+            
+            status={notChecked ? 'checked' : 'unchecked'}
                 onPress={() => {
                     setNotChecked(!notChecked);
                     StorageHandler.storeStringData(props.storageKey, (!notChecked).toString());
-                }}
-            />
+                }}>
+            <Ionicons name="checkmark" size={45} color={notChecked ? "#FFFFFF" : "#f1f2f2"} />
+                
+            </Pressable>
         </View>
 
     );

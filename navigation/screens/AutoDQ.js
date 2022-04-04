@@ -73,9 +73,9 @@ export default function CommentsScreen({ navigation }) {
                             onPress={() => {setChecked('eigth'); checkTheBox("Lane Violation");}}
                         />
                     </Dialog.Content>
-                    {/* <Dialog.Actions>
-                        <Button onPress={() => { hideDialog; navigation.goBack() }}>Submit</Button>
-                    </Dialog.Actions> */}
+                    <Dialog.Actions>
+                        <Button onPress={() => { hideDialog; navigation.goBack() }}>Cancel</Button>
+                    </Dialog.Actions>
                 </Dialog>
             </Portal>
 
