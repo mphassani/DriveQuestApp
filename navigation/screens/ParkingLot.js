@@ -9,10 +9,20 @@ import { Provider as PaperProvider, Button, List,IconButton, Avatar, Appbar, Def
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 
+const theme = {
+    ...DefaultTheme,
+    //roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#707070',
+      accent: '#FFFFFF',
+    },
+  };
+
 // Stephanie's Page
 export default function ParkingLot({ navigation }) {
     return (
-        <PaperProvider>
+        <PaperProvider theme={theme}>
 
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
@@ -24,29 +34,25 @@ export default function ParkingLot({ navigation }) {
                 <List.Item 
                     title="Mirrors" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/rearViewMirror.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/rearViewMirror.png')}/>}
                     right={(props) =><Counter storageKey="PARKINGLOT_MIRRORS"/>}
                     />
                 <List.Item 
                     title="Positioning" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/positioning.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
                     right={(props) =><Counter storageKey="PARKINGLOT_POSITIONING"/>}
                     />
                 <List.Item 
                     title="Signal" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/Signal.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
                     right={(props) =><Counter storageKey="PARKINGLOT_SIGNAL"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
-                        <Image 
-                            style={{height:50, width:50,borderRadius: 50/ 2, backgroundColor: '#87181A' }}source={require('../../assets/speed.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
                     right={(props) =><Counter storageKey="PARKINGLOT_SPEED"/>}
                     />
                 </List.Section>
@@ -55,12 +61,12 @@ export default function ParkingLot({ navigation }) {
         </PaperProvider>
     );
 }
-const theme = {
-    ...DefaultTheme,
-    roundness: 2,
-    colors: {
-      ...DefaultTheme.colors,
-      primary: '#12414F',
-      accent: '#90C96A',
-    },
-  };
+// const theme = {
+//     ...DefaultTheme,
+//     roundness: 2,
+//     colors: {
+//       ...DefaultTheme.colors,
+//       primary: '#12414F',
+//       accent: '#90C96A',
+//     },
+//   };
