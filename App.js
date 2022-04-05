@@ -37,6 +37,7 @@ global.test = true;
 function CustomNavigationBarFirst({ navigation, back }) {
   return (
     <Appbar.Header>
+      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
       <Appbar.Action icon={'logout'} onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}/>
       <Appbar.Content title="DriveQuest" />
     </Appbar.Header>
