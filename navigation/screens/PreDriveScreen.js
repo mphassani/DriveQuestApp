@@ -153,124 +153,124 @@ export default function PreDriveScreen({ navigation }) {
                       {/*  <Pressable onPress = {onButtonPress}> */}
                         <List.Item
                             title=" Driver window"
-                            left={(props) =><Image style={styles.greenCircle} source={require('../../assets/driverSideWindow.png')} />}
+                            left={(props) =><Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_DRIVER_WINDOW"/>}
                             //onPress = {onButtonPress}
                         />
                      {/* </Pressable> */}
                         <List.Item
                             title=" Windshield"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/windshield.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/windshield.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_WINDSHIELD"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Rear view mirrors"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/rearViewMirror.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/rearViewMirror.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_REAR_VIEW_MIRRORS"/>}
                             //onPress = {onButtonPress}
                         />
                         {/*FIXME: add other turn signal*/}
                         <List.Item
                             title=" Right Turn Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/RightSignal.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/RightSignal.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_RIGHT_TURN_SIGNAL"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Left Turn Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/LeftSignal.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/LeftSignal.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_TURN_SIGNAL"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Brake lights"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/brakeLights.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/brakeLights.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_BRAKE_LIGHTS"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Tires"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/tires.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/tires.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_TIRES"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Foot brake"
-                            left={(props) => <Image style={styles.greenCircle}source={require('../../assets/Breaking.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle}source={require('../../assets/Breaking.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_FOOT_BRAKES"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Horn"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/horn.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/horn.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_HORN"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Emergency/parking brake"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/parkingBrake.png')} /> }
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/parkingBrake.png')} /> }
                             right={() => <CheckboxItem storageKey="PREDRIVE_PARKING_BRAKE"/>}
                             //onPress = {onButtonPress}
                         />
                         {/*FIXME: add other arm signals*/}
                         <List.Item
                             title=" Right Arm Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/armSignals.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/armSignals.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_RIGHT_ARM_SIGNAL"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Left Arm Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/leftArmSignal.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/leftArmSignal.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_ARM_SIGNAL"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Stop Arm Signal"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/stopArmSignal.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/stopArmSignal.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_STOP_ARM_SIGNAL"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Windshield wipers"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/windshieldWipers.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/windshieldWipers.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_WINDSHIELD_WIPERS"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Defroster"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/defroster.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/defroster.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_DEFROSTER"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Emergency flasher"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/emergencyLights.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/emergencyLights.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_EMERGENCY_FLASHER"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Headlights"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/headlights.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/headlights.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_HEADLIGHTS"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Passenger door"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/passengerDoor.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/passengerDoor.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_PASSENGER_DOOR"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Glove box"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/gloveBox.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/gloveBox.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_GLOVE_BOX"/>}
                             //onPress = {onButtonPress}
                         />
                         <List.Item
                             title=" Seat belts"
-                            left={(props) => <Image style={styles.greenCircle} source={require('../../assets/seatbelts.png')} />}
+                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/seatbelts.png')} />}
                             right={() => <CheckboxItem storageKey="PREDRIVE_SEATBELTS"/>}
                             //onPress = {onButtonPress}
                         />
@@ -278,7 +278,7 @@ export default function PreDriveScreen({ navigation }) {
 
                     {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
-                        <Button mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
+                        <Button color= "#12414F" mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
                     </View>
 
                 </ScrollView>
@@ -316,11 +316,11 @@ export function decrementVal() {
 //style-sheet 
 const styles = StyleSheet.create({
 
-    /* creates green circle to use for lefthand icons */
-    greenCircle: {
+    /* creates gray circle to use for lefthand icons */
+    grayCircle: {
         height: 64,
         width: 64, 
         borderRadius: 32, 
-        backgroundColor: "#90C96A",
+        backgroundColor: "#707070",
     },
 });
