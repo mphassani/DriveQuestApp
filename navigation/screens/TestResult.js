@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 export default function TestResults() {
   const navigation = useNavigation();
 
-  const [emailBody, setEmailBody] = useState("Can't find email text");
+  const [emailBody, setEmailBody] = useState("Can't find email body text");
 
   const [mechanicalDisplay, setMechanicalDisplay] = useState("Passed");
   const [operationalDisplay, setOperationalDisplay] = useState("Passed");
@@ -124,8 +124,8 @@ export default function TestResults() {
       setFinalResultDisplay("Failed");
       setResultBackgroundColor("red");
       emailTextString += "You have failed the test :(\n\n";
-    }
-    
+    } 
+
     // Email Stuff
     emailTextString += "Error Breakdown:\n";
     emailTextString += "Pre-Drive Mechanical: " + preDriveMechanicalScore;
@@ -167,10 +167,11 @@ export default function TestResults() {
     const value11 = await StorageHandler.getData("PREDRIVE_GLOVE_BOX");
     const value12 = await StorageHandler.getData("PREDRIVE_SEATBELTS");
     
-    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12];
+    const namesArray = ["Driver window", "Windshield", "Rear view mirrors", "Right Turn Signal", "Left Turn Signal", "Brake lights", "Tires", "Foot brake", "Headlights", "Passenger door", "Glove box", "Seat belts"];
     
-    for (var i in stringArray) {
-      if (stringArray[i] == "true"){
+    for (var i in valuesArray) {
+      if (valuesArray[i] == "true"){
         score += 1
       }
     }
@@ -195,10 +196,11 @@ export default function TestResults() {
     const value7 = await StorageHandler.getData("PREDRIVE_DEFROSTER");
     const value8 = await StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER");
     
-    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8];
+    const namesArray = ["Horn", "Emergency/parking brake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield wipers", "Defroster", "Emergency flasher"];
 
-    for (var i in stringArray) {
-      if (stringArray[i] == "true"){
+    for (var i in valuesArray) {
+      if (valuesArray[i] == "true"){
         score += 1
       }
     }
@@ -220,7 +222,7 @@ export default function TestResults() {
     const value4 = await StorageHandler.getData("PARKINGLOT_SPEED");
     
     const valuesArray = await [value1, value2, value3, value4];
-    const namesArray = ["PARKINGLOT_MIRRORS", "PARKINGLOT_POSITIONING", "PARKINGLOT_SIGNAL", "PARKINGLOT_SPEED"];
+    const namesArray = ["Mirrors", "Positioning", "Signal", "Speed"];
 
     for (var i in valuesArray) {
       if (valuesArray[i] != null) {
@@ -257,11 +259,11 @@ export default function TestResults() {
     const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_AVOIDS_CURB");
     const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_MIRRORS");
     const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
-    const stringArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17];
 
-    for (var i in stringArray) {
-      if (stringArray[i] != null) {
-        score += parseInt(stringArray[i]);
+    for (var i in valuesArray) {
+      if (valuesArray[i] != null) {
+        score += parseInt(valuesArray[i]);
       }
     }
 
@@ -310,11 +312,11 @@ export default function TestResults() {
     const value32 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_SPEED");
     const value33 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_SPACING");
     const value34 = await StorageHandler.getData("FREEWAY_LANE_CHANGE_RIGHT_STEERING_CONTROL");
-    const stringArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19, value20, value21, value22, value23, value24, value25, value26, value27, value28, value29, value30, value31, value32, value33, value34];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19, value20, value21, value22, value23, value24, value25, value26, value27, value28, value29, value30, value31, value32, value33, value34];
 
-    for (var i in stringArray) {
-      if (stringArray[i] != null) {
-        score += parseInt(stringArray[i]);
+    for (var i in valuesArray) {
+      if (valuesArray[i] != null) {
+        score += parseInt(valuesArray[i]);
       }
     }
 
@@ -339,11 +341,11 @@ export default function TestResults() {
     const value10 = await StorageHandler.getData("INTERSECTION_START_SPEED");
     const value11 = await StorageHandler.getData("INTERSECTION_START_YIELD");
     
-    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11];
 
-    for (var i in stringArray) {
-      if (stringArray[i] != null) {
-        score += parseInt(stringArray[i]);
+    for (var i in valuesArray) {
+      if (valuesArray[i] != null) {
+        score += parseInt(valuesArray[i]);
       }
     }
 
@@ -394,11 +396,11 @@ export default function TestResults() {
     const value35 = await StorageHandler.getData("TURNS_RIGHT_DURING_SPEED");
     const value36 = await StorageHandler.getData("TURNS_RIGHT_DURING_SIGNAL");
     
-    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36];
 
-    for (var i in stringArray) {
-      if (stringArray[i] != null) {
-        score += parseInt(stringArray[i]);
+    for (var i in valuesArray) {
+      if (valuesArray[i] != null) {
+        score += parseInt(valuesArray[i]);
       }
     }
 
@@ -431,11 +433,11 @@ export default function TestResults() {
     const value17 = await StorageHandler.getData("LANECHANGE_LEFT_SPACING");
     const value18 = await StorageHandler.getData("LANECHANGE_LEFT_STEERING_CONTROL");
     
-    const stringArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18];
 
-    for (var i in stringArray) {
-      if (stringArray[i] != null) {
-        score += parseInt(stringArray[i]);
+    for (var i in valuesArray) {
+      if (valuesArray[i] != null) {
+        score += parseInt(valuesArray[i]);
       }
     }
 
@@ -447,6 +449,7 @@ export default function TestResults() {
 
   return (
     <View>
+      <ScrollView>
 
       <View style={{alignItems: 'center', justifyContent: 'center', padding: 25}}>
       <Text style={styles.title}>Results</Text>
@@ -503,12 +506,13 @@ export default function TestResults() {
 
       <View style={styles.sendButtonContainer}>
         <Button 
-          onPress={() => Linking.openURL(`mailto:student@example.com?subject=Drive Quest Test Results&body=${emailBody}`) }
+          onPress={() => Linking.openURL(`mailto:?subject=Drive Quest Test Results&body=${emailBody}`) }
 
           title="Email Results"
           color="#841584"
         />
       </View>
+      </ScrollView>
     </View>
   );
 }
