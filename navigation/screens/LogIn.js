@@ -100,6 +100,7 @@ export default function LogIn({ navigation }) {
       <View style={{ padding: "10%" }}>
         <Button
           mode="contained"
+          color= "#12414F"
           onPress={() => checkPassword(navigation, text)}
         >
           Login
