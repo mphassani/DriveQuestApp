@@ -27,54 +27,62 @@ export default function CommentsScreen({ navigation }) {
                         <Checkbox.Item
                             label="Examiner Intervention"
                             value="first"
+                            color = "#90C96A"
                             status={checked === 'first' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('first'); checkTheBox("Examiner Intervention");}}
                         />
                         <Checkbox.Item
                             label="Dangerous Maneuver"
                             value="second"
+                            color = "#90C96A"
                             status={checked === 'second' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('second'); checkTheBox("Dangerous Maneuver");}}
                         />
                         <Checkbox.Item
                             label="Strikes Object"
                             value="third"
+                            color = "#90C96A"
                             status={checked === 'third' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('third'); checkTheBox("Strikes Object");}}
                         />
                         <Checkbox.Item
                             label="Driving Speed"
                             value="fourth"
+                            color = "#90C96A"
                             status={checked === 'fourth' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('fourth'); checkTheBox("Driving Speed");}}
                         />
                         <Checkbox.Item
                             label="Disobeys Traffic Signage"
                             value="fifth"
+                            color = "#90C96A"
                             status={checked === 'fifth' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('fifth'); checkTheBox("Disobeys Traffic Signage");}}
                         />
                         <Checkbox.Item
                             label="Aux Equipment Use"
                             value="sixth"
+                            color = "#90C96A"
                             status={checked === 'sixth' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('sixth'); checkTheBox("Aux Equipment Use");}}
                         />
                         <Checkbox.Item
                             label="Disobeys Examiner"
                             value="seventh"
+                            color = "#90C96A"
                             status={checked === 'seventh' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('seventh'); checkTheBox("Disobeys Examiner");}}
                         />
                         <Checkbox.Item
                             label="Lane Violation"
                             value="eigth"
+                            color = "#90C96A"
                             status={checked === 'eigth' ? 'checked' : 'unchecked'}
                             onPress={() => {setChecked('eigth'); checkTheBox("Lane Violation");}}
                         />
                     </Dialog.Content>
                     <Dialog.Actions>
-                        <Button onPress={() => { hideDialog; navigation.goBack() }}>Cancel</Button>
+                        <Button color= "#12414F" onPress={() => { hideDialog; navigation.goBack() }}>Cancel</Button>
                     </Dialog.Actions>
                 </Dialog>
             </Portal>
