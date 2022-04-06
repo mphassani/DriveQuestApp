@@ -122,7 +122,6 @@ export default function LogIn({ navigation }) {
 }
 
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
