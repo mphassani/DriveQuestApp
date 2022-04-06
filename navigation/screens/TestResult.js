@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Button, Linking } from 'react-native';
+import { StyleSheet, View, Text, Button, Linking, ScrollView } from 'react-native';
 import { List, Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
 import * as StorageHandler from "../../StorageHandler";
 import { useEffect, useState } from "react";
@@ -513,6 +513,7 @@ export default function TestResults() {
         />
       </View>
       </ScrollView>
+      
     </View>
   );
 }
