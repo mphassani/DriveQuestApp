@@ -25,6 +25,8 @@ import * as StorageHandler from "../../StorageHandler";
 import { mdiVideoMinusOutline } from "@mdi/js";
 
 export default function LogIn({ navigation }) {
+  const [invalidLoginDisplay, setInvalidLoginDisplay] = useState("");
+
   const [text, setText] = React.useState("");
   // StorageHandler.clearAllStoredData();
   useEffect(() => {
@@ -44,6 +46,17 @@ export default function LogIn({ navigation }) {
       return res;
     });;
 
+  }
+
+  function checkPassword(navigationVal, code) {
+    if (code == "123") {
+      setInvalidLoginDisplay("");
+      StorageHandler.storeStringData("IS_LOGGED_IN", "true");
+      navigationVal.navigate("PreDrive");
+    }
+    else {
+      setInvalidLoginDisplay("INVALID LOGIN KEY");
+    }
   }
 
   return (
@@ -92,16 +105,23 @@ export default function LogIn({ navigation }) {
           Login
         </Button>
       </View>
+
+      <View
+        style={{
+          alignContent: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+          paddingTop: "10%",
+          paddingBottom: "5%",
+        }}
+      >
+        <Text style={styles.invalidLoginText}>{invalidLoginDisplay}</Text>
+      </View>
     </PaperProvider>
   );
 }
 
-function checkPassword(navigationVal, code) {
-  if (code == "123") {
-    StorageHandler.storeStringData("IS_LOGGED_IN", "true");
-    navigationVal.navigate("PreDrive");
-  }
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -134,6 +154,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 4,
   },
+  invalidLoginText: {
+    fontSize: 26,
+    color: "#87181A",
+    fontWeight: "bold",
+    justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: -10,
+  }
 });
 const theme = {
   ...DefaultTheme,
