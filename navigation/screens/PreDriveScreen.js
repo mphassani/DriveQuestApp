@@ -34,8 +34,8 @@ export default function PreDriveScreen({ navigation }) {
                             <Paragraph>Do you want to enable freeway driving for this route?</Paragraph>
                         </Dialog.Content>
                         <Dialog.Actions>
-                            <Button onPress={hideDialog}>Yes</Button>
-                            <Button onPress={hideDialog}>No</Button>
+                            <Button color="#00677F" onPress={hideDialog}>Yes</Button>
+                            <Button color="#00677F" onPress={hideDialog}>No</Button>
                         </Dialog.Actions>
                     </Dialog>
                 </Portal>
@@ -51,6 +51,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Fairytale Gardens</Text>
                                     <RadioButton value="first"
+                                        color = "#90C96A"
                                         status={checked === 'first' ? 'checked' : 'unchecked}'}
                                         onPress={() => setChecked('first')}
                                     />
@@ -58,6 +59,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Crystal Cove</Text>
                                     <RadioButton value="second"
+                                        color = "#90C96A"
                                         status={checked === 'second' ? 'checked' : 'unchecked}'}
                                         onPress={() => setChecked('second')}
                                     />
@@ -65,6 +67,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Rainbow Road</Text>
                                     <RadioButton value="third"
+                                        color = "#90C96A"
                                         status={checked === 'third' ? 'checked' : 'unchecked}'}
                                         onPress={() => setChecked('third')}
                                     />
@@ -72,6 +75,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Pacific Coast Highway</Text>
                                     <RadioButton value="fourth"
+                                        color = "#90C96A"
                                         status={checked === 'fourth' ? 'checked' : 'unchecked}'}
                                         onPress={() => setChecked('fourth')}
                                     />
@@ -79,11 +83,12 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>DriveQuest Circuit</Text>
                                     <RadioButton value="fifth"
+                                        color = "#90C96A"
                                         status={checked === 'fifth' ? 'checked' : 'unchecked}'}
                                         onPress={() => setChecked('fifth')}
                                     />
                                 </View>
-                                <Button onPress={hideDialog3}>Ok</Button>
+                                <Button color="#00677F" onPress={hideDialog3}>Ok</Button>
                             </ScrollView>
                         </Dialog.Actions>
                     </Dialog>
@@ -100,6 +105,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Bell</Text>
                                     <RadioButton value="first"
+                                        color = "#90C96A"
                                         status={soundChecked === 'first' ? 'checked' : 'unchecked}'}
                                         onPress={() => setSoundChecked('first')}
                                     />
@@ -107,6 +113,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Horn</Text>
                                     <RadioButton value="second"
+                                        color = "#90C96A"
                                         status={soundChecked === 'second' ? 'checked' : 'unchecked}'}
                                         onPress={() => setSoundChecked('second')}
                                     />
@@ -114,6 +121,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Oink</Text>
                                     <RadioButton value="third"
+                                        color = "#90C96A"
                                         status={soundChecked === 'third' ? 'checked' : 'unchecked}'}
                                         onPress={() => setSoundChecked('third')}
                                     />
@@ -121,6 +129,7 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Police Siren</Text>
                                     <RadioButton value="fourth"
+                                        color = "#90C96A"
                                         status={soundChecked === 'fourth' ? 'checked' : 'unchecked}'}
                                         onPress={() => setSoundChecked('fourth')}
                                     />
@@ -128,11 +137,12 @@ export default function PreDriveScreen({ navigation }) {
                                 <View style={{ flex: 1, padding: 10 }}>
                                     <Text style={{ fontSize: 16 }}>Piano</Text>
                                     <RadioButton value="fifth"
+                                        color = "#90C96A"
                                         status={soundChecked === 'fifth' ? 'checked' : 'unchecked}'}
                                         onPress={() => setSoundChecked('fifth')}
                                     />
                                 </View>
-                                <Button onPress={hideDialog2}>Ok</Button>
+                                <Button color="#00677F" onPress={hideDialog2}>Ok</Button>
                             </ScrollView>
                         </Dialog.Actions>
                     </Dialog>
