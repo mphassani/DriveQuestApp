@@ -31,28 +31,28 @@ export default function HomeScreen() {
         <View style={styles.buttonView}><Card>
           <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1568738009519-52d1bad47858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' }} />
           <Card.Actions>
-            <Button color="#90C96A" mode="contained" onPress={() => navigation.navigate('parkinglot')} >Parking Lot</Button>
+            <Button color="#12414F" mode="contained" onPress={() => navigation.navigate('parkinglot')} >Parking Lot</Button>
           </Card.Actions>
         </Card>
           <View style={{ padding: "5%" }}></View>
           <Card>
             <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1506092309076-af15fb0051e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80' }} />
             <Card.Actions>
-              <Button mode="contained" color="#90C96A" onPress={() => navigation.navigate('Residential')}>Residential</Button>
+              <Button mode="contained" color="#12414F" onPress={() => navigation.navigate('Residential')}>Residential</Button>
             </Card.Actions>
           </Card></View>
         <View style={styles.buttonView}>
           <Card>
             <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1582033307729-3ab3c1fe5857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80' }} />
             <Card.Actions>
-              <Button mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>Freeway    </Button>
+              <Button mode="contained" color="#12414F" onPress={() => navigation.navigate('Freeway')}>Freeway    </Button>
             </Card.Actions>
           </Card>
           <View style={{ padding: "5%" }}></View>
           <Card>
             <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1644&q=80' }} />
             <Card.Actions>
-              <Button color="#90C96A" mode="contained" onPress={() => navigation.navigate('testresult')}>Test Results</Button>
+              <Button color="#12414F" mode="contained" onPress={() => navigation.navigate('testresult')}>Test Results</Button>
             </Card.Actions>
           </Card>
         </View>
