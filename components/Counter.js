@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, PanResponder } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import * as StorageHandler from '../StorageHandler';
+// import { Audio } from 'expo-av';
 
 const Counter = (props) => {
 
@@ -48,6 +49,25 @@ const Counter = (props) => {
     }
   }
 
+// const [sound, setSound] = React.useState();
+
+// async function playSound() {
+//   console.log('Loading Sound');
+//   const { sound } = await Audio.Sound.createAsync(
+//       require('../assets/buttonPress.mp3')
+//   );
+//   setSound(sound);
+
+// console.log('Playing Sound');
+//   await sound.playAsync(); }
+
+// React.useEffect(() => {
+//   return sound
+//     ? () => {
+//         console.log('Unloading Sound');
+//         sound.unloadAsync(); }
+//     : undefined;
+// }, [sound]);
   //Visibility Stuff
   const [shouldShow, setShouldShow] = useState(true);
 
@@ -62,12 +82,15 @@ const Counter = (props) => {
 
           {shouldShow ? (
             <IconButton icon = "minus-circle-outline" size={35} onPress={onDecrement} />
+            // <IconButton icon = "minus-circle-outline" size={35} onPress={() => {playSound(); onDecrement();}} />
+
           ) : null }
 
           {shouldShow ? (
             <Text style={styles.text}>{count}</Text>
           ) : null }
-          <IconButton icon = "plus-circle-outline" size={35} onPress={onAdd} />
+          {<IconButton icon = "minus-circle-outline" size={35} onPress={onAdd} />
+          /* <IconButton icon = "plus-circle-outline" size={35} onPress={() => {playSound(); onAdd();}} /> */}
 
         </View>
 
