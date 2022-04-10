@@ -137,13 +137,15 @@ export default function TestResults() {
     emailTextString += "\nTurning: " + turningScore;
     emailTextString += "\nLane Change: " + laneChangeScore;
     emailTextString += "\n\nTotal Number of Errors: " + totalNumErrors + "\n\n";
-    emailTextString += "\n\n\nFeel free to fill out our feedback Survery: " + "shorturl.at/mnowL";
+    
     
     const comments = await StorageHandler.getData("COMMENTS");
 
     if (comments != null && comments != "") {
       emailTextString += "Instructor Comments:\n" + comments;
     }
+
+    emailTextString += "\n\n\nFeel free to fill out our feedback Survery: " + "shorturl.at/mnowL";
 
     setEmailBody(emailTextString);
 
