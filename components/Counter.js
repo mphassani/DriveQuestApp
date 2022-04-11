@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, PanResponder } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import * as StorageHandler from '../StorageHandler';
-// import { Audio } from 'expo-av';
+import { Audio } from 'expo-av';
 
 const Counter = (props) => {
 
@@ -49,30 +49,27 @@ const Counter = (props) => {
     }
   }
 
-// const [sound, setSound] = React.useState();
+const [sound, setSound] = React.useState();
 
-// async function playSound() {
-//   console.log('Loading Sound');
-//   const { sound } = await Audio.Sound.createAsync(
-//       require('../assets/buttonPress.mp3')
-//   );
-//   setSound(sound);
+async function playSound() {
+  console.log('Loading Sound');
+  const { sound } = await Audio.Sound.createAsync(
+      require('../assets/buttonPress.wav')
+  );
+  setSound(sound);
 
-// console.log('Playing Sound');
-//   await sound.playAsync(); }
 
-// React.useEffect(() => {
-//   return sound
-//     ? () => {
-//         console.log('Unloading Sound');
-//         sound.unloadAsync(); }
-//     : undefined;
-// }, [sound]);
-  //Visibility Stuff
-  const [shouldShow, setShouldShow] = useState(true);
+console.log('Playing Sound');
+  await sound.playAsync();
+}
 
-  // shouldShow = false ? count > 0: true;
-
+React.useEffect(() => {
+  return sound
+    ? () => {
+        console.log('Unloading Sound');
+        sound.unloadAsync(); }
+    : undefined;
+}, [sound]);
   
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -80,18 +77,10 @@ const Counter = (props) => {
 
         <View style={styles.counter}>  
 
-          {shouldShow ? (
-            <IconButton icon = "minus-circle-outline" size={35} onPress={onDecrement} />
-            // <IconButton icon = "minus-circle-outline" size={35} onPress={() => {playSound(); onDecrement();}} />
-
-          ) : null }
-
-          {shouldShow ? (
-            <Text style={styles.text}>{count}</Text>
-          ) : null }
-          {<IconButton icon = "minus-circle-outline" size={35} onPress={onAdd} />
-          /* <IconButton icon = "plus-circle-outline" size={35} onPress={() => {playSound(); onAdd();}} /> */}
-
+           <IconButton icon = "minus-circle-outline" size={35} onPress={() => {playSound(); onDecrement();}} />
+           <Text style={styles.text}>{count}</Text>
+           <IconButton icon = "plus-circle-outline" size={35} onPress={() => {playSound(); onAdd();}} /> 
+          
         </View>
 
 
