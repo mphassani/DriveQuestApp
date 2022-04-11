@@ -4,8 +4,10 @@ import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Port
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import * as StorageHandler from "../../StorageHandler";
+import HomeScreen from './HomeScreen';
 
-export default function CommentsScreen({ navigation }) {
+
+export default function AutoDQ({ navigation }) {
 
     const navigator = useNavigation();
     const [visible, setVisible] = React.useState(true);
@@ -15,7 +17,7 @@ export default function CommentsScreen({ navigation }) {
 
     function checkTheBox(dq) {
         StorageHandler.storeStringData("AUTO_DQ", dq);
-        navigation.navigate('testresult');
+        navigator.navigate('Home');
     }
 
     return (
@@ -82,7 +84,7 @@ export default function CommentsScreen({ navigation }) {
                         />
                     </Dialog.Content>
                     <Dialog.Actions>
-                        <Button color= "#12414F" onPress={() => { hideDialog; navigation.goBack() }}>Cancel</Button>
+                        <Button color= "#12414F" onPress={() => { hideDialog; navigator.goBack() }}>Cancel</Button>
                     </Dialog.Actions>
                 </Dialog>
             </Portal>

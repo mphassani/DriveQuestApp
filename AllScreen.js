@@ -14,17 +14,27 @@ import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
 import TurnScreen from './navigation/screens/TurnScreenLeft';
 import DrawerSide from './DrawerSide'
+import AutoDQ from './navigation/screens/AutoDQ';
+import TestResult from './navigation/screens/TestResult';
+
+
 
 
 const _goBack = () => console.log('Went back');
 
 const HomeRoute = () => <HomeScreen />
 
+const AutoRoute = <AutoDQ/>
+
+const CommmentRoute = <CommentsScreen/>
+
 const Intersectionroute = () => <IntersectionScreen />
 
 const TurnsRoute = () => <TurnScreenLeft />
 
 const CommentsRoute = () => <CommentsScreen />
+
+const testRoute = <TestResult/>
 
 const Lane_ChangeRoute = () => <LaneChangeScreenLeft />
 const MyComponent2 = () => {
@@ -52,16 +62,17 @@ const MyComponent = () => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home' },
-        { key: 'intersection', title: 'Intersection', icon: 'traffic-light' },
-        { key: 'turns', title: 'Turns', icon: 'directions' },
-        { key: 'lane_change', title: 'Lane Change', icon: 'road' },
+        { key: 'auto', title: 'Auto DQ', icon: 'alert'},
+        {key: 'comment', title: 'Comments', icon: 'comment'},
+        {key: 'finalTest', title: 'Test Result', icon: 'clipboard-check'},
     ]);
 
     const renderScene = BottomNavigation.SceneMap({
         home: HomeRoute,
-        intersection: Intersectionroute,
-        turns: TurnsRoute,
-        lane_change: Lane_ChangeRoute,
+        auto: AutoDQ,
+        comment: CommentsRoute,
+        finalTest: TestResult,
+
     });
 
     return (
@@ -69,7 +80,9 @@ const MyComponent = () => {
             navigationState={{ index, routes }}
             onIndexChange={setIndex}
             renderScene={renderScene}
-        />
+        >
+
+        </BottomNavigation>
 
     );
 };
@@ -91,31 +104,6 @@ export default function MainHome({navigation}) {
 
         <PaperProvider theme={theme}>
             <Portal >
-                <FAB.Group
-                    style={{paddingBottom: "25%"}}
-                    open={open}
-                    icon={open ? 'minus' : 'plus'}
-                    actions={[
-                        {
-                            icon: 'alert',
-                            label: 'Automatic DQ',
-                            onPress: () => navigation.navigate('autodq'),
-                            small: false,
-                        },
-                        {
-                            icon: 'comment',
-                            label: 'Comment',
-                            onPress: () => navigation.navigate('commentscreen'),
-                            small: false,
-                        },
-                    ]}
-                    onStateChange={onStateChange}
-                    onPress={() => {
-                        if (open) {
-                            // do something if the speed dial is open
-                        }
-                    }}
-                />
             </Portal>
             <PaperProvider theme={theme}>
 

@@ -23,7 +23,8 @@ import { clearAllStoredData } from './StorageHandler';
 
 import FreewayLaneChangeRightScreen from './navigation/screens/FreewayLaneChangeRight';
 
-
+import IntersectionScreen from './navigation/screens/IntersectionScreen';
+import HomeScreen from './navigation/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,7 @@ function App() {
             <Stack.Screen name="LogIn" component={LogIn} />
             <Stack.Screen name="PreDrive" component={PreDriveScreen} />
             <Stack.Screen name="Home" component={MainHome} />
+            <Stack.Screen name="HomeScreen" component={HomeScreen}/>
           </Stack.Group>
 
           <Stack.Group screenOptions={{ header: CustomNavigationBarSecond}}>
@@ -76,6 +78,7 @@ function App() {
             <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
             <Stack.Screen name='lanechangeleft' component={LaneChangeScreenLeft}/>
             <Stack.Screen name='lanechangeright' component={LaneChangeScreenRight}/>
+            <Stack.Screen name='intersection' component={IntersectionScreen}/>
           </Stack.Group>
 
 

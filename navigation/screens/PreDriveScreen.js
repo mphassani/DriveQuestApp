@@ -11,7 +11,7 @@ const { height } = Dimensions.get('window');
 //pre-drive screen display 
 
 export default function PreDriveScreen({ navigation }) {
-
+    
     const [visible, setVisible] = React.useState(true);
     const [visible2, setVisible2] = React.useState(true);
     const [visible3, setVisible3] = React.useState(true);
@@ -288,7 +288,7 @@ export default function PreDriveScreen({ navigation }) {
 
                     {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
-                        <Button color= "#12414F" mode="contained" onPress={() => navigation.navigate('Home')}>Submit                   </Button>
+                        <Button color= "#12414F" mode="contained" onPress={() => navigator.navigate('Home')}>Submit                   </Button>
                     </View>
 
                 </ScrollView>

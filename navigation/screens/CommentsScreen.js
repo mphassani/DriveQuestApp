@@ -53,8 +53,8 @@ export default function CommentsScreen({ navigation }) {
                     onChangeText={(text) => setText(text)}/>
                 </Dialog.Content>
                 <Dialog.Actions>
-                    <Button color="#00677F" onPress= {() => {saveText(text); hideDialog; navigation.goBack();}}>Save</Button>
-                    <Button color="#00677F" onPress= {() => {hideDialog; navigation.goBack();}}>Cancel</Button>
+                    <Button color="#00677F" onPress= {() => {saveText(text); hideDialog; navigator.goBack();}}>Save</Button>
+                    <Button color="#00677F" onPress= {() => {hideDialog; navigator.goBack();}}>Cancel</Button>
                 </Dialog.Actions>
             </Dialog>
         </Portal>

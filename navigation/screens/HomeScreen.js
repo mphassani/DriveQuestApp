@@ -8,54 +8,116 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
-import { Provider as PaperProvider, Button, Card, Title, Paragraph, Avatar, FAB, Portal, DefaultTheme } from "react-native-paper";
+import { Provider as PaperProvider, Button, Card, Title, Paragraph, Avatar, FAB, Portal, DefaultTheme, BottomNavigation } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { StylesProvider } from "@chakra-ui/react";
+import CommentsScreen from './CommentsScreen';
+import TestResult from './TestResult';
 
+import AutoDQ from './AutoDQ';
+
+const CommentsRoute = () => <CommentsScreen />
 // import {Restart} from 'fiction-expo-restart';
 
+const MyComponent = () => {
+  const [active, setActive] = React.useState('');
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+      // { key: 'home', title: 'Home', icon: 'home' },
+      { key: 'auto', title: 'Auto DQ', icon: 'alert'},
+      {key: 'comment', title: 'Comments', icon: 'comment'},
+      {key: 'finalTest', title: 'Test Result', icon: 'clipboard-check'},
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+      // home: HomeRoute,
+      auto: AutoDQ,
+      comment: CommentsRoute,
+      finalTest: TestResult,
+
+  });
+
+  return (
+      <BottomNavigation
+          navigationState={{ index, routes }}
+          onIndexChange={setIndex}
+          renderScene={renderScene}
+      >
+
+      </BottomNavigation>
+
+  );
+};
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  
-
 
   // Parsa's Page
   return (
 
     <PaperProvider theme={theme}>
-      
       <ScrollView>
-        <View style={styles.buttonView}><Card>
-          <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1568738009519-52d1bad47858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' }} />
-          <Card.Actions>
-            <Button color="#12414F" mode="contained" onPress={() => navigation.navigate('parkinglot')} >Parking Lot</Button>
+      <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+        <Card.Actions>
+              <Button style={{width: 250}} color="#90C96A" mode="contained" onPress={() => navigation.navigate('parkinglot')} >Parking Lot</Button>
           </Card.Actions>
+        </View>
         </Card>
-          <View style={{ padding: "5%" }}></View>
-          <Card>
-            <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1506092309076-af15fb0051e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80' }} />
-            <Card.Actions>
-              <Button mode="contained" color="#12414F" onPress={() => navigation.navigate('Residential')}>Residential</Button>
-            </Card.Actions>
-          </Card></View>
+        <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+          <Card.Actions>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Residential')}>Residential</Button>
+          </Card.Actions>
+          </View>
+        </Card>
+        <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+          <Card.Actions>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>Freeway</Button>
+          </Card.Actions>
+          </View>
+        </Card>
+        <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+          <Card.Actions>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('intersection')}>Intersection</Button>
+          </Card.Actions>
+          </View>
+        </Card>
+        <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+          <Card.Actions>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('turnscreenleft')}>Turns</Button>
+          </Card.Actions>
+          </View>
+        </Card>
+        <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+          <Card.Actions>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('lanechangeleft')}>Lane change</Button>
+          </Card.Actions>
+          </View>
+        </Card>
+
+{/* 
         <View style={styles.buttonView}>
           <Card>
-            <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1582033307729-3ab3c1fe5857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80' }} />
-            <Card.Actions>
-              <Button mode="contained" color="#12414F" onPress={() => navigation.navigate('Freeway')}>Freeway    </Button>
-            </Card.Actions>
-          </Card>
-          <View style={{ padding: "5%" }}></View>
-          <Card>
-            <Card.Cover source={{ uri: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1644&q=80' }} />
             <Card.Actions>
               <Button color="#12414F" mode="contained" onPress={() => navigation.navigate('testresult')}>Test Results</Button>
             </Card.Actions>
           </Card>
-        </View>
+        </View> */}
+
       </ScrollView>
 
 
@@ -78,11 +140,12 @@ const styles = StyleSheet.create({
   },
 
   buttonView: {
+    display: "flex",
     alignContent: "center",
     justifyContent: "center",
     flexDirection: "row",
-    paddingTop: "10%",
-    paddingBottom: "5%",
+    paddingTop: "2%",
+    paddingBottom: "2%",
   },
 });
 
@@ -93,7 +156,7 @@ const theme = {
     ...DefaultTheme.colors,
     primary: '#12414F',
     accent: '#12414F',
-     
+
   },
 };
 
