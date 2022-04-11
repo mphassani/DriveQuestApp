@@ -97,7 +97,18 @@ export default function LogIn({ navigation }) {
         />
       </View>
 
-      <View style={{ padding: "10%" }}>
+      <View
+        style={{
+          alignContent: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+          paddingTop: "5%",
+        }}
+      >
+        <Text style={styles.invalidLoginText}>{invalidLoginDisplay}</Text>
+      </View>
+
+      <View style={{ padding: "5%" }}>
         <Button
           mode="contained"
           color= "#12414F"
@@ -105,18 +116,6 @@ export default function LogIn({ navigation }) {
         >
           Login
         </Button>
-      </View>
-
-      <View
-        style={{
-          alignContent: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          paddingTop: "10%",
-          paddingBottom: "5%",
-        }}
-      >
-        <Text style={styles.invalidLoginText}>{invalidLoginDisplay}</Text>
       </View>
     </PaperProvider>
   );
