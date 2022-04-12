@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, Provider, Divider } from 'react-native-paper';
+import { View, Text, StyleSheet } from 'react-native';
+import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, Provider, Divider, Title,TextInput, DefaultTheme } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import * as StorageHandler from "../../StorageHandler";
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function CommentsScreen({ navigation }) {
 
@@ -24,41 +25,39 @@ export default function CommentsScreen({ navigation }) {
 
     function getSavedText() {
         var value = StorageHandler.getData("COMMENTS").then(res => {
-          // console.log("Initial Value", res);
-          if (res != null) {
-            setText(res);
-          }
-          else {
-            setText("");
-          }
-          return res;
+            // console.log("Initial Value", res);
+            if (res != null) {
+                setText(res);
+            }
+            else {
+                setText("");
+            }
+            return res;
         });
-      }
-    
+    }
+
     return (
-    <PaperProvider>
-        <Portal>
-            <Dialog style={{alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginBottom: 200}} visible={visible} dismissable={false} onDismiss={console.log('done')}>
-                <Dialog.Title>Add a Comment</Dialog.Title>
-                <Dialog.Content>
-                    {/* <Paragraph>Type your comment below:</Paragraph> */}
-                    {/* <Divider /> */}
+        
+        <PaperProvider theme={theme}>
+    
+            <ScrollView>
+                <View style={{ justifyContent: 'center', alignContent: 'center', flexDirection: 'row' }}>
+                    <Title style={{paddingTop: '5%'}}>Add a Comment</Title>
+                </View>
                     <TextInput
-                    mode="outlined"
-                    multiline = {true}
-                    numLines = {10}
-                    placeholder="Add a comment here"
-                    keyboardType="default"
-                    value={text}
-                    onChangeText={(text) => setText(text)}/>
-                </Dialog.Content>
+                        mode="outlined"
+                        multiline={true}
+                        numLines={10}
+                        outlineColor= "#90C96A"
+                        placeholder="Add a comment here"
+                        value={text}
+                        onChangeText={(text) => setText(text)} />
                 <Dialog.Actions>
-                    <Button color="#00677F" onPress= {() => {saveText(text); hideDialog; navigator.goBack();}}>Save</Button>
-                    <Button color="#00677F" onPress= {() => {hideDialog; navigator.goBack();}}>Cancel</Button>
+                    <Button  onPress={() => { saveText(text);}}>Save</Button>
+                    <Button  onPress={() => {}}>Cancel</Button>
                 </Dialog.Actions>
-            </Dialog>
-        </Portal>
-        {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> 
+            </ScrollView>
+            {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> 
             <Text
                 style={{ fontSize: 26, fontWeight: 'bold' }}>Comment Screen</Text>
                 <TextInput style={{
@@ -81,7 +80,7 @@ export default function CommentsScreen({ navigation }) {
                     keyboardType="default"
                 />                   
         </View> */}
-    </PaperProvider>
+        </PaperProvider>
     );
 
 }
@@ -101,5 +100,15 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
         padding: 10,
-      }
+    }
 })
+const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#000000',
+      accent: '#000000',
+       
+    },
+  };

@@ -108,6 +108,7 @@ export default function HomeScreen() {
           </Card.Actions>
           </View>
         </Card>
+        
 
 {/* 
         <View style={styles.buttonView}>
