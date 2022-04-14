@@ -31,9 +31,9 @@ const Counter = (props) => {
 
   
   const onAdd = () => {
-    setCount(prevCount => count < 4 ? prevCount + 1: prevCount);
+    setCount(prevCount => count < 8 ? prevCount + 1: prevCount);
 
-    if (count < 4) {
+    if (count < 8) {
       // console.log("onAdd count: ", count + 1);
       StorageHandler.storeStringData(props.storageKey, (count + 1).toString());
     }
