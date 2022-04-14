@@ -151,7 +151,7 @@ export default function PreDriveScreen({ navigation }) {
                 {/* Stacy and Kevin's work */}
                 {/* Enables the scroll bar feature for the page */}
                 <ScrollView>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "10%", paddingTop: "5%" }}>
+                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
                         {/* Sets properties for the title text */}
                         <Text
                             style={{ fontSize: 25, fontWeight: 'bold' }}>Pre-Drive Checklist
@@ -288,7 +288,7 @@ export default function PreDriveScreen({ navigation }) {
 
                     {/* Submit button for the pre-drive checklist */}
                     <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
-                        <Button color= "#12414F" mode="contained" onPress={() => navigator.navigate('Home')}>Submit                   </Button>
+                        <Button color= "#12414F" mode="contained" onPress={() => navigator.navigate('Home')}>Next                   </Button>
                     </View>
 
                 </ScrollView>

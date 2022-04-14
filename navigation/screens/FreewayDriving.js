@@ -134,6 +134,7 @@ export default function FreewayDriving() {
                       right={(props) =><Counter storageKey="FREEWAY_EXITING_SPEED"/>}
                       />
                   </List.Section>
+                  <Text> </Text>
             </ScrollView>
 
         </PaperProvider>

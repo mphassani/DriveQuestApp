@@ -179,6 +179,7 @@ export default function TurnScreenRight() {
                 right={(props) =><Counter storageKey="TURNS_RIGHT_DURING_SIGNAL"/>}
                 />
             </List.Section>
+            <Text> </Text>
         </ScrollView>
 
     </PaperProvider>

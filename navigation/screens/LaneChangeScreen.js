@@ -88,6 +88,7 @@ export default function LaneChangeScreenRight() {
                     right={(props) => <Counter storageKey="LANECHANGE_RIGHT_STEERING_CONTROL"/>}
                     />
                 </List.Section>
+                <Text> </Text>
             </ScrollView>
 
         </PaperProvider>

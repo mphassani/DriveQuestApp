@@ -4,9 +4,9 @@ import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Port
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import * as StorageHandler from "../../StorageHandler";
-import HomeScreen from './HomeScreen';
-import MainHome from '../../AllScreen';
 import CheckboxItem from "../../components/CheckboxItem";
+import CheckboxRow from "../../components/CheckboxRow";
+
 
 export default function AutoDQ({ navigation }) {
 
@@ -14,86 +14,67 @@ export default function AutoDQ({ navigation }) {
 
     return (
         <PaperProvider>
-            <SafeAreaView>
-                {/* Enables the scroll bar feature for the page */}
-                <ScrollView>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "10%", paddingTop: "5%" }}>
-                        {/* Sets properties for the title text */}
-                        <Text
-                            style={{ fontSize: 25, fontWeight: 'bold' }}>Automatic Disqualification
-                        </Text>
-                    </View>
-                    <List.Section>
+            <ScrollView>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
+                    <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
+                        Automatic Disqualification
+                    </Text>
+                </View>
+                <List.Section>
 
-                        <List.Item
-                            title=" Examiner Intervention"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_EXAMINER_INTERVENTION" />}
-                        />
+                    <CheckboxRow
+                        title="Examiner Intervention"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_EXAMINER_INTERVENTION"
+                        checkboxType="bad"
+                    />
 
-                        <List.Item
-                            title=" Dangerous Maneuver"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_DANGEROUS_MANEUVER" />}
-                        />
+                    <CheckboxRow
+                        title="Dangerous Maneuver"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_DANGEROUS_MANEUVER"
+                        checkboxType="good"
+                    />
 
-                        <List.Item
-                            title=" Strikes Object"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_STRIKES_OBJECT" />}
-                        />
+                    <CheckboxRow
+                        title="Strikes Object"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_STRIKES_OBJECT"
+                        checkboxType="bad"
+                    />
 
-                        <List.Item
-                            title=" Driving Speed"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_DRIVING_SPEED" />}
-                        />
+                    <CheckboxRow
+                        title="Driving Speed"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_DRIVING_SPEED"
+                    />
 
-                        <List.Item
-                            title=" Disobeys Traffic Signage"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_DISOBEYS_TRAFFIC_SIGNAGE" />}
-                        />
+                    <CheckboxRow
+                        title="Disobeys Traffic Signage"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_DISOBEYS_TRAFFIC_SIGNAGE"
+                    />
 
-                        <List.Item
-                            title=" Aux Equipment Use"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_AUX_EQUIPMENT_USE" />}
-                        />
+                    <CheckboxRow
+                        title="Aux Equipment Use"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_AUX_EQUIPMENT_USE"
+                    />
 
-                        <List.Item
-                            title=" Disobeys Examiner"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_DISOBEYS_EXAMINER" />}
-                        />
+                    <CheckboxRow
+                        title="Disobeys Examiner"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_DISOBEYS_EXAMINER"
+                    />
 
-                        <List.Item
-                            title=" Lane Violation"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="AUTODQ_LANE_VIOLATION" />}
-                        />
+                    <CheckboxRow
+                        title="Lane Violation"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="AUTODQ_LANE_VIOLATION"
+                    />
 
-                    </List.Section>
-                </ScrollView>
-            </SafeAreaView>
+                </List.Section>
+            </ScrollView>
         </PaperProvider>
-
     );
-
-
-
-
 }
-
-
-//style-sheet 
-const styles = StyleSheet.create({
-
-    /* creates gray circle to use for lefthand icons */
-    grayCircle: {
-        height: 64,
-        width: 64, 
-        borderRadius: 32, 
-        backgroundColor: "#707070",
-    },
-});
