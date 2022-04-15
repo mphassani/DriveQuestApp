@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
+import {Provider as PaperProvider, Button } from 'react-native-paper';
 import Constants from 'expo-constants';
+
 
 // You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -27,54 +28,56 @@ export default function Settings() {
     {label: 'Route E', value: 'E'},
   ]);
   return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>
-        Settings
-      </Text>
-      <Text style={styles.title}>
-        Sounds
-      </Text>
-      <View style={{zIndex: 2}}>
-        <DropDownPicker 
-            showArrowIcon={true}
-            open={soundOpen}
-            value={soundValue}
-            items={soundItems}
-            setOpen={setSoundOpen}
-            setValue={setSoundValue}
-            setItems={setSoundItems}
-            placeholder='Select a sound'
-            defaultIndex={0}
-            containerStyle={{height: 70, marginBottom: 15}}
-            searchable={true}
-            onChangeItem={item => console.log(item.label, item.value)}
-        />
-      </View>
-      
-      <Text style={styles.title}>
-        Current Route
-      </Text>
-      <View style={{zIndex: 1}}>
-        <DropDownPicker
-            showArrowIcon={true}
-            open={routeOpen}
-            value={routeValue}
-            items={routeItems}
-            setOpen={setRouteOpen}
-            setValue={setRouteValue}
-            setItems={setRouteItems}
-            placeholder='Select a route'
-            defaultIndex={0}
-            containerStyle={{height: 70}}
-            searchable={true}
-            onChangeItem={item => console.log(item.label, item.value)}
-        />
-      </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <Text style={styles.paragraph}>
+          Settings
+        </Text>
+        <Text style={styles.title}>
+          Sounds
+        </Text>
+        <View style={{zIndex: 2}}>
+          <DropDownPicker 
+              showArrowIcon={true}
+              open={soundOpen}
+              value={soundValue}
+              items={soundItems}
+              setOpen={setSoundOpen}
+              setValue={setSoundValue}
+              setItems={setSoundItems}
+              placeholder='Select a sound'
+              defaultIndex={0}
+              containerStyle={{height: 70, marginBottom: 15}}
+              searchable={true}
+              onChangeItem={item => console.log(item.label, item.value)}
+          />
+        </View>
+        
+        <Text style={styles.title}>
+          Current Route
+        </Text>
+        <View style={{zIndex: 1}}>
+          <DropDownPicker
+              showArrowIcon={true}
+              open={routeOpen}
+              value={routeValue}
+              items={routeItems}
+              setOpen={setRouteOpen}
+              setValue={setRouteValue}
+              setItems={setRouteItems}
+              placeholder='Select a route'
+              defaultIndex={0}
+              containerStyle={{height: 70}}
+              searchable={true}
+              onChangeItem={item => console.log(item.label, item.value)}
+          />
+        </View>
 
-      <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
-          <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Data</Button>
+        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
+            <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Data</Button>
+        </View>
       </View>
-    </View>
+    </PaperProvider>
   );
 }
 
