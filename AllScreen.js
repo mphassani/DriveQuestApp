@@ -8,7 +8,6 @@ import { clearAllStoredData } from './StorageHandler';
 
 
 import HomeScreen from './navigation/screens/HomeScreen';
-import CommentsScreen from './navigation/screens/CommentsScreen';
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
@@ -26,13 +25,9 @@ const HomeRoute = () => <HomeScreen />
 
 const AutoRoute = <AutoDQ/>
 
-const CommmentRoute = <CommentsScreen/>
-
 const Intersectionroute = () => <IntersectionScreen />
 
 const TurnsRoute = () => <TurnScreenLeft />
-
-const CommentsRoute = () => <CommentsScreen />
 
 const testRoute = <TestResult/>
 
@@ -63,14 +58,12 @@ const MyComponent = () => {
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home' },
         { key: 'auto', title: 'Auto DQ', icon: 'alert'},
-        {key: 'comment', title: 'Comments', icon: 'comment'},
-        {key: 'finalTest', title: 'Test Result', icon: 'clipboard-check'},
+        {key: 'finalTest', title: 'Test Results', icon: 'clipboard-check'},
     ]);
 
     const renderScene = BottomNavigation.SceneMap({
         home: HomeRoute,
         auto: AutoDQ,
-        comment: CommentsRoute,
         finalTest: TestResult,
 
     });
