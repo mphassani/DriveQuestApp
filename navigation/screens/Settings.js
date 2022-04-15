@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { Button } from 'react-native-paper';
 import Constants from 'expo-constants';
 
 // You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
 
-export default function App() {
+export default function Settings() {
   const [soundOpen, setSoundOpen] = useState(false);
   const [soundValue, setSoundValue] = useState(null);
   const [soundItems, setSoundItems] = useState([
-    {label: 'None', value: '1'},
+    {label: 'No Sound', value: '1'},
     {label: 'Bell', value: '2'},
     {label: 'Horn', value: '3'},
     {label: 'Oink', value: '4'},
@@ -33,7 +34,7 @@ export default function App() {
       <Text style={styles.title}>
         Sounds
       </Text>
-      <View>
+      <View style={{zIndex: 2}}>
         <DropDownPicker 
             showArrowIcon={true}
             open={soundOpen}
@@ -45,7 +46,7 @@ export default function App() {
             placeholder='Select a sound'
             defaultIndex={0}
             containerStyle={{height: 70, marginBottom: 15}}
-            searchable={false}
+            searchable={true}
             onChangeItem={item => console.log(item.label, item.value)}
         />
       </View>
@@ -53,19 +54,26 @@ export default function App() {
       <Text style={styles.title}>
         Current Route
       </Text>
-      <DropDownPicker
-          showArrowIcon={true}
-          open={routeOpen}
-          value={routeValue}
-          items={routeItems}
-          setOpen={setRouteOpen}
-          setValue={setRouteValue}
-          setItems={setRouteItems}
-          placeholder='Select a route'
-          defaultIndex={0}
-          containerStyle={{height: 70}}
-          onChangeItem={item => console.log(item.label, item.value)}
-      />
+      <View style={{zIndex: 1}}>
+        <DropDownPicker
+            showArrowIcon={true}
+            open={routeOpen}
+            value={routeValue}
+            items={routeItems}
+            setOpen={setRouteOpen}
+            setValue={setRouteValue}
+            setItems={setRouteItems}
+            placeholder='Select a route'
+            defaultIndex={0}
+            containerStyle={{height: 70}}
+            searchable={true}
+            onChangeItem={item => console.log(item.label, item.value)}
+        />
+      </View>
+
+      <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
+          <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Data</Button>
+      </View>
     </View>
   );
 }
