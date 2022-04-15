@@ -180,7 +180,7 @@ export default function TurnScreenLeft() {
                     right={(props) =><Counter storageKey="TURNS_LEFT_DURING_SIGNAL"/>}
                     />
                 </List.Section>
-                <Text> </Text>
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
 
         </PaperProvider>

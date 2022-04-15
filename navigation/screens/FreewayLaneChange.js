@@ -79,7 +79,7 @@ export default function FreewayLaneChangeScreen({ navigation }) {
                     right={(props) => <Counter storageKey="FREEWAY_LANE_CHANGE_LEFT_STEERING_CONTROL"/>}
                     />
                 </List.Section>
-                <Text> </Text>
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
 
         </PaperProvider>

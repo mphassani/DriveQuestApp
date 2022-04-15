@@ -56,7 +56,7 @@ export default function ParkingLot({ navigation }) {
                     right={(props) =><Counter storageKey="PARKINGLOT_SPEED"/>}
                     />
                 </List.Section>
-         
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
         </PaperProvider>
     );

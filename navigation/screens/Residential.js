@@ -162,7 +162,7 @@ export default function ResidentialScreen({ navigation }) {
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_SPEED"/>}
                     />
                 </List.Section>
-                <Text> </Text>
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
         </PaperProvider>
     );

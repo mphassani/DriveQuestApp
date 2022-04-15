@@ -118,7 +118,7 @@ export default function IntersectionScreen({ navigation }) {
                     right={(props) =><Counter storageKey="INTERSECTION_START_YIELD"/>}
                     />
                 </List.Section>
-                <Text> </Text>
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
         </PaperProvider>
         
