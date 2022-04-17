@@ -35,8 +35,8 @@ export default function PreDriveScreen({ navigation }) {
                             <Paragraph allowFontScaling={false} >Do you want to enable freeway driving for this route?</Paragraph>
                         </Dialog.Content>
                         <Dialog.Actions>
-                            <Button allowFontScaling={false} color="#00677F" onPress={hideDialog}>Yes</Button>
-                            <Button allowFontScaling={false} color="#00677F" onPress={hideDialog}>No</Button>
+                            <Button labelSyle={{allowFontScaling:false}} color="#00677F" onPress={hideDialog}>Yes</Button>
+                            <Button labelSyle={{allowFontScaling:false}} color="#00677F" onPress={hideDialog}>No</Button>
                         </Dialog.Actions>
                     </Dialog>
                 </Portal>
@@ -89,7 +89,7 @@ export default function PreDriveScreen({ navigation }) {
                                         onPress={() => setChecked('fifth')}
                                     />
                                 </View>
-                                <Button allowFontScaling={false} color="#00677F" onPress={hideDialog3}>Ok</Button>
+                                <Button color="#00677F" onPress={hideDialog3} labelSyle={{allowFontScaling:false}}>Ok</Button>
                             </ScrollView>
                         </Dialog.Actions>
                     </Dialog>
@@ -143,7 +143,7 @@ export default function PreDriveScreen({ navigation }) {
                                         onPress={() => setSoundChecked('fifth')}
                                     />
                                 </View>
-                                <Button allowFontScaling={false} color="#00677F" onPress={hideDialog2}>Ok</Button>
+                                <Button labelSyle={{allowFontScaling:false}} color="#00677F" onPress={hideDialog2}>Ok</Button>
                             </ScrollView>
                         </Dialog.Actions>
                     </Dialog>
