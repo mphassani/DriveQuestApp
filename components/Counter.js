@@ -54,19 +54,7 @@ const [sound, setSound] = React.useState();
 async function playSound() {
   console.log('Loading Sound');
   const { sound } = await Audio.Sound.createAsync(
-      require('../assets/buttonPress.wav')
-  );
-  setSound(sound);
-
-
-console.log('Playing Sound');
-  await sound.playAsync();
-}
-
-async function playSound2() {
-  console.log('Loading Sound');
-  const { sound } = await Audio.Sound.createAsync(
-      require('../assets/buttonPress2.wav')
+      require('../assets/buttonPress.mp3')
   );
   setSound(sound);
 
@@ -89,9 +77,9 @@ React.useEffect(() => {
 
         <View style={styles.counter}>  
 
-           <IconButton icon = "minus-circle-outline" size={35} onPress={() => {playSound(); onDecrement();}} />
+           <IconButton icon = "minus-circle-outline" size={35} onPress={() => {onDecrement();}} />
            <Text style={styles.text}>{count}</Text>
-           <IconButton icon = "plus-circle-outline" size={35} onPress={() => {playSound2(); onAdd();}} /> 
+           <IconButton icon = "plus-circle-outline" size={35} onPress={() => {playSound(); onAdd();}} /> 
           
         </View>
 
