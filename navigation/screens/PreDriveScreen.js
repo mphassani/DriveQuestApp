@@ -23,6 +23,7 @@ export default function PreDriveScreen({ navigation }) {
     const [checked, setChecked] = React.useState('first');
     const [soundChecked, setSoundChecked] = React.useState('first');
     const navigator = useNavigation();
+    
 
     return (
         <PaperProvider>
