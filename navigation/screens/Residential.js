@@ -117,7 +117,7 @@ export default function ResidentialScreen({ navigation }) {
                     right={(props) =><Counter storageKey="RESIDENTIAL_CURB_SPEED"/>}
                     />
                 <List.Item 
-                    title="Avoids Curb" 
+                    title="Steering Control" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/avoidsCurb.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_CURB_AVOIDS_CURB"/>}
@@ -144,7 +144,7 @@ export default function ResidentialScreen({ navigation }) {
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER"/>}
                     />
                 <List.Item 
-                    title="Avoids Curb" 
+                    title="Steering Control" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/avoidsCurb.png')}/>}
                     right={(props) =><Counter storageKey="RESIDENTIAL_REVERSING_AVOIDS_CURB"/>}
