@@ -30,7 +30,7 @@ export default function LaneChangeScreenRight() {
     return (
 
         <PaperProvider theme={theme}>
-            <ScrollView>
+            
                 <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
 
                     <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
@@ -48,6 +48,7 @@ export default function LaneChangeScreenRight() {
                         <Button mode="contained" color="#12414F" disabled="true">Right</Button>
                     </View>
                 </View>
+             <ScrollView>
                 <List.Section>
                     <List.Item
                         title="Driver Side Mirror"

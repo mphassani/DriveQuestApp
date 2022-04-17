@@ -27,7 +27,7 @@ export default function TurnScreenRight() {
     const navigation = useNavigation();
     return (
         <PaperProvider theme={theme}>
-        <ScrollView>
+       
             <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
             <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
                         <Button mode="contained" color = "#12414F" onPress={() => navigation.navigate("turnscreenleft")} >Left</Button>
@@ -36,6 +36,7 @@ export default function TurnScreenRight() {
                         <Button mode="contained" color = "#12414F" disabled="true">Right</Button>
                     </View>
             </View>
+        <ScrollView>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
                 <Text
                     style={{ fontSize: 25, fontWeight: 'bold' }}>Approach
