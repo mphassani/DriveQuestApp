@@ -88,14 +88,6 @@ export default function HomeScreen() {
         <Card>
         <View style={styles.buttonView}>
           <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('intersection')}>Intersection</Button>
-          </Card.Actions>
-          </View>
-        </Card>
-        <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-          <Card.Actions>
             <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('turnscreenleft')}>Turns</Button>
           </Card.Actions>
           </View>
@@ -104,20 +96,10 @@ export default function HomeScreen() {
         <Card>
         <View style={styles.buttonView}>
           <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('lanechangeleft')}>Lane change</Button>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('traffic')}>Traffic</Button>
           </Card.Actions>
           </View>
         </Card>
-        
-
-{/* 
-        <View style={styles.buttonView}>
-          <Card>
-            <Card.Actions>
-              <Button color="#12414F" mode="contained" onPress={() => navigation.navigate('testresult')}>Test Results</Button>
-            </Card.Actions>
-          </Card>
-        </View> */}
 
       </ScrollView>
 

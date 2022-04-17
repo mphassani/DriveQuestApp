@@ -16,6 +16,8 @@ import DrawerSide from './DrawerSide'
 import AutoDQ from './navigation/screens/AutoDQ';
 import TestResult from './navigation/screens/TestResult';
 
+import Traffic from './navigation/screens/Traffic';
+
 
 
 

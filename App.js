@@ -21,6 +21,8 @@ import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
 import { clearAllStoredData } from './StorageHandler';
 
+import Traffic from './navigation/screens/Traffic';
+
 import FreewayLaneChangeRightScreen from './navigation/screens/FreewayLaneChangeRight';
 
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
@@ -79,6 +81,7 @@ function App() {
             <Stack.Screen name='lanechangeleft' component={LaneChangeScreenLeft}/>
             <Stack.Screen name='lanechangeright' component={LaneChangeScreenRight}/>
             <Stack.Screen name='intersection' component={IntersectionScreen}/>
+            <Stack.Screen name='traffic' component={Traffic}/>
           </Stack.Group>
 
 
