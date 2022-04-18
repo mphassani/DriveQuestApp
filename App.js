@@ -20,6 +20,7 @@ import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
 import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
 import { clearAllStoredData } from './StorageHandler';
+import Settings from './navigation/screens/Settings';
 
 import Traffic from './navigation/screens/Traffic';
 
@@ -43,6 +44,7 @@ function CustomNavigationBarFirst({ navigation, back }) {
       {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
       <Appbar.Action icon={'logout'} onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}/>
       <Appbar.Content title="DriveQuest" />
+      <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
     </Appbar.Header>
   );
 }
@@ -82,6 +84,7 @@ function App() {
             <Stack.Screen name='lanechangeright' component={LaneChangeScreenRight}/>
             <Stack.Screen name='intersection' component={IntersectionScreen}/>
             <Stack.Screen name='traffic' component={Traffic}/>
+            <Stack.Screen name='settings' component={Settings}/>
           </Stack.Group>
 
 
