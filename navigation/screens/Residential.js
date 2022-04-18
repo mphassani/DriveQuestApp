@@ -128,13 +128,13 @@ export default function ResidentialScreen({ navigation }) {
                             <Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_CURB_SIGNAL" />}
                     />
-                </List.Section>
-                <List.Item
+                    <List.Item
                     title="Visual Search"
                     left={(props) =>
-                        <Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
-                    right={(props) => <Counter storageKey="RESIDENTIAL_CURB_VISUAL" />}
+                        <Avatar.Image {...props} source={require('../../assets/VisualCheck.png')} />}
+                    right={(props) => <Counter storageKey="RESIDENTIAL_VISUAL_SEARCH" />}
                 />
+                </List.Section>
 
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
