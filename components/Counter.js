@@ -53,14 +53,33 @@ const [sound, setSound] = React.useState();
 
 async function playSound() {
   console.log('Loading Sound');
-  const { sound } = await Audio.Sound.createAsync(
+  randomNum = Math.random();
+  if (randomNum >= 0 && randomNum < 0.33) {
+    const { sound } = await Audio.Sound.createAsync(
       require('../assets/buttonPress.mp3')
-  );
-  setSound(sound);
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else if (randomNum > 0.33 && randomNum < 0.66) {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../assets/buttonPress2.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../assets/buttonPress3.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  //setSound(sound);
 
 
 console.log('Playing Sound');
-  await sound.playAsync();
+  //await sound.playAsync();
 }
 
 React.useEffect(() => {

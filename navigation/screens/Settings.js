@@ -1,8 +1,9 @@
 //import statements 
 import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import {Provider as PaperProvider, Button, TextInput } from 'react-native-paper';
+import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
+import { clearAllStoredData } from '../../StorageHandler';
 
 // You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -37,106 +38,116 @@ export default function Settings() {
 
   const [dateText, setDateText] = React.useState("");
 
+  const theme = {
+    ...DefaultTheme,
+    //roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#707070',
+      accent: '#FFFFFF',
+    },
+  };
+
   return (
     /* FIXME: figure out how to send previously chosen values to this page? 
         is date already saved to DB? is instructor name already stored with login key?
         should driver's name be included on the menu page Christian and Kevin were working on? (before starting a new test)
         should save button just go to home page? check in with DB to store any needed data?
     */
-    <PaperProvider>
-      <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Settings
-        </Text>
+    <PaperProvider theme = {theme}>
+        <View style={styles.container}>
+          
+          <Text style={styles.paragraph}>
+            Settings
+          </Text>
 
-         {/* Creates student name input field */}
-         {/* FIXME: check in with DB? is this already stored with the login key? */}
-        <View style={{ marginBottom: 15 }}>
-        <TextInput
-          label="Instructor Name"
-          value={instructorText}
-          onChangeText={(text) => setInstructorText(text)}
-          mode="outlined"
-        />
-      </View>
-
-      {/* Creates student name input field */}
-      {/* FIXME: check in with DB? should this be on the menu page Christian and Kevin were creating? */}
-      <View style={{ marginBottom: 20 }}>
-        <TextInput
-          label="Student Name"
-          value={studentText}
-          onChangeText={(text) => setStudentText(text)}
-          mode="outlined"
-        />
-      </View>
-
-      {/* Creates date input field */}
-      {/* FIXME: find date picker package? check in with DB? */}
-      <View style={{ marginBottom: 20 }}>
-        <TextInput
-          label="Date"
-          value={dateText}
-          onChangeText={(text) => setDateText(text)}
-          mode="outlined"
-        />
-      </View>
-
-      <Text style={styles.title}>
-          Sounds
-        </Text>
-
-        {/* Creates searchable sound dropdown */}
-        <View style={{zIndex: 2}}>
-          <DropDownPicker 
-              showArrowIcon={true}
-              open={soundOpen}
-              value={soundValue}
-              items={soundItems}
-              setOpen={setSoundOpen}
-              setValue={setSoundValue}
-              setItems={setSoundItems}
-              placeholder='Select a sound'
-              defaultIndex={0}
-              containerStyle={{height: 70, marginBottom: 5}}
-              searchable={true}
-              onChangeItem={item => console.log(item.label, item.value)}
+          {/* Creates student name input field */}
+          {/* FIXME: check in with DB? is this already stored with the login key? */}
+          <View style={{ marginBottom: 15 }}>
+          <TextInput
+            label="Instructor Name"
+            value={instructorText}
+            onChangeText={(text) => setInstructorText(text)}
+            mode="outlined"
           />
         </View>
-        
+
+        {/* Creates student name input field */}
+        {/* FIXME: check in with DB? should this be on the menu page Christian and Kevin were creating? */}
+        <View style={{ marginBottom: 20 }}>
+          <TextInput
+            label="Student Name"
+            value={studentText}
+            onChangeText={(text) => setStudentText(text)}
+            mode="outlined"
+          />
+        </View>
+
+        {/* Creates date input field */}
+        {/* FIXME: find date picker package? check in with DB? */}
+        <View style={{ marginBottom: 20 }}>
+          <TextInput
+            label="Date"
+            value={dateText}
+            onChangeText={(text) => setDateText(text)}
+            mode="outlined"
+          />
+        </View>
+
         <Text style={styles.title}>
-          Current Route
-        </Text>
+            Sounds
+          </Text>
 
-        {/* Creates searchable route dropdown */}
-        <View style={{zIndex: 1}}>
-          <DropDownPicker
-              showArrowIcon={true}
-              open={routeOpen}
-              value={routeValue}
-              items={routeItems}
-              setOpen={setRouteOpen}
-              setValue={setRouteValue}
-              setItems={setRouteItems}
-              placeholder='Select a route'
-              defaultIndex={0}
-              containerStyle={{height: 70}}
-              searchable={true}
-              onChangeItem={item => console.log(item.label, item.value)}
-          />
+          {/* Creates searchable sound dropdown */}
+          <View style={{zIndex: 2}}>
+            <DropDownPicker 
+                showArrowIcon={true}
+                open={soundOpen}
+                value={soundValue}
+                items={soundItems}
+                setOpen={setSoundOpen}
+                setValue={setSoundValue}
+                setItems={setSoundItems}
+                placeholder='Select a sound'
+                defaultIndex={0}
+                containerStyle={{height: 70, marginBottom: 5}}
+                searchable={true}
+                onChangeItem={item => console.log(item.label, item.value)}
+            />
+          </View>
+          
+          <Text style={styles.title}>
+            Current Route
+          </Text>
+
+          {/* Creates searchable route dropdown */}
+          <View style={{zIndex: 1}}>
+            <DropDownPicker
+                showArrowIcon={true}
+                open={routeOpen}
+                value={routeValue}
+                items={routeItems}
+                setOpen={setRouteOpen}
+                setValue={setRouteValue}
+                setItems={setRouteItems}
+                placeholder='Select a route'
+                defaultIndex={0}
+                containerStyle={{height: 70}}
+                searchable={true}
+                onChangeItem={item => console.log(item.label, item.value)}
+            />
+          </View>
+
+          {/* Creates the save settings button */}
+          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
+              <Button color= "#12414F">Save Settings</Button>
+          </View>
+
+          {/* Creates the clear button to clear all save data from the test. */}
+          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
+              <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
+          </View>
         </View>
-
-        {/* Creates the save settings button */}
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
-            <Button color= "#12414F">Save Settings</Button>
-        </View>
-
-        {/* Creates the clear button to clear all save data from the test. */}
-        <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
-            <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
-        </View>
-
-      </View>
     </PaperProvider>
   );
 }
@@ -151,7 +162,7 @@ const styles = StyleSheet.create({
 
   //used for page title 
   paragraph: {
-    marginTop: -50,
+    marginTop: -150,
     margin: 20,
     fontSize: 18,
     fontWeight: 'bold',
