@@ -13,8 +13,10 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import * as StorageHandler from "../../StorageHandler";
 import { StylesProvider } from "@chakra-ui/react";
 import CommentsScreen from './CommentsScreen';
+import { useEffect, useState } from "react";
 import TestResult from './TestResult';
 
 import AutoDQ from './AutoDQ';
@@ -54,6 +56,33 @@ const MyComponent = () => {
 
 export default function HomeScreen() {
   const navigation = useNavigation();
+  const [freewayDisplay, setFreewayDisplay] = useState("");
+
+  useEffect(() => {
+    const checkFreewayOnPageLoad = async () => {
+      const data = await checkFreewayEnable();
+      console.log("Freeway Enabled? : ", data);
+    }
+
+    checkFreewayOnPageLoad();
+  }, []);
+
+  async function checkFreewayEnable() {
+    // Freeway Driving Check
+    // CHANGE THIS to checking freeway enable, not driver window pre-check box
+    const freeway_enable = await StorageHandler.getData("PREDRIVE_HORN");
+    console.log("freeway enable: " + freeway_enable)
+    if (freeway_enable == "false") {
+      console.log("in if statement")
+      setFreewayDisplay("none");
+      return false;
+    }
+    else {
+      console.log("in else statement")
+      return true;
+    }
+  }
+  
 
   // Parsa's Page
   return (
@@ -80,14 +109,6 @@ export default function HomeScreen() {
         <Card>
         <View style={styles.buttonView}>
           <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>Freeway</Button>
-          </Card.Actions>
-          </View>
-        </Card>
-        <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-          <Card.Actions>
             <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('turnscreenleft')}>Turns</Button>
           </Card.Actions>
           </View>
@@ -97,6 +118,14 @@ export default function HomeScreen() {
         <View style={styles.buttonView}>
           <Card.Actions>
             <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('traffic')}>Traffic</Button>
+          </Card.Actions>
+          </View>
+        </Card>
+        <View style={{padding: "2%"}}/>
+        <Card style={{display: freewayDisplay}}>
+        <View style={styles.buttonView}>
+          <Card.Actions>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>Freeway</Button>
           </Card.Actions>
           </View>
         </Card>
