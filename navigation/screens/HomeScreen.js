@@ -101,7 +101,7 @@ export default function HomeScreen() {
         <Card>
         <View style={styles.buttonView}>
           <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Residential')}>Residential</Button>
+            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Residential/Business')}>Residential/Business</Button>
           </Card.Actions>
           </View>
         </Card>
