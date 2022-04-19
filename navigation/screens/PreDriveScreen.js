@@ -1,337 +1,156 @@
 import * as React from "react";
-import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, Image, TextInput } from 'react-native';
-import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider, DefaultTheme} from 'react-native-paper';
+import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Text, TextInput } from 'react-native';
+import { Provider as PaperProvider, List, DefaultTheme} from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import CheckboxItem from "../../components/CheckboxItem";
+import CheckboxRow from "../../components/CheckboxRow";
 
-const { height } = Dimensions.get('window');
+
 
 //pre-drive screen display 
 
-export default function PreDriveScreen({ navigation }) {
-    
-    const [visible, setVisible] = React.useState(true);
-    const [visible2, setVisible2] = React.useState(true);
-    const [visible3, setVisible3] = React.useState(true);
-    const showDialog2 = () => setVisible2 = (true);
-    const showDialog3 = () => setVisible3 = (true);
-    const hideDialog = () => setVisible(false);
-    const hideDialog2 = () => setVisible2(false);
-    const hideDialog3 = () => setVisible3(false);
-    const [checked, setChecked] = React.useState('first');
-    const [soundChecked, setSoundChecked] = React.useState('first');
-    const navigator = useNavigation();
-    
+//Stacy and Kevin's work
+
+export default function PreDriveScreen({ navigation }) {    
 
     return (
         <PaperProvider>
-            <SafeAreaView>
-                <Portal>
-                    <Dialog visible={visible} dismissable={false} onDismiss={showDialog2}>
-                        <Dialog.Title allowFontScaling={false} >Freeway Driving</Dialog.Title>
-                        <Dialog.Content>
-                            <Paragraph allowFontScaling={false} >Do you want to enable freeway driving for this route?</Paragraph>
-                        </Dialog.Content>
-                        <Dialog.Actions>
-                            <Button labelSyle={{allowFontScaling:false}} color="#00677F" onPress={hideDialog}>Yes</Button>
-                            <Button labelSyle={{allowFontScaling:false}} color="#00677F" onPress={hideDialog}>No</Button>
-                        </Dialog.Actions>
-                    </Dialog>
-                </Portal>
+            <ScrollView>
 
-                <Portal>
-                    <Dialog visible={visible3} dismissable={false} onDismiss={hideDialog3}>
-                        <Dialog.Title allowFontScaling={false} >Route Selection</Dialog.Title>
-                        <Dialog.Content>
-                            <Paragraph allowFontScaling={false} >Please select the route for this practice test</Paragraph>
-                        </Dialog.Content>
-                        <Dialog.Actions>
-                            <ScrollView style={{}}>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Fairytale Gardens</Text>
-                                    <RadioButton value="first"
-                                        color = "#90C96A"
-                                        status={checked === 'first' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setChecked('first')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Crystal Cove</Text>
-                                    <RadioButton value="second"
-                                        color = "#90C96A"
-                                        status={checked === 'second' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setChecked('second')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Rainbow Road</Text>
-                                    <RadioButton value="third"
-                                        color = "#90C96A"
-                                        status={checked === 'third' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setChecked('third')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Pacific Coast Highway</Text>
-                                    <RadioButton value="fourth"
-                                        color = "#90C96A"
-                                        status={checked === 'fourth' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setChecked('fourth')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>DriveQuest Circuit</Text>
-                                    <RadioButton value="fifth"
-                                        color = "#90C96A"
-                                        status={checked === 'fifth' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setChecked('fifth')}
-                                    />
-                                </View>
-                                <Button color="#00677F" onPress={hideDialog3} labelSyle={{allowFontScaling:false}}>Ok</Button>
-                            </ScrollView>
-                        </Dialog.Actions>
-                    </Dialog>
-                </Portal>
+                {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
+                    <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
+                    Pre-Drive Checklist
+                    </Text>
+                </View> */}
 
-                <Portal>
-                    <Dialog visible={visible2} dismissable={false} onDismiss={showDialog3}>
-                        <Dialog.Title allowFontScaling={false} >Sound Selection</Dialog.Title>
-                        <Dialog.Content>
-                            <Paragraph allowFontScaling={false} >Please select the error sound you'd like to use for this practice test.</Paragraph>
-                        </Dialog.Content>
-                        <Dialog.Actions>
-                            <ScrollView>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{fontSize: 16 }}>Bell</Text>
-                                    <RadioButton value="first"
-                                        color = "#90C96A"
-                                        status={soundChecked === 'first' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setSoundChecked('first')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ maxFontScaleMultiplier: 2, fontSize: 16 }}>Horn</Text>
-                                    <RadioButton value="second"
-                                        color = "#90C96A"
-                                        status={soundChecked === 'second' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setSoundChecked('second')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Oink</Text>
-                                    <RadioButton value="third"
-                                        color = "#90C96A"
-                                        status={soundChecked === 'third' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setSoundChecked('third')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Police Siren</Text>
-                                    <RadioButton value="fourth"
-                                        color = "#90C96A"
-                                        status={soundChecked === 'fourth' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setSoundChecked('fourth')}
-                                    />
-                                </View>
-                                <View style={{ flex: 1, padding: 10 }}>
-                                    <Text allowFontScaling={false} style={{ fontSize: 16 }}>Piano</Text>
-                                    <RadioButton value="fifth"
-                                        color = "#90C96A"
-                                        status={soundChecked === 'fifth' ? 'checked' : 'unchecked}'}
-                                        onPress={() => setSoundChecked('fifth')}
-                                    />
-                                </View>
-                                <Button labelSyle={{allowFontScaling:false}} color="#00677F" onPress={hideDialog2}>Ok</Button>
-                            </ScrollView>
-                        </Dialog.Actions>
-                    </Dialog>
-                </Portal>
+                <List.Section>
 
-                {/* Stacy and Kevin's work */}
-                {/* Enables the scroll bar feature for the page */}
-                <ScrollView>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
-                        {/* Sets properties for the title text */}
-                        <Text
-                            style={{ fontSize: 25, fontWeight: 'bold' }}>Pre-Drive Checklist
-                        </Text>
-                    </View>
-                    {/* consists of the 17 pre-drive checklist items */}
-                    <List.Section>
-                        {/* Each list item has a title (the item name), a left (the icon), and a right (the checkbox) attribute */}
-                      {/*  <Pressable onPress = {onButtonPress}> */}
-                        <List.Item
-                            title=" Brake Lights"
-                            left={(props) =><Image style={styles.grayCircle} source={require('../../assets/driverSideWindow.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_DRIVER_WINDOW"/>}
-                            //onPress = {onButtonPress}
-                        />
-                     {/* </Pressable> */}
-                        <List.Item
-                            title=" Defroster"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/windshield.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_WINDSHIELD"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Driver Window"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/rearViewMirror.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_REAR_VIEW_MIRRORS"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        {/*FIXME: add other turn signal*/}
-                        <List.Item
-                            title=" Emergency Brakes"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/RightSignal.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_RIGHT_TURN_SIGNAL"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Emergency Flasher"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/LeftSignal.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_TURN_SIGNAL"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Foot Brake"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/brakeLights.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_BRAKE_LIGHTS"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Glove Box"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/tires.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_TIRES"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Headlights"
-                            left={(props) => <Image style={styles.grayCircle}source={require('../../assets/Breaking.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_FOOT_BRAKES"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Horn"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/horn.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_HORN"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Left Arm Signal"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/parkingBrake.png')} /> }
-                            right={() => <CheckboxItem storageKey="PREDRIVE_PARKING_BRAKE"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        {/*FIXME: add other arm signals*/}
-                        <List.Item
-                            title=" Right Arm Signal"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/armSignals.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_RIGHT_ARM_SIGNAL"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Stop Arm Signal"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/leftArmSignal.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_LEFT_ARM_SIGNAL"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Passenger Door"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/stopArmSignal.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_STOP_ARM_SIGNAL"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Rearview Mirrors"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/windshieldWipers.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_WINDSHIELD_WIPERS"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Left Turn Signal"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/defroster.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_DEFROSTER"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Right Turn Signal"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/emergencyLights.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_EMERGENCY_FLASHER"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Seatbelts"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/headlights.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_HEADLIGHTS"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Tires"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/passengerDoor.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_PASSENGER_DOOR"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Windshield"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/gloveBox.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_GLOVE_BOX"/>}
-                            //onPress = {onButtonPress}
-                        />
-                        <List.Item
-                            title=" Windshield Wipers"
-                            left={(props) => <Image style={styles.grayCircle} source={require('../../assets/seatbelts.png')} />}
-                            right={() => <CheckboxItem storageKey="PREDRIVE_SEATBELTS"/>}
-                            //onPress = {onButtonPress}
-                        />
-                    </List.Section>
+                    <CheckboxRow
+                        title="Brake Lights"
+                        icon={require("../../assets/brakeLights.png")}
+                        storageKey="PREDRIVE_BRAKE_LIGHTS"
+                    />
 
-                    {/* Submit button for the pre-drive checklist */}
-                    <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>
-                        <Button color= "#12414F" mode="contained" onPress={() => navigator.navigate('Home')}>Next                   </Button>
-                    </View>
+                    <CheckboxRow
+                        title="Defroster"
+                        icon={require("../../assets/defroster.png")}
+                        storageKey="PREDRIVE_DEFROSTER"
+                    />
 
-                </ScrollView>
-            </SafeAreaView>
+                    <CheckboxRow
+                        title="Driver Window"
+                        icon={require("../../assets/driverSideWindow.png")}
+                        storageKey="PREDRIVE_DRIVER_WINDOW"
+                    />
+
+                    <CheckboxRow
+                        title="Emergency Brakes"
+                        icon={require("../../assets/parkingBrake.png")}
+                        storageKey="PREDRIVE_PARKING_BRAKE"
+                    />
+
+                    <CheckboxRow
+                        title="Emergency Flasher"
+                        icon={require("../../assets/emergencyLights.png")}
+                        storageKey="PREDRIVE_EMERGENCY_FLASHER"
+                    />
+
+                    <CheckboxRow
+                        title="Foot Brake"
+                        icon={require("../../assets/Breaking.png")}
+                        storageKey="PREDRIVE_FOOT_BRAKES"
+                    />
+
+                    <CheckboxRow
+                        title="Glove Box"
+                        icon={require("../../assets/gloveBox.png")}
+                        storageKey="PREDRIVE_GLOVE_BOX"
+                    />
+
+                    <CheckboxRow
+                        title="Headlights"
+                        icon={require("../../assets/headlights.png")}
+                        storageKey="PREDRIVE_HEADLIGHTS"
+                    />
+
+                    <CheckboxRow
+                        title="Horn"
+                        icon={require("../../assets/horn.png")}
+                        storageKey="PREDRIVE_HORN"
+                    />
+
+                    <CheckboxRow
+                        title="Left Arm Signal"
+                        icon={require("../../assets/leftArmSignal.png")}
+                        storageKey="PREDRIVE_LEFT_ARM_SIGNAL"
+                    />
+
+                    <CheckboxRow
+                        title="Right Arm Signal"
+                        icon={require("../../assets/armSignals.png")}
+                        storageKey="PREDRIVE_RIGHT_ARM_SIGNAL"
+                    />
+
+                    <CheckboxRow
+                        title="Stop Arm Signal"
+                        icon={require("../../assets/stopArmSignal.png")}
+                        storageKey="PREDRIVE_STOP_ARM_SIGNAL"
+                    />
+
+                    <CheckboxRow
+                        title="Passenger Door"
+                        icon={require("../../assets/passengerDoor.png")}
+                        storageKey="PREDRIVE_PASSENGER_DOOR"
+                    />
+
+                    <CheckboxRow
+                        title="Rearview Mirrors"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="PREDRIVE_REAR_VIEW_MIRRORS"
+                    />
+
+                    <CheckboxRow
+                        title="Left Turn Signal"
+                        icon={require("../../assets/LeftSignal.png")}
+                        storageKey="PREDRIVE_LEFT_TURN_SIGNAL"
+                    />
+
+                    <CheckboxRow
+                        title="Right Turn Signal"
+                        icon={require("../../assets/RightSignal.png")}
+                        storageKey="PREDRIVE_RIGHT_TURN_SIGNAL"
+                    />
+
+                    <CheckboxRow
+                        title="Seatbelts"
+                        icon={require("../../assets/seatbelts.png")}
+                        storageKey="PREDRIVE_SEATBELTS"
+                    />
+
+                    <CheckboxRow
+                        title="Tires"
+                        icon={require("../../assets/tires.png")}
+                        storageKey="PREDRIVE_TIRES"
+                    />
+
+                    <CheckboxRow
+                        title="Windshield"
+                        icon={require("../../assets/windshield.png")}
+                        storageKey="PREDRIVE_WINDSHIELD"
+                    />
+
+                    <CheckboxRow
+                        title="Windshield Wipers"
+                        icon={require("../../assets/windshieldWipers.png")}
+                        storageKey="PREDRIVE_WINDSHIELD_WIPERS"
+                    />
+
+                </List.Section>
+                <View style={{marginBottom: 25}}></View>
+            </ScrollView>
         </PaperProvider>
 
     );
 
-
-
-
 }
 
- //export function onButtonPress(){
-
-//}
-
-
-
-//counter - counts the number of pre-drive checklist items marked correct for later use in viewing results 
-var counter = 0;
-
-//increments the value of counter by 1, logging it to the console for now 
-export function incrementVal() {
-    ++counter;
-    console.log(counter);
-}
-
-//decrements the value of counter by 1, logging it to the console for now 
-export function decrementVal() {
-    --counter;
-    console.log(counter);
-}
-
-//style-sheet 
-const styles = StyleSheet.create({
-
-    /* creates gray circle to use for lefthand icons */
-    grayCircle: {
-        height: 64,
-        width: 64, 
-        borderRadius: 32, 
-        backgroundColor: "#4DB6AC",
-    },
-});

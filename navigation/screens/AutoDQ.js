@@ -3,8 +3,6 @@ import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pres
 import { Provider as PaperProvider, RadioButton, Button, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider, DefaultTheme} from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import * as StorageHandler from "../../StorageHandler";
-import CheckboxItem from "../../components/CheckboxItem";
 import CheckboxRow from "../../components/CheckboxRow";
 
 
@@ -79,6 +77,7 @@ export default function AutoDQ({ navigation }) {
                     />
 
                 </List.Section>
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
         </PaperProvider>
     );

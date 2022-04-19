@@ -89,6 +89,14 @@ export default function HomeScreen() {
         <Card>
         <View style={styles.buttonView}>
         <Card.Actions>
+              <Button style={{width: 250}} color="#90C96A" mode="contained" onPress={() => navigation.navigate('PreDrive')} >Pre-Drive Checklist</Button>
+          </Card.Actions>
+        </View>
+      </Card>
+      <View style={{padding: "2%"}}/>
+        <Card>
+        <View style={styles.buttonView}>
+        <Card.Actions>
               <Button style={{width: 250}} color="#90C96A" mode="contained" onPress={() => navigation.navigate('parkinglot')} >Parking Lot</Button>
           </Card.Actions>
         </View>

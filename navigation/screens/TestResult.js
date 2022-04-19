@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Linking, ScrollView, TextInput, Pressable, KeyboardAvoidingView, RefreshControl, Share } from 'react-native';
+import { StyleSheet, View, Text, Linking, ScrollView, TextInput, Pressable, KeyboardAvoidingView, RefreshControl, Share, Alert } from 'react-native';
 import { List, Provider as PaperProvider, Appbar, DefaultTheme} from 'react-native-paper';
 import * as StorageHandler from "../../StorageHandler";
 import { useEffect, useState } from "react";
@@ -783,6 +783,22 @@ export default function TestResults() {
     return valuesArray;
   }
 
+
+
+  const testEndConfirmation = () =>
+    Alert.alert(
+      "End Test",
+      "Are you sure you want to end the test?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Yes", onPress: () => {StorageHandler.clearAllTestData(); navigation.navigate("LogIn");} }
+      ]
+    );
+
   return (
     <KeyboardAvoidingView 
     keyboardVerticalOffset={headerHeight}
@@ -927,6 +943,16 @@ export default function TestResults() {
             style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.sendButton]}
         >
           <Text style={styles.sendButtonText}><Ionicons name="share-outline" size={21} color="white" /> Share Results</Text>
+
+        </Pressable>
+      </View>
+
+      <View style={styles.sendButtonContainer}>
+        <Pressable
+            onPress={testEndConfirmation}
+            style={({ pressed }) => [{ backgroundColor: pressed ? '#b32023' : '#87181A' } , styles.sendButton]}
+        >
+          <Text style={styles.sendButtonText}>End Test</Text>
 
         </Pressable>
       </View>

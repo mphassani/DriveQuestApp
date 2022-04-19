@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         height: 64,
         width: 64, 
         borderRadius: 32, 
-        backgroundColor: '#87181A',
+        backgroundColor: '#4DB6AC',
     },
 
     titleText: {
