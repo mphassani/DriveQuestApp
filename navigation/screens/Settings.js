@@ -43,7 +43,7 @@ export default function Settings() {
     //roundness: 2,
     colors: {
       ...DefaultTheme.colors,
-      primary: '#707070',
+      primary: '#4DB6AC',
       accent: '#FFFFFF',
     },
   };
