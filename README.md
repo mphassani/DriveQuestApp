@@ -36,6 +36,10 @@ Use this to import Async Storage to handle storage
 npm install @react-native-async-storage/async-storage
 ```
 
+```bash
+npm install react-native-dropdown-picker
+```
+
 Use this in your .js file to modify things
 
 ```bash
