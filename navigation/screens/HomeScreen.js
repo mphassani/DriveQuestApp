@@ -15,13 +15,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import * as StorageHandler from "../../StorageHandler";
 import { StylesProvider } from "@chakra-ui/react";
-import CommentsScreen from './CommentsScreen';
 import { useEffect, useState } from "react";
 import TestResult from './TestResult';
 
 import AutoDQ from './AutoDQ';
 
-const CommentsRoute = () => <CommentsScreen />
 // import {Restart} from 'fiction-expo-restart';
 
 const MyComponent = () => {
@@ -30,14 +28,12 @@ const MyComponent = () => {
   const [routes] = React.useState([
       // { key: 'home', title: 'Home', icon: 'home' },
       { key: 'auto', title: 'Auto DQ', icon: 'alert'},
-      {key: 'comment', title: 'Comments', icon: 'comment'},
       {key: 'finalTest', title: 'Test Result', icon: 'clipboard-check'},
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
       // home: HomeRoute,
       auto: AutoDQ,
-      comment: CommentsRoute,
       finalTest: TestResult,
 
   });

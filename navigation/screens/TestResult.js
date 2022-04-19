@@ -155,6 +155,8 @@ export default function TestResults() {
   
 
   useEffect(() => {
+    alert("Results page doesn’t always update automatically. Pull down to manually refresh.");
+
     const calculateResultsOnPageLoad = async () => {
       const data = await calculateTestResults();
       // console.log("Total Number of Errors: ", data);
@@ -216,26 +218,7 @@ export default function TestResults() {
     lanechangeErrors = await calculateCounterErrors(lanechangeValues);
     autoDQErrors = await calculateBooleanErrors(autoDQValues, true);
     
-    // Show the scores in the front end
-
-    // // Mechanical Section Check
-    // if (preDriveMechanicalErrors > 0) {
-    //   passedTest = false;
-    //   setMechanicalDisplay(preDriveMechanicalErrors);
-    // }
-    // else {
-    //   setMechanicalDisplay("Passed");
-    // }
-
-    // // Operational Section Check
-    // if (preDriveOperationalErrors >= 4) {
-    //   passedTest = false;
-    //   setOperationalDisplay(preDriveOperationalErrors);
-    // }
-    // else {
-    //   setOperationalDisplay("Passed");
-    // }
-
+    // Show the scores in the frontend
     setMechanicalDisplay(preDriveMechanicalErrors);
     setOperationalDisplay(preDriveOperationalErrors);
 
@@ -261,8 +244,15 @@ export default function TestResults() {
     // Score Calculation (right now predrive calculation is up above, when that section is figured out, bring it down here)
     // --------------------------------------
 
-    // TODO: Predrive Check
-    // TODO: Auto DQ Check
+    // Mechanical Section Check
+    if (preDriveMechanicalErrors > 0) {
+      passedTest = false;
+    }
+
+    // Operational Section Check
+    if (preDriveOperationalErrors >= 4) {
+      passedTest = false;
+    }
 
     // Driving Section Check
     var totalDrivingErrors = parkinglotErrors + residentialErrors + intersectionErrors + turningErrors + lanechangeErrors;

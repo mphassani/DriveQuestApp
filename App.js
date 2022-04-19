@@ -15,7 +15,6 @@ import FreewayLaneChangeScreen from './navigation/screens/FreewayLaneChange'
 import ParkingLot from './navigation/screens/ParkingLot';
 import TestResult from './navigation/screens/TestResult';
 import AutoDQ from './navigation/screens/AutoDQ';
-import CommentsScreen from './navigation/screens/CommentsScreen';
 import LaneChangeScreen from './navigation/screens/LaneChangeScreen';
 import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
@@ -76,8 +75,7 @@ function App() {
             <Stack.Screen name="parkinglot" component={ParkingLot} />
             <Stack.Screen name="Freeway" component={FreewayDriving} />
             <Stack.Screen name="Residential" component={Residential} />
-            <Stack.Screen name="commentscreen" component={CommentsScreen} options={{ presentation: 'transparentModal', cardOverlayEnabled: true }} />
-            <Stack.Screen name="autodq" component={AutoDQ} options={{ presentation: 'transparentModal', cardOverlayEnabled: true }} />
+            <Stack.Screen name="autodq" component={AutoDQ} />
             <Stack.Screen name="turnscreenleft" component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" component={TurnScreenRight} />
             <Stack.Screen name='lanechangeleft' component={LaneChangeScreenLeft}/>
