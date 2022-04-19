@@ -85,3 +85,16 @@ export async function clearAllStoredData() {
 
   console.log('Cleared all saved data!');
 }
+
+
+export async function clearAllTestData() {
+  try {
+    await AsyncStorage.clear()
+    storeStringData("IS_LOGGED_IN", "true");
+    //TODO: Store Instructor name and email
+  } catch(e) {
+    // clear error
+  }
+
+  console.log('Cleared all test data!');
+}
