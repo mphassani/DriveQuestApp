@@ -43,7 +43,7 @@ export default function Settings() {
     //roundness: 2,
     colors: {
       ...DefaultTheme.colors,
-      primary: '#4DB6AC',
+      primary: '#707070',
       accent: '#FFFFFF',
     },
   };
@@ -61,17 +61,6 @@ export default function Settings() {
             Settings
           </Text>
 
-          {/* Creates student name input field */}
-          {/* FIXME: check in with DB? is this already stored with the login key? */}
-          <View style={{ marginBottom: 15 }}>
-          <TextInput
-            label="Instructor Name"
-            value={instructorText}
-            onChangeText={(text) => setInstructorText(text)}
-            mode="outlined"
-          />
-        </View>
-
         {/* Creates student name input field */}
         {/* FIXME: check in with DB? should this be on the menu page Christian and Kevin were creating? */}
         <View style={{ marginBottom: 20 }}>
@@ -79,17 +68,6 @@ export default function Settings() {
             label="Student Name"
             value={studentText}
             onChangeText={(text) => setStudentText(text)}
-            mode="outlined"
-          />
-        </View>
-
-        {/* Creates date input field */}
-        {/* FIXME: find date picker package? check in with DB? */}
-        <View style={{ marginBottom: 20 }}>
-          <TextInput
-            label="Date"
-            value={dateText}
-            onChangeText={(text) => setDateText(text)}
             mode="outlined"
           />
         </View>
@@ -138,11 +116,6 @@ export default function Settings() {
             />
           </View>
 
-          {/* Creates the save settings button */}
-          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
-              <Button color= "#12414F">Save Settings</Button>
-          </View>
-
           {/* Creates the clear button to clear all save data from the test. */}
           <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
               <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
@@ -156,15 +129,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight + 150,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#f2f2f2',
     padding: 30,
   },
 
   //used for page title 
   paragraph: {
-    marginTop: -150,
+    marginTop: -160,
     margin: 20,
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
   },
