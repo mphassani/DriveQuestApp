@@ -53,6 +53,7 @@ export default function TestResults() {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
+  const [predriveDisplay, setPredriveDisplay] = useState("Loading...");
   const [mechanicalDisplay, setMechanicalDisplay] = useState("Loading...");
   const [operationalDisplay, setOperationalDisplay] = useState("Loading...");
   const [parkinglotDisplay, setParkinglotDisplay] = useState("Loading...");
@@ -77,8 +78,9 @@ export default function TestResults() {
 
 
   // Section Names Arrays
-  const mechanicalNamesArray = ["Driver window", "Windshield", "Rear view mirrors", "Right Turn Signal", "Left Turn Signal", "Brake lights", "Tires", "Foot brake", "Headlights", "Passenger door", "Glove box", "Seat belts"];
-  const operationalNamesArray = ["Horn", "Emergency/parking brake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield wipers", "Defroster", "Emergency flasher"];
+  const predriveNamesArray = ["Brake Lights", "Defroster","Driver Window", "Emergency/Parking Prake", "Emergency Flasher", "Foot Brake", "Glove Box", "Headlights", "Horn", "Left Arm Signal", "Right Arm Signal", "Stop Arm Signal", "Passenger Door", "Rearview Mirrors", "Left Turn Signal", "Right Turn Signal", "Seatbelts", "Tires", "Windshield", "Windshield Wipers"];
+  const mechanicalNamesArray = ["Driver Window", "Windshield", "Rearview Mirrors", "Right Turn Signal", "Left Turn Signal", "Brake Lights", "Tires", "Foot Brake", "Headlights", "Passenger Door", "Glove Box", "Seatbelts"];
+  const operationalNamesArray = ["Horn", "Emergency/Parking Prake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield Wipers", "Defroster", "Emergency Flasher"];
   const parkinglotNamesArray = ["Mirrors", "Positioning", "Signal", "Speed"];
   const residentialNamesArray = ["Residential Safe Distance", "Residential Positioning" ,"Residential Observation" ,"Residential Speed" ,"Business Safe Distance" ,"Business Positioning" ,"Business Observation" ,"Business Speed" ,"Business Signal" ,"Business Mirrors" ,"Curb Speed" ,"Curb Avoids Curb" ,"Curb Signal" ,"Reversing Right Shoulder", "Reversing Avoids Curb" ,"Reversing Mirrors" ,"Reversing Speed"];
   const freewayNamesArray = ["Entering Scanning", "Entering Traffic Check", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Traffic Check", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Traffic Check", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
@@ -90,6 +92,7 @@ export default function TestResults() {
 
 
   // Detailed Results Display Values
+  const [predriveDetailsValues, setPredriveDetailsValues] = React.useState([]);
   const [preDriveMechanicalDetailsValues, setPreDriveMechanicalDetailsValues] = React.useState([]);
   const [preDriveOperationalDetailsValues, setPreDriveOperationalDetailsValues] = React.useState([]);
   const [parkinglotDetailsValues, setParkinglotDetailsValues] = React.useState([]);
@@ -184,6 +187,7 @@ export default function TestResults() {
       usingFreeway = false;
     }
 
+    predriveValues = await getPredriveValues(); 
     preDriveMechanicalValues = await getMechanicalValues();
     preDriveOperationalValues = await getOperationalValues();
     parkinglotValues = await getParkinglotValues();
@@ -194,7 +198,8 @@ export default function TestResults() {
     lanechangeValues = await getLaneChangeValues();
     autoDQValues = await getAutoDQValues();
 
-    // Sets the detailed values for the detailed display
+    // Sets the detailed values for the detailed display 
+    setPredriveDetailsValues(predriveValues);
     setPreDriveMechanicalDetailsValues(preDriveMechanicalValues);
     setPreDriveOperationalDetailsValues(preDriveOperationalValues);
     setParkinglotDetailsValues(parkinglotValues);
@@ -207,6 +212,7 @@ export default function TestResults() {
 
 
     // Get number of errors for each section
+    predriveErrors = await calculateBooleanErrors(predriveValues); 
     preDriveMechanicalErrors = await calculateBooleanErrors(preDriveMechanicalValues);
     preDriveOperationalErrors = await calculateBooleanErrors(preDriveOperationalValues);
     parkinglotErrors = await calculateCounterErrors(parkinglotValues);
@@ -218,6 +224,7 @@ export default function TestResults() {
     autoDQErrors = await calculateBooleanErrors(autoDQValues, true);
     
     // Show the scores in the frontend
+    setPredriveDisplay(predriveErrors); 
     setMechanicalDisplay(preDriveMechanicalErrors);
     setOperationalDisplay(preDriveOperationalErrors);
 
@@ -240,7 +247,7 @@ export default function TestResults() {
 
 
     // --------------------------------------
-    // Score Calculation (right now predrive calculation is up above, when that section is figured out, bring it down here)
+    // Score Calculation
     // --------------------------------------
 
     // Mechanical Section Check
@@ -262,7 +269,11 @@ export default function TestResults() {
 
     if (totalDrivingErrors > 15) {
       passedTest = false;
-      console.log("Setting test to false: ", passedTest, " totalDrivingErrors: ", totalDrivingErrors);
+    }
+
+    // Auto DQ Check
+    if (autoDQErrors > 0) {
+      passedTest = false;
     }
     
     totalNumberOfErrors = preDriveMechanicalErrors + preDriveOperationalErrors + totalDrivingErrors + autoDQErrors;
@@ -329,20 +340,12 @@ export default function TestResults() {
     resultsText += "\n------------------------------"
 
 
-    resultsText += "\n\n◈ " + "Pre-Drive Mechanical" + " [" + preDriveMechanicalErrors + " Errors]";
-    for (var i in mechanicalNamesArray) {
-      if (preDriveMechanicalValues[i] != "true") {
-        resultsText += "\n ▹ ❌ " + mechanicalNamesArray[i];
+    resultsText += "\n\n◈ " + "Pre-Drive" + " [" + predriveErrors + " Errors]";
+    for (var i in predriveNamesArray) {
+      if (predriveValues[i] != "true") {
+        resultsText += "\n ▹ ❌ " + predriveNamesArray[i];
       }
     }
-
-    resultsText += "\n\n◈ " + "Pre-Drive Operational" + " [" + preDriveOperationalErrors + " Errors]";
-    for (var i in operationalNamesArray) {
-      if (preDriveOperationalValues[i] != "true") {
-        resultsText += "\n ▹ ❌ " + mechanicalNamesArray[i];
-      }
-    }
-
 
     resultsText += counterTestSection("Parking Lot",parkinglotErrors, parkinglotNamesArray, parkinglotValues);
     resultsText += counterTestSection("Residential",residentialErrors, residentialNamesArray, residentialValues);
@@ -472,6 +475,43 @@ export default function TestResults() {
     console.log("Number of Counter Errors: ", (numErrors))
 
     return numErrors;
+  }
+
+
+  // --------------------------------------
+  // Predrive (20 items)
+  // --------------------------------------
+  async function getPredriveValues() {
+    const value1 = await StorageHandler.getData("PREDRIVE_BRAKE_LIGHTS");
+    const value2 = await StorageHandler.getData("PREDRIVE_DEFROSTER");
+    const value3 = await StorageHandler.getData("PREDRIVE_DRIVER_WINDOW");
+    const value4 = await StorageHandler.getData("PREDRIVE_PARKING_BRAKE");
+    const value5 = await StorageHandler.getData("PREDRIVE_EMERGENCY_FLASHER");
+    const value6 = await StorageHandler.getData("PREDRIVE_FOOT_BRAKES");
+    const value7 = await StorageHandler.getData("PREDRIVE_GLOVE_BOX");
+    const value8 = await StorageHandler.getData("PREDRIVE_HEADLIGHTS");
+    const value9 = await StorageHandler.getData("PREDRIVE_HORN");
+    const value10 = await StorageHandler.getData("PREDRIVE_LEFT_ARM_SIGNAL");
+    const value11 = await StorageHandler.getData("PREDRIVE_RIGHT_ARM_SIGNAL");
+    const value12 = await StorageHandler.getData("PREDRIVE_STOP_ARM_SIGNAL");
+    const value13 = await StorageHandler.getData("PREDRIVE_PASSENGER_DOOR");
+    const value14 = await StorageHandler.getData("PREDRIVE_REAR_VIEW_MIRRORS");
+    const value15 = await StorageHandler.getData("PREDRIVE_LEFT_TURN_SIGNAL");
+    const value16 = await StorageHandler.getData("PREDRIVE_RIGHT_TURN_SIGNAL");
+    const value17 = await StorageHandler.getData("PREDRIVE_SEATBELTS");
+    const value18 = await StorageHandler.getData("PREDRIVE_TIRES");
+    const value19 = await StorageHandler.getData("PREDRIVE_WINDSHIELD");
+    const value20 = await StorageHandler.getData("PREDRIVE_WINDSHIELD_WIPERS");
+    
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19, value20];
+
+    for (var i in valuesArray) {
+      if (valuesArray[i] == null) {
+        valuesArray[i] = "false";
+      }
+    }
+
+    return valuesArray;
   }
 
   // --------------------------------------
@@ -823,17 +863,10 @@ export default function TestResults() {
       </View>
 
       <View style={styles.sectionRow}>
-        <Text style={styles.sectionName}>Pre-Drive Mechanical</Text>
-        <Text style={styles.sectionResult}>{mechanicalDisplay}</Text>
+        <Text style={styles.sectionName}>Pre-Drive</Text>
+        <Text style={styles.sectionResult}>{predriveDisplay}</Text>
       </View>
-      <DetailedPreDriveResultsDisplay names={mechanicalNamesArray} values={preDriveMechanicalDetailsValues}/>
-
-
-      <View style={styles.sectionRow}>
-        <Text style={styles.sectionName}>Pre-Drive Operational</Text>
-        <Text style={styles.sectionResult}>{operationalDisplay}</Text>
-      </View>
-      <DetailedPreDriveResultsDisplay names={operationalNamesArray} values={preDriveOperationalDetailsValues}/>
+      <DetailedPreDriveResultsDisplay names={predriveNamesArray} values={predriveDetailsValues}/>
 
 
       <View style={styles.sectionRow}>
