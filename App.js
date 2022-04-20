@@ -127,7 +127,7 @@ function App() {
             <Stack.Screen name="testresult" options={{ title: 'Test Results' }} component={TestResult} />
             <Stack.Screen name="parkinglot" options={{ title: 'Parking Lot' }} component={ParkingLot} />
             <Stack.Screen name="Freeway" options={{ title: 'Freeway' }} component={FreewayDriving} />
-            <Stack.Screen name="Residential" options={{ title: 'Residential' }} component={Residential} />
+            <Stack.Screen name="Residential" options={{ title: 'Residential/Business' }} component={Residential} />
             <Stack.Screen name="autodq" options={{ title: 'Automatic Disqualification' }} component={AutoDQ} />
             <Stack.Screen name="turnscreenleft" options={{ title: 'Left Turns' }} component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" options={{ title: 'Right Turns' }} component={TurnScreenRight} />
@@ -135,7 +135,19 @@ function App() {
             <Stack.Screen name='lanechangeright' options={{ title: 'Lane Change Right' }} component={LaneChangeScreenRight}/>
             <Stack.Screen name='intersection' options={{ title: 'Intersection' }} component={IntersectionScreen}/>
             <Stack.Screen name='traffic' options={{ title: 'Traffic' }} component={Traffic}/>
-            <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
+            
+          </Stack.Group>
+
+          <Stack.Group style={ { backgroundColor: '#6a51ae' }}
+              screenOptions={({ navigation }) => ({
+                headerStyle: {
+                  backgroundColor: '#12414F',
+                },
+                headerTintColor: '#fff',
+
+              })}
+          >
+          <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
           </Stack.Group>
 
 
