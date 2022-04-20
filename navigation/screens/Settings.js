@@ -32,11 +32,7 @@ export default function Settings() {
     {label: 'Route E', value: 'E'},
   ]);
 
-  const [instructorText, setInstructorText] = React.useState("");
-
   const [studentText, setStudentText] = React.useState("");
-
-  const [dateText, setDateText] = React.useState("");
 
   const theme = {
     ...DefaultTheme,
@@ -49,11 +45,6 @@ export default function Settings() {
   };
 
   return (
-    /* FIXME: figure out how to send previously chosen values to this page? 
-        is date already saved to DB? is instructor name already stored with login key?
-        should driver's name be included on the menu page Christian and Kevin were working on? (before starting a new test)
-        should save button just go to home page? check in with DB to store any needed data?
-    */
     <PaperProvider theme = {theme}>
         <View style={styles.container}>
           
@@ -62,7 +53,6 @@ export default function Settings() {
           </Text>
 
         {/* Creates student name input field */}
-        {/* FIXME: check in with DB? should this be on the menu page Christian and Kevin were creating? */}
         <View style={{ marginBottom: 20 }}>
           <TextInput
             label="Student Name"
@@ -79,6 +69,7 @@ export default function Settings() {
           {/* Creates searchable sound dropdown */}
           <View style={{zIndex: 2}}>
             <DropDownPicker 
+                allowFontScaling={false}
                 showArrowIcon={true}
                 open={soundOpen}
                 value={soundValue}
@@ -101,6 +92,7 @@ export default function Settings() {
           {/* Creates searchable route dropdown */}
           <View style={{zIndex: 1}}>
             <DropDownPicker
+                allowFontScaling={false}
                 showArrowIcon={true}
                 open={routeOpen}
                 value={routeValue}
