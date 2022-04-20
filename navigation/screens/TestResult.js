@@ -175,8 +175,7 @@ export default function TestResults() {
 
     passedTest = true; // Sets passedTest to true everytime the results are calculated
 
-    // freewayFromStorage = await StorageHandler.getData("USING_FREEWAY");
-    freewayFromStorage = await StorageHandler.getData("PREDRIVE_HORN");
+    var freewayFromStorage = await StorageHandler.getData("PREDRIVE_HORN");
 
     if (freewayFromStorage == "true") {
       usingFreeway = true;

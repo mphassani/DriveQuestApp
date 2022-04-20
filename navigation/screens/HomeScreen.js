@@ -17,8 +17,9 @@ import * as StorageHandler from "../../StorageHandler";
 import { StylesProvider } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import TestResult from './TestResult';
-
 import AutoDQ from './AutoDQ';
+
+import HomeSectionButton from "../../components/HomeSectionButton";
 
 // import {Restart} from 'fiction-expo-restart';
 
@@ -68,7 +69,7 @@ export default function HomeScreen() {
     // CHANGE THIS to checking freeway enable, not driver window pre-check box
     const freeway_enable = await StorageHandler.getData("PREDRIVE_HORN");
     console.log("freeway enable: " + freeway_enable)
-    if (freeway_enable == "false") {
+    if (freeway_enable == "false" || freeway_enable == null) {
       console.log("in if statement")
       setFreewayDisplay("none");
       return false;
@@ -85,7 +86,7 @@ export default function HomeScreen() {
 
     <PaperProvider theme={theme}>
       <ScrollView>
-      <View style={{padding: "2%"}}/>
+      {/* <View style={{padding: "2%"}}/>
         <Card>
         <View style={styles.buttonView}>
         <Card.Actions>
@@ -132,7 +133,47 @@ export default function HomeScreen() {
             <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>Freeway</Button>
           </Card.Actions>
           </View>
-        </Card>
+        </Card> */}
+
+        
+        {/* This is my proposed solution for improved test navigation, if it doesn't work, the old buttons are still up above */}
+        <View style={{marginTop: 30}}/>
+        <HomeSectionButton
+          title="Pre-Drive"
+          destination = "PreDrive"
+        />
+
+        <HomeSectionButton
+          title="Parking Lot"
+          destination = "parkinglot"
+        />
+
+        <HomeSectionButton
+          title="Residential/Business"
+          destination = "Residential"
+        />
+
+        <HomeSectionButton
+          title="Turns"
+          destination = "turnscreenleft"
+        />
+
+        <HomeSectionButton
+          title="Traffic"
+          destination = "traffic"
+        />
+
+        <View style={{display: freewayDisplay}}>
+          <HomeSectionButton
+            title="Freeway"
+            destination = "Freeway"
+        />
+        </View>
+
+        <HomeSectionButton
+          title="Parking Lot"
+          destination = "parkinglot"
+        />
 
       </ScrollView>
 

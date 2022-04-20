@@ -4,8 +4,12 @@ import { useState, useEffect } from 'react';
 import { Provider as PaperProvider, RadioButton, Button, Divider, Paragraph, Dialog, Portal, List, Avatar, IconButton, Checkbox, Provider, DefaultTheme} from 'react-native-paper';
 import * as StorageHandler from '../StorageHandler';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const HomeSectionButton = (props) => {
+
+    const navigation = useNavigation();
 
     const [isChecked, setIsChecked] = useState(false); 
 
@@ -38,7 +42,6 @@ const HomeSectionButton = (props) => {
 
         <View style={styles.mainContainer}>
 
-            <View style={styles.checkboxContainer}>
 
                 <Pressable style={[styles.checkboxBase, isChecked && styles.checkboxChecked]}
                     onPress={() => {
@@ -49,17 +52,16 @@ const HomeSectionButton = (props) => {
                 <Ionicons name="checkmark" size={40} color={isChecked ? "#FFFFFF" : "transparent"} />
 
                 </Pressable>
-            </View>
 
-            <View style={styles.buttonContainer}>
                 <Pressable
-                    onPress={() => setIsChecked(isChecked)}
+                    onPress={() => {setIsChecked(true); navigation.navigate(props.destination);}}
                     style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.sectionButton]}
                 >
-                <Text style={styles.sectionButtonText}>Pre-Drive</Text>
+                <Text style={styles.sectionButtonText}>{props.title}</Text>
         
                 </Pressable>
-            </View>
+
+            
 
       </View>
     )
@@ -69,30 +71,17 @@ const HomeSectionButton = (props) => {
 const styles = StyleSheet.create({
     mainContainer: {
         height: 50,
-        alignSelf: 'stretch',
-        alignItems: 'baseline',
+        // alignSelf: 'stretch',
+        // alignItems: 'baseline',
         flexDirection:'row', 
-        flexWrap:'wrap',
+        // flexWrap:'wrap',
 
         marginLeft: 15,
         marginRight: 15,
-        // marginBottom: 15,
-        backgroundColor: "gray",
-    },
-    checkboxContainer: {
-        textAlign: "left",
-        marginRight: 15,
-    },
-    buttonContainer: {
-        flex: 1,
-        width: 100,
-        height: 50,
-        textAlign: "right",
-
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        marginBottom: 30,
     },
     sectionButton: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
@@ -100,6 +89,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 10,
         elevation: 3,
+        height: 50,
     },
     sectionButtonText: {
         fontSize: 16,
@@ -117,6 +107,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: '#00677F',
         backgroundColor: 'transparent',
+        marginRight: 15,
     },
     checkboxChecked: { //checkbox color 
         backgroundColor: '#00677F',
