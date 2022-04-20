@@ -141,7 +141,7 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight + 150,
+    paddingTop: Constants.statusBarHeight + 135,
     backgroundColor: '#f2f2f2',
     padding: 30,
   },
