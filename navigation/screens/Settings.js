@@ -110,7 +110,7 @@ export default function Settings() {
 
           {/* Creates the clear button to clear all save data from the test. */}
           <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%" }}>  
-              <Button color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
+              <Button mode="contained" color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
           </View>
         </View>
     </PaperProvider>
