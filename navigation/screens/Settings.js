@@ -1,6 +1,6 @@
 //import statements 
 import React, { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Switch } from 'react-native';
 import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
 import { clearAllStoredData } from '../../StorageHandler';
@@ -9,6 +9,10 @@ import { clearAllStoredData } from '../../StorageHandler';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Settings() {
+ //Toggle 
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
   const [soundValue, setSoundValue] = useState(null);
@@ -61,6 +65,23 @@ export default function Settings() {
             mode="outlined"
           />
         </View>
+
+
+         {/*Toggle*/}
+          <View style={{ marginBottom: 20 }}>
+           <Text style={styles.title}>
+              Freeway
+           </Text>
+            <Switch
+              trackColor={{ false: "#767577", true: "#90C96A" }}
+              thumbColor={isEnabled ? "#ffffff" : "#f4f3f4"}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+
+          
 
         <Text style={styles.title}>
             Sounds
@@ -135,3 +156,4 @@ const styles = StyleSheet.create({
   },
 
 });
+
