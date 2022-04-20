@@ -1,10 +1,26 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-/*
- To import use 
- import * as StorageHandler from '../StorageHandler';
-*/
+import TestResults from "./navigation/screens/TestResult";
+import {describe,it} from 'jest';
+let {describe,it} = global;
 
 
+//Testing -----------------------------
+describe('Storage Management', () => {
+  it('should store the keys as the same', () => {
+    expect(storeStringData("TEST", "TEST")).toBe(getData("TEST") == "TEST");
+  });
+});
+
+
+describe("StorageHandler Loading", () => {
+  console.log("The StorageHandler.js Has Loaded. Continuing...")
+});
+
+describe("StorageHandler.js in", () => {
+  
+});
+
+// ---------------------------------------
 export async function storeStringData(key, value) {
   try {
     // const store = stringify(key);
@@ -30,13 +46,12 @@ export async function getData(key) {
   try {
     const value = await AsyncStorage.getItem("@" + key);
     if (value !== null) {
-      // console.log("Returned Value in StorageHandler.js: ", value);
       return value;
     }
   } catch (e) {
     console.log("Exception in DropDown: " + e);
   }
-  // console.log("Finished get string data as followed: " + key + "/" + value);
+
 }
 
 
@@ -80,7 +95,6 @@ export async function clearAllStoredData() {
   try {
     await AsyncStorage.clear()
   } catch(e) {
-    // clear error
   }
 
   console.log('Cleared all saved data!');
@@ -91,9 +105,7 @@ export async function clearAllTestData() {
   try {
     await AsyncStorage.clear()
     storeStringData("IS_LOGGED_IN", "true");
-    //TODO: Store Instructor name and email
   } catch(e) {
-    // clear error
   }
 
   console.log('Cleared all test data!');
