@@ -42,7 +42,7 @@ export default function FreewayDriving() {
                 <List.Section>
                   <List.Item 
                       title="Scanning" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/scanning.png')} />}
+                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/Scanning.png')} />}
                       right={(props) =><Counter storageKey="FREEWAY_ENTERING_SCANNING"/>}
                       />
                                       
