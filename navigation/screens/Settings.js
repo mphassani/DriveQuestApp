@@ -90,6 +90,7 @@ export default function Settings() {
            <Text style={styles.title}>
               Freeway
            </Text>
+           <Text>{isEnabled ? 'ON' : 'OFF'}</Text>
             <Switch
               trackColor={{ false: "#767577", true: "#90C96A" }}
               thumbColor={isEnabled ? "#ffffff" : "#f4f3f4"}
