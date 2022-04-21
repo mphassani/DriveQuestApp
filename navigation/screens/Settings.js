@@ -5,6 +5,8 @@ import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react
 import Constants from 'expo-constants';
 // import { clearAllStoredData } from '../../StorageHandler';
 import * as StorageHandler from "../../StorageHandler";
+import { clearAllStoredData } from '../../StorageHandler';
+import { Audio } from 'expo-av'
 
 // You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -18,12 +20,11 @@ export default function Settings() {
   const [soundOpen, setSoundOpen] = useState(false);
   const [soundValue, setSoundValue] = useState(null);
   const [soundItems, setSoundItems] = useState([
-    {label: 'No Sound', value: '1'},
-    {label: 'Bell', value: '2'},
-    {label: 'Horn', value: '3'},
-    {label: 'Oink', value: '4'},
-    {label: 'Police siren', value: '5'},
-    {label: 'Piano', value: '6'},
+    {label: 'No Sound', value: '1', sound: null},
+    {label: 'Fart', value: '2', sound: '../../assets/buttonPress2.wav'},
+    {label: 'Bell', value: '3', sound: '../../assets/buttonPress4.wav'},
+    {label: 'Video Game', value: '4', sound: '../../assets/buttonPress5.wav'},
+    {label: 'Police siren', value: '5', sound: '../../assets/buttonPress6.wav'},
   ]);
 
   //used to create route dropdown 
@@ -49,22 +50,53 @@ export default function Settings() {
     },
   };
 
-  function saveSettingsData(studName, isFreeway, errorSound, currRoute) {
-    // , isFreeway, sound, currRoute
+  const [sound, setSound] = React.useState();
 
-    if(studName == null || isFreeway == null || errorSound  == null || currRoute == null)
-    {
-      alert("Please Enter Data in All Fields");
-    }
-    else
-    {
-      StorageHandler.storeStringData("STUDENT_NAME", studName);
-      StorageHandler.storeStringData("USING_FREEWAY", isFreeway ? "false" : "true");
-      StorageHandler.storeStringData("ERROR_SOUND", errorSound);
-      StorageHandler.storeStringData("SELECTED_ROUTE", currRoute);
-      alert("Data Saved");
-    }
+async function playSound(soundNum) {
+  console.log('Loading Sound');
+  
+  if (soundNum == 2) {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress2.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
   }
+  else if (soundNum == 3) {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress4.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else if (soundNum == 4){
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress5.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else if (soundNum == 5){
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress6.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  //setSound(sound);
+
+
+console.log('Playing Sound');
+  //await sound.playAsync();
+}
+
+React.useEffect(() => {
+  return sound
+    ? () => {
+        console.log('Unloading Sound');
+        sound.unloadAsync(); }
+    : undefined;
+}, [sound]);
 
   return (
     <PaperProvider theme = {theme}>
@@ -121,7 +153,7 @@ export default function Settings() {
                 defaultIndex={0}
                 containerStyle={{height: 70, marginBottom: 5}}
                 searchable={true}
-                onChangeItem={item => console.log(item.label, item.value)}
+                onSelectItem={item => {console.log(item.label, item.value, item.sound), playSound(item.value)}}
             />
           </View>
           
@@ -144,7 +176,7 @@ export default function Settings() {
                 defaultIndex={0}
                 containerStyle={{height: 70}}
                 searchable={true}
-                onChangeItem={item => console.log(item.label, item.value)}
+                onChange={item => console.log(item.label, item.value)}
             />
           </View>
 
