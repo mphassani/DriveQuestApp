@@ -32,25 +32,26 @@ export default function ResidentialScreen({ navigation }) {
                     </Text>
                 </View>
                 <List.Section>
-                    <List.Item
-                        title="Safe Distance"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE" />}
-                    />
-                    <List.Item
-                        title="Positioning"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/positioning.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_POSITIONING" />}
-                    />
-                    <List.Item
+                <List.Item
                         title="Observation"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/observation.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_OBSERVATION" />}
                     />
-                    <List.Item
+                <List.Item
+                        title="Positioning"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/positioning.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_POSITIONING" />}
+                    />
+                    
+                <List.Item
+                        title="Safe Distance"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE" />}
+                    />
+                <List.Item
                         title="Speed"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
@@ -65,42 +66,45 @@ export default function ResidentialScreen({ navigation }) {
                     </Text>
                 </View>
                 <List.Section>
-                    <List.Item
-                        title="Safe Distance"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SAFE_DISTANCE" />}
-                    />
-                    <List.Item
-                        title="Positioning"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/positioning.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_POSITIONING" />}
-                    />
-                    <List.Item
+                
+                <List.Item
                         title="Observation"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/observation.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_OBSERVATION" />}
                     />
-                    <List.Item
-                        title="Speed"
+                <List.Item
+                        title="Positioning"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SPEED" />}
+                            <Avatar.Image {...props} source={require('../../assets/positioning.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_POSITIONING" />}
                     />
-                    <List.Item
+                <List.Item
+                        title="Safe Distance"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SAFE_DISTANCE" />}
+                    />
+                <List.Item
                         title="Signal"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SIGNAL" />}
                     />
-                    <List.Item
-                        title="Mirrors"
+                <List.Item
+                        title="Speed"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SPEED" />}
+                    />
+                <List.Item
+                        title="Traffic Check"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_MIRRORS" />}
                     />
+                    
+                    
                 </List.Section>
 
 
@@ -110,30 +114,33 @@ export default function ResidentialScreen({ navigation }) {
                     </Text>
                 </View>
                 <List.Section>
-                    <List.Item
-                        title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_SPEED" />}
-                    />
-                    <List.Item
-                        title="Steering Control"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/avoidsCurb.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_AVOIDS_CURB" />}
-                    />
-                    <List.Item
+                
+                <List.Item
                         title="Signal"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_CURB_SIGNAL" />}
-                    />
-                    <List.Item
+                />
+                <List.Item
+                        title="Speed"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_SPEED" />}
+                />
+                <List.Item
+                        title="Steering Control"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/avoidsCurb.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_AVOIDS_CURB" />}
+                />
+                <List.Item
                     title="Visual Search"
                     left={(props) =>
                         <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                     right={(props) => <Counter storageKey="RESIDENTIAL_VISUAL_SEARCH" />}
                 />
+                    
+                    
                 </List.Section>
 
 
@@ -143,11 +150,18 @@ export default function ResidentialScreen({ navigation }) {
                     </Text>
                 </View>
                 <List.Section>
+                
                     <List.Item
                         title="Right Shoulder"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER" />}
+                    />
+                    <List.Item
+                        title="Speed"
+                        left={(props) =>
+                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
+                        right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_SPEED" />}
                     />
                     <List.Item
                         title="Steering Control"
@@ -156,17 +170,13 @@ export default function ResidentialScreen({ navigation }) {
                         right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_AVOIDS_CURB" />}
                     />
                     <List.Item
-                        title="Mirrors"
+                        title="Traffic Check"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
                         right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_MIRRORS" />}
                     />
-                    <List.Item
-                        title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_SPEED" />}
-                    />
+                    
+                    
                 </List.Section>
                 <View style={{ marginBottom: 25 }}></View>
             </ScrollView>
