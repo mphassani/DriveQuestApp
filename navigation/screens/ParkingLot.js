@@ -32,18 +32,6 @@ export default function ParkingLot({ navigation }) {
                 </View>
                 <List.Section>
                 <List.Item 
-                    title="Mirrors" 
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/rearViewMirror.png')}/>}
-                    right={(props) =><Counter storageKey="PARKINGLOT_MIRRORS"/>}
-                    />
-                <List.Item 
-                    title="Positioning" 
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter storageKey="PARKINGLOT_POSITIONING"/>}
-                    />
-                <List.Item 
                     title="Signal" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
@@ -54,6 +42,18 @@ export default function ParkingLot({ navigation }) {
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
                     right={(props) =><Counter storageKey="PARKINGLOT_SPEED"/>}
+                    />
+                <List.Item 
+                    title="Traffic Check" 
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require('../../assets/rearViewMirror.png')}/>}
+                    right={(props) =><Counter storageKey="PARKINGLOT_MIRRORS"/>}
+                    />
+                <List.Item 
+                    title="Positioning" 
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
+                    right={(props) =><Counter storageKey="PARKINGLOT_POSITIONING"/>}
                     />
                 </List.Section>
                 <View style={{marginBottom: 25}}></View>
