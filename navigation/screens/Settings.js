@@ -1,5 +1,5 @@
 //import statements 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Switch } from 'react-native';
 import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
@@ -28,10 +28,64 @@ function saveSettingsData(studName, isFreeway, errorSound, currRoute) {
   }
 }
 
+
+
 export default function Settings() {
- //Toggle 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  async function setToInitalSavedValues() {
+  
+    const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
+    const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
+    const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
+    const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
+  
+    if (studentNameValue != null) {
+      setStudentNameText(studentNameValue);
+    }
+  
+    if (usingFreewayValue != null && usingFreewayValue == "true") {
+      setIsFreewayEnabled(true);
+    }
+  
+    // if (errorSoundValue != null) {
+    //   setStudentNameText(errorSoundValue);
+    // }
+  
+    if (selectedRouteValue != null) {
+      setRouteValue(selectedRouteValue);
+    }
+  }
+
+  // Freeway Toggle
+  const [isFreewayEnabled, setIsFreewayEnabled] = useState(false);
+  const toggleSwitch = () => {setIsFreewayEnabled(previousState => !previousState); saveFreewayToggle(!isFreewayEnabled);};
+  function saveFreewayToggle(isFreewayEnabled) {
+    if (isFreewayEnabled == true) {
+      StorageHandler.storeStringData("USING_FREEWAY", "true");
+    }
+    else {
+      StorageHandler.storeStringData("USING_FREEWAY", "false");
+    }
+  }
+
+  //Student Name
+  const [studentNameText, setStudentNameText] = React.useState("");
+  function saveStudentName(text) {
+    StorageHandler.storeStringData("STUDENT_NAME", text);
+  }
+
+  // // Error Sound
+  // const [errorSound, setErrorSound] = React.useState("");
+  // function saveErrorSounds(sound) {
+  //   StorageHandler.storeStringData("STUDENT_NAME", text);
+  // }
+
+  // Selected Route
+  function saveSelectedRoute(route) {
+    console.log("HELLOO");
+    StorageHandler.storeStringData("SELECTED_ROUTE", route);
+  }
+
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
@@ -55,7 +109,6 @@ export default function Settings() {
     {label: 'Route E', value: 'E'},
   ]);
 
-  const [studentText, setStudentText] = React.useState("");
 
   const theme = {
     ...DefaultTheme,
@@ -108,7 +161,12 @@ console.log('Playing Sound');
   //await sound.playAsync();
 }
 
-React.useEffect(() => {
+
+
+useEffect(() => {
+
+  setToInitalSavedValues();
+
   return sound
     ? () => {
         console.log('Unloading Sound');
@@ -128,9 +186,9 @@ React.useEffect(() => {
         <View style={{ marginBottom: 20 }}>
           <TextInput
             label="Student Name"
-            value={studentText}
-            onChangeText={(text) => setStudentText(text)}
             mode="outlined"
+            value={studentNameText}
+            onChangeText={(text) => {setStudentNameText(text); saveStudentName(text);}}
           />
         </View>
 
@@ -140,13 +198,13 @@ React.useEffect(() => {
            <Text style={styles.title}>
               Freeway
            </Text>
-           <Text>{isEnabled ? 'ON' : 'OFF'}</Text>
+           <Text>{isFreewayEnabled ? 'ON' : 'OFF'}</Text>
             <Switch
               trackColor={{ false: "#767577", true: "#90C96A" }}
-              thumbColor={isEnabled ? "#ffffff" : "#f4f3f4"}
+              thumbColor={isFreewayEnabled ? "#ffffff" : "#f4f3f4"}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleSwitch}
-              value={isEnabled}
+              value={isFreewayEnabled}
             />
           </View>
 
@@ -194,17 +252,18 @@ React.useEffect(() => {
                 defaultIndex={0}
                 containerStyle={{height: 70}}
                 searchable={false}
-                onChange={item => console.log(item.label, item.value)}
+                onSelectItem={item => {console.log(item.label, item.value); saveSelectedRoute(item.value);}}
             />
           </View>
 
-          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "5%" }}>  
-              <Button mode="contained" color= "#12414F" onPress={() => {saveSettingsData(studentText, isEnabled, soundValue, routeValue);}}>Save Settings</Button>
-          </View>
+          {/* <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "5%" }}>  
+              <Button mode="contained" color= "#12414F" onPress={() => {saveSettingsData(studentText, isFreewayEnabled, soundValue, routeValue);}}>Save Settings</Button>
+          </View> */}
           {/* Creates the clear button to clear all save data from the test. */}
-          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "20%" }}>  
+          {/* <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "20%" }}>  
               <Button mode="contained" color= "red" onPress={() => {StorageHandler.clearAllTestData(); alert("All test data cleared")}}>Clear Test Data</Button>
-          </View>
+          </View> */}
+
         </View>
     </PaperProvider>
   );
@@ -226,6 +285,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  title: {
+    fontSize: 20,
+    fontWeight: "500",
+    marginBottom: 5,
+  }
 
 });
 

@@ -302,10 +302,25 @@ export default function TestResults() {
       setCommentsForInstructorText(commentsForInstructorFromStorage);
     }
 
-    // Check to make sure these arent null
-    // selectedRoute = await StorageHandler.getData("SELECTED_ROUTE");
-    // instructorName = await StorageHandler.getData("INSTRUCTOR_NAME");
-    // studentName = await StorageHandler.getData("STUDENT_NAME");
+
+    selectedRouteFromStorage = await StorageHandler.getData("SELECTED_ROUTE");
+    if (selectedRouteFromStorage != null) {
+      selectedRoute = selectedRouteFromStorage;
+    }
+    else {
+      selectedRoute = "No Route Selected"
+    }
+
+    instructorNameFromStorage = await StorageHandler.getData("INSTRUCTOR_NAME");
+    if (instructorNameFromStorage != null) {
+      instructorName = instructorNameFromStorage;
+    }
+
+    studentNameFromStorage = await StorageHandler.getData("STUDENT_NAME");
+    if (studentNameFromStorage != null) {
+      studentName = studentNameFromStorage;
+    }
+
     // console.log("comments for student: ", commentsForStudent);
     // console.log("comments for instructor: ", commentsForInstructor);
 
