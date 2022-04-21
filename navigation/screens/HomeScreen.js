@@ -67,7 +67,7 @@ export default function HomeScreen() {
   async function checkFreewayEnable() {
     // Freeway Driving Check
     // CHANGE THIS to checking freeway enable, not driver window pre-check box
-    const freeway_enable = await StorageHandler.getData("PREDRIVE_HORN");
+    const freeway_enable = await StorageHandler.getData("USING_FREEWAY");
     console.log("freeway enable: " + freeway_enable)
     if (freeway_enable == "false" || freeway_enable == null) {
       console.log("in if statement")
