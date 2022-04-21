@@ -39,12 +39,13 @@ const styles = StyleSheet.create({
         height: 64,
         width: 64, 
         borderRadius: 10, 
+        // backgroundColor: '#12414F',
         backgroundColor: '#4DB6AC',
     },
 
     titleText: {
         fontSize: 18,
-        fontWeight: "500"
+        fontWeight: "500",
     }
 });
 

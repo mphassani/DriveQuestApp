@@ -78,15 +78,14 @@ const styles = StyleSheet.create({
     // Good (GREEN)
     /* Creates outline for the checkbox with no fill; used when item is incorrect */
     checkboxBaseGood: {
-        width: 60,
-        height: 60,
+        width: 64,
+        height: 64,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 5,
         borderRadius: 10,
         borderColor: '#00677F',
         backgroundColor: 'transparent',
-        margin: 1.5,
     },
 
     /* Creates filled in checkbox, used when item is marked correct */
@@ -98,15 +97,14 @@ const styles = StyleSheet.create({
     // Bad (RED)
     /* Creates outline for the checkbox with no fill; used when item is incorrect */
     checkboxBaseBad: {
-        width: 60,
-        height: 60,
+        width: 64,
+        height: 64,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 5,
         borderRadius: 10,
         borderColor: '#87181A',
         backgroundColor: 'transparent',
-        margin: 1.5,
     },
 
     /* Creates filled in checkbox, used when item is marked correct */
@@ -119,7 +117,8 @@ const styles = StyleSheet.create({
     iconBackground: {
         height: 64,
         width: 64, 
-        borderRadius: 32, 
+        borderRadius: 10, 
+        // backgroundColor: '#12414F',
         backgroundColor: '#4DB6AC',
     },
 

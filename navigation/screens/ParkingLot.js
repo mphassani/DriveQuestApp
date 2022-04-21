@@ -44,7 +44,7 @@ export default function ParkingLot({ navigation }) {
                     <CounterRow
                         title="Traffic Check"
                         icon={require("../../assets/rearViewMirror.png")}
-                        storageKey="PARKINGLOT_MIRRORS"
+                        storageKey="PARKINGLOT_TRAFFIC_CHECK"
                     />
                     <CounterRow
                         title="Positioning"

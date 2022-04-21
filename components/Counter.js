@@ -19,11 +19,11 @@ const Counter = (props) => {
       setMaxCount(props.maxCount);
     }
 
-    setCounterToInitalSavedValues();
+    setCounterToInitalSavedValue();
   }, [])
 
 
-  async function setCounterToInitalSavedValues() {
+  async function setCounterToInitalSavedValue() {
 
     const valueFromStorage = await StorageHandler.getData(props.storageKey);
   
@@ -35,8 +35,6 @@ const Counter = (props) => {
       setCounterValue(0);
       checkHideButtons(0);
     }
-
-    
   }
 
 

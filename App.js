@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton } from "react-native-paper";
 
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet, View, Pressable } from 'react-native';
 
 
 import LogIn from './navigation/screens/LogIn';
@@ -105,7 +105,17 @@ function App() {
                 headerRight: () => (
                   <IconButton icon = "cog" color={"white"} onPress={() => {navigation.navigate('settings')}} />
                 ),
-                headerLeft: null,
+                headerLeft: () => (
+                  <View style={styles.EndTestButtonContainer}>
+                    <Pressable
+                        onPress={() => navigation.navigate("StartTest") }
+                        style={({ pressed }) => [{ backgroundColor: pressed ? '#d1d1d1' : 'white' } , styles.EndTestButton]}
+                    >
+                      <Text style={styles.EndTestButtonText}>End Test</Text>
+            
+                    </Pressable>
+                  </View>
+                ),
                 gestureEnabled: false
               })}
           >
@@ -165,6 +175,28 @@ function App() {
   );
 
 }
+
+const styles = StyleSheet.create({
+  EndTestButtonContainer: {
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  EndTestButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "100%",
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    elevation: 3,
+  },
+  EndTestButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});
 
 
 const theme = {

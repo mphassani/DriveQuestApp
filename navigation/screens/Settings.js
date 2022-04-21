@@ -83,13 +83,13 @@ export default function Settings(props) {
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
-  const [soundValue, setSoundValue] = useState(null);
+  const [soundValue, setSoundValue] = useState('0');
   const [soundItems, setSoundItems] = useState([
-    {label: 'No Sound', value: '1', sound: null},
-    {label: 'Fart', value: '2', sound: '../../assets/buttonPress2.wav'},
-    {label: 'Bell', value: '3', sound: '../../assets/buttonPress4.wav'},
-    {label: 'Video Game', value: '4', sound: '../../assets/buttonPress5.wav'},
-    {label: 'Police siren', value: '5', sound: '../../assets/buttonPress6.wav'},
+    {label: 'No Sound', value: '0', sound: null},
+    {label: 'Fart', value: '1', sound: '../../assets/buttonPress2.wav'},
+    {label: 'Bell', value: '2', sound: '../../assets/buttonPress4.wav'},
+    {label: 'Video Game', value: '3', sound: '../../assets/buttonPress5.wav'},
+    {label: 'Police siren', value: '4', sound: '../../assets/buttonPress6.wav'},
   ]);
 
   //used to create route dropdown 
@@ -113,6 +113,15 @@ export default function Settings(props) {
       accent: '#FFFFFF',
     },
   };
+
+  function startTest() {
+    if (studentNameText != null && studentNameText != "") {
+      navigation.navigate("Home");
+    }
+    else {
+      alert("Student name can't be empty!")
+    }
+  }
 
   const [sound, setSound] = React.useState();
 
@@ -260,7 +269,7 @@ useEffect(() => {
 
           
           <Pressable
-          onPress={() => navigation.navigate("Home") }
+          onPress={() => startTest() }
           style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
           display = {isOnTestConfig ? "flex" : "none"}
           >
