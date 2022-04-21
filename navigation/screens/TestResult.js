@@ -837,22 +837,6 @@ export default function TestResults() {
     return valuesArray;
   }
 
-
-
-  const testEndConfirmation = () =>
-    Alert.alert(
-      "End Test",
-      "Are you sure you want to end the test?",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "Yes", onPress: () => {StorageHandler.clearAllTestData(); navigation.navigate("LogIn");} }
-      ]
-    );
-
   return (
     <KeyboardAvoidingView 
     keyboardVerticalOffset={headerHeight}
@@ -996,7 +980,7 @@ export default function TestResults() {
 
       <View style={styles.sendButtonContainer}>
         <Pressable
-            onPress={testEndConfirmation}
+            onPress={() => navigation.navigate("StartTest") }
             style={({ pressed }) => [{ backgroundColor: pressed ? '#b32023' : '#87181A' } , styles.sendButton]}
         >
           <Text style={styles.sendButtonText}>End Test</Text>

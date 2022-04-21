@@ -6,6 +6,8 @@ import { StatusBar } from 'react-native';
 
 
 import LogIn from './navigation/screens/LogIn';
+import StartTest from './navigation/screens/StartTest';
+import TestConfig from './navigation/screens/TestConfig';
 import MainHome from './AllScreen'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -41,32 +43,32 @@ let chosenScreen = <LogIn />
 
 global.test = true;
 
-function TestSectionNavigationBar({ navigation, back }) {
-  return (
-    <Appbar.Header>
-      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-      <Appbar.Content title="test" />
-      <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
-    </Appbar.Header>
-  );
-}
-function LoginNavigationBar({ navigation, back }) {
-  return (
-    <Appbar.Header>
-      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-      <Appbar.Content title="DriveQuest" />
-    </Appbar.Header>
-  );
-}
+// function TestSectionNavigationBar({ navigation, back }) {
+//   return (
+//     <Appbar.Header>
+//       {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+//       <Appbar.Content title="test" />
+//       <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
+//     </Appbar.Header>
+//   );
+// }
+// function LoginNavigationBar({ navigation, back }) {
+//   return (
+//     <Appbar.Header>
+//       {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+//       <Appbar.Content title="DriveQuest" />
+//     </Appbar.Header>
+//   );
+// }
 
-function HomeNavigationBar({ navigation, back }) {
-  return (
-    <Appbar.Header>
-      <Appbar.Content title="DriveQuest" />
-      <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
-    </Appbar.Header>
-  );
-}
+// function HomeNavigationBar({ navigation, back }) {
+//   return (
+//     <Appbar.Header>
+//       <Appbar.Content title="DriveQuest" />
+//       <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
+//     </Appbar.Header>
+//   );
+// }
 
 function App() {
   return (
@@ -90,6 +92,7 @@ function App() {
               })}
           >
             <Stack.Screen name="LogIn" options={{ title: 'Login' }} component={LogIn} />
+            <Stack.Screen name="StartTest" options={{ title: 'Start/Resume Test' }} component={StartTest} />
           </Stack.Group>
 
           {/* <Stack.Group screenOptions={{ header: HomeNavigationBar, gestureEnabled: false}}> */}
@@ -107,6 +110,7 @@ function App() {
               })}
           >
             <Stack.Screen name="Home" component={MainHome} />
+
           </Stack.Group>
 
           {/* <Stack.Group screenOptions={{ header: TestSectionNavigationBar, gestureEnabled: true }}> */}
@@ -148,6 +152,7 @@ function App() {
               })}
           >
           <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
+          <Stack.Screen name="TestConfig" options={{ title: 'Test Configuration' }} component={TestConfig} />
           </Stack.Group>
 
 

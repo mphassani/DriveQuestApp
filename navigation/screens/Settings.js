@@ -13,7 +13,13 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 
 
-export default function Settings() {
+export default function Settings(props) {
+
+  var pageTitle = "Settings";
+  
+  if (props.pageTitle != null){
+    pageTitle = props.pageTitle;
+  }
 
   async function setToInitalSavedValues() {
   
@@ -160,7 +166,7 @@ useEffect(() => {
         <View style={styles.container}>
           
           <Text style={styles.paragraph}>
-            Settings
+            {pageTitle}
           </Text>
 
         {/* Creates student name input field */}
@@ -175,26 +181,25 @@ useEffect(() => {
         </View>
 
 
-         {/*Toggle*/}
-          <View style={{ marginBottom: 20 }}>
-           <Text style={styles.title}>
+        {/*Toggle*/}
+        <View style={styles.toggleContainer}>
+          <Text style={styles.toggleTitle}>
               Freeway
-           </Text>
-           <Text>{isFreewayEnabled ? 'ON' : 'OFF'}</Text>
-            <Switch
+          </Text>
+
+          <Switch
+              style={styles.toggleSwitch}
               trackColor={{ false: "#767577", true: "#90C96A" }}
-              thumbColor={isFreewayEnabled ? "#ffffff" : "#f4f3f4"}
-              ios_backgroundColor="#3e3e3e"
+              thumbColor={isFreewayEnabled ? "#ffffff" : "#ffffff"}
               onValueChange={toggleSwitch}
               value={isFreewayEnabled}
             />
-          </View>
+        </View>
 
-          
 
         <Text style={styles.title}>
             Sounds
-          </Text>
+        </Text>
 
           {/* Creates searchable sound dropdown */}
           <View style={{zIndex: 2}}>
@@ -209,7 +214,7 @@ useEffect(() => {
                 setItems={setSoundItems}
                 placeholder='Select a sound'
                 defaultIndex={0}
-                containerStyle={{height: 70, marginBottom: 5}}
+                containerStyle={{height: 70, marginBottom: 0}}
                 searchable={false}
                 onSelectItem={item => {console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value)}}
             />
@@ -246,24 +251,48 @@ useEffect(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight + 135,
+    // paddingTop: Constants.statusBarHeight + 135,
     backgroundColor: '#f2f2f2',
-    padding: 30,
+    padding: 15,
   },
 
   //used for page title 
   paragraph: {
-    marginTop: -160,
-    margin: 20,
+    marginTop: 15,
+    marginBottom: 20,
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "500",
     marginBottom: 5,
-  }
+  },
+
+
+  toggleContainer: {
+    backgroundColor: "white",
+    flexDirection: "row",
+    // alignItems: "flex-end",
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+  toggleTitle: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: "500",
+    // alignItems: 'center', //Centered vertically
+    marginTop: 5,
+  },
+  toggleSwitch: {
+
+  },
+
+
+
 
 });
 
