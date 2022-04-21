@@ -10,6 +10,23 @@ import { Audio } from 'expo-av'
 
 // You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
+import { Alert } from 'react-native-web';
+function saveSettingsData(studName, isFreeway, errorSound, currRoute) {
+  // , isFreeway, sound, currRoute
+
+  if(studName == null || isFreeway == null || errorSound  == null || currRoute == null)
+  {
+    alert("Please Enter Data in All Fields");
+  }
+  else
+  {
+    StorageHandler.storeStringData("STUDENT_NAME", studName);
+    StorageHandler.storeStringData("USING_FREEWAY", isFreeway ? "false" : "true");
+    StorageHandler.storeStringData("ERROR_SOUND", errorSound);
+    StorageHandler.storeStringData("SELECTED_ROUTE", currRoute);
+    alert("Data Saved");
+  }
+}
 
 export default function Settings() {
  //Toggle 
@@ -86,6 +103,7 @@ async function playSound(soundNum) {
   //setSound(sound);
 
 
+
 console.log('Playing Sound');
   //await sound.playAsync();
 }
@@ -152,7 +170,7 @@ React.useEffect(() => {
                 placeholder='Select a sound'
                 defaultIndex={0}
                 containerStyle={{height: 70, marginBottom: 5}}
-                searchable={true}
+                searchable={false}
                 onSelectItem={item => {console.log(item.label, item.value, item.sound), playSound(item.value)}}
             />
           </View>
@@ -175,7 +193,7 @@ React.useEffect(() => {
                 placeholder='Select a route'
                 defaultIndex={0}
                 containerStyle={{height: 70}}
-                searchable={true}
+                searchable={false}
                 onChange={item => console.log(item.label, item.value)}
             />
           </View>
@@ -185,7 +203,7 @@ React.useEffect(() => {
           </View>
           {/* Creates the clear button to clear all save data from the test. */}
           <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "20%" }}>  
-              <Button mode="contained" color= "red" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
+              <Button mode="contained" color= "red" onPress={() => {StorageHandler.clearAllTestData(); alert("All test data cleared")}}>Clear Test Data</Button>
           </View>
         </View>
     </PaperProvider>
