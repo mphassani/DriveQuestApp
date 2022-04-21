@@ -1,11 +1,11 @@
 //import statements 
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Switch } from 'react-native';
+import { Text, View, StyleSheet, Switch, Pressable } from 'react-native';
 import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
 // import { clearAllStoredData } from '../../StorageHandler';
 import * as StorageHandler from "../../StorageHandler";
-import { clearAllStoredData } from '../../StorageHandler';
+import { useNavigation } from '@react-navigation/native';
 import { Audio } from 'expo-av'
 
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -14,12 +14,19 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 
 export default function Settings(props) {
+  const navigation = useNavigation();
 
   var pageTitle = "Settings";
   
   if (props.pageTitle != null){
     pageTitle = props.pageTitle;
   }
+
+  const [isOnTestConfig, setIsOnTestConfig] = useState(false);
+
+
+
+  
 
   async function setToInitalSavedValues() {
   
@@ -152,6 +159,13 @@ console.log('Playing Sound');
 
 useEffect(() => {
 
+  if (props.pageTitle == "Test Configuraton"){
+    setIsOnTestConfig(true);
+  }
+  else {
+    setIsOnTestConfig(false);
+  }
+
   setToInitalSavedValues();
 
   return sound
@@ -243,6 +257,18 @@ useEffect(() => {
             />
           </View>
 
+
+          
+          <Pressable
+          onPress={() => navigation.navigate("Home") }
+          style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
+          display = {isOnTestConfig ? "flex" : "none"}
+          >
+            <Text style={styles.ButtonText}>Start Test</Text>
+
+          </Pressable>
+          
+
         </View>
     </PaperProvider>
   );
@@ -290,6 +316,25 @@ const styles = StyleSheet.create({
   toggleSwitch: {
 
   },
+
+
+
+  Button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "100%",
+    paddingVertical: 15,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+  },
+  ButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+},
 
 
 

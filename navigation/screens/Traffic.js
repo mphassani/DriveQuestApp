@@ -9,6 +9,9 @@ import { Provider as PaperProvider, Button, List, IconButton, Avatar, DefaultThe
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
+
 const theme = {
     ...DefaultTheme,
     //roundness: 2,
@@ -33,11 +36,7 @@ export default function Traffic({ navigation }) {
 
             </View>
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Through
-                    </Text>
-                </View>
+                <SectionTitle name="Through" />
                 <List.Section>
 
                     <List.Item
@@ -69,11 +68,7 @@ export default function Traffic({ navigation }) {
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Stop
-                    </Text>
-                </View>
+                <SectionTitle name="Stop" />
                 <List.Section>
                     <List.Item
                         title="Gap/Limit Line"
@@ -102,11 +97,7 @@ export default function Traffic({ navigation }) {
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Start
-                    </Text>
-                </View>
+                <SectionTitle name="Start" />
                 <List.Section>
                     <List.Item
                         title="Traffic Check"

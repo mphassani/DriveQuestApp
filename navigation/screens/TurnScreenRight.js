@@ -12,6 +12,9 @@ import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Defaul
 import Counter from '../../components/Counter';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
+
 // CECE's PAGE
 const theme = {
     ...DefaultTheme,
@@ -37,11 +40,7 @@ export default function TurnScreenRight() {
                     </View>
             </View>
         <ScrollView>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                <Text
-                    style={{ fontSize: 25, fontWeight: 'bold' }}>Approach
-                </Text>
-            </View>
+            <SectionTitle name="Approach" />
             <List.Section>
             <List.Item
                     title="Braking"
@@ -82,11 +81,7 @@ export default function TurnScreenRight() {
                     />
             
 
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                <Text
-                    style={{ fontSize: 25, fontWeight: 'bold' }}>Stop
-                </Text>
-            </View>
+            <SectionTitle name="Stop" />
             <List.Item
                     title="Gap/Limit Line"
                     left={(props) => 
@@ -116,11 +111,7 @@ export default function TurnScreenRight() {
 
                     />
 
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                <Text
-                    style={{ fontSize: 25, fontWeight: 'bold' }}>During
-                </Text>
-            </View>
+            <SectionTitle name="During" />
             <List.Item 
                     title="Correct Lane" 
                     left={(props) => 

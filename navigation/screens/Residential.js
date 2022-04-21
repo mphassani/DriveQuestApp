@@ -7,8 +7,11 @@ import {
     ScrollView,
 } from 'react-native';
 import { Provider as PaperProvider, Button, List, IconButton, Avatar, Appbar, DefaultTheme } from "react-native-paper";
-import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
+
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
+
 
 const theme = {
     ...DefaultTheme,
@@ -26,11 +29,7 @@ export default function ResidentialScreen({ navigation }) {
         <PaperProvider theme={theme}>
 
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Residential
-                    </Text>
-                </View>
+                <SectionTitle name="Residential" />
                 <List.Section>
                 <List.Item
                         title="Observation"
@@ -60,11 +59,7 @@ export default function ResidentialScreen({ navigation }) {
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Business
-                    </Text>
-                </View>
+                <SectionTitle name="Business" />
                 <List.Section>
                 
                 <List.Item
@@ -108,11 +103,7 @@ export default function ResidentialScreen({ navigation }) {
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Pulling up to the curb
-                    </Text>
-                </View>
+                <SectionTitle name="Pulling Up To The Curb" />
                 <List.Section>
                 
                 <List.Item
@@ -144,11 +135,7 @@ export default function ResidentialScreen({ navigation }) {
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Reversing
-                    </Text>
-                </View>
+                <SectionTitle name="Reversing" />
                 <List.Section>
                 
                     <List.Item

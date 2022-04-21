@@ -1,128 +1,208 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, PanResponder } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import * as StorageHandler from '../StorageHandler';
 import { Audio } from 'expo-av';
+import { Ionicons } from '@expo/vector-icons';
 
 const Counter = (props) => {
 
-  const [count, setCount] = useState(0);
-  
+  const [counterValue, setCounterValue] = useState(0);
+  const [showIncrementButton, setShowIncrementButton] = useState(true);
+  const [showDecrementButton, setShowDecrementButton] = useState(false);
+  const [maxCount, setMaxCount] = useState(4)
+
   useEffect(() =>
   {
-    setCountersToInitalSavedValues();
+    if (props.maxCount != null) {
+      setMaxCount(props.maxCount);
+    }
+
+    setCounterToInitalSavedValues();
   }, [])
+
+
+  async function setCounterToInitalSavedValues() {
+
+    const valueFromStorage = await StorageHandler.getData(props.storageKey);
   
-  function setCountersToInitalSavedValues() {
-    var value = StorageHandler.getData(props.storageKey).then(res => {
-      // console.log("Initial Value", res);
-      if (res != null) {
-        setCount(parseInt(res));
-      }
-      else {
-        setCount(0);
-      }
-      return res;
-    });
-  }
-
-
-  
-  const onAdd = () => {
-    setCount(prevCount => count < 8 ? prevCount + 1: prevCount);
-
-    if (count < 8) {
-      // console.log("onAdd count: ", count + 1);
-      StorageHandler.storeStringData(props.storageKey, (count + 1).toString());
+    if (valueFromStorage != null) {
+      setCounterValue(parseInt(valueFromStorage));
+      checkHideButtons(parseInt(valueFromStorage));
     }
-    // StorageHandler.clearAllStoredData();
-  }
+    else {
+      setCounterValue(0);
+      checkHideButtons(0);
+    }
 
-  const onDecrement = () => {
-    setCount(prevCount => count > 0 ? prevCount - 1 : prevCount);
     
-    if (count > 0) {
-      // console.log("onDecrement count: ", count - 1);
-      StorageHandler.storeStringData(props.storageKey, (count - 1).toString());
+  }
+
+
+  function checkHideButtons(count) {
+    if (count >= maxCount) {
+      setShowIncrementButton(false);
+    }
+    else {
+      setShowIncrementButton(true);
+    }
+
+    if (count <= 0) {
+      setShowDecrementButton(false);
+    }
+    else {
+      setShowDecrementButton(true);
     }
   }
 
-const [sound, setSound] = React.useState();
 
-async function playSound() {
-  console.log('Loading Sound');
-  randomNum = Math.random();
-  if (randomNum >= 0 && randomNum < 0.33) {
-    const { sound } = await Audio.Sound.createAsync(
-      require('../assets/buttonPress.mp3')
-    );
-    setSound(sound);
-    await sound.playAsync();
+  function incrementCounter() {
+    if (counterValue < maxCount) {
+      setCounterValue(counterValue + 1);
+      StorageHandler.storeStringData(props.storageKey, (counterValue + 1).toString());
+    }
+
+    checkHideButtons(counterValue + 1);
   }
-  else if (randomNum > 0.33 && randomNum < 0.66) {
-    const { sound } = await Audio.Sound.createAsync(
-      require('../assets/buttonPress2.wav')
-    );
-    setSound(sound);
-    await sound.playAsync();
+
+  function decrementCounter() {
+    if (counterValue > 0) {
+      setCounterValue(counterValue - 1);
+      StorageHandler.storeStringData(props.storageKey, (counterValue - 1).toString());
+    }
+
+    checkHideButtons(counterValue - 1);
   }
-  else {
-    const { sound } = await Audio.Sound.createAsync(
-      require('../assets/buttonPress3.wav')
-    );
-    setSound(sound);
-    await sound.playAsync();
+
+
+
+
+
+
+  // Sound Stuff
+  const [sound, setSound] = useState();
+
+  async function playSound() {
+    console.log('Loading Sound');
+    randomNum = Math.random();
+    if (randomNum >= 0 && randomNum < 0.33) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../assets/buttonPress.mp3')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else if (randomNum > 0.33 && randomNum < 0.66) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../assets/buttonPress2.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../assets/buttonPress3.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    //setSound(sound);
+  
+  
+  console.log('Playing Sound');
+    //await sound.playAsync();
   }
-  //setSound(sound);
+  
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
 
 
-console.log('Playing Sound');
-  //await sound.playAsync();
-}
 
-React.useEffect(() => {
-  return sound
-    ? () => {
-        console.log('Unloading Sound');
-        sound.unloadAsync(); }
-    : undefined;
-}, [sound]);
   
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View>
+      <View style={styles.container}>
 
-        <View style={styles.counter}>  
+        <View style={styles.hideButtonSpacer} display = {showDecrementButton ? "none" : "flex"}></View>
 
-           <IconButton icon = "minus-circle-outline" size={35} onPress={() => {onDecrement();}} />
-           <Text style={styles.text}>{count}</Text>
-           <IconButton icon = "plus-circle-outline" size={35} onPress={() => {playSound(); onAdd();}} /> 
-          
+        <View style={styles.textandbuttonContainer}>
+          <Pressable
+            onPress={() => decrementCounter() }
+            style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.button]}
+            display = {showDecrementButton ? "flex" : "none"}
+          >
+            <Ionicons style={styles.buttonIcon} name="remove-outline" size={35} color="white" />
+          </Pressable>
+
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>{counterValue}</Text>
+            </View>
+            
+          <Pressable
+            onPress={() => {incrementCounter(), playSound()} }
+            style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.button]}
+            display = {showIncrementButton ? "flex" : "none"}
+          >
+            <Ionicons style={styles.buttonIcon} name="add-outline" size={35} color="white" />
+          </Pressable>
         </View>
 
+        <View style={styles.hideButtonSpacer} display = {showIncrementButton ? "none" : "flex"}></View>
 
       </View>
-    </SafeAreaView>
-
   )
 
 } 
 
 const styles = StyleSheet.create({
-  counter: {
+  container: {
     flexDirection:'row', 
+    height: 50,
+    marginTop: 7,
+
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 5},
+    shadowOpacity: 0.05,
+    shadowRadius: 25,
+  },
+
+  // Important! Used to keep the rounded corners and correct positioning when one of the buttons is hidden
+  textandbuttonContainer: {
+    flexDirection:'row',
+    borderRadius: 10,
+    height: 50,
+    backgroundColor: "white",
+  },
+  textContainer: {
     justifyContent: 'center',
-    left: 13,
+    alignItems: 'center',
+    width: 50,
   },
   text: {
     fontSize: 26,
-    marginTop: 16,
-    alignItems: 'center',
-    color: 'red',
+    color: 'black',
     fontWeight: "500",
-  }
+  },
+  button: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonIcon: {
+    marginLeft: 2,
+    marginTop: 1,
+  },
+  hideButtonSpacer: {
+    width: 50,
+    height: 50,
+  },
 
 })
 
