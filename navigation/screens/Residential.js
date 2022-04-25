@@ -131,7 +131,7 @@ export default function ResidentialScreen({ navigation }) {
                     <List.Item
                     title="Visual Search"
                     left={(props) =>
-                        <Avatar.Image {...props} source={require('../../assets/VisualCheck.png')} />}
+                        <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                     right={(props) => <Counter storageKey="RESIDENTIAL_VISUAL_SEARCH" />}
                 />
                 </List.Section>

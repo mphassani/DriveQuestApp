@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Switch } from 'react-native';
 import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
-import { clearAllStoredData } from '../../StorageHandler';
+// import { clearAllStoredData } from '../../StorageHandler';
+import * as StorageHandler from "../../StorageHandler";
 
 // You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -47,6 +48,23 @@ export default function Settings() {
       accent: '#FFFFFF',
     },
   };
+
+  function saveSettingsData(studName, isFreeway, errorSound, currRoute) {
+    // , isFreeway, sound, currRoute
+
+    if(studName == null || isFreeway == null || errorSound  == null || currRoute == null)
+    {
+      alert("Please Enter Data in All Fields");
+    }
+    else
+    {
+      StorageHandler.storeStringData("STUDENT_NAME", studName);
+      StorageHandler.storeStringData("USING_FREEWAY", isFreeway ? "false" : "true");
+      StorageHandler.storeStringData("ERROR_SOUND", errorSound);
+      StorageHandler.storeStringData("SELECTED_ROUTE", currRoute);
+      alert("Data Saved");
+    }
+  }
 
   return (
     <PaperProvider theme = {theme}>
@@ -129,9 +147,12 @@ export default function Settings() {
             />
           </View>
 
-          {/* Creates the clear button to clear all save data from the test. */}
           <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "5%" }}>  
-              <Button mode="contained" color= "#12414F" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
+              <Button mode="contained" color= "#12414F" onPress={() => {saveSettingsData(studentText, isEnabled, soundValue, routeValue);}}>Save Settings</Button>
+          </View>
+          {/* Creates the clear button to clear all save data from the test. */}
+          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "20%" }}>  
+              <Button mode="contained" color= "red" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
           </View>
         </View>
     </PaperProvider>
@@ -141,7 +162,7 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight + 150,
+    paddingTop: Constants.statusBarHeight + 135,
     backgroundColor: '#f2f2f2',
     padding: 30,
   },
