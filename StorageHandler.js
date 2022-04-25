@@ -1,9 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TestResults from "./navigation/screens/TestResult";
-import {describe,it} from 'jest';
-let {describe,it} = global;
+//import {describe,it} from 'jest';
+//let {describe,it} = global;
 
-
+/*
 //Testing -----------------------------
 describe('Storage Management', () => {
   it('should store the keys as the same', () => {
@@ -19,7 +19,7 @@ describe("StorageHandler Loading", () => {
 describe("StorageHandler.js in", () => {
   
 });
-
+*/
 // ---------------------------------------
 export async function storeStringData(key, value) {
   try {
