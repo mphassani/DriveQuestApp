@@ -2,29 +2,13 @@ import * as React from "react";
 import {
   View,
   Text,
-  Image,
   StyleSheet,
-  Dimensions,
-  ImageBackground,
   ScrollView,
-  Platform,
   Pressable,
   Alert,
 } from "react-native";
 
-import { useEffect, useState } from "react";
-import {
-  Provider as PaperProvider,
-  Button,
-  TextInput,
-  Appbar,
-  DefaultTheme,
-} from "react-native-paper";
-import HomeScreen from "../../AllScreen";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
 import * as StorageHandler from "../../StorageHandler";
-import { mdiVideoMinusOutline } from "@mdi/js";
 
 export default function StartTest({ navigation }) {
 
@@ -32,7 +16,7 @@ export default function StartTest({ navigation }) {
     const startNewTestConfirmation = () =>
     Alert.alert(
     "Start New Test",
-    "This will erase your current test. Are you sure you want to continue?",
+    "This will erase your current test progress. Are you sure you want to continue?",
     [
         {
         text: "Cancel",
@@ -45,9 +29,7 @@ export default function StartTest({ navigation }) {
 
 
   return (
-    //   <View style={styles.container}>
-    //   <Text>To share a photo from your phone with a friend, just press the button below!</Text>
-    // </View>
+
     <ScrollView>
 
         <View style={{alignItems: 'center', justifyContent: 'center', padding: 20, marginBottom: 60 }}>
