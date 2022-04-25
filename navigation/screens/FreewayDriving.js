@@ -13,6 +13,9 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 import { useNavigation } from '@react-navigation/native';
 
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
+
 const theme = {
     ...DefaultTheme,
     //roundness: 2,
@@ -34,11 +37,7 @@ export default function FreewayDriving() {
                 <Button mode='contained' color = "#12414F" onPress={() => navigation.navigate("freelanechange")}>Freeway Lane Change</Button>
             
                 </View>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Freeway Entering
-                    </Text>
-                </View>
+                <SectionTitle name="Freeway Entering" />
                 <List.Section>
                   <List.Item 
                       title="Scanning" 
@@ -67,11 +66,7 @@ export default function FreewayDriving() {
                       right={(props) =><Counter storageKey="FREEWAY_ENTERING_SIGNAL"/>}
                       />
   
-                  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                      <Text
-                          style={{ fontSize: 25, fontWeight: 'bold' }}>Freeway Driving
-                      </Text>
-                  </View>
+                  <SectionTitle name="Freeway Driving" />
                   <List.Item
                       title="Traffic Check"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
@@ -93,11 +88,7 @@ export default function FreewayDriving() {
                       right={(props) =><Counter storageKey="FREEWAY_DRIVING_SIGNAL"/>}
                       />
   
-                  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                      <Text
-                          style={{ fontSize: 25, fontWeight: 'bold' }}>Freeway Exiting
-                      </Text>
-                  </View>
+                  <SectionTitle name="Freeway Exiting" />
                   <List.Item 
                       title="Traffic Check" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}

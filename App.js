@@ -2,10 +2,12 @@ import * as React from 'react'
 
 import { Provider as PaperProvider, Button, Appbar, BottomNavigation, DefaultTheme, Provider, Drawer, Text, Menu, Divider, IconButton } from "react-native-paper";
 
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet, View, Pressable } from 'react-native';
 
 
 import LogIn from './navigation/screens/LogIn';
+import StartTest from './navigation/screens/StartTest';
+import TestConfig from './navigation/screens/TestConfig';
 import MainHome from './AllScreen'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -41,32 +43,32 @@ let chosenScreen = <LogIn />
 
 global.test = true;
 
-function TestSectionNavigationBar({ navigation, back }) {
-  return (
-    <Appbar.Header>
-      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-      <Appbar.Content title="test" />
-      <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
-    </Appbar.Header>
-  );
-}
-function LoginNavigationBar({ navigation, back }) {
-  return (
-    <Appbar.Header>
-      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-      <Appbar.Content title="DriveQuest" />
-    </Appbar.Header>
-  );
-}
+// function TestSectionNavigationBar({ navigation, back }) {
+//   return (
+//     <Appbar.Header>
+//       {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+//       <Appbar.Content title="test" />
+//       <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
+//     </Appbar.Header>
+//   );
+// }
+// function LoginNavigationBar({ navigation, back }) {
+//   return (
+//     <Appbar.Header>
+//       {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+//       <Appbar.Content title="DriveQuest" />
+//     </Appbar.Header>
+//   );
+// }
 
-function HomeNavigationBar({ navigation, back }) {
-  return (
-    <Appbar.Header>
-      <Appbar.Content title="DriveQuest" />
-      <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
-    </Appbar.Header>
-  );
-}
+// function HomeNavigationBar({ navigation, back }) {
+//   return (
+//     <Appbar.Header>
+//       <Appbar.Content title="DriveQuest" />
+//       <Appbar.Action icon={'cog'} onPress={ ()=> navigation.navigate('settings')}/>
+//     </Appbar.Header>
+//   );
+// }
 
 function App() {
   return (
@@ -90,6 +92,7 @@ function App() {
               })}
           >
             <Stack.Screen name="LogIn" options={{ title: 'Login' }} component={LogIn} />
+            <Stack.Screen name="StartTest" options={{ title: 'Start/Resume Test' }} component={StartTest} />
           </Stack.Group>
 
           {/* <Stack.Group screenOptions={{ header: HomeNavigationBar, gestureEnabled: false}}> */}
@@ -102,11 +105,22 @@ function App() {
                 headerRight: () => (
                   <IconButton icon = "cog" color={"white"} onPress={() => {navigation.navigate('settings')}} />
                 ),
-                headerLeft: null,
+                headerLeft: () => (
+                  <View style={styles.EndTestButtonContainer}>
+                    <Pressable
+                        onPress={() => navigation.navigate("StartTest") }
+                        style={({ pressed }) => [{ backgroundColor: pressed ? '#d1d1d1' : 'white' } , styles.EndTestButton]}
+                    >
+                      <Text style={styles.EndTestButtonText}>End Test</Text>
+            
+                    </Pressable>
+                  </View>
+                ),
                 gestureEnabled: false
               })}
           >
             <Stack.Screen name="Home" component={MainHome} />
+
           </Stack.Group>
 
           {/* <Stack.Group screenOptions={{ header: TestSectionNavigationBar, gestureEnabled: true }}> */}
@@ -148,6 +162,7 @@ function App() {
               })}
           >
           <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
+          <Stack.Screen name="TestConfig" options={{ title: 'Test Configuration' }} component={TestConfig} />
           </Stack.Group>
 
 
@@ -160,6 +175,28 @@ function App() {
   );
 
 }
+
+const styles = StyleSheet.create({
+  EndTestButtonContainer: {
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  EndTestButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "100%",
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    elevation: 3,
+  },
+  EndTestButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});
 
 
 const theme = {

@@ -4,6 +4,8 @@ import { Provider as PaperProvider, List, DefaultTheme} from 'react-native-paper
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import CheckboxRow from "../../components/CheckboxRow";
+import SectionTitle from '../../components/SectionTitle';
+
 
 
 
@@ -16,12 +18,7 @@ export default function PreDriveScreen({ navigation }) {
     return (
         <PaperProvider>
             <ScrollView>
-
-                {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
-                    <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
-                    Pre-Drive Checklist
-                    </Text>
-                </View> */}
+                <SectionTitle name="Pre-Drive Checklist" />
 
                 <List.Section>
 

@@ -16,27 +16,23 @@ const HomeSectionButton = (props) => {
 
     useEffect(() =>
     {
-    //   setCheckboxToInitalSavedValue();
-      
+      setCheckToInitalSavedValue();
     }, [])
+  
+  
+    async function setCheckToInitalSavedValue() {
+  
+      const valueFromStorage = await StorageHandler.getData(props.storageKey);
     
-    // function setCheckboxToInitalSavedValue() {
-    //   var value = StorageHandler.getData(props.storageKey).then(res => {
-    //     // console.log("Initial Value", res);
-    //     if (res != null) {
-    //         if (res == "true") {
-    //             setIsChecked(true);
-    //         }
-    //         else {
-    //             setIsChecked(false);
-    //         }
-    //     }
-    //     else {
-    //         setIsChecked(false);
-    //     }
-    //     return res;
-    //   });
-    // }
+      if (valueFromStorage != null && valueFromStorage == "true") {
+        setIsChecked(true);
+      }
+      else {
+        setIsChecked(false);
+      }
+  
+      
+    }
 
     return (
 
@@ -46,7 +42,7 @@ const HomeSectionButton = (props) => {
                 <Pressable style={[styles.checkboxBase, isChecked && styles.checkboxChecked]}
                     onPress={() => {
                         setIsChecked(!isChecked);
-                        console.log("PRESSED");
+                        StorageHandler.storeStringData(props.storageKey, (!isChecked).toString());
                         // StorageHandler.storeStringData(props.storageKey, (!notChecked).toString());
                 }}>
                 <Ionicons name="checkmark" size={40} color={isChecked ? "#FFFFFF" : "transparent"} />
@@ -54,7 +50,11 @@ const HomeSectionButton = (props) => {
                 </Pressable>
 
                 <Pressable
-                    onPress={() => {setIsChecked(true); navigation.navigate(props.destination);}}
+                    onPress={() => {
+                        setIsChecked(true); 
+                        StorageHandler.storeStringData(props.storageKey, "true");
+                        navigation.navigate(props.destination);
+                    }}
                     style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.sectionButton]}
                 >
                 <Text style={styles.sectionButtonText}>{props.title}</Text>

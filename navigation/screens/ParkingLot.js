@@ -6,8 +6,9 @@ import {
     ScrollView, 
 } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, Appbar, DefaultTheme} from "react-native-paper";
-import Icon from "react-native-vector-icons/Ionicons";
-import Counter from '../../components/Counter';
+
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
 
 const theme = {
     ...DefaultTheme,
@@ -25,35 +26,30 @@ export default function ParkingLot({ navigation }) {
         <PaperProvider theme={theme}>
 
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Parking Lot
-                    </Text>
-                </View>
+                <SectionTitle name="Parking Lot" />
+
                 <List.Section>
-                <List.Item 
-                    title="Mirrors" 
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/rearViewMirror.png')}/>}
-                    right={(props) =><Counter storageKey="PARKINGLOT_MIRRORS"/>}
+                    <CounterRow
+                        title="Signal"
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="PARKINGLOT_SIGNAL"
+                        maxValue={8}
                     />
-                <List.Item 
-                    title="Positioning" 
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter storageKey="PARKINGLOT_POSITIONING"/>}
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="PARKINGLOT_SPEED"
+                        maxValue={8}
                     />
-                <List.Item 
-                    title="Signal" 
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter storageKey="PARKINGLOT_SIGNAL"/>}
+                    <CounterRow
+                        title="Traffic Check"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="PARKINGLOT_TRAFFIC_CHECK"
                     />
-                <List.Item 
-                    title="Speed" 
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storageKey="PARKINGLOT_SPEED"/>}
+                    <CounterRow
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="PARKINGLOT_POSITIONING"
                     />
                 </List.Section>
                 <View style={{marginBottom: 25}}></View>

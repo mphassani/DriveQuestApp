@@ -22,56 +22,56 @@ export default function AutoDQ({ navigation }) {
 
                     <CheckboxRow
                         title="Examiner Intervention"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/account-alert.png")}
                         storageKey="AUTODQ_EXAMINER_INTERVENTION"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Dangerous Maneuver"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/car-traction-control.png")}
                         storageKey="AUTODQ_DANGEROUS_MANEUVER"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Strikes Object"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/icons8-car-crash-100(1).png")}
                         storageKey="AUTODQ_STRIKES_OBJECT"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Driving Speed"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/icons8-speedometer-90.png")}
                         storageKey="AUTODQ_DRIVING_SPEED"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Disobeys Traffic Signage"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/icons8-traffic-light-100.png")}
                         storageKey="AUTODQ_DISOBEYS_TRAFFIC_SIGNAGE"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Aux Equipment Use"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/icons8-hand-with-smartphone-100.png")}
                         storageKey="AUTODQ_AUX_EQUIPMENT_USE"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Disobeys Examiner"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/icons8-speak-64.png")}
                         storageKey="AUTODQ_DISOBEYS_EXAMINER"
                         checkboxType="bad"
                     />
 
                     <CheckboxRow
                         title="Lane Violation"
-                        icon={require("../../assets/FullStop.png")}
+                        icon={require("../../assets/icons8-car-racing-100.png")}
                         storageKey="AUTODQ_LANE_VIOLATION"
                         checkboxType="bad"
                     />

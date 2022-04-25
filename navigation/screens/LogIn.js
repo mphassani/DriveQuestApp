@@ -38,7 +38,7 @@ export default function LogIn({ navigation }) {
       // console.log("Initial Value", res);
       if (res == "true") {
         console.log("Is logged in: ", res);
-        navigation.navigate("Home");
+        navigation.navigate("StartTest");
         // navigation.navigate("testresult");
       } else {
         console.log("Not logged in", res);
@@ -52,7 +52,7 @@ export default function LogIn({ navigation }) {
     if (code == "123") {
       setInvalidLoginDisplay("");
       StorageHandler.storeStringData("IS_LOGGED_IN", "true");
-      navigationVal.navigate("Home");
+      navigationVal.navigate("StartTest");
     }
     else {
       setInvalidLoginDisplay("INVALID LOGIN KEY");

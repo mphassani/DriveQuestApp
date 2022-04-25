@@ -12,6 +12,9 @@ import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB, Appbar
 import Icon from "react-native-vector-icons/Ionicons";
 import Counter from '../../components/Counter';
 
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
+
 
 //Moises page 
 export default function FreewayLaneChangeScreen({ navigation }) {
@@ -26,11 +29,7 @@ export default function FreewayLaneChangeScreen({ navigation }) {
                         <Button mode="contained" color = "#12414F" onPress={() => navigation.navigate("freelanechangeRight")}>Right</Button>
                     </View>
                 </View> 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%"}}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Freeway Lane Change
-                    </Text>
-                </View>
+                <SectionTitle name="Freeway Lane Change Right" />
                 <List.Section>
                 <List.Item 
                     title="Driver Side Mirror" 

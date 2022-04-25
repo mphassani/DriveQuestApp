@@ -35,6 +35,7 @@ var usingFreeway = true;
 
 var selectedRoute = "selected_route";
 var instructorName = "instructor_name";
+var instructorEmail = ""
 var studentName = "student_name";
 
 const wait = (timeout) => {
@@ -78,14 +79,14 @@ export default function TestResults() {
 
 
   // Section Names Arrays
-  const predriveNamesArray = ["Brake Lights", "Defroster","Driver Window", "Emergency/Parking Prake", "Emergency Flasher", "Foot Brake", "Glove Box", "Headlights", "Horn", "Left Arm Signal", "Right Arm Signal", "Stop Arm Signal", "Passenger Door", "Rearview Mirrors", "Left Turn Signal", "Right Turn Signal", "Seatbelts", "Tires", "Windshield", "Windshield Wipers"];
+  const predriveNamesArray = ["Brake Lights", "Defroster","Driver Window", "Emergency/Parking Brake", "Emergency Flasher", "Foot Brake", "Glove Box", "Headlights", "Horn", "Left Arm Signal", "Right Arm Signal", "Stop Arm Signal", "Passenger Door", "Rearview Mirrors", "Left Turn Signal", "Right Turn Signal", "Seatbelts", "Tires", "Windshield", "Windshield Wipers"];
   const mechanicalNamesArray = ["Driver Window", "Windshield", "Rearview Mirrors", "Right Turn Signal", "Left Turn Signal", "Brake Lights", "Tires", "Foot Brake", "Headlights", "Passenger Door", "Glove Box", "Seatbelts"];
   const operationalNamesArray = ["Horn", "Emergency/Parking Prake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield Wipers", "Defroster", "Emergency Flasher"];
-  const parkinglotNamesArray = ["Mirrors", "Positioning", "Signal", "Speed"];
-  const residentialNamesArray = ["Residential Safe Distance", "Residential Positioning" ,"Residential Observation" ,"Residential Speed" ,"Business Safe Distance" ,"Business Positioning" ,"Business Observation" ,"Business Speed" ,"Business Signal" ,"Business Mirrors" ,"Curb Speed" ,"Curb Avoids Curb" ,"Curb Signal" ,"Reversing Right Shoulder", "Reversing Avoids Curb" ,"Reversing Mirrors" ,"Reversing Speed"];
+  const parkinglotNamesArray = ["Signal", "Speed", "Traffic Check", "Positioning"];
+  const residentialNamesArray = ["Residential Observation", "Residential Positioning", "Residential Safe Distance" ,"Residential Speed", "Business Observation", "Business Positioning", "Business Safe Distance", "Business Signal", "Business Speed", "Business Traffic Check", "Curb Signal", "Curb Speed", "Curb Steering Control", "Curb Visual Search", "Reversing Right Shoulder", "Reversing Speed", "Reversing Steering Control", "Reversing Traffic Check"];
   const freewayNamesArray = ["Entering Scanning", "Entering Traffic Check", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Traffic Check", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Traffic Check", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const intersectionNamesArray = ["Through Traffic Check", "Through Speed", "Through Unnecessary Stop", "Through Yield", "Stop Gap Limit Line", "Stop Braking", "Stop Traffic Check", "Stop Full Stop", "Start Traffic Check", "Start Speed", "Start Yield"];
-  const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirr", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Left Driver Side Mirror", "Left Rear View Mirror", "Left Passenger Side Mirr", "Left Left Shoulder", "Left Right Shoulder", "Left Signal", "Left Speed", "Left Spacing", "Left Steering Control"];
+  const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirror", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Left Driver Side Mirror", "Left Rear View Mirror", "Left Passenger Side Mirror", "Left Left Shoulder", "Left Right Shoulder", "Left Signal", "Left Speed", "Left Spacing", "Left Steering Control"];
   const turningNamesArray = ["Left Approach Traffic Check", "Left Approach Signal", "Left Approach Braking", "Left Approach Yield", "Left Approach Lane Use", "Left Approach Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Traffic Check", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Traffic Check", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Right Approach Traffic Check", "Right Approach Signal", "Right Approach Braking", "Right Approach Yield", "Right Approach Lane Use", "Right Approach Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Traffic Check", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Traffic Check", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
 
@@ -178,7 +179,7 @@ export default function TestResults() {
 
     passedTest = true; // Sets passedTest to true everytime the results are calculated
 
-    var freewayFromStorage = await StorageHandler.getData("PREDRIVE_HORN");
+    var freewayFromStorage = await StorageHandler.getData("USING_FREEWAY");
 
     if (freewayFromStorage == "true") {
       usingFreeway = true;
@@ -302,10 +303,30 @@ export default function TestResults() {
       setCommentsForInstructorText(commentsForInstructorFromStorage);
     }
 
-    // Check to make sure these arent null
-    // selectedRoute = await StorageHandler.getData("SELECTED_ROUTE");
-    // instructorName = await StorageHandler.getData("INSTRUCTOR_NAME");
-    // studentName = await StorageHandler.getData("STUDENT_NAME");
+
+    selectedRouteFromStorage = await StorageHandler.getData("SELECTED_ROUTE");
+    if (selectedRouteFromStorage != null) {
+      selectedRoute = selectedRouteFromStorage;
+    }
+    else {
+      selectedRoute = "No Route Selected"
+    }
+
+    instructorNameFromStorage = await StorageHandler.getData("INSTRUCTOR_NAME");
+    if (instructorNameFromStorage != null) {
+      instructorName = instructorNameFromStorage;
+    }
+
+    instructorEmailFromStorage = await StorageHandler.getData("INSTRUCTOR_EMAIL");
+    if (instructorEmailFromStorage != null) {
+      instructorEmail = instructorEmailFromStorage;
+    }
+
+    studentNameFromStorage = await StorageHandler.getData("STUDENT_NAME");
+    if (studentNameFromStorage != null) {
+      studentName = studentNameFromStorage;
+    }
+
     // console.log("comments for student: ", commentsForStudent);
     // console.log("comments for instructor: ", commentsForInstructor);
 
@@ -323,7 +344,42 @@ export default function TestResults() {
 
       for (var i in valuesArray) {
         if (valuesArray[i] != "0") {
-          sectionText += "\n ▹ [" + valuesArray[i] + "] " + namesArray[i];
+          var errorNumEmoji;
+          switch(valuesArray[i]) {
+            case "0":
+              errorNumEmoji = "0️⃣";
+              break;
+            case "1":
+              errorNumEmoji = "1️⃣";
+              break;
+            case "2":
+              errorNumEmoji = "2️⃣";
+              break;
+            case "3":
+              errorNumEmoji = "3️⃣";
+              break;
+            case "4":
+              errorNumEmoji = "4️⃣";
+              break;
+            case "5":
+              errorNumEmoji = "5️⃣";
+              break;
+            case "6":
+              errorNumEmoji = "6️⃣";
+              break;
+            case "7":
+              errorNumEmoji = "7️⃣";
+              break;
+            case "8":
+              errorNumEmoji = "8️⃣";
+              break;
+            case "9":
+              errorNumEmoji = "9️⃣";
+              break;
+            default:
+              errorNumEmoji = "[" + valuesArray[i] + "]"
+          }
+          sectionText += "\n ▹ " + errorNumEmoji + " " + namesArray[i];
         }
       }
 
@@ -348,7 +404,7 @@ export default function TestResults() {
     }
 
     resultsText += counterTestSection("Parking Lot",parkinglotErrors, parkinglotNamesArray, parkinglotValues);
-    resultsText += counterTestSection("Residential",residentialErrors, residentialNamesArray, residentialValues);
+    resultsText += counterTestSection("Residential/Business",residentialErrors, residentialNamesArray, residentialValues);
     if (usingFreeway) {
       resultsText += counterTestSection("Freeway",freewayErrors, freewayNamesArray, freewayValues);
     }
@@ -399,14 +455,14 @@ export default function TestResults() {
 
     // console.log(body);
 
-    // if (sendToInstructor == true) {
-    //   Linking.openURL("mailto:?subject="+subject+"&body="+body);
-    // }
-    // else {
-    //   Linking.openURL("mailto:?subject="+subject+"&body="+body);
-    // }
+    if (sendToInstructor == true) {
+      Linking.openURL("mailto:" + instructorEmail + "?subject="+subject+"&body="+body);
+    }
+    else {
+      Linking.openURL("mailto:?subject="+subject+"&body="+body);
+    }
 
-    Linking.openURL("mailto:?subject="+subject+"&body="+body);
+    // Linking.openURL("mailto:?subject="+subject+"&body="+body);
     }
 
 
@@ -573,10 +629,10 @@ export default function TestResults() {
   // --------------------------------------
   async function getParkinglotValues() {
     
-    const value1 = await StorageHandler.getData("PARKINGLOT_MIRRORS");
-    const value2 = await StorageHandler.getData("PARKINGLOT_POSITIONING");
-    const value3 = await StorageHandler.getData("PARKINGLOT_SIGNAL");
-    const value4 = await StorageHandler.getData("PARKINGLOT_SPEED");
+    const value1 = await StorageHandler.getData("PARKINGLOT_SIGNAL");
+    const value2 = await StorageHandler.getData("PARKINGLOT_SPEED");
+    const value3 = await StorageHandler.getData("PARKINGLOT_TRAFFIC_CHECK");
+    const value4 = await StorageHandler.getData("PARKINGLOT_POSITIONING");
 
     const valuesArray = await [value1, value2, value3, value4];
 
@@ -590,32 +646,33 @@ export default function TestResults() {
   }
 
   // --------------------------------------
-  // Residential (17 items)
+  // Residential (18 items)
   // --------------------------------------
   async function getResidentialValues() {
 
-    const value1 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE");
+    const value1 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_OBSERVATION");
     const value2 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_POSITIONING");
-    const value3 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_OBSERVATION");
+    const value3 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE");
     const value4 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SPEED");
 
-    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SAFE_DISTANCE");
+    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_OBSERVATION");
     const value6 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_POSITIONING");
-    const value7 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_OBSERVATION");
-    const value8 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SPEED");
-    const value9 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SIGNAL");
-    const value10 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_MIRRORS");
+    const value7 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SAFE_DISTANCE");
+    const value8 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SIGNAL");
+    const value9 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SPEED");
+    const value10 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_TRAFFIC_CHECK");
 
-    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
-    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_AVOIDS_CURB");
-    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
+    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
+    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
+    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL");
+    const value14 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH");
 
-    const value14 = await StorageHandler.getData("RESIDENTIAL_REVERSING_RIGHT_SHOULDER");
-    const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_AVOIDS_CURB");
-    const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_MIRRORS");
-    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
+    const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_RIGHT_SHOULDER");
+    const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
+    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
+    const value18 = await StorageHandler.getData("RESIDENTIAL_REVERSING_TRAFFIC_CHECK");
 
-    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
@@ -822,22 +879,6 @@ export default function TestResults() {
     return valuesArray;
   }
 
-
-
-  const testEndConfirmation = () =>
-    Alert.alert(
-      "End Test",
-      "Are you sure you want to end the test?",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "Yes", onPress: () => {StorageHandler.clearAllTestData(); navigation.navigate("LogIn");} }
-      ]
-    );
-
   return (
     <KeyboardAvoidingView 
     keyboardVerticalOffset={headerHeight}
@@ -877,7 +918,7 @@ export default function TestResults() {
 
 
       <View style={styles.sectionRow}>
-        <Text style={styles.sectionName}>Residential</Text>
+        <Text style={styles.sectionName}>Residential/Business</Text>
         <Text style={styles.sectionResult}>{residentialDisplay}</Text>
       </View>
       <DetailedCounterResultsDisplay names={residentialNamesArray} values={residentialDetailsValues}/>
@@ -981,7 +1022,7 @@ export default function TestResults() {
 
       <View style={styles.sendButtonContainer}>
         <Pressable
-            onPress={testEndConfirmation}
+            onPress={() => navigation.navigate("StartTest") }
             style={({ pressed }) => [{ backgroundColor: pressed ? '#b32023' : '#87181A' } , styles.sendButton]}
         >
           <Text style={styles.sendButtonText}>End Test</Text>

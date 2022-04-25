@@ -102,11 +102,26 @@ export async function clearAllStoredData() {
 
 
 export async function clearAllTestData() {
+  var InstructorNameFromStorage = await getData("INSTRUCTOR_NAME");
+  var InstructorEmailFromStorage = await getData("INSTRUCTOR_EMAIL");
+
   try {
     await AsyncStorage.clear()
+
     storeStringData("IS_LOGGED_IN", "true");
-  } catch(e) {
+
+    if (InstructorNameFromStorage != null) {
+      storeStringData("INSTRUCTOR_NAME", InstructorNameFromStorage);
+    }
+    if (InstructorEmailFromStorage != null) {
+      storeStringData("INSTRUCTOR_EMAIL", InstructorEmailFromStorage);
+    }
+
+    console.log('Cleared all test data!');
+  } catch (e) {
+    console.log("Error clearing test data");
+    console.log(e);
   }
 
-  console.log('Cleared all test data!');
+
 }

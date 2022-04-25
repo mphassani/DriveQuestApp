@@ -7,8 +7,10 @@ import {
     ScrollView,
 } from 'react-native';
 import { Provider as PaperProvider, Button, List, IconButton, Avatar, Appbar, DefaultTheme } from "react-native-paper";
-import Icon from "react-native-vector-icons/Ionicons";
-import Counter from '../../components/Counter';
+
+import CounterRow from '../../components/CounterRow';
+import SectionTitle from '../../components/SectionTitle';
+
 
 const theme = {
     ...DefaultTheme,
@@ -26,148 +28,123 @@ export default function ResidentialScreen({ navigation }) {
         <PaperProvider theme={theme}>
 
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "50%", paddingTop: "5%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Residential
-                    </Text>
-                </View>
+                <SectionTitle name="Residential" />
                 <List.Section>
-                    <List.Item
-                        title="Safe Distance"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE" />}
-                    />
-                    <List.Item
-                        title="Positioning"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/positioning.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_POSITIONING" />}
-                    />
-                    <List.Item
+
+                    <CounterRow
                         title="Observation"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/observation.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_OBSERVATION" />}
+                        icon={require("../../assets/observation.png")}
+                        storageKey="RESIDENTIAL_RESIDENTIAL_OBSERVATION"
                     />
-                    <List.Item
+                    <CounterRow
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="RESIDENTIAL_RESIDENTIAL_POSITIONING"
+                    />
+                    <CounterRow
+                        title="Safe Distance"
+                        icon={require("../../assets/spacing.png")}
+                        storageKey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE"
+                    />
+                    <CounterRow
                         title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_RESIDENTIAL_SPEED" />}
+                        icon={require("../../assets/speed.png")}
+                        storageKey="RESIDENTIAL_RESIDENTIAL_SPEED"
                     />
+
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Business
-                    </Text>
-                </View>
+                <SectionTitle name="Business" />
                 <List.Section>
-                    <List.Item
-                        title="Safe Distance"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SAFE_DISTANCE" />}
-                    />
-                    <List.Item
-                        title="Positioning"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/positioning.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_POSITIONING" />}
-                    />
-                    <List.Item
+
+                    <CounterRow
                         title="Observation"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/observation.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_OBSERVATION" />}
+                        icon={require("../../assets/observation.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_OBSERVATION"
                     />
-                    <List.Item
-                        title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SPEED" />}
+                    <CounterRow
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_POSITIONING"
                     />
-                    <List.Item
+                    <CounterRow
+                        title="Safe Distance"
+                        icon={require("../../assets/spacing.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_SAFE_DISTANCE"
+                    />
+                    <CounterRow
                         title="Signal"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_SIGNAL" />}
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_SIGNAL"
                     />
-                    <List.Item
-                        title="Mirrors"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_BUSINESS_MIRRORS" />}
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_SPEED"
                     />
+                    <CounterRow
+                        title="Traffic Check"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_TRAFFIC_CHECK"
+                    />
+                    
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Pulling up to the curb
-                    </Text>
-                </View>
+                <SectionTitle name="Pulling Up To The Curb" />
                 <List.Section>
-                    <List.Item
-                        title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_SPEED" />}
+
+                    <CounterRow
+                        title="Signal"
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="RESIDENTIAL_CURB_SIGNAL"
                     />
-                    <List.Item
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="RESIDENTIAL_CURB_SPEED"
+                    />
+                    <CounterRow
                         title="Steering Control"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/avoidsCurb.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_AVOIDS_CURB" />}
+                        icon={require("../../assets/avoidsCurb.png")}
+                        storageKey="RESIDENTIAL_CURB_STEERING_CONTROL"
                     />
-                    <List.Item
-                        title="Signal"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_CURB_SIGNAL" />}
+                    <CounterRow
+                        title="Visual Search"
+                        icon={require("../../assets/VisualSearch.png")}
+                        storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH"
                     />
-                    <List.Item
-                    title="Visual Search"
-                    left={(props) =>
-                        <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
-                    right={(props) => <Counter storageKey="RESIDENTIAL_VISUAL_SEARCH" />}
-                />
+                    
                 </List.Section>
 
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingRight: "60%" }}>
-                    <Text
-                        style={{ fontSize: 25, fontWeight: 'bold' }}>Reversing
-                    </Text>
-                </View>
+                <SectionTitle name="Reversing" />
                 <List.Section>
-                    <List.Item
+
+                    <CounterRow
                         title="Right Shoulder"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER" />}
+                        icon={require("../../assets/rightShoulder.png")}
+                        storageKey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER"
                     />
-                    <List.Item
-                        title="Steering Control"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/avoidsCurb.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_AVOIDS_CURB" />}
-                    />
-                    <List.Item
-                        title="Mirrors"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_MIRRORS" />}
-                    />
-                    <List.Item
+                    <CounterRow
                         title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="RESIDENTIAL_REVERSING_SPEED" />}
+                        icon={require("../../assets/speed.png")}
+                        storageKey="RESIDENTIAL_REVERSING_SPEED"
                     />
+                    <CounterRow
+                        title="Steering Control"
+                        icon={require("../../assets/avoidsCurb.png")}
+                        storageKey="RESIDENTIAL_REVERSING_STEERING_CONTROL"
+                    />
+                    <CounterRow
+                        title="Traffic Check"
+                        icon={require("../../assets/rearViewMirror.png")}
+                        storageKey="RESIDENTIAL_REVERSING_TRAFFIC_CHECK"
+                    />
+                        
                 </List.Section>
+
                 <View style={{ marginBottom: 25 }}></View>
             </ScrollView>
         </PaperProvider>

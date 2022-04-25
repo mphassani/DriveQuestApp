@@ -1,29 +1,95 @@
 //import statements 
-import React, { useState } from 'react';
-import { Text, View, StyleSheet, Switch } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View, StyleSheet, Switch, Pressable } from 'react-native';
 import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
 // import { clearAllStoredData } from '../../StorageHandler';
 import * as StorageHandler from "../../StorageHandler";
+import { useNavigation } from '@react-navigation/native';
+import { Audio } from 'expo-av'
 
-// You can import from local files
 import DropDownPicker from 'react-native-dropdown-picker';
 
-export default function Settings() {
- //Toggle 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+
+
+export default function Settings(props) {
+  const navigation = useNavigation();
+
+  var pageTitle = "Settings";
+  
+  if (props.pageTitle != null){
+    pageTitle = props.pageTitle;
+  }
+
+  const [isOnTestConfig, setIsOnTestConfig] = useState(false);
+
+
+
+  
+
+  async function setToInitalSavedValues() {
+  
+    const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
+    const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
+    const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
+    const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
+  
+    if (studentNameValue != null) {
+      setStudentNameText(studentNameValue);
+    }
+  
+    if (usingFreewayValue != null && usingFreewayValue == "true") {
+      setIsFreewayEnabled(true);
+    }
+  
+    if (errorSoundValue != null) {
+      setSoundValue(errorSoundValue);
+    }
+  
+    if (selectedRouteValue != null) {
+      setRouteValue(selectedRouteValue);
+    }
+  }
+
+  // Freeway Toggle
+  const [isFreewayEnabled, setIsFreewayEnabled] = useState(false);
+  const toggleSwitch = () => {setIsFreewayEnabled(previousState => !previousState); saveFreewayToggle(!isFreewayEnabled);};
+  function saveFreewayToggle(isFreewayEnabled) {
+    if (isFreewayEnabled == true) {
+      StorageHandler.storeStringData("USING_FREEWAY", "true");
+    }
+    else {
+      StorageHandler.storeStringData("USING_FREEWAY", "false");
+    }
+  }
+
+  //Student Name
+  const [studentNameText, setStudentNameText] = React.useState("");
+  function saveStudentName(text) {
+    StorageHandler.storeStringData("STUDENT_NAME", text);
+  }
+
+  // Error Sound
+  function saveErrorSounds(sound) {
+    StorageHandler.storeStringData("ERROR_SOUND", sound);
+  }
+
+  // Selected Route
+  function saveSelectedRoute(route) {
+    StorageHandler.storeStringData("SELECTED_ROUTE", route);
+  }
+
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
-  const [soundValue, setSoundValue] = useState(null);
+  const [soundValue, setSoundValue] = useState('0');
   const [soundItems, setSoundItems] = useState([
-    {label: 'No Sound', value: '1'},
-    {label: 'Bell', value: '2'},
-    {label: 'Horn', value: '3'},
-    {label: 'Oink', value: '4'},
-    {label: 'Police siren', value: '5'},
-    {label: 'Piano', value: '6'},
+    {label: 'No Sound', value: '0', sound: null},
+    {label: 'Fart', value: '1', sound: '../../assets/buttonPress2.wav'},
+    {label: 'Bell', value: '2', sound: '../../assets/buttonPress4.wav'},
+    {label: 'Video Game', value: '3', sound: '../../assets/buttonPress5.wav'},
+    {label: 'Police siren', value: '4', sound: '../../assets/buttonPress6.wav'},
   ]);
 
   //used to create route dropdown 
@@ -37,7 +103,6 @@ export default function Settings() {
     {label: 'Route E', value: 'E'},
   ]);
 
-  const [studentText, setStudentText] = React.useState("");
 
   const theme = {
     ...DefaultTheme,
@@ -49,61 +114,115 @@ export default function Settings() {
     },
   };
 
-  function saveSettingsData(studName, isFreeway, errorSound, currRoute) {
-    // , isFreeway, sound, currRoute
-
-    if(studName == null || isFreeway == null || errorSound  == null || currRoute == null)
-    {
-      alert("Please Enter Data in All Fields");
+  function startTest() {
+    if (studentNameText != null && studentNameText != "") {
+      navigation.navigate("Home");
     }
-    else
-    {
-      StorageHandler.storeStringData("STUDENT_NAME", studName);
-      StorageHandler.storeStringData("USING_FREEWAY", isFreeway ? "false" : "true");
-      StorageHandler.storeStringData("ERROR_SOUND", errorSound);
-      StorageHandler.storeStringData("SELECTED_ROUTE", currRoute);
-      alert("Data Saved");
+    else {
+      alert("Student name can't be empty!")
     }
   }
+
+  const [sound, setSound] = React.useState();
+
+async function playSound(soundNum) {
+  console.log('Loading Sound');
+  
+  if (soundNum == 2) {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress2.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else if (soundNum == 3) {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress4.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else if (soundNum == 4){
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress5.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  else if (soundNum == 5){
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/buttonPress6.wav')
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  //setSound(sound);
+
+
+
+console.log('Playing Sound');
+  //await sound.playAsync();
+}
+
+
+
+useEffect(() => {
+
+  if (props.pageTitle == "Test Configuraton"){
+    setIsOnTestConfig(true);
+  }
+  else {
+    setIsOnTestConfig(false);
+  }
+
+  setToInitalSavedValues();
+
+  return sound
+    ? () => {
+        console.log('Unloading Sound');
+        sound.unloadAsync(); }
+    : undefined;
+}, [sound]);
 
   return (
     <PaperProvider theme = {theme}>
         <View style={styles.container}>
           
           <Text style={styles.paragraph}>
-            Settings
+            {pageTitle}
           </Text>
 
         {/* Creates student name input field */}
         <View style={{ marginBottom: 20 }}>
           <TextInput
             label="Student Name"
-            value={studentText}
-            onChangeText={(text) => setStudentText(text)}
             mode="outlined"
+            returnKeyType="done"
+            value={studentNameText}
+            onChangeText={(text) => {setStudentNameText(text); saveStudentName(text);}}
           />
         </View>
 
 
-         {/*Toggle*/}
-          <View style={{ marginBottom: 20 }}>
-           <Text style={styles.title}>
+        {/*Toggle*/}
+        <View style={styles.toggleContainer}>
+          <Text style={styles.toggleTitle}>
               Freeway
-           </Text>
-            <Switch
-              trackColor={{ false: "#767577", true: "#90C96A" }}
-              thumbColor={isEnabled ? "#ffffff" : "#f4f3f4"}
-              ios_backgroundColor="#3e3e3e"
-              onValueChange={toggleSwitch}
-              value={isEnabled}
-            />
-          </View>
+          </Text>
 
-          
+          <Switch
+              style={styles.toggleSwitch}
+              trackColor={{ false: "#767577", true: "#90C96A" }}
+              thumbColor={isFreewayEnabled ? "#ffffff" : "#ffffff"}
+              onValueChange={toggleSwitch}
+              value={isFreewayEnabled}
+            />
+        </View>
+
 
         <Text style={styles.title}>
             Sounds
-          </Text>
+        </Text>
 
           {/* Creates searchable sound dropdown */}
           <View style={{zIndex: 2}}>
@@ -118,9 +237,9 @@ export default function Settings() {
                 setItems={setSoundItems}
                 placeholder='Select a sound'
                 defaultIndex={0}
-                containerStyle={{height: 70, marginBottom: 5}}
-                searchable={true}
-                onChangeItem={item => console.log(item.label, item.value)}
+                containerStyle={{height: 70, marginBottom: 0}}
+                searchable={false}
+                onSelectItem={item => {console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value)}}
             />
           </View>
           
@@ -142,18 +261,23 @@ export default function Settings() {
                 placeholder='Select a route'
                 defaultIndex={0}
                 containerStyle={{height: 70}}
-                searchable={true}
-                onChangeItem={item => console.log(item.label, item.value)}
+                searchable={false}
+                onSelectItem={item => {console.log(item.label, item.value), saveSelectedRoute(item.value)}}
             />
           </View>
 
-          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "5%" }}>  
-              <Button mode="contained" color= "#12414F" onPress={() => {saveSettingsData(studentText, isEnabled, soundValue, routeValue);}}>Save Settings</Button>
-          </View>
-          {/* Creates the clear button to clear all save data from the test. */}
-          <View style={{ alignContent: "center", justifyContent: "center", flexDirection: "row", paddingBottom: "5%", paddingTop: "20%" }}>  
-              <Button mode="contained" color= "red" onPress={() => {clearAllStoredData(); alert("Cleared Saved Data");}}>Clear Test Data</Button>
-          </View>
+
+          
+          <Pressable
+          onPress={() => startTest() }
+          style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
+          display = {isOnTestConfig ? "flex" : "none"}
+          >
+            <Text style={styles.ButtonText}>Start Test</Text>
+
+          </Pressable>
+          
+
         </View>
     </PaperProvider>
   );
@@ -162,19 +286,67 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight + 135,
+    // paddingTop: Constants.statusBarHeight + 135,
     backgroundColor: '#f2f2f2',
-    padding: 30,
+    padding: 15,
   },
 
   //used for page title 
   paragraph: {
-    marginTop: -160,
-    margin: 20,
+    marginTop: 15,
+    marginBottom: 20,
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  title: {
+    fontSize: 18,
+    fontWeight: "500",
+    marginBottom: 5,
+  },
+
+
+  toggleContainer: {
+    backgroundColor: "white",
+    flexDirection: "row",
+    // alignItems: "flex-end",
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+  toggleTitle: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: "500",
+    // alignItems: 'center', //Centered vertically
+    marginTop: 5,
+  },
+  toggleSwitch: {
+
+  },
+
+
+
+  Button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "100%",
+    paddingVertical: 15,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+  },
+  ButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+},
+
+
+
 
 });
 

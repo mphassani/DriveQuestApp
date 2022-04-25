@@ -67,7 +67,7 @@ export default function HomeScreen() {
   async function checkFreewayEnable() {
     // Freeway Driving Check
     // CHANGE THIS to checking freeway enable, not driver window pre-check box
-    const freeway_enable = await StorageHandler.getData("PREDRIVE_HORN");
+    const freeway_enable = await StorageHandler.getData("USING_FREEWAY");
     console.log("freeway enable: " + freeway_enable)
     if (freeway_enable == "false" || freeway_enable == null) {
       console.log("in if statement")
@@ -141,38 +141,45 @@ export default function HomeScreen() {
         <HomeSectionButton
           title="Pre-Drive"
           destination = "PreDrive"
+          storageKey="TEST_PROGRESS_1"
         />
 
         <HomeSectionButton
           title="Parking Lot"
           destination = "parkinglot"
+          storageKey="TEST_PROGRESS_2"
         />
 
         <HomeSectionButton
           title="Residential/Business"
           destination = "Residential"
+          storageKey="TEST_PROGRESS_3"
         />
 
         <HomeSectionButton
           title="Turns"
           destination = "turnscreenleft"
+          storageKey="TEST_PROGRESS_4"
         />
 
         <HomeSectionButton
           title="Traffic"
           destination = "traffic"
+          storageKey="TEST_PROGRESS_5"
         />
 
         <View style={{display: freewayDisplay}}>
           <HomeSectionButton
             title="Freeway"
             destination = "Freeway"
+            storageKey="TEST_PROGRESS_6"
         />
         </View>
 
         <HomeSectionButton
           title="Parking Lot"
           destination = "parkinglot"
+          storageKey="TEST_PROGRESS_7"
         />
 
       </ScrollView>
