@@ -127,8 +127,8 @@ export default function Settings(props) {
 
   function startTest() {
     if (studentNameText != null && studentNameText != "" && studentPermitNumberText != null && studentPermitNumberText != "") {
-      if (studentPermitNumberText.length != 7) {
-        alert("Student permit number must be a 7 digit number!")
+      if (studentPermitNumberText.length != 8) {
+        alert("Student permit number must be 8 characters!")
       } else {
         navigation.navigate("Home");
       }
