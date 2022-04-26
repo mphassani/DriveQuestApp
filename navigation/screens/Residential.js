@@ -91,6 +91,32 @@ export default function ResidentialScreen({ navigation }) {
                     
                 </List.Section>
 
+                <SectionTitle name="Pulling Away From The Curb" />
+                <List.Section>
+
+                    <CounterRow
+                        title="Signal"
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="RESIDENTIAL_CURB_SIGNAL_AWAY"
+                    />
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="RESIDENTIAL_CURB_SPEED_AWAY"
+                    />
+                    <CounterRow
+                        title="Steering Control"
+                        icon={require("../../assets/avoidsCurb.png")}
+                        storageKey="RESIDENTIAL_CURB_STEERING_CONTROL_AWAY"
+                    />
+                    <CounterRow
+                        title="Visual Search"
+                        icon={require("../../assets/VisualSearch.png")}
+                        storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY"
+                    />
+                    
+                </List.Section>
+
 
                 <SectionTitle name="Reversing" />
                 <List.Section>
