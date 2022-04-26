@@ -1,5 +1,4 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import TestResults from "./navigation/screens/TestResult";
 //import {describe,it} from 'jest';
 //let {describe,it} = global;
 

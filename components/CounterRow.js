@@ -16,18 +16,35 @@ const CounterRow = (props) => {
 
     return (
 
+        // <View>
+        //     <List.Item 
+        //         title={<Text style={styles.titleText}>{" " + props.title}</Text>}
+
+        //         left={() => <Image style={styles.iconBackground} source={props.icon} />}
+
+        //         right={() => 
+        //             <Counter storageKey={props.storageKey} maxCount={props.maxValue}/>
+        //         }
+        //     />
+
+        //     <Divider />
+        // </View>
+
         <View>
-            <List.Item 
-                title={<Text style={styles.titleText}>{" " + props.title}</Text>}
+            <View style={styles.container}>
+                <View style={styles.left}>
+                    <Image style={styles.iconBackground} source={props.icon} />
+                    <Text style={styles.title} adjustsFontSizeToFit >{props.title}</Text>
+                </View>
 
-                left={() => <Image style={styles.iconBackground} source={props.icon} />}
-
-                right={() => 
+            
+                <View style={styles.right}>
                     <Counter storageKey={props.storageKey} maxCount={props.maxValue}/>
-                }
-            />
+                </View>
 
-            <Divider />
+            </View>
+            
+            <View style={styles.divider}></View>
         </View>
 
     )
@@ -35,15 +52,49 @@ const CounterRow = (props) => {
 
 
 const styles = StyleSheet.create({
+
+
+    // titleText: {
+    //     fontSize: 18,
+    //     fontWeight: "500",
+    // }
+    
+    divider: {
+        borderBottomColor: "#d9d9d9",
+        borderBottomWidth: 1,
+    },
+
+    container: {
+        // backgroundColor: "white",
+        flexDirection: "row",
+        // alignItems: "flex-end",
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        // marginBottom: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    left: {
+        flexDirection: "row",
+        flex: 1,
+        fontSize: 18,
+        fontWeight: "500",
+        alignItems: 'center', //Centered vertically
+      },
+      
     iconBackground: {
-        height: 64,
-        width: 64, 
+        
+        height: 50,
+        width: 50, 
         borderRadius: 10, 
         // backgroundColor: '#12414F',
         backgroundColor: '#4DB6AC',
     },
 
-    titleText: {
+    title: {
+        marginHorizontal: 10,
+        alignItems: 'center',
+        flex: 1,
         fontSize: 18,
         fontWeight: "500",
     }

@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection:'row', 
     height: 50,
-    marginTop: 7,
 
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 5},

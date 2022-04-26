@@ -32,15 +32,14 @@ export default function StartTest({ navigation }) {
   return (
 
     <ScrollView>
-        <View style={{alignItems: 'center', justifyContent:'center', paddingTop:'5%'}}>
+        <View style={{alignItems: 'center', justifyContent:'center', paddingVertical:'8%'}}>
             <Image
-            source={require('/Users/parsahassani/Documents/GitHub/VS-Code/assets/logo.png')}
-            
+            source={require('../../assets/logo.png')}
             />
         </View>
-        <View style={{alignItems: 'center', justifyContent: 'center', padding: 20, marginBottom: 30 }}>
+        {/* <View style={{alignItems: 'center', justifyContent: 'center', padding: 20, marginBottom: 30 }}>
             <Text style={styles.title}>Start Test</Text>
-        </View>
+        </View> */}
 
         <View style={styles.ButtonContainer}>
             <Pressable
