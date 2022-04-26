@@ -111,7 +111,7 @@ function App() {
                         onPress={() => navigation.navigate("StartTest") }
                         style={({ pressed }) => [{ backgroundColor: pressed ? '#d1d1d1' : 'white' } , styles.EndTestButton]}
                     >
-                      <Text style={styles.EndTestButtonText}>End Test</Text>
+                      <Text style={styles.EndTestButtonText}>Back</Text>
             
                     </Pressable>
                   </View>
