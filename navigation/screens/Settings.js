@@ -31,12 +31,17 @@ export default function Settings(props) {
   async function setToInitalSavedValues() {
   
     const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
+    const studentPermitNumber = await StorageHandler.getData("STUDENT_PERMIT");
     const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
     const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
     const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
   
     if (studentNameValue != null) {
       setStudentNameText(studentNameValue);
+    }
+
+    if (studentPermitNumber != null) {
+      setStudentPermitNumber(studentPermitNumber);
     }
   
     if (usingFreewayValue != null && usingFreewayValue == "true") {
@@ -53,21 +58,27 @@ export default function Settings(props) {
   }
 
   // Freeway Toggle
-  const [isFreewayEnabled, setIsFreewayEnabled] = useState(false);
-  const toggleSwitch = () => {setIsFreewayEnabled(previousState => !previousState); saveFreewayToggle(!isFreewayEnabled);};
-  function saveFreewayToggle(isFreewayEnabled) {
-    if (isFreewayEnabled == true) {
-      StorageHandler.storeStringData("USING_FREEWAY", "true");
-    }
-    else {
-      StorageHandler.storeStringData("USING_FREEWAY", "false");
-    }
-  }
+  // const [isFreewayEnabled, setIsFreewayEnabled] = useState(false);
+  // const toggleSwitch = () => {setIsFreewayEnabled(previousState => !previousState); saveFreewayToggle(!isFreewayEnabled);};
+  // function saveFreewayToggle(isFreewayEnabled) {
+  //   if (isFreewayEnabled == true) {
+  //     StorageHandler.storeStringData("USING_FREEWAY", "true");
+  //   }
+  //   else {
+  //     StorageHandler.storeStringData("USING_FREEWAY", "false");
+  //   }
+  // }
 
   //Student Name
   const [studentNameText, setStudentNameText] = React.useState("");
   function saveStudentName(text) {
     StorageHandler.storeStringData("STUDENT_NAME", text);
+  }
+
+  //Student Permit Number
+  const [studentPermitNumberText, setStudentPermitNumberText] = React.useState("");
+  function saveStudentPermitNumber(text) {
+    StorageHandler.storeStringData("STUDENT_PERMIT", text);
   }
 
   // Error Sound
@@ -115,11 +126,20 @@ export default function Settings(props) {
   };
 
   function startTest() {
-    if (studentNameText != null && studentNameText != "") {
-      navigation.navigate("Home");
+    if (studentNameText != null && studentNameText != "" && studentPermitNumberText != null && studentPermitNumberText != "") {
+      if (studentPermitNumberText.length != 7) {
+        alert("Student permit number must be a 7 digit number!")
+      } else {
+        navigation.navigate("Home");
+      }
     }
     else {
-      alert("Student name can't be empty!")
+      if (studentNameText == null || studentNameText == "") {
+        alert("Student name can't be empty!")
+      }
+      if (studentPermitNumberText == null || studentPermitNumberText == "") {
+        alert("Student permit number can't be empty!")
+      }
     }
   }
 
@@ -203,8 +223,19 @@ useEffect(() => {
           />
         </View>
 
+        {/* Creates student permit number input field */}
+        <View style={{ marginBottom: 20 }}>
+          <TextInput
+            label="Student Permit Number"
+            mode="outlined"
+            returnKeyType="done"
+            value={studentPermitNumberText}
+            onChangeText={(text) => {setStudentPermitNumberText(text); saveStudentPermitNumber(text);}}
+          />
+        </View>
 
-        {/*Toggle*/}
+
+        {/* Toggle
         <View style={styles.toggleContainer}>
           <Text style={styles.toggleTitle}>
               Freeway
@@ -217,7 +248,7 @@ useEffect(() => {
               onValueChange={toggleSwitch}
               value={isFreewayEnabled}
             />
-        </View>
+        </View> */}
 
 
         <Text style={styles.title}>

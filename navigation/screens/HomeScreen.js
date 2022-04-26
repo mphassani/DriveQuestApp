@@ -8,7 +8,7 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
-import { Provider as PaperProvider, Button, Card, Title, Paragraph, Avatar, FAB, Portal, DefaultTheme, BottomNavigation } from "react-native-paper";
+import { Provider as PaperProvider, Button, Card, Title, Paragraph, Avatar, FAB, Portal, RefreshControl, DefaultTheme, BottomNavigation } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -53,39 +53,20 @@ const MyComponent = () => {
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  const [freewayDisplay, setFreewayDisplay] = useState("");
-
-  useEffect(() => {
-    const checkFreewayOnPageLoad = async () => {
-      const data = await checkFreewayEnable();
-      console.log("Freeway Enabled? : ", data);
-    }
-
-    checkFreewayOnPageLoad();
-  }, []);
-
-  async function checkFreewayEnable() {
-    // Freeway Driving Check
-    // CHANGE THIS to checking freeway enable, not driver window pre-check box
-    const freeway_enable = await StorageHandler.getData("USING_FREEWAY");
-    console.log("freeway enable: " + freeway_enable)
-    if (freeway_enable == "false" || freeway_enable == null) {
-      console.log("in if statement")
-      setFreewayDisplay("none");
-      return false;
-    }
-    else {
-      console.log("in else statement")
-      return true;
-    }
-  }
   
 
   // Parsa's Page
   return (
 
     <PaperProvider theme={theme}>
-      <ScrollView>
+      <ScrollView 
+      // refreshControl={
+      //   <RefreshControl
+      //     refreshing={refreshing}
+      //     onRefresh={onRefresh}
+      //   />
+      // }
+      >
       {/* <View style={{padding: "2%"}}/>
         <Card>
         <View style={styles.buttonView}>
@@ -168,21 +149,13 @@ export default function HomeScreen() {
           storageKey="TEST_PROGRESS_5"
         />
 
-        <View style={{display: freewayDisplay}}>
-          <HomeSectionButton
-            title="Freeway"
-            destination = "Freeway"
-            storageKey="TEST_PROGRESS_6"
-        />
-        </View>
-
         <HomeSectionButton
-          title="Parking Lot"
-          destination = "parkinglot"
-          storageKey="TEST_PROGRESS_7"
+          title="Freeway"
+          destination = "Freeway"
+          storageKey="USING_FREEWAY"
         />
 
-      </ScrollView>
+      </ScrollView >
 
 
       {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={{ width: 200, height: 300 }} onPress={() => Restart()}/> */}
