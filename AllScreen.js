@@ -59,7 +59,7 @@ const MyComponent = () => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home' },
-        { key: 'auto', title: 'Auto DQ', icon: 'alert'},
+        { key: 'auto', title: 'Disqualification', icon: 'alert'},
         {key: 'finalTest', title: 'Test Results', icon: 'clipboard-check'},
     ]);
 
