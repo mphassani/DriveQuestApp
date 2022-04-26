@@ -744,7 +744,7 @@ export default function TestResults() {
     const value1 = await StorageHandler.getData("INTERSECTION_THROUGH_TRAFFIC_CHECK");
     const value2 = await StorageHandler.getData("INTERSECTION_THROUGH_SPEED");
     const value3 = await StorageHandler.getData("INTERSECTION_THROUGH_UNNECESSARY_STOP");
-    const value4 = await StorageHandler.getData("INTERSECTION_YIELD");
+    const value4 = await StorageHandler.getData("INTERSECTION_THROUGH_YIELD");
     const value5 = await StorageHandler.getData("INTERSECTION_STOP_GAP_LIMIT_LINE");
     const value6 = await StorageHandler.getData("INTERSECTION_STOP_BRAKING");
     const value7 = await StorageHandler.getData("INTERSECTION_STOP_TRAFFIC_CHECK");
