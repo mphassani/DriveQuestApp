@@ -28,34 +28,7 @@ export default function ResidentialScreen({ navigation }) {
         <PaperProvider theme={theme}>
 
             <ScrollView>
-                <SectionTitle name="Residential" />
-                <List.Section>
-
-                    <CounterRow
-                        title="Observation"
-                        icon={require("../../assets/observation.png")}
-                        storageKey="RESIDENTIAL_RESIDENTIAL_OBSERVATION"
-                    />
-                    <CounterRow
-                        title="Positioning"
-                        icon={require("../../assets/positioning.png")}
-                        storageKey="RESIDENTIAL_RESIDENTIAL_POSITIONING"
-                    />
-                    <CounterRow
-                        title="Safe Distance"
-                        icon={require("../../assets/spacing.png")}
-                        storageKey="RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE"
-                    />
-                    <CounterRow
-                        title="Speed"
-                        icon={require("../../assets/speed.png")}
-                        storageKey="RESIDENTIAL_RESIDENTIAL_SPEED"
-                    />
-
-                </List.Section>
-
-
-                <SectionTitle name="Business" />
+                <SectionTitle name="Residential/Business" />
                 <List.Section>
 
                     <CounterRow

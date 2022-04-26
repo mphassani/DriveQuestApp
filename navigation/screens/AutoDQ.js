@@ -15,7 +15,7 @@ export default function AutoDQ({ navigation }) {
             <ScrollView>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
                     <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
-                        Automatic Disqualification
+                        Disqualification
                     </Text>
                 </View>
                 <List.Section>

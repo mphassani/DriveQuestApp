@@ -6,6 +6,7 @@ import {
   ScrollView,
   Pressable,
   Alert,
+  Image
 } from "react-native";
 
 import * as StorageHandler from "../../StorageHandler";
@@ -31,8 +32,13 @@ export default function StartTest({ navigation }) {
   return (
 
     <ScrollView>
-
-        <View style={{alignItems: 'center', justifyContent: 'center', padding: 20, marginBottom: 60 }}>
+        <View style={{alignItems: 'center', justifyContent:'center', paddingTop:'5%'}}>
+            <Image
+            source={require('/Users/parsahassani/Documents/GitHub/VS-Code/assets/logo.png')}
+            
+            />
+        </View>
+        <View style={{alignItems: 'center', justifyContent: 'center', padding: 20, marginBottom: 30 }}>
             <Text style={styles.title}>Start Test</Text>
         </View>
 
