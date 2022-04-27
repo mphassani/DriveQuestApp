@@ -114,15 +114,32 @@ export default function TestResults() {
 
     return (
 
-      namesArray.map( (name, index) => 
-        { return parseInt(valuesArray[index]) > 0 ?
+      namesArray.map( (name, index) => { 
+        return parseInt(valuesArray[index]) > 0 ?
         <View style={styles.detailedResultsRow} key={name}>
           <Text style={styles.detailedResultsName}>{name}</Text>
           <Text style={styles.sectionResult}>{valuesArray[index]}</Text>
         </View> : null})
+        
+        
 
     )
   };
+
+  return (
+
+    <View
+    style={{
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingTop: "10%",
+    }}
+  >
+    <Image source={require("../../assets/logo.png")} />
+  </View>
+  
+  )
 
   const DetailedPreDriveResultsDisplay = (props) => {
     var namesArray = props.names;
