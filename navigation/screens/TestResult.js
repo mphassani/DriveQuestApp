@@ -402,7 +402,7 @@ export default function TestResults() {
     resultsText += "\nRoute: " + selectedRoute;
     resultsText += "\nInstructor: " + instructorName;
     resultsText += "\nStudent: " + studentName;
-    resultsText += "\Permit Number: " + studentPermitNumber;
+    resultsText += "\nPermit Number: " + studentPermitNumber;
     resultsText += "\n------------------------------";
 
 
