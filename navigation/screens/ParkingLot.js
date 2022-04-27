@@ -51,6 +51,11 @@ export default function ParkingLot({ navigation }) {
                         icon={require("../../assets/positioning.png")}
                         storageKey="PARKINGLOT_POSITIONING"
                     />
+                    <CounterRow
+                        title="Smoothness"
+                        icon={require("../../assets/smoothness.png")}
+                        storageKey="PARKINGLOT_SMOOTHNESS"
+                    />
                 </List.Section>
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>

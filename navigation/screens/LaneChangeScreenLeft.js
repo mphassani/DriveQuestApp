@@ -97,6 +97,11 @@ export default function LaneChangeScreenLeft() {
                     left={(props) =><Avatar.Image {...props} source={require('../../assets/SteeringControl.png')} />}
                     right={(props) => <Counter storageKey="LANECHANGE_LEFT_STEERING_CONTROL"/>}
                     />
+                <List.Item
+                    title="Smoothness"
+                    left={(props) =><Avatar.Image {...props} source={require('../../assets/smoothness.png')} />}
+                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_SMOOTHNESS"/>}
+                    />
                 </List.Section>
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>
