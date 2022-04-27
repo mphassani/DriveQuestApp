@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Settings } from 'react-native';
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from "react-native-paper";
 import * as StorageHandler from '../StorageHandler';
 import { Audio } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
+import { SettingsPage, soundValue} from '../navigation/screens/Settings';
 
 const Counter = (props) => {
 
@@ -84,23 +85,32 @@ const Counter = (props) => {
   async function playSound() {
     console.log('Loading Sound');
     randomNum = Math.random();
-    if (randomNum >= 0 && randomNum < 0.33) {
-      const { sound } = await Audio.Sound.createAsync(
-        require('../assets/buttonPress.mp3')
-      );
-      setSound(sound);
-      await sound.playAsync();
+    if (soundValue == 1) {
+      if (randomNum >= 0 && randomNum < 0.33) {
+        const { sound } = await Audio.Sound.createAsync(
+          require('../assets/buttonPress.mp3')
+        );
+        setSound(sound);
+        await sound.playAsync();
+      }
+      else if (randomNum > 0.33 && randomNum < 0.66) {
+        const { sound } = await Audio.Sound.createAsync(
+          require('../assets/buttonPress2.wav')
+        );
+        setSound(sound);
+        await sound.playAsync();
+      }
+      else {
+        const { sound } = await Audio.Sound.createAsync(
+          require('../assets/buttonPress3.wav')
+        );
+        setSound(sound);
+        await sound.playAsync();
+      }
     }
-    else if (randomNum > 0.33 && randomNum < 0.66) {
+    else if (soundValue == 4) {
       const { sound } = await Audio.Sound.createAsync(
-        require('../assets/buttonPress2.wav')
-      );
-      setSound(sound);
-      await sound.playAsync();
-    }
-    else {
-      const { sound } = await Audio.Sound.createAsync(
-        require('../assets/buttonPress3.wav')
+        require('../assets/buttonPress4.wav')
       );
       setSound(sound);
       await sound.playAsync();

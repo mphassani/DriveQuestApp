@@ -1,7 +1,7 @@
 //import statements 
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Switch, Pressable } from 'react-native';
-import {Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
+import { Provider as PaperProvider, Button, TextInput, DefaultTheme } from 'react-native-paper';
 import Constants from 'expo-constants';
 // import { clearAllStoredData } from '../../StorageHandler';
 import * as StorageHandler from "../../StorageHandler";
@@ -10,15 +10,12 @@ import { Audio } from 'expo-av'
 
 import DropDownPicker from 'react-native-dropdown-picker';
 
-
-
-
-export default function Settings(props) {
+export default function SettingsPage(props) {
   const navigation = useNavigation();
 
   var pageTitle = "Settings";
-  
-  if (props.pageTitle != null){
+
+  if (props.pageTitle != null) {
     pageTitle = props.pageTitle;
   }
 
@@ -26,16 +23,16 @@ export default function Settings(props) {
 
 
 
-  
+
 
   async function setToInitalSavedValues() {
-  
+
     const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
     const studentPermitNumber = await StorageHandler.getData("STUDENT_PERMIT");
     const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
     const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
     const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
-  
+
     if (studentNameValue != null) {
       setStudentNameText(studentNameValue);
     }
@@ -43,15 +40,15 @@ export default function Settings(props) {
     if (studentPermitNumber != null) {
       setStudentPermitNumber(studentPermitNumber);
     }
-  
+
     if (usingFreewayValue != null && usingFreewayValue == "true") {
       setIsFreewayEnabled(true);
     }
-  
+
     if (errorSoundValue != null) {
       setSoundValue(errorSoundValue);
     }
-  
+
     if (selectedRouteValue != null) {
       setRouteValue(selectedRouteValue);
     }
@@ -94,24 +91,26 @@ export default function Settings(props) {
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
-  const [soundValue, setSoundValue] = useState('0');
+  var [soundValue, setSoundValue] = useState('0');
   const [soundItems, setSoundItems] = useState([
-    {label: 'No Sound', value: '0', sound: null},
-    {label: 'Fart', value: '1', sound: '../../assets/buttonPress2.wav'},
-    {label: 'Bell', value: '2', sound: '../../assets/buttonPress4.wav'},
-    {label: 'Video Game', value: '3', sound: '../../assets/buttonPress5.wav'},
-    {label: 'Police siren', value: '4', sound: '../../assets/buttonPress6.wav'},
+    { label: 'No Sound', value: '0', sound: null },
+    { label: 'Liquid Lava', value: '1', sound: '../../assets/buttonPress.mp3' },
+    { label: 'Catchoupa Wind', value: '2', sound: '../../assets/buttonPress1.wav' },
+    { label: 'Liquid Volcano', value: '3', sound: '../../assets/buttonPress3.wav' },
+    { label: 'Bell', value: '4', sound: '../../assets/buttonPress4.wav' },
+    { label: 'Video Game', value: '5', sound: '../../assets/buttonPress5.wav' },
+    { label: 'Police siren', value: '6', sound: '../../assets/buttonPress6.wav' },
   ]);
 
   //used to create route dropdown 
   const [routeOpen, setRouteOpen] = useState(false);
   const [routeValue, setRouteValue] = useState(null);
   const [routeItems, setRouteItems] = useState([
-    {label: 'Route A', value: 'A'},
-    {label: 'Route B', value: 'B'},
-    {label: 'Route C', value: 'C'},
-    {label: 'Route D', value: 'D'},
-    {label: 'Route E', value: 'E'},
+    { label: 'Route A', value: 'A' },
+    { label: 'Route B', value: 'B' },
+    { label: 'Route C', value: 'C' },
+    { label: 'Route D', value: 'D' },
+    { label: 'Route E', value: 'E' },
   ]);
 
 
@@ -145,72 +144,87 @@ export default function Settings(props) {
 
   const [sound, setSound] = React.useState();
 
-async function playSound(soundNum) {
-  console.log('Loading Sound');
-  
-  if (soundNum == 2) {
-    const { sound } = await Audio.Sound.createAsync(
-      require('../../assets/buttonPress2.wav')
-    );
-    setSound(sound);
-    await sound.playAsync();
+  async function playSound(soundNum) {
+    console.log('Loading Sound');
+
+    if (soundNum == 1) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../../assets/buttonPress.mp3')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else if (soundNum == 2) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../../assets/buttonPress2.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else if (soundNum == 3) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../../assets/buttonPress3.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else if (soundNum == 4) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../../assets/buttonPress4.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else if (soundNum == 5) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../../assets/buttonPress5.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    else if (soundNum == 6) {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../../assets/buttonPress6.wav')
+      );
+      setSound(sound);
+      await sound.playAsync();
+    }
+    //setSound(sound);
+
+
+
+    console.log('Playing Sound');
+    //await sound.playAsync();
   }
-  else if (soundNum == 3) {
-    const { sound } = await Audio.Sound.createAsync(
-      require('../../assets/buttonPress4.wav')
-    );
-    setSound(sound);
-    await sound.playAsync();
-  }
-  else if (soundNum == 4){
-    const { sound } = await Audio.Sound.createAsync(
-      require('../../assets/buttonPress5.wav')
-    );
-    setSound(sound);
-    await sound.playAsync();
-  }
-  else if (soundNum == 5){
-    const { sound } = await Audio.Sound.createAsync(
-      require('../../assets/buttonPress6.wav')
-    );
-    setSound(sound);
-    await sound.playAsync();
-  }
-  //setSound(sound);
 
 
 
-console.log('Playing Sound');
-  //await sound.playAsync();
-}
+  useEffect(() => {
 
+    if (props.pageTitle == "Test Configuraton") {
+      setIsOnTestConfig(true);
+    }
+    else {
+      setIsOnTestConfig(false);
+    }
 
+    setToInitalSavedValues();
 
-useEffect(() => {
-
-  if (props.pageTitle == "Test Configuraton"){
-    setIsOnTestConfig(true);
-  }
-  else {
-    setIsOnTestConfig(false);
-  }
-
-  setToInitalSavedValues();
-
-  return sound
-    ? () => {
+    return sound
+      ? () => {
         console.log('Unloading Sound');
-        sound.unloadAsync(); }
-    : undefined;
-}, [sound]);
+        sound.unloadAsync();
+      }
+      : undefined;
+  }, [sound]);
 
   return (
-    <PaperProvider theme = {theme}>
-        <View style={styles.container}>
-          
-          <Text style={styles.paragraph}>
-            {pageTitle}
-          </Text>
+    <PaperProvider theme={theme}>
+      <View style={styles.container}>
+
+        <Text style={styles.paragraph}>
+          {pageTitle}
+        </Text>
 
         {/* Creates student name input field */}
         <View style={{ marginBottom: 20 }}>
@@ -219,7 +233,7 @@ useEffect(() => {
             mode="outlined"
             returnKeyType="done"
             value={studentNameText}
-            onChangeText={(text) => {setStudentNameText(text); saveStudentName(text);}}
+            onChangeText={(text) => { setStudentNameText(text); saveStudentName(text); }}
           />
         </View>
 
@@ -230,7 +244,7 @@ useEffect(() => {
             mode="outlined"
             returnKeyType="done"
             value={studentPermitNumberText}
-            onChangeText={(text) => {setStudentPermitNumberText(text); saveStudentPermitNumber(text);}}
+            onChangeText={(text) => { setStudentPermitNumberText(text); saveStudentPermitNumber(text); }}
           />
         </View>
 
@@ -252,64 +266,64 @@ useEffect(() => {
 
 
         <Text style={styles.title}>
-            Sounds
+          Sounds
         </Text>
 
-          {/* Creates searchable sound dropdown */}
-          <View style={{zIndex: 2}}>
-            <DropDownPicker 
-                allowFontScaling={false}
-                showArrowIcon={true}
-                open={soundOpen}
-                value={soundValue}
-                items={soundItems}
-                setOpen={setSoundOpen}
-                setValue={setSoundValue}
-                setItems={setSoundItems}
-                placeholder='Select a sound'
-                defaultIndex={0}
-                containerStyle={{height: 70, marginBottom: 0}}
-                searchable={false}
-                onSelectItem={item => {console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value)}}
-            />
-          </View>
-          
-          <Text style={styles.title}>
-            Current Route
-          </Text>
-
-          {/* Creates searchable route dropdown */}
-          <View style={{zIndex: 1}}>
-            <DropDownPicker
-                allowFontScaling={false}
-                showArrowIcon={true}
-                open={routeOpen}
-                value={routeValue}
-                items={routeItems}
-                setOpen={setRouteOpen}
-                setValue={setRouteValue}
-                setItems={setRouteItems}
-                placeholder='Select a route'
-                defaultIndex={0}
-                containerStyle={{height: 70}}
-                searchable={false}
-                onSelectItem={item => {console.log(item.label, item.value), saveSelectedRoute(item.value)}}
-            />
-          </View>
-
-
-          
-          <Pressable
-          onPress={() => startTest() }
-          style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
-          display = {isOnTestConfig ? "flex" : "none"}
-          >
-            <Text style={styles.ButtonText}>Start Test</Text>
-
-          </Pressable>
-          
-
+        {/* Creates searchable sound dropdown */}
+        <View style={{ zIndex: 2 }}>
+          <DropDownPicker
+            allowFontScaling={false}
+            showArrowIcon={true}
+            open={soundOpen}
+            value={soundValue}
+            items={soundItems}
+            setOpen={setSoundOpen}
+            setValue={setSoundValue}
+            setItems={setSoundItems}
+            placeholder='Select a sound'
+            defaultIndex={0}
+            containerStyle={{ height: 70, marginBottom: 0 }}
+            searchable={false}
+            onSelectItem={item => { console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value) }}
+          />
         </View>
+
+        <Text style={styles.title}>
+          Current Route
+        </Text>
+
+        {/* Creates searchable route dropdown */}
+        <View style={{ zIndex: 1 }}>
+          <DropDownPicker
+            allowFontScaling={false}
+            showArrowIcon={true}
+            open={routeOpen}
+            value={routeValue}
+            items={routeItems}
+            setOpen={setRouteOpen}
+            setValue={setRouteValue}
+            setItems={setRouteItems}
+            placeholder='Select a route'
+            defaultIndex={0}
+            containerStyle={{ height: 70 }}
+            searchable={false}
+            onSelectItem={item => { console.log(item.label, item.value), saveSelectedRoute(item.value) }}
+          />
+        </View>
+
+
+
+        <Pressable
+          onPress={() => startTest()}
+          style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' }, styles.Button]}
+          display={isOnTestConfig ? "flex" : "none"}
+        >
+          <Text style={styles.ButtonText}>Start Test</Text>
+
+        </Pressable>
+
+
+      </View>
     </PaperProvider>
   );
 }
@@ -374,10 +388,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
-},
+  },
 
 
 
 
 });
-
