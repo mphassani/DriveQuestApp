@@ -21,10 +21,6 @@ export default function SettingsPage(props) {
 
   const [isOnTestConfig, setIsOnTestConfig] = useState(false);
 
-
-
-
-
   async function setToInitalSavedValues() {
 
     const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
@@ -91,15 +87,16 @@ export default function SettingsPage(props) {
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
-  var [soundValue, setSoundValue] = useState('0');
+  const [soundValue, setSoundValue] = useState('0');
+  window.soundValue = soundValue;
   const [soundItems, setSoundItems] = useState([
     { label: 'No Sound', value: '0', sound: null },
     { label: 'Liquid Lava', value: '1', sound: '../../assets/buttonPress.mp3' },
     { label: 'Catchoupa Wind', value: '2', sound: '../../assets/buttonPress1.wav' },
     { label: 'Liquid Volcano', value: '3', sound: '../../assets/buttonPress3.wav' },
     { label: 'Bell', value: '4', sound: '../../assets/buttonPress4.wav' },
-    { label: 'Video Game', value: '5', sound: '../../assets/buttonPress5.wav' },
-    { label: 'Police siren', value: '6', sound: '../../assets/buttonPress6.wav' },
+    { label: 'Blink', value: '5', sound: '../../assets/buttonPress5.wav' },
+    { label: 'Police Siren', value: '6', sound: '../../assets/buttonPress6.wav' },
   ]);
 
   //used to create route dropdown 
@@ -267,11 +264,11 @@ export default function SettingsPage(props) {
 
 
         <Text style={styles.title}>
-          Sounds
+          Sounds 
         </Text>
 
         {/* Creates searchable sound dropdown */}
-        <View style={{ zIndex: 2 }}>
+        <View style={{ zIndex: 2 }}> 
           <DropDownPicker
             allowFontScaling={false}
             showArrowIcon={true}
@@ -327,6 +324,12 @@ export default function SettingsPage(props) {
       </View>
     </PaperProvider>
   );
+}
+
+export function getSoundVal() {
+  <SettingsPage soundValue = {soundValue}>
+  </SettingsPage>
+  return soundValue;
 }
 
 const styles = StyleSheet.create({
