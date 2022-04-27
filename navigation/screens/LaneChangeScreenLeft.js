@@ -40,14 +40,14 @@ export default function LaneChangeScreenLeft() {
                         <Button mode="contained" color = "#12414F" disabled="true" >Lane Change</Button>
                     </View>
                 </View>
-                <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+                {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
                         <Button mode="contained" color = "#12414F" disabled="true" >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
                         <Button mode="contained" color = "#12414F" onPress={() => navigation.navigate("lanechangeright")}>Right</Button>
                     </View>
-                </View>
+                </View> */}
              <ScrollView>
                 <List.Section>
                 <List.Item 
