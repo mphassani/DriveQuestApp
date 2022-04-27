@@ -32,10 +32,10 @@ export default function IntersectionScreen({ navigation }) {
                 <List.Section>
 
                 <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storageKey="INTERSECTION_THROUGH_TRAFFIC_CHECK"/>}
+                    right={(props) =><Counter storageKey="INTERSECTION_THROUGH_VISUAL_SEARCH"/>}
                     />
 
                 <List.Item 
@@ -79,10 +79,10 @@ export default function IntersectionScreen({ navigation }) {
                     right={(props) =><Counter storageKey="INTERSECTION_STOP_BRAKING"/>}
                     />
                 <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storageKey="INTERSECTION_STOP_TRAFFIC_CHECK"/>}
+                    right={(props) =><Counter storageKey="INTERSECTION_STOP_VISUAL_SEARCH"/>}
                     />
                 <List.Item 
                     title="Full Stop" 
@@ -100,10 +100,10 @@ export default function IntersectionScreen({ navigation }) {
                 </View>
                 <List.Section>
                 <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storageKey="INTERSECTION_START_TRAFFIC_CHECK"/>}
+                    right={(props) =><Counter storageKey="INTERSECTION_START_VISUAL_SEARCH"/>}
                     />
                 <List.Item 
                     title="Speed" 

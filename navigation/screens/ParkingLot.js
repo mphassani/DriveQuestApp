@@ -42,9 +42,9 @@ export default function ParkingLot({ navigation }) {
                         maxValue={8}
                     />
                     <CounterRow
-                        title="Traffic Check"
+                        title="Visual Search"
                         icon={require("../../assets/rearViewMirror.png")}
-                        storageKey="PARKINGLOT_TRAFFIC_CHECK"
+                        storageKey="PARKINGLOT_VISUAL_SEARCH"
                     />
                     <CounterRow
                         title="Positioning"

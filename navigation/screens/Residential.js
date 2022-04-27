@@ -32,11 +32,6 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Section>
 
                     <CounterRow
-                        title="Observation"
-                        icon={require("../../assets/observation.png")}
-                        storageKey="RESIDENTIAL_BUSINESS_OBSERVATION"
-                    />
-                    <CounterRow
                         title="Positioning"
                         icon={require("../../assets/positioning.png")}
                         storageKey="RESIDENTIAL_BUSINESS_POSITIONING"
@@ -57,9 +52,9 @@ export default function ResidentialScreen({ navigation }) {
                         storageKey="RESIDENTIAL_BUSINESS_SPEED"
                     />
                     <CounterRow
-                        title="Traffic Check"
+                        title="Visual Search"
                         icon={require("../../assets/rearViewMirror.png")}
-                        storageKey="RESIDENTIAL_BUSINESS_TRAFFIC_CHECK"
+                        storageKey="RESIDENTIAL_BUSINESS_VISUAL_SEARCH"
                     />
                     
                 </List.Section>
@@ -85,7 +80,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/VisualSearch.png")}
+                        icon={require("../../assets/TrafficCheck.png")}
                         storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH"
                     />
                     
@@ -111,7 +106,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/VisualSearch.png")}
+                        icon={require("../../assets/TrafficCheck.png")}
                         storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY"
                     />
                     
@@ -137,9 +132,9 @@ export default function ResidentialScreen({ navigation }) {
                         storageKey="RESIDENTIAL_REVERSING_STEERING_CONTROL"
                     />
                     <CounterRow
-                        title="Traffic Check"
+                        title="Visual Search"
                         icon={require("../../assets/rearViewMirror.png")}
-                        storageKey="RESIDENTIAL_REVERSING_TRAFFIC_CHECK"
+                        storageKey="RESIDENTIAL_REVERSING_VISUAL_SEARCH"
                     />
                         
                 </List.Section>

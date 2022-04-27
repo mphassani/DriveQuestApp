@@ -46,37 +46,37 @@ export default function TurnScreenRight() {
                     title="Braking"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/Breaking.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_BRAKING"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_BRAKING"/>}
                     />
                 <List.Item
                     title="Lane Use"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_LANE_USE"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_LANE_USE"/>}
                     />
                     <List.Item
                     title="Signal"
                     left={(props) => 
                         <Avatar.Image {...props} source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_SIGNAL"r/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_SIGNAL"r/>}
                     /> 
                     <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_TRAFFIC_CHECK"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_VISUAL_SEARCH"/>}
                     />
                 <List.Item
                     title="Unnecessary Stop"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/UnnecessaryStop.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_APPROACH_UNNECCESSARY_STOP"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_APPROACH_UNNECCESSARY_STOP"/>}
                     />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_YIELD"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_YIELD"/>}
 
                     />
             
@@ -86,28 +86,28 @@ export default function TurnScreenRight() {
                     title="Gap/Limit Line"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_GAP_LIMIT_LINE"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_GAP_LIMIT_LINE"/>}
 
                     />
                 <List.Item 
                     title="Full Stop" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/FullStop.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_FULL_STOP"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_FULL_STOP"/>}
 
                     />
                 <List.Item
-                    title="Traffic Check"
+                    title="Visual Search"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_TRAFFIC_CHECK"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_VISUAL_SEARCH"/>}
 
                     />
                 <List.Item
                     title="Wheels Straight"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/WheelsStraight.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_WHEELS_STRAIGHT"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_WHEELS_STRAIGHT"/>}
 
                     />
 
@@ -116,55 +116,55 @@ export default function TurnScreenRight() {
                     title="Correct Lane" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/correctlane.png')}/>}
-                    right={(props) =><Counter  storageKey="TURNS_LEFT_DURING_CORRECT_LANE"/>}
+                    right={(props) =><Counter  storageKey="TURNS_RIGHT_DURING_CORRECT_LANE"/>}
 
                     />
                 <List.Item 
                     title="Signal" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/Signal.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_DURING_SIGNAL"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_DURING_SIGNAL"/>}
                     />
                 <List.Item 
                     title="Speed" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/speed.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_DURING_SPEED"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_DURING_SPEED"/>}
 
                     />
                 <List.Item 
                     title="Steering Control" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/SteeringControl.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_DURING_STEERING_CONTROL"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_DURING_STEERING_CONTROL"/>}
 
                     />
                 
                 <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_DURING_TRAFFIC_CHECK"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_DURING_VISUAL_SEARCH"/>}
                 />
                 <List.Item 
                     title="Too Short" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/too_short.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_DURING_TOO_SHORT"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_DURING_TOO_SHORT"/>}
 
                 />
                 <List.Item 
                     title="Too Wide" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/too_wide.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_DURING_TOO_WIDE"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_DURING_TOO_WIDE"/>}
 
                 />
                 <List.Item 
                     title="Yield" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/Yield.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_DURIN_YIELD"/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_DURIN_YIELD"/>}
 
                 />
                 <List.Item 

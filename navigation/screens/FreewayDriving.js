@@ -46,9 +46,9 @@ export default function FreewayDriving() {
                       />
                                       
                   <List.Item
-                      title="Traffic Check"
+                      title="Visual Search"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_TRAFFIC_CHECK"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_VISUAL_SEARCH"/>}
                       />
                   <List.Item
                       title="Enter Speed"
@@ -68,9 +68,9 @@ export default function FreewayDriving() {
   
                   <SectionTitle name="Freeway Driving" />
                   <List.Item
-                      title="Traffic Check"
+                      title="Visual Search"
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_TRAFFIC_CHECK"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_VISUAL_SEARCH"/>}
                       />
                   <List.Item
                       title="Speed"
@@ -90,9 +90,9 @@ export default function FreewayDriving() {
   
                   <SectionTitle name="Freeway Exiting" />
                   <List.Item 
-                      title="Traffic Check" 
+                      title="Visual Search" 
                       left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_TRAFFIC_CHECK"/>}
+                      right={(props) =><Counter storageKey="FREEWAY_EXITING_VISUAL_SEARCH"/>}
                       />
                   <List.Item 
                       title="Exit Speed" 

@@ -62,10 +62,10 @@ export default function TurnScreenLeft() {
                     right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_SIGNAL"r/>}
                     /> 
                     <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_TRAFFIC_CHECK"/>}
+                    right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_VISUAL_SEARCH"/>}
                     />
                 <List.Item
                     title="Unnecessary Stop"
@@ -97,10 +97,10 @@ export default function TurnScreenLeft() {
 
                     />
                 <List.Item
-                    title="Traffic Check"
+                    title="Visual Search"
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_TRAFFIC_CHECK"/>}
+                    right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_VISUAL_SEARCH"/>}
 
                     />
                 <List.Item
@@ -143,10 +143,10 @@ export default function TurnScreenLeft() {
                     />
                 
                 <List.Item 
-                    title="Traffic Check" 
+                    title="Visual Search" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_LEFT_DURING_TRAFFIC_CHECK"/>}
+                    right={(props)  =><Counter storageKey="TURNS_LEFT_DURING_VISUAL_SEARCH"/>}
                 />
                 <List.Item 
                     title="Too Short" 
