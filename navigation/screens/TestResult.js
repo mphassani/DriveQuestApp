@@ -394,13 +394,16 @@ export default function TestResults() {
 
     var resultsText = "";
 
-    resultsText += "------------------------------"
+    resultsText += "------------------------------";
+    resultsText += "\nDRIVE QUEST\n";
+
+    resultsText += "------------------------------";
     resultsText += "\nDate: " + (new Date().toDateString()) + "";
     resultsText += "\nRoute: " + selectedRoute;
     resultsText += "\nInstructor: " + instructorName;
     resultsText += "\nStudent: " + studentName;
     resultsText += "\Permit Number: " + studentPermitNumber;
-    resultsText += "\n------------------------------"
+    resultsText += "\n------------------------------";
 
 
     resultsText += "\n\n◈ " + "Pre-Drive" + " [" + predriveErrors + " Errors]";
