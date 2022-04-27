@@ -167,6 +167,13 @@ export default function TurnScreenRight() {
                     right={(props) =><Counter storageKey="TURNS_LEFT_DURIN_YIELD"/>}
 
                 />
+                <List.Item 
+                    title="Smoothness" 
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require('../../assets/smoothness.png')}/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_SMOOTHNESS"/>}
+
+                />
             </List.Section>
             <View style={{marginBottom: 25}}></View>
         </ScrollView>

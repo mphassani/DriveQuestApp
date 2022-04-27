@@ -87,7 +87,7 @@ export default function TestResults() {
   const freewayNamesArray = ["Entering Scanning", "Entering Traffic Check", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Traffic Check", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Traffic Check", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const intersectionNamesArray = ["Through Traffic Check", "Through Speed", "Through Unnecessary Stop", "Yield", "Stop Gap Limit Line", "Stop Braking", "Stop Traffic Check", "Stop Full Stop", "Start Traffic Check", "Start Speed", "Start Yield"];
   const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirror", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Right Smoothness", "Left Driver Side Mirror", "Left Rear View Mirror", "Left Passenger Side Mirror", "Left Left Shoulder", "Left Right Shoulder", "Left Signal", "Left Speed", "Left Spacing", "Left Steering Control","Left Smoothness"];
-  const turningNamesArray = ["Left Accelerate/Decelerate Traffic Check", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Traffic Check", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Traffic Check", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Right Accelerate/Decelerate Traffic Check", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Traffic Check", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Traffic Check", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal"];
+  const turningNamesArray = ["Left Accelerate/Decelerate Traffic Check", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Traffic Check", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Traffic Check", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Accelerate/Decelerate Traffic Check", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Traffic Check", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Traffic Check", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
 
 
@@ -771,7 +771,7 @@ export default function TestResults() {
   }
 
   // --------------------------------------
-  // Turning (36 items)
+  // Turning (38 items)
   // --------------------------------------
   async function getTurningValues() {
 
@@ -793,27 +793,29 @@ export default function TestResults() {
     const value16 = await StorageHandler.getData("TURNS_LEFT_DURING_CORRECT_LANE");
     const value17 = await StorageHandler.getData("TURNS_LEFT_DURING_SPEED");
     const value18 = await StorageHandler.getData("TURNS_LEFT_DURING_SIGNAL");
+    const value19 = await StorageHandler.getData("TURNS_LEFT_SMOOTHNESS");
 
-    const value19 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_TRAFFIC_CHECK");
-    const value20 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_SIGNAL");
-    const value21 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_BRAKING");
-    const value22 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_YIELD");
-    const value23 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_LANE_USE");
-    const value24 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_UNNECESSARY_STOP");
-    const value25 = await StorageHandler.getData("TURNS_RIGHT_STOP_GAP_LIMIT_LINE");
-    const value26 = await StorageHandler.getData("TURNS_RIGHT_STOP_TRAFFIC_CHECK");
-    const value27 = await StorageHandler.getData("TURNS_RIGHT_STOP_WHEELS_STRAIGHT");
-    const value28 = await StorageHandler.getData("TURNS_RIGHT_STOP_FULL_STOP");
-    const value29 = await StorageHandler.getData("TURNS_RIGHT_DURING_TRAFFIC_CHECK");
-    const value30 = await StorageHandler.getData("TURNS_RIGHT_DURING_STEERING_CONTROL");
-    const value31 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_WIDE");
-    const value32 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_SHORT");
-    const value33 = await StorageHandler.getData("TURNS_RIGHT_DURING_YIELD");
-    const value34 = await StorageHandler.getData("TURNS_RIGHT_DURING_CORRECT_LANE");
-    const value35 = await StorageHandler.getData("TURNS_RIGHT_DURING_SPEED");
-    const value36 = await StorageHandler.getData("TURNS_RIGHT_DURING_SIGNAL");
+    const value20 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_TRAFFIC_CHECK");
+    const value21 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_SIGNAL");
+    const value22 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_BRAKING");
+    const value23 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_YIELD");
+    const value24 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_LANE_USE");
+    const value25 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_UNNECESSARY_STOP");
+    const value26 = await StorageHandler.getData("TURNS_RIGHT_STOP_GAP_LIMIT_LINE");
+    const value27 = await StorageHandler.getData("TURNS_RIGHT_STOP_TRAFFIC_CHECK");
+    const value28 = await StorageHandler.getData("TURNS_RIGHT_STOP_WHEELS_STRAIGHT");
+    const value29 = await StorageHandler.getData("TURNS_RIGHT_STOP_FULL_STOP");
+    const value30 = await StorageHandler.getData("TURNS_RIGHT_DURING_TRAFFIC_CHECK");
+    const value31 = await StorageHandler.getData("TURNS_RIGHT_DURING_STEERING_CONTROL");
+    const value32 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_WIDE");
+    const value33 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_SHORT");
+    const value34 = await StorageHandler.getData("TURNS_RIGHT_DURING_YIELD");
+    const value35 = await StorageHandler.getData("TURNS_RIGHT_DURING_CORRECT_LANE");
+    const value36 = await StorageHandler.getData("TURNS_RIGHT_DURING_SPEED");
+    const value37 = await StorageHandler.getData("TURNS_RIGHT_DURING_SIGNAL");
+    const value38 = await StorageHandler.getData("TURNS_RIGHT_SMOOTHNESS");
     
-    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36,value37,value38];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
