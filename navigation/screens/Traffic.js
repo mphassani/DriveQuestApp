@@ -83,6 +83,12 @@ export default function Traffic({ navigation }) {
                         right={(props) => <Counter storageKey="INTERSECTION_STOP_BRAKING" />}
                     />
                     <List.Item
+                    title="Speed"
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require("../../assets/speed.png")}/>}
+                    right={(props) =><Counter storageKey="INTERSECTION_STOP_SPEED"/>}
+                    />
+                    <List.Item
                         title="Visual Search"
                         left={(props) =>
                             <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}

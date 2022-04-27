@@ -54,6 +54,12 @@ export default function TurnScreenRight() {
                         <Avatar.Image {...props}  source={require('../../assets/positioning.png')}/>}
                     right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_LANE_USE"/>}
                     />
+                <List.Item
+                    title="Speed"
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require("../../assets/speed.png")}/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_SPEED"/>}
+                    />
                     <List.Item
                     title="Signal"
                     left={(props) => 
@@ -95,6 +101,12 @@ export default function TurnScreenRight() {
                         <Avatar.Image {...props}  source={require('../../assets/FullStop.png')}/>}
                     right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_FULL_STOP"/>}
 
+                    />
+                <List.Item
+                    title="Speed"
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require("../../assets/speed.png")}/>}
+                    right={(props) =><Counter storageKey="TURNS_RIGHT_STOP_SPEED"/>}
                     />
                 <List.Item
                     title="Visual Search"
