@@ -86,7 +86,7 @@ export default function ResidentialScreen({ navigation }) {
                     <CounterRow
                         title="Parallel to Curb"
                         icon={require("../../assets/paralleltoCurb.png")}
-                        storageKey="RESIDENTIAL_PARALLEL_TO_CURB"
+                        storageKey="RESIDENTIAL_CURB_PARALLEL_TO_CURB"
                     />
                     
                 </List.Section>

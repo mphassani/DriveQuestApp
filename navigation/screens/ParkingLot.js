@@ -62,7 +62,7 @@ export default function ParkingLot({ navigation }) {
                     <CounterRow
                         title="Parking"
                         icon={require("../../assets/Parking.png")}
-                        storageKey="PARKINGLOT_POSITIONING"
+                        storageKey="PARKINGLOT_PARKING"
                     />
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>
