@@ -72,7 +72,7 @@ export default function TurnScreenLeft() {
                     <List.Item 
                     title="Visual Search" 
                     left={(props) => 
-                        <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')}/>}
+                        <Avatar.Image {...props} source={require('../../assets/visualSearch.png')}/>}
                     right={(props) =><Counter storageKey="TURNS_LEFT_APPROACH_VISUAL_SEARCH"/>}
                     />
                 <List.Item
@@ -114,7 +114,7 @@ export default function TurnScreenLeft() {
                 <List.Item
                     title="Visual Search"
                     left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/visualSearch.png')}/>}
                     right={(props)  =><Counter storageKey="TURNS_LEFT_STOP_VISUAL_SEARCH"/>}
 
                     />
@@ -160,7 +160,7 @@ export default function TurnScreenLeft() {
                 <List.Item 
                     title="Visual Search" 
                     left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/visualSearch.png')}/>}
                     right={(props)  =><Counter storageKey="TURNS_LEFT_DURING_VISUAL_SEARCH"/>}
                 />
                 <List.Item 

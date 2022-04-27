@@ -53,7 +53,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/rearViewMirror.png")}
+                        icon={require("../../assets/visualSearch.png")}
                         storageKey="RESIDENTIAL_BUSINESS_VISUAL_SEARCH"
                     />
                     
@@ -80,8 +80,13 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/TrafficCheck.png")}
+                        icon={require("../../assets/visualSearch.png")}
                         storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH"
+                    />
+                    <CounterRow
+                        title="Parallel to Curb"
+                        icon={require("../../assets/paralleltoCurb.png")}
+                        storageKey="RESIDENTIAL_CURB_PARALLEL_TO_CURB"
                     />
                     
                 </List.Section>
@@ -106,7 +111,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/TrafficCheck.png")}
+                        icon={require("../../assets/visualSearch.png")}
                         storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY"
                     />
                     
@@ -133,7 +138,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/rearViewMirror.png")}
+                        icon={require("../../assets/visualSearch.png")}
                         storageKey="RESIDENTIAL_REVERSING_VISUAL_SEARCH"
                     />
                         
