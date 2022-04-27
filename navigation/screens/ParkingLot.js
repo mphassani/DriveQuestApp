@@ -28,7 +28,6 @@ export default function ParkingLot({ navigation }) {
             <ScrollView>
                 <SectionTitle name="Parking Lot" />
 
-                <List.Section>
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
@@ -56,7 +55,6 @@ export default function ParkingLot({ navigation }) {
                         icon={require("../../assets/smoothness.png")}
                         storageKey="PARKINGLOT_SMOOTHNESS"
                     />
-                </List.Section>
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>
         </PaperProvider>

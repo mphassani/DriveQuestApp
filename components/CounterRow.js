@@ -52,28 +52,15 @@ const CounterRow = (props) => {
 
 
 const styles = StyleSheet.create({
-
-
-    // titleText: {
-    //     fontSize: 18,
-    //     fontWeight: "500",
-    // }
     
-    divider: {
-        borderBottomColor: "#d9d9d9",
-        borderBottomWidth: 1,
-    },
-
     container: {
-        // backgroundColor: "white",
         flexDirection: "row",
-        // alignItems: "flex-end",
         paddingHorizontal: 10,
         paddingVertical: 15,
-        // marginBottom: 5,
         alignItems: 'center',
         justifyContent: 'center',
       },
+
     left: {
         flexDirection: "row",
         flex: 1,
@@ -81,9 +68,8 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         alignItems: 'center', //Centered vertically
       },
-      
+
     iconBackground: {
-        
         height: 50,
         width: 50, 
         borderRadius: 10, 
@@ -92,12 +78,17 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        marginHorizontal: 10,
+        marginHorizontal: 8,
         alignItems: 'center',
         flex: 1,
         fontSize: 18,
         fontWeight: "500",
-    }
+    },
+
+    divider: {
+        borderBottomColor: "#d9d9d9",
+        borderBottomWidth: 1,
+    },
 });
 
 export default CounterRow;

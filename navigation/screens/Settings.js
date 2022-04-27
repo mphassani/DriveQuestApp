@@ -28,7 +28,7 @@ export default function SettingsPage(props) {
   async function setToInitalSavedValues() {
 
     const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
-    const studentPermitNumber = await StorageHandler.getData("STUDENT_PERMIT");
+    const studentPermitNumber = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
     const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
     const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
     const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
@@ -75,7 +75,7 @@ export default function SettingsPage(props) {
   //Student Permit Number
   const [studentPermitNumberText, setStudentPermitNumberText] = React.useState("");
   function saveStudentPermitNumber(text) {
-    StorageHandler.storeStringData("STUDENT_PERMIT", text);
+    StorageHandler.storeStringData("STUDENT_PERMIT_NUMBER", text);
   }
 
   // Error Sound
@@ -244,6 +244,7 @@ export default function SettingsPage(props) {
             mode="outlined"
             returnKeyType="done"
             value={studentPermitNumberText}
+            maxLength={8}
             onChangeText={(text) => { setStudentPermitNumberText(text); saveStudentPermitNumber(text); }}
           />
         </View>

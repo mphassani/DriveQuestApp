@@ -37,6 +37,7 @@ var selectedRoute = "selected_route";
 var instructorName = "instructor_name";
 var instructorEmail = ""
 var studentName = "student_name";
+var studentPermitNumber = "A0000000"
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -83,7 +84,7 @@ export default function TestResults() {
   const mechanicalNamesArray = ["Driver Window", "Windshield", "Rearview Mirrors", "Right Turn Signal", "Left Turn Signal", "Brake Lights", "Tires", "Foot Brake", "Headlights", "Passenger Door", "Glove Box", "Seatbelts"];
   const operationalNamesArray = ["Horn", "Emergency/Parking Prake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield Wipers", "Defroster", "Emergency Flasher"];
   const parkinglotNamesArray = ["Signal", "Speed", "Visual Search", "Positioning", "Smoothness"];
-  const residentialNamesArray = ["Residential Positioning", "Residential Safe Distance" ,"Residential Speed", "Business Observation", "Business Positioning", "Business Safe Distance", "Business Signal", "Business Speed", "Business Visual Search", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search","Reversing Right Shoulder", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
+  const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Visual Search", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search","Reversing Right Shoulder", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
   const freewayNamesArray = ["Entering Scanning", "Entering Visual Search", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Visual Search", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Visual Search", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const intersectionNamesArray = ["Through Visual Search", "Through Speed", "Through Unnecessary Stop", "Yield", "Stop Gap Limit Line", "Stop Braking", "Stop Visual Search", "Stop Full Stop", "Start Visual Search", "Start Speed", "Start Yield"];
   const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirror", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Right Smoothness", "Left Driver Side Mirror", "Left Rear View Mirror", "Left Passenger Side Mirror", "Left Left Shoulder", "Left Right Shoulder", "Left Signal", "Left Speed", "Left Spacing", "Left Steering Control","Left Smoothness"];
@@ -116,7 +117,7 @@ export default function TestResults() {
       namesArray.map( (name, index) => 
         { return parseInt(valuesArray[index]) > 0 ?
         <View style={styles.detailedResultsRow} key={name}>
-          <Text style={styles.sectionName}>{name}</Text>
+          <Text style={styles.detailedResultsName}>{name}</Text>
           <Text style={styles.sectionResult}>{valuesArray[index]}</Text>
         </View> : null})
 
@@ -132,7 +133,7 @@ export default function TestResults() {
       namesArray.map( (name, index) => 
         { return valuesArray[index] == "false" ?
         <View style={styles.detailedResultsRow} key={name}>
-          <Text style={styles.sectionName}>{name}</Text>
+          <Text style={styles.detailedResultsName}>{name}</Text>
           <Text style={[styles.sectionResult, {marginTop:-11, marginRight:-11}]}><Ionicons name="close" size={35} color="black" /></Text>
         </View> : null})
 
@@ -148,7 +149,7 @@ export default function TestResults() {
       namesArray.map( (name, index) => 
         { return valuesArray[index] == "true" ?
         <View style={styles.detailedResultsRow} key={name}>
-          <Text style={styles.sectionName}>{name}</Text>
+          <Text style={styles.detailedResultsName}>{name}</Text>
           <Text style={[styles.sectionResult, {marginTop:-11, marginRight:-11}]}><Ionicons name="close" size={35} color="black" /></Text>
         </View> : null})
 
@@ -327,6 +328,11 @@ export default function TestResults() {
       studentName = studentNameFromStorage;
     }
 
+    studentPermitNumberFromStorage = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
+    if (studentPermitNumberFromStorage != null) {
+      studentPermitNumber = studentPermitNumberFromStorage;
+    }
+
     // console.log("comments for student: ", commentsForStudent);
     // console.log("comments for instructor: ", commentsForInstructor);
 
@@ -393,6 +399,7 @@ export default function TestResults() {
     resultsText += "\nRoute: " + selectedRoute;
     resultsText += "\nInstructor: " + instructorName;
     resultsText += "\nStudent: " + studentName;
+    resultsText += "\Permit Number: " + studentPermitNumber;
     resultsText += "\n------------------------------"
 
 
@@ -651,33 +658,28 @@ export default function TestResults() {
   // --------------------------------------
   async function getResidentialValues() {
 
-    const value1 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_OBSERVATION");
-    const value2 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_POSITIONING");
-    const value3 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SAFE_DISTANCE");
-    const value4 = await StorageHandler.getData("RESIDENTIAL_RESIDENTIAL_SPEED");
+    const value1 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_POSITIONING");
+    const value2 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SAFE_DISTANCE");
+    const value3 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SIGNAL");
+    const value4 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SPEED");
+    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_VISUAL_SEARCH");
 
-    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_POSITIONING");
-    const value6 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SAFE_DISTANCE");
-    const value7 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SIGNAL");
-    const value8 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SPEED");
-    const value9 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_VISUAL_SEARCH");
+    const value6 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
+    const value7 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
+    const value8 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL");
+    const value9 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH");
 
-    const value10 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
-    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
-    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL");
-    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH");
-
-    const value10b = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL_AWAY");
-    const value11b = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED_AWAY");
-    const value12b = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
-    const value13b = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
+    const value10 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL_AWAY");
+    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED_AWAY");
+    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
+    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
 
     const value14 = await StorageHandler.getData("RESIDENTIAL_REVERSING_RIGHT_SHOULDER");
     const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
     const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
     const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_VISUAL_SEARCH");
 
-    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value10b, value11b, value12b, value13b, value14, value15, value16, value17];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value10, value11, value12, value13, value14, value15, value16, value17];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
@@ -1055,7 +1057,7 @@ const styles = StyleSheet.create({
   titleRow: {
     marginLeft: 15,
     marginRight: 15,
-    marginBottom: 10,
+    // marginBottom: 10,
     alignItems: 'baseline',
     flexDirection:'row', 
     flexWrap:'wrap'
@@ -1066,7 +1068,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
       marginLeft: 15,
       marginRight: 15,
-      marginBottom: 10,
+      marginTop: 10,
       
       paddingLeft: 15,
       paddingRight: 15,
@@ -1085,7 +1087,8 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "left",
     fontSize: 22,
-    marginTop: -6
+    marginTop: -6,
+    fontWeight: '600',
   },
   sectionResult: {
     textAlign: "right",
@@ -1122,6 +1125,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'green',
     marginLeft: 15,
     marginRight: 15,
+    marginTop: 15,
     marginBottom: 15,
     justifyContent: 'center',
     paddingLeft: 15,
@@ -1143,20 +1147,34 @@ const styles = StyleSheet.create({
   },
   detailedResultsRow: {
     borderRadius: 10,
-    height: 35,
-    backgroundColor: '#e0e0e0',
+    height: 40,
+    // backgroundColor: '#e0e0e0',
+    backgroundColor: 'white',
     paddingLeft: 15,
     paddingRight: 15,
-    paddingTop: 10,
-    paddingBottom: 5,
+    paddingTop: 13,
+    // paddingBottom: 5,
 
     marginLeft: 45,
     marginRight: 15,
-    marginBottom: 10,
+    marginTop: 5,
 
-    alignItems: 'baseline',
+    // alignItems: 'baseline',
+    // alignItems: 'center',
     flexDirection:'row', 
-    flexWrap:'wrap'
+    flexWrap:'wrap',
+
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 5},
+    shadowOpacity: 0.05,
+    shadowRadius: 25,
+  },
+  detailedResultsName: {
+    flex: 1,
+    textAlign: "left",
+    fontSize: 22,
+    marginTop: -6,
+    fontWeight: '300'
   },
   detailedResultsContainer: {
 

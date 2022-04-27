@@ -49,25 +49,53 @@ const CheckboxRow = (props) => {
 
     return (
 
+        // <View>
+        //     <List.Item 
+        //         title={<Text style={styles.titleText}>{" " + props.title}</Text>}
+
+        //         left={() => <Image style={styles.iconBackground} source={props.icon} />}
+
+        //         right={() => 
+                    // <View style={[checkboxBaseStyle, isChecked && checkboxCheckedStyle]}>
+                    //     <Ionicons name={checkboxIcon} size={45} color={isChecked ? "#FFFFFF" : "transparent"} />
+                    // </View>
+        //         }
+
+                // onPress={() => {
+                //     setIsChecked(!isChecked);
+                //     StorageHandler.storeStringData(props.storageKey, (!isChecked).toString());
+                // }}
+        //     />
+
+        //     <Divider />
+        // </View>
+
+
         <View>
-            <List.Item 
-                title={<Text style={styles.titleText}>{" " + props.title}</Text>}
+            <Pressable 
+            style={styles.container}
+            onPress={() => {
+                setIsChecked(!isChecked);
+                StorageHandler.storeStringData(props.storageKey, (!isChecked).toString());
+            }}
+            >
 
-                left={() => <Image style={styles.iconBackground} source={props.icon} />}
+                
+                <View style={styles.left}>
+                    <Image style={styles.iconBackground} source={props.icon} />
+                    <Text style={styles.title} adjustsFontSizeToFit >{props.title}</Text>
+                </View>
 
-                right={() => 
+            
+                <View style={styles.right}>
                     <View style={[checkboxBaseStyle, isChecked && checkboxCheckedStyle]}>
-                        <Ionicons name={checkboxIcon} size={45} color={isChecked ? "#FFFFFF" : "transparent"} />
+                        <Ionicons name={checkboxIcon} size={40} color={isChecked ? "#FFFFFF" : "transparent"} style={{marginTop: -1}} />
                     </View>
-                }
+                </View>
 
-                onPress={() => {
-                    setIsChecked(!isChecked);
-                    StorageHandler.storeStringData(props.storageKey, (!isChecked).toString());
-                }}
-            />
-
-            <Divider />
+            </Pressable>
+            
+            <View style={styles.divider}></View>
         </View>
 
     )
@@ -75,11 +103,49 @@ const CheckboxRow = (props) => {
 
 
 const styles = StyleSheet.create({
+    container: {
+        flexDirection: "row",
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+    left: {
+        flexDirection: "row",
+        flex: 1,
+        fontSize: 18,
+        fontWeight: "500",
+        alignItems: 'center', //Centered vertically
+      },
+
+    iconBackground: {
+        height: 50,
+        width: 50, 
+        borderRadius: 10, 
+        // backgroundColor: '#12414F',
+        backgroundColor: '#4DB6AC',
+    },
+
+    title: {
+        marginHorizontal: 8,
+        alignItems: 'center',
+        flex: 1,
+        fontSize: 18,
+        fontWeight: "500",
+    },
+
+    divider: {
+        borderBottomColor: "#d9d9d9",
+        borderBottomWidth: 1,
+    },
+
+
     // Good (GREEN)
     /* Creates outline for the checkbox with no fill; used when item is incorrect */
     checkboxBaseGood: {
-        width: 64,
-        height: 64,
+        width: 50,
+        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 5,
@@ -97,8 +163,8 @@ const styles = StyleSheet.create({
     // Bad (RED)
     /* Creates outline for the checkbox with no fill; used when item is incorrect */
     checkboxBaseBad: {
-        width: 64,
-        height: 64,
+        width: 50,
+        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 5,
@@ -111,21 +177,7 @@ const styles = StyleSheet.create({
     checkboxCheckedBad: { //checkbox color 
         backgroundColor: '#00677F',
     },
-    
 
-    
-    iconBackground: {
-        height: 64,
-        width: 64, 
-        borderRadius: 10, 
-        // backgroundColor: '#12414F',
-        backgroundColor: '#4DB6AC',
-    },
-
-    titleText: {
-        fontSize: 18,
-        fontWeight: "500"
-    }
 });
 
 export default CheckboxRow;
