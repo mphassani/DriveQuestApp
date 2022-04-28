@@ -35,96 +35,93 @@ export default function FreewayDriving() {
             <ScrollView>
                 <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
                 <Button mode='contained' color = "#12414F" onPress={() => navigation.navigate("freelanechange")}>Freeway Lane Change</Button>
-            
                 </View>
+
                 <SectionTitle name="Freeway Entering" />
-                <List.Section>
-                  <List.Item 
-                      title="Scanning" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/scanning.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_SCANNING"/>}
-                      />
-                                      
-                  <List.Item
-                      title="Visual Search"
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_VISUAL_SEARCH"/>}
-                      />
-                  <List.Item
-                      title="Enter Speed"
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_ENTER_SPEED"/>}
-                      />
-                  <List.Item 
-                      title="Positioning" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/positioning.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_POSITIONING"/>}
-                      />
-                  <List.Item
-                      title="Signal"
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/Signal.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_ENTERING_SIGNAL"/>}
-                      />
+                    <CounterRow
+                        title="Scanning"
+                        icon={require("../../assets/scanning.png")}
+                        storageKey="FREEWAY_ENTERING_SCANNING"
+                    />
+                    <CounterRow
+                        title="Visual Search"
+                        icon={require("../../assets/TrafficCheck.png")}
+                        storageKey="FREEWAY_ENTERING_VISUAL_SEARCH"
+                    />
+                    <CounterRow
+                        title="Enter Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="FREEWAY_ENTERING_ENTER_SPEED"
+                    />
+                    <CounterRow
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="FREEWAY_ENTERING_POSITIONING"
+                    />
+                    <CounterRow
+                        title="Signal"
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="FREEWAY_ENTERING_SIGNAL"
+                    />
   
                   <SectionTitle name="Freeway Driving" />
-                  <List.Item
-                      title="Visual Search"
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_VISUAL_SEARCH"/>}
-                      />
-                  <List.Item
-                      title="Speed"
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_SPEED"/>}
-                      />
-                  <List.Item
-                      title="Positioning"
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/positioning.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_POSITIONING"/>}
-                      />
-                  <List.Item 
-                      title="Signal" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/Signal.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_DRIVING_SIGNAL"/>}
-                      />
+                    <CounterRow
+                        title="Visual Search"
+                        icon={require("../../assets/TrafficCheck.png")}
+                        storageKey="FREEWAY_DRIVING_VISUAL_SEARCH"
+                    />
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="FREEWAY_DRIVING_SPEED"
+                    />
+                    <CounterRow
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="FREEWAY_DRIVING_POSITIONING"
+                    />
+                    <CounterRow
+                        title="Signal"
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="FREEWAY_DRIVING_SIGNAL"
+                    />
   
                   <SectionTitle name="Freeway Exiting" />
-                  <List.Item 
-                      title="Visual Search" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/TrafficCheck.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_VISUAL_SEARCH"/>}
-                      />
-                  <List.Item 
-                      title="Exit Speed" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_EXIT_SPEED"/>}
-                      />
-                  <List.Item 
-                      title="Positioning" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/positioning.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_POSITIONING"/>}
-                      />
-                  <List.Item 
-                      title="Signal" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/Signal.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_SIGNAL"/>}
-                      />
-                  <List.Item 
-                      title="Yield" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/Yield.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_YIELD"/>}
-                      />
-                  <List.Item 
-                      title="Correct Lane" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/spacing.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_CORRECT_LANE"/>}
-                      />
-                  <List.Item 
-                      title="Speed" 
-                      left={(props) =><Avatar.Image {...props}  source={require('../../assets/speed.png')} />}
-                      right={(props) =><Counter storageKey="FREEWAY_EXITING_SPEED"/>}
-                      />
-                  </List.Section>
+                    <CounterRow
+                        title="Visual Search"
+                        icon={require("../../assets/TrafficCheck.png")}
+                        storageKey="FREEWAY_EXITING_VISUAL_SEARCH"
+                    />
+                    <CounterRow
+                        title="Exit Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="FREEWAY_EXITING_EXIT_SPEED"
+                    />
+                    <CounterRow
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="FREEWAY_EXITING_POSITIONING"
+                    />
+                    <CounterRow
+                        title="Signal"
+                        icon={require("../../assets/Signal.png")}
+                        storageKey="FREEWAY_EXITING_SIGNAL"
+                    />
+                    <CounterRow
+                        title="Yield"
+                        icon={require("../../assets/Yield.png")}
+                        storageKey="FREEWAY_EXITING_YIELD"
+                    />
+                    <CounterRow
+                        title="Correct Lane"
+                        icon={require("../../assets/spacing.png")}
+                        storageKey="FREEWAY_EXITING_CORRECT_LANE"
+                    />
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="FREEWAY_EXITING_SPEED"
+                    />
                   <View style={{marginBottom: 25}}></View>
             </ScrollView>
 
