@@ -42,7 +42,7 @@ export default function Traffic({ navigation }) {
                     <List.Item
                         title="Visual Search"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}
+                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                         right={(props) => <Counter storageKey="INTERSECTION_THROUGH_VISUAL_SEARCH" />}
                     />
 
@@ -70,6 +70,12 @@ export default function Traffic({ navigation }) {
 
                 <SectionTitle name="Stop" />
                 <List.Section>
+                    <List.Item 
+                        title="Approach" 
+                        left={(props) => 
+                            <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
+                        right={(props)  =><Counter storageKey="INTERSECTION_STOP_APPROACH"/>}
+                            />
                     <List.Item
                         title="Gap/Limit Line"
                         left={(props) =>
@@ -91,7 +97,7 @@ export default function Traffic({ navigation }) {
                     <List.Item
                         title="Visual Search"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}
+                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                         right={(props) => <Counter storageKey="INTERSECTION_STOP_VISUAL_SEARCH" />}
                     />
                     <List.Item
@@ -108,7 +114,7 @@ export default function Traffic({ navigation }) {
                     <List.Item
                         title="Visual Search"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}
+                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                         right={(props) => <Counter storageKey="INTERSECTION_START_VISUAL_SEARCH" />}
                     />
                     <List.Item
