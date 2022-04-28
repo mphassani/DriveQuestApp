@@ -29,7 +29,6 @@ export default function ResidentialScreen({ navigation }) {
 
             <ScrollView>
                 <SectionTitle name="Residential/Business" />
-                <List.Section>
 
                     <CounterRow
                         title="Positioning"
@@ -56,8 +55,6 @@ export default function ResidentialScreen({ navigation }) {
                         icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_BUSINESS_VISUAL_SEARCH"
                     />
-                    
-                </List.Section>
 
 
                 <SectionTitle name="Pulling Up To The Curb" />
