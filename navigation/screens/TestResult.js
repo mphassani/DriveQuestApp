@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Linking, ScrollView, TextInput, Pressable, KeyboardAvoidingView, RefreshControl, Share, Alert, Image} from 'react-native';
+import { StyleSheet, View, Text, Linking, ScrollView, TextInput, Pressable, KeyboardAvoidingView, RefreshControl, Share, Alert, Image } from 'react-native';
 import { List, Provider as PaperProvider, Appbar, DefaultTheme} from 'react-native-paper';
 import * as StorageHandler from "../../StorageHandler";
 import { useEffect, useState } from "react";
@@ -25,11 +25,18 @@ var preDriveMechanicalErrors = 0;
 var preDriveOperationalErrors = 0;
 var parkinglotErrors = 0;
 var residentialErrors = 0;
-var freewayErrors = 9999;
+var freewayErrors = 0;
 var intersectionErrors = 0;
 var turningErrors = 0;
 var lanechangeErrors = 0;
 var autoDQErrors = 0;
+var totalDrivingErrors = 0;
+
+var passedPredriveMechanical = true;
+var passedPredriveOperational = true;
+var passedDriving = true;
+var passedAutoDQ = true;
+
 
 var usingFreeway = true;
 
@@ -87,7 +94,7 @@ export default function TestResults() {
   const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Visual Search", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search","Reversing Right Shoulder", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
   const freewayNamesArray = ["Entering Scanning", "Entering Visual Search", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Visual Search", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Visual Search", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const intersectionNamesArray = ["Through Visual Search", "Through Speed", "Through Unnecessary Stop", "Yield", "Stop Gap Limit Line", "Stop Braking", "Stop Visual Search", "Stop Full Stop", "Start Visual Search", "Start Speed", "Start Yield"];
-  const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirror", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Right Smoothness", "Driver Side Mirror", "Rear View Mirror", "Passenger Side Mirror", "Left Shoulder", "Right Shoulder", "Signal", "Speed", "Spacing", "Steering Control","Smoothness"];
+  const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirror", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Right Smoothness", "Left Driver Side Mirror", "Left Rear View Mirror", "Left Passenger Side Mirror", "Left Left Shoulder", "Left Right Shoulder", "Left Signal", "Left Speed", "Left Spacing", "Left Steering Control","Left Smoothness"];
   const turningNamesArray = ["Left Accelerate/Decelerate Visual Search", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Visual Search", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Accelerate/Decelerate Visual Search", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Visual Search", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
 
@@ -114,19 +121,15 @@ export default function TestResults() {
 
     return (
 
-      namesArray.map( (name, index) => { 
-        return parseInt(valuesArray[index]) > 0 ?
+      namesArray.map( (name, index) => 
+        { return parseInt(valuesArray[index]) > 0 ?
         <View style={styles.detailedResultsRow} key={name}>
           <Text style={styles.detailedResultsName}>{name}</Text>
           <Text style={styles.sectionResult}>{valuesArray[index]}</Text>
         </View> : null})
-        
-        
 
     )
   };
-
-
 
   const DetailedPreDriveResultsDisplay = (props) => {
     var namesArray = props.names;
@@ -183,6 +186,10 @@ export default function TestResults() {
   async function calculateTestResults() {
 
     passedTest = true; // Sets passedTest to true everytime the results are calculated
+    passedPredriveMechanical = true;
+    passedPredriveOperational = true;
+    passedDriving = true;
+    passedAutoDQ = true;
 
     var freewayFromStorage = await StorageHandler.getData("USING_FREEWAY");
 
@@ -259,15 +266,17 @@ export default function TestResults() {
     // Mechanical Section Check
     if (preDriveMechanicalErrors > 0) {
       passedTest = false;
+      passedPredriveMechanical = false;
     }
 
     // Operational Section Check
     if (preDriveOperationalErrors >= 4) {
       passedTest = false;
+      passedPredriveOperational = false;
     }
 
     // Driving Section Check
-    var totalDrivingErrors = parkinglotErrors + residentialErrors + intersectionErrors + turningErrors + lanechangeErrors;
+    totalDrivingErrors = parkinglotErrors + residentialErrors + intersectionErrors + turningErrors + lanechangeErrors;
 
     if (usingFreeway == true) {
       totalDrivingErrors += freewayErrors;
@@ -275,16 +284,20 @@ export default function TestResults() {
 
     if (totalDrivingErrors > 15) {
       passedTest = false;
+      passedDriving = false;
     }
 
     // Auto DQ Check
     if (autoDQErrors > 0) {
       passedTest = false;
+      passedAutoDQ = false;
     }
     
     totalNumberOfErrors = preDriveMechanicalErrors + preDriveOperationalErrors + totalDrivingErrors + autoDQErrors;
 
 
+    console.log("reason for failure: ", passedPredriveMechanical, passedPredriveOperational, passedDriving, passedAutoDQ);
+    console.log("\n\n\n\n\n")
 
     if (passedTest) {
       setFinalResultDisplay("Test Passed!");
@@ -400,13 +413,12 @@ export default function TestResults() {
 
     resultsText += "------------------------------";
     resultsText += "\nDRIVE QUEST\n";
-
     resultsText += "------------------------------";
     resultsText += "\nDate: " + (new Date().toDateString()) + "";
     resultsText += "\nRoute: " + selectedRoute;
     resultsText += "\nInstructor: " + instructorName;
     resultsText += "\nStudent: " + studentName;
-    resultsText += "\nPermit Number: " + studentPermitNumber;
+    resultsText += "\Permit Number: " + studentPermitNumber;
     resultsText += "\n------------------------------";
 
 
@@ -911,16 +923,16 @@ export default function TestResults() {
     }>
     <View>
 
-          <View
-    style={{
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-      paddingTop: "10%",
-    }}
-  >
-    <Image source={require("../../assets/logo.png")} />
-  </View>
+        <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingTop: "10%",
+        }}
+        >
+        <Image source={require("../../assets/logo.png")} />
+      </View>
       
 
       <View style={{alignItems: 'center', justifyContent: 'center', padding: 20}}>
@@ -993,6 +1005,26 @@ export default function TestResults() {
         <Text style={[styles.finalResultsText, {marginTop:0}]}>{finalResultDisplay}</Text>
       </View>
 
+      <View style={styles.reasonsForFailure} display={passedTest ? "none" : "flex"}>
+        
+        <Text style={styles.reasonsForFailureTitle}>Reasons for Not Passing</Text>
+        
+        <View display={passedPredriveMechanical ? "none" : "flex"}>
+          <Text style={styles.reasonsForFailureItems}>{preDriveMechanicalErrors} Pre-Drive Mechanical Errors</Text>
+        </View>
+
+        <View display={passedPredriveOperational ? "none" : "flex"}>
+          <Text style={styles.reasonsForFailureItems}>{preDriveOperationalErrors} Pre-Drive Operational Errors</Text>
+        </View>
+
+        <View display={passedDriving ? "none" : "flex"}>
+          <Text style={styles.reasonsForFailureItems}>{totalDrivingErrors} Driving Errors</Text>
+        </View>
+
+        <View display={passedAutoDQ ? "none" : "flex"}>
+          <Text style={styles.reasonsForFailureItems} display={passedAutoDQ ? "flex" : "none"}>{autoDQErrors} Automatic Disqualification Errors</Text>
+        </View>
+      </View>
 
       <View style={{margin: 15, marginBottom:15}}>
         <Text style={{fontSize:18, fontWeight:"500", marginBottom:5}}>Comments for Student:</Text>
@@ -1106,7 +1138,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontSize: 22,
     marginTop: -6,
-    fontWeight: '600',
+    fontWeight: '500',
   },
   sectionResult: {
     textAlign: "right",
@@ -1144,7 +1176,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 15,
-    marginBottom: 15,
     justifyContent: 'center',
     paddingLeft: 15,
     paddingRight: 15,
@@ -1210,6 +1241,37 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.05,
     shadowRadius: 25,
+  },
+
+  reasonsForFailure: {
+    minHeight: 67.5,
+    borderRadius: 10,
+    backgroundColor: 'white',
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 15,
+    marginBottom: 15,
+    justifyContent: 'center',
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    paddingBottom: 5,
+    alignItems: 'center',
+
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 5},
+    shadowOpacity: 0.05,
+    shadowRadius: 25,
+  },
+
+  reasonsForFailureTitle: {
+    fontSize: 22,
+    fontWeight: 'bold'
+  },
+
+  reasonsForFailureItems: {
+    lineHeight: 30,
+    fontSize: 20,
+    fontWeight: '400'
   },
 });
 
