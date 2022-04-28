@@ -71,7 +71,7 @@ const MyComponent = () => {
     });
 
     return (
-        <BottomNavigation
+        <BottomNavigation barStyle = {{marginBottom: 20}}
             navigationState={{ index, routes }}
             onIndexChange={setIndex}
             renderScene={renderScene}

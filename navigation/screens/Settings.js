@@ -88,7 +88,6 @@ export default function SettingsPage(props) {
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
   const [soundValue, setSoundValue] = useState('0');
-  window.soundValue = soundValue;
   const [soundItems, setSoundItems] = useState([
     { label: 'No Sound', value: '0', sound: null },
     { label: 'Liquid Lava', value: '1', sound: '../../assets/buttonPress.mp3' },
