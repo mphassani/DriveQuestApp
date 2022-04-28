@@ -30,6 +30,11 @@ export default function ResidentialScreen({ navigation }) {
             <ScrollView>
                 <SectionTitle name="Residential/Business" />
 
+                    <CounterRow 
+                        title="Gap/Limit Line"
+                        icon={require("../../assets/GapLimitLine.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_GAP_LIMIT_LINE"
+                    />
                     <CounterRow
                         title="Positioning"
                         icon={require("../../assets/positioning.png")}
@@ -60,6 +65,11 @@ export default function ResidentialScreen({ navigation }) {
                 <SectionTitle name="Pulling Up To The Curb" />
                 <List.Section>
 
+                    <CounterRow 
+                        title="Gap/Limit Line"
+                        icon={require("../../assets/GapLimitLine.png")}
+                        storageKey="RESIDENTIAL_CURB_PULLING_GAP_LIMIT_LINE"
+                    />
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
@@ -91,6 +101,11 @@ export default function ResidentialScreen({ navigation }) {
                 <SectionTitle name="Pulling Away From The Curb" />
                 <List.Section>
 
+                    <CounterRow 
+                        title="Gap/Limit Line"
+                        icon={require("../../assets/GapLimitLine.png")}
+                        storageKey="RESIDENTIAL_CURB_AWAY_GAP_LIMIT_LINE"
+                    />
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}

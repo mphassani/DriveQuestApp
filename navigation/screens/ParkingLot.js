@@ -27,7 +27,11 @@ export default function ParkingLot({ navigation }) {
 
             <ScrollView>
                 <SectionTitle name="Parking Lot" />
-
+                    <CounterRow 
+                        title="Gap/Limit Line"
+                        icon={require("../../assets/GapLimitLine.png")}
+                        storageKey="PARKINGLOT_GAP_LIMIT_LINE"
+                    />
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
