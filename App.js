@@ -25,6 +25,7 @@ import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
 import { clearAllStoredData } from './StorageHandler';
 import Settings from './navigation/screens/Settings';
+import InstructorInfo from './navigation/screens/InstructorInfo';
 
 import Traffic from './navigation/screens/Traffic';
 
@@ -92,6 +93,7 @@ function App() {
               })}
           >
             <Stack.Screen name="LogIn" options={{ title: 'Login' }} component={LogIn} />
+            <Stack.Screen name="InstructorInfo" options={{ title: 'Instructor Info' }} component={InstructorInfo} />
             <Stack.Screen name="StartTest" options={{ title: 'Start/Resume Test' }} component={StartTest} />
           </Stack.Group>
 

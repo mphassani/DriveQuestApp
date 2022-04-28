@@ -63,7 +63,7 @@ export default function StartTest({ navigation }) {
 
         <View style={styles.ButtonContainer}>
             <Pressable
-            // onPress={() => navigation.navigate("Home") }
+            onPress={() => navigation.navigate("InstructorInfo") }
             style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
             >
             <Text style={styles.ButtonText}>Edit Instructor Info</Text>
