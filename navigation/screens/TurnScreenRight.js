@@ -69,7 +69,7 @@ export default function TurnScreenRight() {
                     <List.Item 
                     title="Visual Search" 
                     left={(props) => 
-                        <Avatar.Image {...props} source={require('../../assets/visualSearch.png')}/>}
+                        <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')}/>}
                     right={(props) =><Counter storageKey="TURNS_RIGHT_APPROACH_VISUAL_SEARCH"/>}
                     />
                 <List.Item
@@ -88,6 +88,12 @@ export default function TurnScreenRight() {
             
 
             <SectionTitle name="Stop" />
+            <List.Item 
+                    title="Approach" 
+                    left={(props) => 
+                        <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_APPROACH"/>}
+                        />
             <List.Item
                     title="Gap/Limit Line"
                     left={(props) => 
@@ -111,7 +117,7 @@ export default function TurnScreenRight() {
                 <List.Item
                     title="Visual Search"
                     left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/visualSearch.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/VisualSearch.png')}/>}
                     right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_VISUAL_SEARCH"/>}
 
                     />
@@ -155,7 +161,7 @@ export default function TurnScreenRight() {
                 <List.Item 
                     title="Visual Search" 
                     left={(props) => 
-                        <Avatar.Image {...props}  source={require('../../assets/visualSearch.png')}/>}
+                        <Avatar.Image {...props}  source={require('../../assets/VisualSearch.png')}/>}
                     right={(props)  =><Counter storageKey="TURNS_RIGHT_DURING_VISUAL_SEARCH"/>}
                 />
                 <List.Item 

@@ -40,7 +40,7 @@ const MyComponent = () => {
   });
 
   return (
-      <BottomNavigation
+      <BottomNavigation barStyle = {{backgroundColor: 'ffffff', margin: 20}}
           navigationState={{ index, routes }}
           onIndexChange={setIndex}
           renderScene={renderScene}
@@ -119,7 +119,7 @@ export default function HomeScreen() {
         
         {/* This is my proposed solution for improved test navigation, if it doesn't work, the old buttons are still up above */}
         <View style={{marginTop: 30}}/>
-        <HomeSectionButton
+        <HomeSectionButton 
           title="Pre-Drive"
           destination = "PreDrive"
           storageKey="TEST_PROGRESS_1"

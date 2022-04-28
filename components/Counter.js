@@ -5,7 +5,7 @@ import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from 
 import * as StorageHandler from '../StorageHandler';
 import { Audio } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
-import { SettingsPage, getSoundVal } from '../navigation/screens/Settings';
+import { getSoundVal } from '../navigation/screens/Settings';
 
 const Counter = (props) => {
 

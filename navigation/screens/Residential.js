@@ -52,7 +52,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/visualSearch.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_BUSINESS_VISUAL_SEARCH"
                     />
 
@@ -77,7 +77,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/visualSearch.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH"
                     />
                     <CounterRow
@@ -108,7 +108,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/visualSearch.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY"
                     />
                     
@@ -135,7 +135,7 @@ export default function ResidentialScreen({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/visualSearch.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_REVERSING_VISUAL_SEARCH"
                     />
                         
