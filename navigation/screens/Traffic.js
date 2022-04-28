@@ -28,10 +28,10 @@ export default function Traffic({ navigation }) {
         <PaperProvider theme={theme}>
             <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
                 <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
-                    <Button mode="contained" color="#12414F" disabled="true">Intersection</Button>
+                    <Button mode="contained" color="#12414F">Intersection</Button>
                 </View>
                 <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
-                    <Button mode="contained" color="#12414F" onPress={() => navigation.navigate("lanechangeleft")} >Lane Change</Button>
+                    <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("lanechangeleft")} >Lane Change</Button>
                 </View>
 
             </View>
