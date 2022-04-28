@@ -74,7 +74,7 @@ export default function Traffic({ navigation }) {
                         title="Approach" 
                         left={(props) => 
                             <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
-                        right={(props)  =><Counter storageKey="INTERSECTION_APPROACH"/>}
+                        right={(props)  =><Counter storageKey="INTERSECTION_STOP_APPROACH"/>}
                             />
                     <List.Item
                         title="Gap/Limit Line"

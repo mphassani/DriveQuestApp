@@ -92,7 +92,7 @@ export default function TurnScreenRight() {
                     title="Approach" 
                     left={(props) => 
                         <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
-                    right={(props)  =><Counter storageKey="TURNS_RIGHT_APPROACH"/>}
+                    right={(props)  =><Counter storageKey="TURNS_RIGHT_STOP_APPROACH"/>}
                         />
             <List.Item
                     title="Gap/Limit Line"
