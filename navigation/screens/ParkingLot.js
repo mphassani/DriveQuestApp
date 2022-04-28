@@ -58,10 +58,6 @@ export default function ParkingLot({ navigation }) {
                         title="Smoothness"
                         icon={require("../../assets/smoothness.png")}
                         storageKey="PARKINGLOT_SMOOTHNESS"
-                    /><CounterRow
-                        title="Positioning"
-                        icon={require("../../assets/positioning.png")}
-                        storageKey="PARKINGLOT_POSITIONING"
                     />
                     <CounterRow
                         title="Parking"

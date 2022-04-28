@@ -90,7 +90,7 @@ export default function TestResults() {
   const predriveNamesArray = ["Brake Lights", "Defroster","Driver Window", "Emergency/Parking Brake", "Emergency Flasher", "Foot Brake", "Glove Box", "Headlights", "Horn", "Left Arm Signal", "Right Arm Signal", "Stop Arm Signal", "Passenger Door", "Rearview Mirrors", "Left Turn Signal", "Right Turn Signal", "Seatbelts", "Tires", "Windshield", "Windshield Wipers"];
   const mechanicalNamesArray = ["Driver Window", "Windshield", "Rearview Mirrors", "Right Turn Signal", "Left Turn Signal", "Brake Lights", "Tires", "Foot Brake", "Headlights", "Passenger Door", "Glove Box", "Seatbelts"];
   const operationalNamesArray = ["Horn", "Emergency/Parking Prake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield Wipers", "Defroster", "Emergency Flasher"];
-  const parkinglotNamesArray = ["Signal", "Speed", "Visual Search", "Positioning", "Smoothness"];
+  const parkinglotNamesArray = ["Gap/Limit Line", "Signal", "Speed", "Visual Search", "Positioning", "Smoothness", "Parking"];
   const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Visual Search", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search","Reversing Right Shoulder", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
   const freewayNamesArray = ["Entering Scanning", "Entering Visual Search", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Visual Search", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Visual Search", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const intersectionNamesArray = ["Through Visual Search", "Through Speed", "Through Unnecessary Stop", "Yield", "Stop Gap Limit Line", "Stop Braking", "Stop Visual Search", "Stop Full Stop", "Start Visual Search", "Start Speed", "Start Yield"];
@@ -418,7 +418,7 @@ export default function TestResults() {
     resultsText += "\nRoute: " + selectedRoute;
     resultsText += "\nInstructor: " + instructorName;
     resultsText += "\nStudent: " + studentName;
-    resultsText += "\Permit Number: " + studentPermitNumber;
+    resultsText += "\nPermit Number: " + studentPermitNumber;
     resultsText += "\n------------------------------";
 
 
@@ -655,13 +655,16 @@ export default function TestResults() {
   // --------------------------------------
   async function getParkinglotValues() {
     
-    const value1 = await StorageHandler.getData("PARKINGLOT_SIGNAL");
-    const value2 = await StorageHandler.getData("PARKINGLOT_SPEED");
-    const value3 = await StorageHandler.getData("PARKINGLOT_VISUAL_SEARCH");
-    const value4 = await StorageHandler.getData("PARKINGLOT_POSITIONING");
-    const value5 = await StorageHandler.getData("PARKINGLOT_SMOOTHNESS");
+    const value1 = await StorageHandler.getData("PARKINGLOT_GAP_LIMIT_LINE");
+    const value2 = await StorageHandler.getData("PARKINGLOT_SIGNAL");
+    const value3 = await StorageHandler.getData("PARKINGLOT_SPEED");
+    const value4 = await StorageHandler.getData("PARKINGLOT_VISUAL_SEARCH");
+    const value5 = await StorageHandler.getData("PARKINGLOT_POSITIONING");
+    const value6 = await StorageHandler.getData("PARKINGLOT_SMOOTHNESS");
+    const value7 = await StorageHandler.getData("PARKINGLOT_PARKING");
+    
 
-    const valuesArray = await [value1, value2, value3, value4, value5];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
