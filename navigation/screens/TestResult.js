@@ -296,9 +296,6 @@ export default function TestResults() {
     totalNumberOfErrors = preDriveMechanicalErrors + preDriveOperationalErrors + totalDrivingErrors + autoDQErrors;
 
 
-    console.log("reason for failure: ", passedPredriveMechanical, passedPredriveOperational, passedDriving, passedAutoDQ);
-    console.log("\n\n\n\n\n")
-
     if (passedTest) {
       setFinalResultDisplay("Test Passed!");
       setResultBackgroundColor("#90C96A");
@@ -451,12 +448,34 @@ export default function TestResults() {
     resultsText += "\n------------------------------\n"
 
     if (passedTest) {
-      resultsText += "You have passed the test! 🎉\n\n";
+      resultsText += "You have passed the test! 🎉";
     }
     else {
-      resultsText += "You did not pass the test, yet...\n\n";
+      resultsText += "You did not pass the test, yet...";
     }
-    
+
+    // Reasons for not passing
+    if (!passedTest) {
+      resultsText += "\n\nReason(s) for Not Passing:";
+
+      if (passedPredriveMechanical == false) {
+        resultsText += "\n" + preDriveMechanicalErrors + " Pre-Drive Mechanical Errors";
+      }
+
+      if (passedPredriveOperational == false) {
+        resultsText += "\n" + preDriveOperationalErrors + " Pre-Drive Operational Errors";
+      }
+
+      if (passedDriving == false) {
+        resultsText += "\n" + totalDrivingErrors + " Driving Errors";
+      }
+
+      if (passedAutoDQ == false) {
+        resultsText += "\n" + autoDQErrors + " Automatic Disqualification Errors";
+      }
+    }
+
+    resultsText += '\n\n';
 
     if (commentsForStudentText != null && commentsForStudentText != "") {
       resultsText += "[Comments from your instructor]\n" + commentsForStudentText + "\n";
@@ -1010,7 +1029,7 @@ export default function TestResults() {
 
       <View style={styles.reasonsForFailure} display={passedTest ? "none" : "flex"}>
         
-        <Text style={styles.reasonsForFailureTitle}>Reasons for Not Passing</Text>
+        <Text style={styles.reasonsForFailureTitle}>Reason(s) for Not Passing</Text>
         
         <View display={passedPredriveMechanical ? "none" : "flex"}>
           <Text style={styles.reasonsForFailureItems}>{preDriveMechanicalErrors} Pre-Drive Mechanical Errors</Text>

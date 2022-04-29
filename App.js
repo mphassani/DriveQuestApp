@@ -36,13 +36,10 @@ import HomeScreen from './navigation/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
-const _goBack = () => console.log('Went back');
-
-let isLoggedIn = false;
-
-let chosenScreen = <LogIn />
-
 global.test = true;
+
+global.selectedSound = 0;
+global.currentErrorCount = 0;
 
 // function TestSectionNavigationBar({ navigation, back }) {
 //   return (

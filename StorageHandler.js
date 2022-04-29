@@ -105,6 +105,9 @@ export async function clearAllTestData() {
   var InstructorEmailFromStorage = await getData("INSTRUCTOR_EMAIL");
 
   try {
+    global.selectedSound = 0;
+    global.currentErrorCount = 0;
+
     await AsyncStorage.clear()
 
     storeStringData("IS_LOGGED_IN", "true");

@@ -5,14 +5,15 @@ import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB } from 
 import * as StorageHandler from '../StorageHandler';
 import { Audio } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
-import { getSoundVal } from '../navigation/screens/Settings';
+// import { getSoundVal } from '../navigation/screens/Settings';
 
 const Counter = (props) => {
 
   const [counterValue, setCounterValue] = useState(0);
   const [showIncrementButton, setShowIncrementButton] = useState(true);
   const [showDecrementButton, setShowDecrementButton] = useState(false);
-  const [maxCount, setMaxCount] = useState(4)
+  const [maxCount, setMaxCount] = useState(4);
+
 
   useEffect(() =>
   {
@@ -36,6 +37,13 @@ const Counter = (props) => {
       setCounterValue(0);
       checkHideButtons(0);
     }
+
+    // const errorSoundFromStorage = await StorageHandler.getData("ERROR_SOUND");
+
+    // if (errorSoundFromStorage != null) {
+    //   selected_sound = parseInt(errorSoundFromStorage);
+    //   console.log("Counter Selected Sound: " + global.test);
+    // }
   }
 
 
@@ -60,6 +68,7 @@ const Counter = (props) => {
     if (counterValue < maxCount) {
       setCounterValue(counterValue + 1);
       StorageHandler.storeStringData(props.storageKey, (counterValue + 1).toString());
+      global.currentErrorCount += 1;
     }
 
     checkHideButtons(counterValue + 1);
@@ -69,6 +78,7 @@ const Counter = (props) => {
     if (counterValue > 0) {
       setCounterValue(counterValue - 1);
       StorageHandler.storeStringData(props.storageKey, (counterValue - 1).toString());
+      global.currentErrorCount -= 1;
     }
 
     checkHideButtons(counterValue - 1);
@@ -84,42 +94,42 @@ const Counter = (props) => {
 
   async function playSound() {
     console.log('Loading Sound');
-    if (getSoundVal() == 1) {
+    if (global.selectedSound == 1) {
         const { sound } = await Audio.Sound.createAsync(
           require('../assets/buttonPress.mp3')
         );
         setSound(sound);
         await sound.playAsync();
     }
-    else if (getSoundVal() == 2) {
+    else if (global.selectedSound == 2) {
       const { sound } = await Audio.Sound.createAsync(
         require('../assets/buttonPress2.wav')
       );
       setSound(sound);
       await sound.playAsync();
     }
-    else if (getSoundVal() == 3) {
+    else if (global.selectedSound == 3) {
       const { sound } = await Audio.Sound.createAsync(
         require('../assets/buttonPress3.wav')
       );
       setSound(sound);
       await sound.playAsync();
     }
-    else if (getSoundVal() == 4) {
+    else if (global.selectedSound == 4) {
       const { sound } = await Audio.Sound.createAsync(
         require('../assets/buttonPress4.wav')
       );
       setSound(sound);
       await sound.playAsync();
     }
-    else if (getSoundVal() == 5) {
+    else if (global.selectedSound == 5) {
       const { sound } = await Audio.Sound.createAsync(
         require('../assets/buttonPress5.wav')
       );
       setSound(sound);
       await sound.playAsync();
     }
-    else if (getSoundVal() == 6) {
+    else if (global.selectedSound == 6) {
       const { sound } = await Audio.Sound.createAsync(
         require('../assets/buttonPress6.wav')
       );
@@ -129,7 +139,7 @@ const Counter = (props) => {
     //setSound(sound);
   
   
-  console.log('Playing Sound');
+    console.log('Playing Sound');
     //await sound.playAsync();
   }
   

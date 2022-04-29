@@ -34,7 +34,7 @@ export default function SettingsPage(props) {
     }
 
     if (studentPermitNumber != null) {
-      setStudentPermitNumber(studentPermitNumber);
+      setStudentPermitNumberText(studentPermitNumber);
     }
 
     if (usingFreewayValue != null && usingFreewayValue == "true") {
@@ -87,7 +87,7 @@ export default function SettingsPage(props) {
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
-  const [soundValue, setSoundValue] = useState('0');
+  const [soundValue, setSoundValue] = useState(global.selectedSound);
   const [soundItems, setSoundItems] = useState([
     { label: 'No Sound', value: '0', sound: null },
     { label: 'Liquid Lava', value: '1', sound: '../../assets/buttonPress.mp3' },
@@ -199,6 +199,7 @@ export default function SettingsPage(props) {
 
     if (props.pageTitle == "Test Configuraton") {
       setIsOnTestConfig(true);
+      global.selectedSound = 0;
     }
     else {
       setIsOnTestConfig(false);
@@ -281,7 +282,7 @@ export default function SettingsPage(props) {
             defaultIndex={0}
             containerStyle={{ height: 70, marginBottom: 0 }}
             searchable={false}
-            onSelectItem={item => { console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value) }}
+            onSelectItem={item => { console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value), global.selectedSound = item.value }}
           />
         </View>
 
@@ -325,11 +326,11 @@ export default function SettingsPage(props) {
   );
 }
 
-export function getSoundVal() {
-  <SettingsPage soundValue = {soundValue}>
-  </SettingsPage>
-  return soundValue;
-}
+// export function getSoundVal() {
+//   <SettingsPage soundValue = {soundValue}>
+//   </SettingsPage>
+//   return soundValue;
+// }
 
 const styles = StyleSheet.create({
   container: {
