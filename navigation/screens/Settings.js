@@ -25,7 +25,7 @@ export default function SettingsPage(props) {
 
     const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
     const studentPermitNumber = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
-    const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
+    // const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
     const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
     const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
 
@@ -37,9 +37,9 @@ export default function SettingsPage(props) {
       setStudentPermitNumberText(studentPermitNumber);
     }
 
-    if (usingFreewayValue != null && usingFreewayValue == "true") {
-      setIsFreewayEnabled(true);
-    }
+    // if (usingFreewayValue != null && usingFreewayValue == "true") {
+    //   setIsFreewayEnabled(true);
+    // }
 
     if (errorSoundValue != null) {
       setSoundValue(errorSoundValue);
