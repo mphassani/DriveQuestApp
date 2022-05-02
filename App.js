@@ -90,7 +90,6 @@ function App() {
               })}
           >
             <Stack.Screen name="LogIn" options={{ title: 'Login' }} component={LogIn} />
-            <Stack.Screen name="InstructorInfo" options={{ title: 'Instructor Info' }} component={InstructorInfo} />
             <Stack.Screen name="StartTest" options={{ title: 'Start/Resume Test' }} component={StartTest} />
           </Stack.Group>
 
@@ -162,6 +161,7 @@ function App() {
           >
           <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
           <Stack.Screen name="TestConfig" options={{ title: 'Test Configuration' }} component={TestConfig} />
+          <Stack.Screen name="InstructorInfo" options={{ title: 'Instructor Info' }} component={InstructorInfo} />
           </Stack.Group>
 
 

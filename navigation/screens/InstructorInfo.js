@@ -8,78 +8,92 @@ import {
   ImageBackground,
   ScrollView,
   Platform,
+  Pressable
 } from "react-native";
 
 import { useEffect, useState } from "react";
 import {
   Provider as PaperProvider,
-  Button,
   TextInput,
   Appbar,
   DefaultTheme,
 } from "react-native-paper";
-import HomeScreen from "../../AllScreen";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
+
 import * as StorageHandler from "../../StorageHandler";
-import { mdiVideoMinusOutline } from "@mdi/js";
 
 
 export default function InstructorInfo({ navigation }) {
+  
+  async function setToInitalSavedValues() {
+
+    const instructorNameValue = await StorageHandler.getData("INSTRUCTOR_NAME");
+    const instructorEmailValue = await StorageHandler.getData("INSTRUCTOR_EMAIL");
+
+    if (instructorNameValue != null) {
+      setInstructorNameText(instructorNameValue);
+    }
+
+    if (instructorEmailValue != null) {
+      setInstructorEmailText(instructorEmailValue);
+    }
+  }
+
+  useEffect(() => {
+
+    setToInitalSavedValues();
+
+  }, []);
 
   const [instructorNameText, setInstructorNameText] = React.useState("");
   const [instructorEmailText, setInstructorEmailText] = React.useState("");
 
-  function next() {      
+  function saveInfo() {
     StorageHandler.storeStringData("INSTRUCTOR_NAME", instructorNameText);
     StorageHandler.storeStringData("INSTRUCTOR_EMAIL", instructorEmailText);
     navigation.navigate("StartTest");
-      
-    }
-  
+  }
 
   return (
     <PaperProvider theme={theme}>
+      <View style={styles.container}>
         
-      <View
-        style={{
-          alignContent: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          paddingTop: "10%",
-          paddingBottom: "5%",
-        }}
-      >
-        <Text style={styles.header}>Instructor Info</Text>
-      </View>
+        <Text style={styles.pageTitle}>
+          Instructor Info
+        </Text>
 
-      <View style={{ paddingRight: "10%", paddingLeft: "10%" }}>
-        <TextInput
-          label="Name"
-          value={instructorNameText}
-          onChangeText={(text) => setInstructorNameText(text)}
-          mode="outlined"
-        />
-      </View>
 
-      <View style={{ paddingRight: "10%", paddingLeft: "10%" }}>
-        <TextInput
-          label="Email"
-          value={instructorEmailText}
-          onChangeText={(text) => setInstructorEmailText(text)}
-          mode="outlined"
-        />
-      </View>
+        {/* Instructor name input */}
+        <View style={{ marginBottom: 20 }}>
+          <TextInput
+            label="Instructor Name"
+            mode="outlined"
+            returnKeyType="done"
+            value={instructorNameText}
+            onChangeText={(text) => { setInstructorNameText(text) }}
+          />
+        </View>
 
-      <View style={{ padding: "5%" }}>
-        <Button
-          mode="contained"
-          color= "#12414F"
-          //onPress={() => navigation.navigate("settings")}
-          onPress={() => next()}
+        {/* Instructor email input */}
+        <View style={{ marginBottom: 20 }}>
+          <TextInput
+            label="Instructor Email"
+            mode="outlined"
+            returnKeyType="done"
+            value={instructorEmailText}
+            keyboardType="email-address"
+            onChangeText={(text) => { setInstructorEmailText(text) }}
+          />
+        </View>
+
+
+        <Pressable
+          onPress={() => saveInfo()}
+          style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' }, styles.Button]}
         >
-          Next
-        </Button>
+          <Text style={styles.ButtonText}>Save Info</Text>
+
+        </Pressable>
+
       </View>
     </PaperProvider>
   );
@@ -89,24 +103,31 @@ export default function InstructorInfo({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#f2f2f2',
+    padding: 15,
   },
-  content: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+  pageTitle: {
+    marginTop: 15,
+    marginBottom: 20,
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  header: {
-    fontSize: 26,
-    color: "#87181A",
-    fontWeight: "bold",
-    justifyContent: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    alignItems: "center",
+  Button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "100%",
+    paddingVertical: 15,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+  },
+  ButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   },
 });
 const theme = {

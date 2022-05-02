@@ -219,7 +219,7 @@ export default function SettingsPage(props) {
     <PaperProvider theme={theme}>
       <View style={styles.container}>
 
-        <Text style={styles.paragraph}>
+        <Text style={styles.pageTitle}>
           {pageTitle}
         </Text>
 
@@ -335,13 +335,12 @@ export default function SettingsPage(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingTop: Constants.statusBarHeight + 135,
     backgroundColor: '#f2f2f2',
     padding: 15,
   },
 
   //used for page title 
-  paragraph: {
+  pageTitle: {
     marginTop: 15,
     marginBottom: 20,
     fontSize: 25,

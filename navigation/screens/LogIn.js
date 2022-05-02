@@ -8,6 +8,7 @@ import {
   ImageBackground,
   ScrollView,
   Platform,
+  Pressable
 } from "react-native";
 
 import { useEffect, useState } from "react";
@@ -38,7 +39,7 @@ export default function LogIn({ navigation }) {
       // console.log("Initial Value", res);
       if (res == "true") {
         console.log("Is logged in: ", res);
-        navigation.navigate("InstructorInfo");
+        navigation.navigate("StartTest");
         // navigation.navigate("testresult");
       } else {
         console.log("Not logged in", res);
@@ -60,62 +61,62 @@ export default function LogIn({ navigation }) {
   }
 
   return (
-    //   <View style={styles.container}>
-    //   <Text>To share a photo from your phone with a friend, just press the button below!</Text>
-    // </View>
+
     <PaperProvider theme={theme}>
-
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          paddingTop: "10%",
-        }}
-      >
-        <Image source={require("../../assets/logo.png")} />
-      </View>
-
-      <View
-        style={{
-          alignContent: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          paddingTop: "10%",
-          paddingBottom: "5%",
-        }}
-      >
-        <Text style={styles.header}>Welcome</Text>
-      </View>
-
-      <View style={{ paddingRight: "10%", paddingLeft: "10%" }}>
-        <TextInput
-          label="Login Key"
-          value={text}
-          onChangeText={(text) => setText(text)}
-          mode="outlined"
-        />
-      </View>
-
-      <View
-        style={{
-          alignContent: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          paddingTop: "5%",
-        }}
-      >
-        <Text style={styles.invalidLoginText}>{invalidLoginDisplay}</Text>
-      </View>
-
-      <View style={{ padding: "5%" }}>
-        <Button
-          mode="contained"
-          color= "#12414F"
-          onPress={() => checkPassword(navigation, text)}
+      <View style={styles.container}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingTop: "10%",
+          }}
         >
-          Login
-        </Button>
+          <Image source={require("../../assets/logo.png")} />
+        </View>
+
+        <View
+          style={{
+            alignContent: "center",
+            justifyContent: "center",
+            flexDirection: "row",
+            paddingTop: "10%",
+            paddingBottom: "5%",
+          }}
+        >
+          <Text style={styles.header}>Welcome</Text>
+        </View>
+
+
+        {/* Passkey input */}
+        <View>
+          <TextInput
+            label="Login Key"
+            mode="outlined"
+            returnKeyType="done"
+            value={text}
+            onChangeText={(text) => setText(text)}
+          />
+        </View>
+
+        <View
+          style={{
+            alignContent: "center",
+            justifyContent: "center",
+            flexDirection: "row",
+            paddingVertical: 10,
+          }}
+        >
+          <Text style={styles.invalidLoginText}>{invalidLoginDisplay}</Text>
+        </View>
+
+        <Pressable
+            onPress={() => checkPassword(navigation, text)}
+            style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' }, styles.Button]}
+          >
+            <Text style={styles.ButtonText}>Login</Text>
+
+        </Pressable>
       </View>
     </PaperProvider>
   );
@@ -125,9 +126,8 @@ export default function LogIn({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#f2f2f2',
+    padding: 15,
   },
   content: {
     flex: 1,
@@ -137,32 +137,35 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 26,
-    color: "#87181A",
     fontWeight: "bold",
     justifyContent: "center",
     alignItems: "center",
     justifyContent: "center",
     alignItems: "center",
-  },
-  forgotPassword: {
-    width: "100%",
-    alignItems: "flex-end",
-    marginBottom: 24,
-  },
-  row: {
-    flexDirection: "row",
-    marginTop: 4,
   },
   invalidLoginText: {
-    fontSize: 26,
+    fontSize: 22,
     color: "#87181A",
     fontWeight: "bold",
     justifyContent: "center",
     alignItems: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: -10,
-  }
+  },
+  Button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "100%",
+    paddingVertical: 15,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+  },
+  ButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
 });
 const theme = {
   ...DefaultTheme,
