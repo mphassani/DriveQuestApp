@@ -705,7 +705,7 @@ export default function TestResults() {
     const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
     const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
 
-    const value14 = await StorageHandler.getData("RESIDENTIAL_REVERSING_RIGHT_SHOULDER");
+    const value14 = await StorageHandler.getData("RESIDENTIAL_REVERSING_PARALLEL");
     const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
     const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
     const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_VISUAL_SEARCH");
