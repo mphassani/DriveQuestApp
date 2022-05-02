@@ -145,7 +145,7 @@ export default function ResidentialScreen({ navigation }) {
 
                     <CounterRow
                         title="Parallel"
-                        icon={require("../../assets/rightShoulder.png")}
+                        icon={require("../../assets/paralleltoCurb.png")}
                         storageKey="RESIDENTIAL_REVERSING_PARALLEL"
                     />
                     <CounterRow
