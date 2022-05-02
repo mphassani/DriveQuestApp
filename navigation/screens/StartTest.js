@@ -37,7 +37,7 @@ export default function StartTest({ navigation }) {
   return (
 
     <ScrollView>
-        <View style={{alignItems: 'center', justifyContent:'center', paddingVertical:'8%'}}>
+        <View style={{alignItems: 'center', justifyContent:'center', paddingVertical:'12%'}}>
             <Image
             source={require('../../assets/logo.png')}
             />
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     ButtonContainer: {
         marginLeft: 15,
         marginRight: 15,
-        marginBottom: 30,
+        marginBottom: 35,
         justifyContent: 'center',
         alignItems: 'center',
     },
