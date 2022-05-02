@@ -39,13 +39,11 @@ export default function ParkingLot({ navigation }) {
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
                         storageKey="PARKINGLOT_SIGNAL"
-                        maxValue={8}
                     />
                     <CounterRow
                         title="Speed"
                         icon={require("../../assets/speed.png")}
                         storageKey="PARKINGLOT_SPEED"
-                        maxValue={8}
                     />
                     <CounterRow
                         title="Visual Search"

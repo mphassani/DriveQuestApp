@@ -46,68 +46,85 @@ export default function Traffic({ navigation }) {
                         title="Visual Search"
                         icon={require("../../assets/VisualSearch.png")}
                         storageKey="INTERSECTION_THROUGH_VISUAL_SEARCH"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Speed"
                         icon={require("../../assets/speed.png")}
                         storageKey="INTERSECTION_THROUGH_SPEED"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Unnecessary Stop"
                         icon={require("../../assets/UnnecessaryStop.png")}
                         storageKey="INTERSECTION_THROUGH_UNNECESSARY_STOP"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Yield"
                         icon={require("../../assets/Yield.png")}
                         storageKey="INTERSECTION_THROUGH_YIELD"
+                        maxValue={8}
                     />
+                    
                     <SectionTitle name="Stop" />
+
                     <CounterRow
                         title="Approach"
                         icon={require('../../assets/GapLimitLine.png')}
                         storageKey="INTERSECTION_STOP_APPROACH"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Gap/Limit Line"
                         icon={require('../../assets/GapLimitLine.png')}
                         storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Braking"
                         icon={require("../../assets/Breaking.png")}
                         storageKey="INTERSECTION_STOP_BRAKING"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Speed"
-                    icon={require("../../assets/speed.png")}
-                    storageKey="INTERSECTION_STOP_SPEED"
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="INTERSECTION_STOP_SPEED"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Visual Search"
-                    icon={require("../../assets/VisualSearch.png")}
-                    storageKey="INTERSECTION_STOP_VISUAL_SEARCH"
-                    />
-                 <CounterRow
-                    title="Full Stop"
-                    icon={require("../../assets/FullStop.png")}
-                    storageKey="INTERSECTION_STOP_FULL_STOP"
-                    />
-                <SectionTitle name="Start" />
-                    <CounterRow
-                    title="Visual Search"
-                    icon={require("../../assets/VisualSearch.png")}
-                    storageKey="INTERSECTION_START_VISUAL_SEARCH"
+                        title="Visual Search"
+                        icon={require("../../assets/VisualSearch.png")}
+                        storageKey="INTERSECTION_STOP_VISUAL_SEARCH"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Speed"
-                    icon={require("../../assets/speed.png")}
-                    storageKey="INTERSECTION_START_SPEED"
+                        title="Full Stop"
+                        icon={require("../../assets/FullStop.png")}
+                        storageKey="INTERSECTION_STOP_FULL_STOP"
+                        maxValue={8}
                     />
-                 <CounterRow
-                    title="Yield"
-                    icon={require("../../assets/Yield.png")}
-                    storageKey="INTERSECTION_START_YIELD"
+
+                    <SectionTitle name="Start" />
+
+                    <CounterRow
+                        title="Visual Search"
+                        icon={require("../../assets/VisualSearch.png")}
+                        storageKey="INTERSECTION_START_VISUAL_SEARCH"
+                        maxValue={8}
+                    />
+                    <CounterRow
+                        title="Speed"
+                        icon={require("../../assets/speed.png")}
+                        storageKey="INTERSECTION_START_SPEED"
+                        maxValue={8}
+                    />
+                    <CounterRow
+                        title="Yield"
+                        icon={require("../../assets/Yield.png")}
+                        storageKey="INTERSECTION_START_YIELD"
+                        maxValue={8}
                     />
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>

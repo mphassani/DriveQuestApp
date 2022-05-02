@@ -45,46 +45,55 @@ const theme = {
                         title="Visual Search"
                         icon={require("../../assets/driverSideMirror.png")}
                         storageKey="LANECHANGE_LEFT_DRIVER_SIDE_MIRROR"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Rear View Mirror"
                         icon={require('../../assets/rearViewMirror.png')}
                         storageKey="INTERSECTION_THROUGH_SPEED"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Passenger Side Mirror"
                         icon={require("../../assets/passengerSideMirror.png")}
                         storageKey="LANECHANGE_LEFT_PASSENGER_SIDE_MIRROR"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Left Shoulder"
                         icon={require("../../assets/leftShoulder.png")}
                         storageKey="LANECHANGE_LEFT_LEFT_SHOULDER"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Right Shoulder"
                         icon={require('../../assets/rightShoulder.png')}
                         storageKey="LANECHANGE_LEFT_RIGHT_SHOULDER"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Signal"
                         icon={require('../../assets/Signal.png')}
                         storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Speed"
                         icon={require('../../assets/speed.png')}
                         storageKey="LANECHANGE_LEFT_SPEED"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Spacing"
-                    icon={require("../../assets/spacing.png")}
-                    storageKey="LANECHANGE_LEFT_SPACING"
+                        title="Spacing"
+                        icon={require("../../assets/spacing.png")}
+                        storageKey="LANECHANGE_LEFT_SPACING"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Steering Control"
-                    icon={require("../../assets/smoothness.png")}
-                    storageKey="LANECHANGE_LEFT_SMOOTHNESS"
+                        title="Steering Control"
+                        icon={require("../../assets/smoothness.png")}
+                        storageKey="LANECHANGE_LEFT_SMOOTHNESS"
+                        maxValue={8}
                     />
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>
