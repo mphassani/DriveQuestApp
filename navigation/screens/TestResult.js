@@ -911,7 +911,7 @@ export default function TestResults() {
     }>
     <View>
 
-          <View
+      <View
     style={{
       flexDirection: "row",
       alignItems: "center",
