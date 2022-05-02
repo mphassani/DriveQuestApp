@@ -138,12 +138,6 @@ export default function HomeScreen() {
         />
 
         <HomeSectionButton
-          title="Turns"
-          destination = "turnscreenleft"
-          storageKey="TEST_PROGRESS_4"
-        />
-
-        <HomeSectionButton
           title="Traffic"
           destination = "traffic"
           storageKey="TEST_PROGRESS_5"
