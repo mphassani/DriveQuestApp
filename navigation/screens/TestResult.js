@@ -990,7 +990,6 @@ export default function TestResults() {
           // onSubmitEditing={() => console.log("submitting:", commentsForStudentText) }
         />
       </View>
-
       <View style={{margin: 15, marginBottom:30}}>
         <Text style={{fontSize:18, fontWeight:"500", marginBottom:5}}>Comments for Instructor Only:</Text>
         <TextInput
