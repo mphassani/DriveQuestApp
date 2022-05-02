@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB,DefaultTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
-import Counter from '../../components/Counter';
+import CounterRow from '../../components/CounterRow';
 import { useNavigation } from "@react-navigation/native";
 
 const theme = {
@@ -53,7 +53,7 @@ const theme = {
                     />
                     <CounterRow
                         title="Passenger Side Mirror"
-                        icon={require("'../../assets/passengerSideMirror.png")}
+                        icon={require("../../assets/passengerSideMirror.png")}
                         storageKey="LANECHANGE_LEFT_PASSENGER_SIDE_MIRROR"
                     />
                     <CounterRow
