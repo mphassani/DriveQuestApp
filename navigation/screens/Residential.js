@@ -144,9 +144,9 @@ export default function ResidentialScreen({ navigation }) {
                 <List.Section>
 
                     <CounterRow
-                        title="Right Shoulder"
+                        title="Parallel"
                         icon={require("../../assets/rightShoulder.png")}
-                        storageKey="RESIDENTIAL_REVERSING_RIGHT_SHOULDER"
+                        storageKey="RESIDENTIAL_REVERSING_PARALLEL"
                     />
                     <CounterRow
                         title="Speed"
