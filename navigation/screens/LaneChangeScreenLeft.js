@@ -24,88 +24,70 @@ const theme = {
     },
   };
 
-//Christians page
-export default function LaneChangeScreenLeft() {
-    const navigation = useNavigation();
+  export default function Traffic({ navigation }) {
     return (
-    
         <PaperProvider theme={theme}>
            
-            <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+        <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
 
-                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="outlined" color = "#12414F" onPress={() => navigation.navigate("traffic")}>Intersection</Button>
-                    </View>
-                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" color = "#12414F" >Lane Change</Button>
-                    </View>
+                <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
+                    <Button mode="outlined" color = "#12414F" onPress={() => navigation.navigate("traffic")}>Intersection</Button>
                 </View>
-                {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
-                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
-                        <Button mode="contained" color = "#12414F" disabled="true" >Left</Button>
-                    </View>
-                    <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
-                        <Button mode="contained" color = "#12414F" onPress={() => navigation.navigate("lanechangeright")}>Right</Button>
-                    </View>
-                </View> */}
-             <ScrollView>
-                <List.Section>
-                <List.Item 
-                    title="Driver Side Mirror" 
-                    left={(props) =><Avatar.Image {...props}  source={require('../../assets/driverSideMirror.png')} />}
-                    //right={(props) =><IconButton {...props} icon="plus-circle-outline" onPress={() => {}} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_DRIVER_SIDE_MIRROR"/>}
+                <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
+                    <Button mode="contained" color = "#12414F" >Lane Change</Button>
+                </View>
+            </View>
+            {/* <Portal>
+                <CurrentErrorCount/>
+            </Portal> */}
+            <ScrollView>
+                    <CounterRow 
+                        title="Visual Search"
+                        icon={require("../../assets/driverSideMirror.png")}
+                        storageKey="LANECHANGE_LEFT_DRIVER_SIDE_MIRROR"
                     />
-                                    
-                <List.Item
-                    title="Rear View Mirror"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/rearViewMirror.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_REAR_VIEW_MIRROR"/>}
+                    <CounterRow
+                        title="Rear View Mirror"
+                        icon={require('../../assets/rearViewMirror.png')}
+                        storageKey="INTERSECTION_THROUGH_SPEED"
                     />
-                <List.Item
-                    title="Passenger Side Mirror"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/passengerSideMirror.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_PASSENGER_SIDE_MIRROR"/>}
+                    <CounterRow
+                        title="Passenger Side Mirror"
+                        icon={require("'../../assets/passengerSideMirror.png")}
+                        storageKey="LANECHANGE_LEFT_PASSENGER_SIDE_MIRROR"
                     />
-                <List.Item 
-                    title="Left Shoulder" 
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/leftShoulder.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_LEFT_SHOULDER"/>}
+                    <CounterRow
+                        title="Left Shoulder"
+                        icon={require("../../assets/leftShoulder.png")}
+                        storageKey="LANECHANGE_LEFT_LEFT_SHOULDER"
                     />
-                <List.Item
-                    title="Right Shoulder"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/rightShoulder.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_RIGHT_SHOULDER"/>}
+                    <CounterRow
+                        title="Right Shoulder"
+                        icon={require('../../assets/rightShoulder.png')}
+                        storageKey="LANECHANGE_LEFT_RIGHT_SHOULDER"
                     />
-                <List.Item
-                    title="Signal"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/Signal.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_SIGNAL"/>}
+                    <CounterRow
+                        title="Signal"
+                        icon={require('../../assets/Signal.png')}
+                        storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
                     />
-                <List.Item
-                    title="Speed"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_SPEED"/>}
+                    <CounterRow
+                        title="Speed"
+                        icon={require('../../assets/speed.png')}
+                        storageKey="LANECHANGE_LEFT_SPEED"
                     />
-                <List.Item
+                    <CounterRow
                     title="Spacing"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/spacing.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_SPACING"/>}
+                    icon={require("../../assets/spacing.png")}
+                    storageKey="LANECHANGE_LEFT_SPACING"
                     />
-                <List.Item
+                    <CounterRow
                     title="Steering Control"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/SteeringControl.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_STEERING_CONTROL"/>}
+                    icon={require("../../assets/smoothness.png")}
+                    storageKey="LANECHANGE_LEFT_SMOOTHNESS"
                     />
-                <List.Item
-                    title="Smoothness"
-                    left={(props) =><Avatar.Image {...props} source={require('../../assets/smoothness.png')} />}
-                    right={(props) => <Counter storageKey="LANECHANGE_LEFT_SMOOTHNESS"/>}
-                    />
-                </List.Section>
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>
-
         </PaperProvider>
     );
 }
