@@ -24,9 +24,14 @@ export default function StartTest({ navigation }) {
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel"
         },
-        { text: "Yes", onPress: () => {StorageHandler.clearAllTestData(), navigation.navigate("TestConfig")} }
+        { text: "Yes", onPress: () => { goToTestConfig() } }
     ]
     );
+
+    async function goToTestConfig() {
+        await StorageHandler.clearAllTestData();
+        navigation.navigate("TestConfig");
+    }
 
 
   return (
