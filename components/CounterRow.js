@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
         fontSize: 18,
-        fontWeight: "500",
+        fontWeight: "400",
     },
 
     divider: {

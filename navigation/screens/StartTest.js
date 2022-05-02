@@ -24,9 +24,14 @@ export default function StartTest({ navigation }) {
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel"
         },
-        { text: "Yes", onPress: () => {StorageHandler.clearAllTestData(), navigation.navigate("TestConfig")} }
+        { text: "Yes", onPress: () => { goToTestConfig() } }
     ]
     );
+
+    async function goToTestConfig() {
+        await StorageHandler.clearAllTestData();
+        navigation.navigate("TestConfig");
+    }
 
 
   return (
@@ -63,7 +68,7 @@ export default function StartTest({ navigation }) {
 
         <View style={styles.ButtonContainer}>
             <Pressable
-            // onPress={() => navigation.navigate("Home") }
+            onPress={() => navigation.navigate("InstructorInfo") }
             style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
             >
             <Text style={styles.ButtonText}>Edit Instructor Info</Text>

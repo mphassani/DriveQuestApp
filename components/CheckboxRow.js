@@ -73,7 +73,8 @@ const CheckboxRow = (props) => {
 
         <View>
             <Pressable 
-            style={styles.container}
+            // style={styles.container}
+            style={({ pressed }) => [{ backgroundColor: pressed ? '#d9d9d9' : 'transparent' } , styles.container]}
             onPress={() => {
                 setIsChecked(!isChecked);
                 StorageHandler.storeStringData(props.storageKey, (!isChecked).toString());
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
         fontSize: 18,
-        fontWeight: "500",
+        fontWeight: "400",
     },
 
     divider: {

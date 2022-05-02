@@ -13,7 +13,7 @@ export default function AutoDQ({ navigation }) {
     return (
         <PaperProvider>
             <ScrollView>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "5%", paddingBottom: "2%" }}>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: "3%" }}>
                     <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
                         Disqualification
                     </Text>

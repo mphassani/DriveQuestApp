@@ -27,11 +27,14 @@ export default function Traffic({ navigation }) {
 
         <PaperProvider theme={theme}>
             <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
-                    <Button mode="contained" color="#12414F" disabled="true">Intersection</Button>
+                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "30%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
+                    <Button mode="contained" color="#12414F">Intersection</Button>
                 </View>
-                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
-                    <Button mode="contained" color="#12414F" onPress={() => navigation.navigate("lanechangeleft")} >Lane Change</Button>
+                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "30%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
+                    <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("lanechangeleft")} >Lane Change</Button>
+                </View>
+                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "30%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
+                    <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("turnscreenleft")} >Turns</Button>
                 </View>
 
             </View>
@@ -42,7 +45,7 @@ export default function Traffic({ navigation }) {
                     <List.Item
                         title="Visual Search"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}
+                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                         right={(props) => <Counter storageKey="INTERSECTION_THROUGH_VISUAL_SEARCH" />}
                     />
 
@@ -70,6 +73,12 @@ export default function Traffic({ navigation }) {
 
                 <SectionTitle name="Stop" />
                 <List.Section>
+                    <List.Item 
+                        title="Approach" 
+                        left={(props) => 
+                            <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
+                        right={(props)  =><Counter storageKey="INTERSECTION_STOP_APPROACH"/>}
+                            />
                     <List.Item
                         title="Gap/Limit Line"
                         left={(props) =>
@@ -91,7 +100,7 @@ export default function Traffic({ navigation }) {
                     <List.Item
                         title="Visual Search"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}
+                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                         right={(props) => <Counter storageKey="INTERSECTION_STOP_VISUAL_SEARCH" />}
                     />
                     <List.Item
@@ -108,7 +117,7 @@ export default function Traffic({ navigation }) {
                     <List.Item
                         title="Visual Search"
                         left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/TrafficCheck.png')} />}
+                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
                         right={(props) => <Counter storageKey="INTERSECTION_START_VISUAL_SEARCH" />}
                     />
                     <List.Item

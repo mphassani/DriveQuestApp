@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, SafeAreaView, StatusBar, View, ScrollView, Dimensions, Pressable, Text, Image, TextInput } from 'react-native';
+import { StyleSheet, View, Text} from 'react-native';
 
 
 const SectionTitle = (props) => {

@@ -70,7 +70,7 @@ const HomeSectionButton = (props) => {
 
 const styles = StyleSheet.create({
     mainContainer: {
-        height: 50,
+        height: 60,
         // alignSelf: 'stretch',
         // alignItems: 'baseline',
         flexDirection:'row', 
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     sectionButtonText: {
         fontSize: 16,
-        lineHeight: 21,
+        lineHeight: 16,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',

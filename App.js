@@ -26,6 +26,7 @@ import LaneChangeScreenRight from './navigation/screens/LaneChangeScreen';
 import { clearAllStoredData } from './StorageHandler';
 import Settings from './navigation/screens/Settings';
 import OtherScreen from './navigation/screens/OtherScreen.js'
+import InstructorInfo from './navigation/screens/InstructorInfo';
 
 import Traffic from './navigation/screens/Traffic';
 
@@ -36,13 +37,10 @@ import HomeScreen from './navigation/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
-const _goBack = () => console.log('Went back');
-
-let isLoggedIn = false;
-
-let chosenScreen = <LogIn />
-
 global.test = true;
+
+global.selectedSound = 0;
+global.currentErrorCount = 0;
 
 // function TestSectionNavigationBar({ navigation, back }) {
 //   return (
@@ -146,7 +144,7 @@ function App() {
             <Stack.Screen name="autodq" options={{ title: 'Automatic Disqualification' }} component={AutoDQ} />
             <Stack.Screen name="turnscreenleft" options={{ title: 'Left Turns' }} component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" options={{ title: 'Right Turns' }} component={TurnScreenRight} />
-            <Stack.Screen name='lanechangeleft' options={{ title: 'Lange Change Left' }} component={LaneChangeScreenLeft}/>
+            <Stack.Screen name='lanechangeleft' options={{ title: 'Lange Change' }} component={LaneChangeScreenLeft}/>
             <Stack.Screen name='lanechangeright' options={{ title: 'Lane Change Right' }} component={LaneChangeScreenRight}/>
             <Stack.Screen name='intersection' options={{ title: 'Intersection' }} component={IntersectionScreen}/>
             <Stack.Screen name='traffic' options={{ title: 'Traffic' }} component={Traffic}/>
@@ -165,6 +163,7 @@ function App() {
           >
           <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
           <Stack.Screen name="TestConfig" options={{ title: 'Test Configuration' }} component={TestConfig} />
+          <Stack.Screen name="InstructorInfo" options={{ title: 'Instructor Info' }} component={InstructorInfo} />
           </Stack.Group>
 
 
