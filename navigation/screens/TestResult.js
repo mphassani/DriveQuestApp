@@ -1217,13 +1217,13 @@ const styles = StyleSheet.create({
   },
   detailedResultsRow: {
     borderRadius: 10,
-    height: 40,
+    minHeight: 40,
     // backgroundColor: '#e0e0e0',
     backgroundColor: 'white',
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 13,
-    // paddingBottom: 5,
+    // paddingBottom: 2,
 
     marginLeft: 45,
     marginRight: 15,
