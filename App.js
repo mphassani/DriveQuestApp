@@ -143,7 +143,7 @@ function App() {
             <Stack.Screen name="autodq" options={{ title: 'Automatic Disqualification' }} component={AutoDQ} />
             <Stack.Screen name="turnscreenleft" options={{ title: 'Left Turns' }} component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" options={{ title: 'Right Turns' }} component={TurnScreenRight} />
-            <Stack.Screen name='lanechangeleft' options={{ title: 'Lange Change Left' }} component={LaneChangeScreenLeft}/>
+            <Stack.Screen name='lanechangeleft' options={{ title: 'Lange Change' }} component={LaneChangeScreenLeft}/>
             <Stack.Screen name='lanechangeright' options={{ title: 'Lane Change Right' }} component={LaneChangeScreenRight}/>
             <Stack.Screen name='intersection' options={{ title: 'Intersection' }} component={IntersectionScreen}/>
             <Stack.Screen name='traffic' options={{ title: 'Traffic' }} component={Traffic}/>

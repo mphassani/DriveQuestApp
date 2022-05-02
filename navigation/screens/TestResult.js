@@ -16,9 +16,8 @@ var preDriveOperationalValues = [];
 var parkinglotValues = [];
 var residentialValues = [];
 var freewayValues = [];
-var intersectionValues = [];
+var trafficValues = [];
 var turningValues = [];
-var lanechangeValues = [];
 var autoDQValues = [];
 
 var preDriveMechanicalErrors = 0;
@@ -26,9 +25,8 @@ var preDriveOperationalErrors = 0;
 var parkinglotErrors = 0;
 var residentialErrors = 0;
 var freewayErrors = 0;
-var intersectionErrors = 0;
+var trafficErrors = 0;
 var turningErrors = 0;
-var lanechangeErrors = 0;
 var autoDQErrors = 0;
 var totalDrivingErrors = 0;
 
@@ -68,9 +66,8 @@ export default function TestResults() {
   const [parkinglotDisplay, setParkinglotDisplay] = useState("Loading...");
   const [residentialDisplay, setResidentialDisplay] = useState("Loading...");
   const [freewayDisplay, setFreewayDisplay] = useState("Loading...");
-  const [intersectionDisplay, setIntersectionDisplay] = useState("Loading...");
+  const [trafficDisplay, setTrafficDisplay] = useState("Loading...");
   const [turningDisplay, setTurningDisplay] = useState("Loading...");
-  const [lanechangeDisplay, setLangechangeDisplay] = useState("Loading...");
   const [autoDQDisplay, setAutoDQDisplay] = useState("Loading...");
   const [finalResultDisplay, setFinalResultDisplay] = useState("Loading...");
 
@@ -93,8 +90,7 @@ export default function TestResults() {
   const parkinglotNamesArray = ["Gap/Limit Line", "Signal", "Speed", "Visual Search", "Positioning", "Smoothness", "Parking"];
   const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Visual Search", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search","Reversing Right Shoulder", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
   const freewayNamesArray = ["Entering Scanning", "Entering Visual Search", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Visual Search", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Visual Search", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
-  const intersectionNamesArray = ["Through Visual Search", "Through Speed", "Through Unnecessary Stop", "Yield", "Stop Gap Limit Line", "Stop Braking", "Stop Visual Search", "Stop Full Stop", "Start Visual Search", "Start Speed", "Start Yield"];
-  const lanechangeNamesArray = ["Right Driver Side Mirror", "Right Rear View Mirror", "Right Passenger Side Mirror", "Right Left Shoulder", "Right Right Shoulder", "Right Signal", "Right Speed", "Right Spacing", "Right Steering Control", "Right Smoothness", "Left Driver Side Mirror", "Left Rear View Mirror", "Left Passenger Side Mirror", "Left Left Shoulder", "Left Right Shoulder", "Left Signal", "Left Speed", "Left Spacing", "Left Steering Control","Left Smoothness"];
+  const trafficNamesArray = ["Through Visual Search", "Through Speed", "Through Unnecessary Stop", "Through Yield", "Stop Approach", "Stop Gap Limit Line", "Stop Braking", "Stop Speed", "Stop Visual Search", "Stop Full Stop", "Start Visual Search", "Start Speed", "Start Yield", "Driver Side Mirror", "Rear View Mirror", "Passenger Side Mirror", "Left Shoulder", "Right Shoulder", "Signal", "Speed", "Spacing", "Steering Control", "Smoothness"];
   const turningNamesArray = ["Left Accelerate/Decelerate Visual Search", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Visual Search", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Accelerate/Decelerate Visual Search", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Visual Search", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
 
@@ -107,9 +103,8 @@ export default function TestResults() {
   const [parkinglotDetailsValues, setParkinglotDetailsValues] = React.useState([]);
   const [residentialDetailsValues, setResidentialDetailsValues] = React.useState([]);
   const [freewayDetailsValues, setFreewayDetailsValues] = React.useState([]);
-  const [intersectionDetailsValues, setIntersectionDetailsValues] = React.useState([]);
+  const [trafficDetailsValues, setTrafficDetailsValues] = React.useState([]);
   const [turningDetailsValues, setTurningDetailsValues] = React.useState([]);
-  const [lanechangeDetailsValues, setLaneChangeDetailsValues] = React.useState([]);
   const [autoDQDetailsValues, setAutoDQDetailsValues] = React.useState([]);
 
 
@@ -206,9 +201,8 @@ export default function TestResults() {
     parkinglotValues = await getParkinglotValues();
     residentialValues = await getResidentialValues();
     freewayValues = await getFreewayValues();
-    intersectionValues = await getIntersectionValues();
+    trafficValues = await getTrafficValues();
     turningValues = await getTurningValues();
-    lanechangeValues = await getLaneChangeValues();
     autoDQValues = await getAutoDQValues();
 
     // Sets the detailed values for the detailed display 
@@ -218,9 +212,8 @@ export default function TestResults() {
     setParkinglotDetailsValues(parkinglotValues);
     setResidentialDetailsValues(residentialValues);
     setFreewayDetailsValues(freewayValues);
-    setIntersectionDetailsValues(intersectionValues);
+    setTrafficDetailsValues(trafficValues);
     setTurningDetailsValues(turningValues);
-    setLaneChangeDetailsValues(lanechangeValues);
     setAutoDQDetailsValues(autoDQValues);
 
 
@@ -231,9 +224,8 @@ export default function TestResults() {
     parkinglotErrors = await calculateCounterErrors(parkinglotValues);
     residentialErrors = await calculateCounterErrors(residentialValues);
     freewayErrors = await calculateCounterErrors(freewayValues);
-    intersectionErrors = await calculateCounterErrors(intersectionValues);
+    trafficErrors = await calculateCounterErrors(trafficValues);
     turningErrors = await calculateCounterErrors(turningValues);
-    lanechangeErrors = await calculateCounterErrors(lanechangeValues);
     autoDQErrors = await calculateBooleanErrors(autoDQValues, true);
     
     // Show the scores in the frontend
@@ -244,9 +236,8 @@ export default function TestResults() {
     setParkinglotDisplay(parkinglotErrors);
     setResidentialDisplay(residentialErrors);
     setFreewayDisplay(freewayErrors);
-    setIntersectionDisplay(intersectionErrors);
+    setTrafficDisplay(trafficErrors);
     setTurningDisplay(turningErrors);
-    setLangechangeDisplay(lanechangeErrors);
 
     setAutoDQDisplay(autoDQErrors);
 
@@ -276,7 +267,7 @@ export default function TestResults() {
     }
 
     // Driving Section Check
-    totalDrivingErrors = parkinglotErrors + residentialErrors + intersectionErrors + turningErrors + lanechangeErrors;
+    totalDrivingErrors = parkinglotErrors + residentialErrors + trafficErrors + turningErrors;
 
     if (usingFreeway == true) {
       totalDrivingErrors += freewayErrors;
@@ -431,9 +422,8 @@ export default function TestResults() {
     if (usingFreeway) {
       resultsText += counterTestSection("Freeway",freewayErrors, freewayNamesArray, freewayValues);
     }
-    resultsText += counterTestSection("Intersection",intersectionErrors, intersectionNamesArray, intersectionValues);
+    resultsText += counterTestSection("Traffic",trafficErrors, trafficNamesArray, trafficValues);
     resultsText += counterTestSection("Turning",turningErrors, turningNamesArray, turningValues);
-    resultsText += counterTestSection("Lane Change",lanechangeErrors, lanechangeNamesArray, lanechangeValues);
 
     resultsText += "\n\n◈ " + "Automatic Disqualification" + " [" + autoDQErrors + " Errors]";
     for (var i in autoDQNamesArray) {
@@ -785,23 +775,40 @@ export default function TestResults() {
   }
 
   // --------------------------------------
-  // Intersection (11 items)
+  // Traffic (23 items)
   // --------------------------------------
-  async function getIntersectionValues() {
+  async function getTrafficValues() {
 
+    // Intersection
     const value1 = await StorageHandler.getData("INTERSECTION_THROUGH_VISUAL_SEARCH");
     const value2 = await StorageHandler.getData("INTERSECTION_THROUGH_SPEED");
     const value3 = await StorageHandler.getData("INTERSECTION_THROUGH_UNNECESSARY_STOP");
     const value4 = await StorageHandler.getData("INTERSECTION_THROUGH_YIELD");
-    const value5 = await StorageHandler.getData("INTERSECTION_STOP_GAP_LIMIT_LINE");
-    const value6 = await StorageHandler.getData("INTERSECTION_STOP_BRAKING");
-    const value7 = await StorageHandler.getData("INTERSECTION_STOP_VISUAL_SEARCH");
-    const value8 = await StorageHandler.getData("INTERSECTION_STOP_FULL_STOP");
-    const value9 = await StorageHandler.getData("INTERSECTION_START_VISUAL_SEARCH");
-    const value10 = await StorageHandler.getData("INTERSECTION_START_SPEED");
-    const value11 = await StorageHandler.getData("INTERSECTION_START_YIELD");
+
+    const value5 = await StorageHandler.getData("INTERSECTION_STOP_APPROACH");
+    const value6 = await StorageHandler.getData("INTERSECTION_STOP_GAP_LIMIT_LINE");
+    const value7 = await StorageHandler.getData("INTERSECTION_STOP_BRAKING");
+    const value8 = await StorageHandler.getData("INTERSECTION_STOP_SPEED");
+    const value9 = await StorageHandler.getData("INTERSECTION_STOP_VISUAL_SEARCH");
+    const value10 = await StorageHandler.getData("INTERSECTION_STOP_FULL_STOP");
+
+    const value11 = await StorageHandler.getData("INTERSECTION_START_VISUAL_SEARCH");
+    const value12 = await StorageHandler.getData("INTERSECTION_START_SPEED");
+    const value13 = await StorageHandler.getData("INTERSECTION_START_YIELD");
+
+    // Lane Change
+    const value14 = await StorageHandler.getData("LANECHANGE_LEFT_DRIVER_SIDE_MIRROR");
+    const value15 = await StorageHandler.getData("LANECHANGE_LEFT_REAR_VIEW_MIRROR");
+    const value16 = await StorageHandler.getData("LANECHANGE_LEFT_PASSENGER_SIDE_MIRROR");
+    const value17 = await StorageHandler.getData("LANECHANGE_LEFT_LEFT_SHOULDER");
+    const value18 = await StorageHandler.getData("LANECHANGE_LEFT_RIGHT_SHOULDER");
+    const value19 = await StorageHandler.getData("LANECHANGE_LEFT_SIGNAL");
+    const value20 = await StorageHandler.getData("LANECHANGE_LEFT_SPEED");
+    const value21 = await StorageHandler.getData("LANECHANGE_LEFT_SPACING");
+    const value22 = await StorageHandler.getData("LANECHANGE_LEFT_STEERING_CONTROL");
+    const value23 = await StorageHandler.getData("LANECHANGE_LEFT_SMOOTHNESS");
     
-    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
@@ -995,10 +1002,10 @@ export default function TestResults() {
       </View>
 
       <View style={styles.sectionRow}>
-        <Text style={styles.sectionName}>Intersection</Text>
-        <Text style={styles.sectionResult}>{intersectionDisplay}</Text>
+        <Text style={styles.sectionName}>Traffic</Text>
+        <Text style={styles.sectionResult}>{trafficDisplay}</Text>
       </View>
-      <DetailedCounterResultsDisplay names={intersectionNamesArray} values={intersectionDetailsValues}/>
+      <DetailedCounterResultsDisplay names={trafficNamesArray} values={trafficDetailsValues}/>
 
 
       <View style={styles.sectionRow}>
@@ -1006,13 +1013,6 @@ export default function TestResults() {
         <Text style={styles.sectionResult}>{turningDisplay}</Text>
       </View>
       <DetailedCounterResultsDisplay names={turningNamesArray} values={turningDetailsValues}/>
-
-
-      <View style={styles.sectionRow}>
-        <Text style={styles.sectionName}>Lane Change</Text>
-        <Text style={styles.sectionResult}>{lanechangeDisplay}</Text>
-      </View>
-      <DetailedCounterResultsDisplay names={lanechangeNamesArray} values={lanechangeDetailsValues}/>
 
 
       <View style={styles.sectionRow}>
