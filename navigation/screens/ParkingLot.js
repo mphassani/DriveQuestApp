@@ -5,10 +5,11 @@ import {
     Text,
     ScrollView, 
 } from 'react-native';
-import { Provider as PaperProvider, Button, List,IconButton, Avatar, Appbar, DefaultTheme} from "react-native-paper";
+import { Provider as PaperProvider, Button, List,IconButton, Avatar, Appbar, DefaultTheme, Portal} from "react-native-paper";
 
 import CounterRow from '../../components/CounterRow';
 import SectionTitle from '../../components/SectionTitle';
+import CurrentErrorCount from '../../components/CurrentErrorCount';
 
 const theme = {
     ...DefaultTheme,
@@ -24,10 +25,16 @@ const theme = {
 export default function ParkingLot({ navigation }) {
     return (
         <PaperProvider theme={theme}>
-
+            {/* <Portal>
+                <CurrentErrorCount/>
+            </Portal> */}
             <ScrollView>
                 <SectionTitle name="Parking Lot" />
-
+                    <CounterRow 
+                        title="Gap/Limit Line"
+                        icon={require("../../assets/GapLimitLine.png")}
+                        storageKey="PARKINGLOT_GAP_LIMIT_LINE"
+                    />
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
@@ -54,10 +61,6 @@ export default function ParkingLot({ navigation }) {
                         title="Smoothness"
                         icon={require("../../assets/smoothness.png")}
                         storageKey="PARKINGLOT_SMOOTHNESS"
-                    /><CounterRow
-                        title="Positioning"
-                        icon={require("../../assets/positioning.png")}
-                        storageKey="PARKINGLOT_POSITIONING"
                     />
                     <CounterRow
                         title="Parking"

@@ -25,7 +25,7 @@ export default function SettingsPage(props) {
 
     const studentNameValue = await StorageHandler.getData("STUDENT_NAME");
     const studentPermitNumber = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
-    const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
+    // const usingFreewayValue = await StorageHandler.getData("USING_FREEWAY");
     const errorSoundValue = await StorageHandler.getData("ERROR_SOUND");
     const selectedRouteValue = await StorageHandler.getData("SELECTED_ROUTE");
 
@@ -34,12 +34,12 @@ export default function SettingsPage(props) {
     }
 
     if (studentPermitNumber != null) {
-      setStudentPermitNumber(studentPermitNumber);
+      setStudentPermitNumberText(studentPermitNumber);
     }
 
-    if (usingFreewayValue != null && usingFreewayValue == "true") {
-      setIsFreewayEnabled(true);
-    }
+    // if (usingFreewayValue != null && usingFreewayValue == "true") {
+    //   setIsFreewayEnabled(true);
+    // }
 
     if (errorSoundValue != null) {
       setSoundValue(errorSoundValue);
@@ -87,8 +87,7 @@ export default function SettingsPage(props) {
 
   //used to create sound dropdown 
   const [soundOpen, setSoundOpen] = useState(false);
-  const [soundValue, setSoundValue] = useState('0');
-  window.soundValue = soundValue;
+  const [soundValue, setSoundValue] = useState(global.selectedSound);
   const [soundItems, setSoundItems] = useState([
     { label: 'No Sound', value: '0', sound: null },
     { label: 'Liquid Lava', value: '1', sound: '../../assets/buttonPress.mp3' },
@@ -200,6 +199,7 @@ export default function SettingsPage(props) {
 
     if (props.pageTitle == "Test Configuraton") {
       setIsOnTestConfig(true);
+      global.selectedSound = 0;
     }
     else {
       setIsOnTestConfig(false);
@@ -219,7 +219,7 @@ export default function SettingsPage(props) {
     <PaperProvider theme={theme}>
       <View style={styles.container}>
 
-        <Text style={styles.paragraph}>
+        <Text style={styles.pageTitle}>
           {pageTitle}
         </Text>
 
@@ -282,7 +282,7 @@ export default function SettingsPage(props) {
             defaultIndex={0}
             containerStyle={{ height: 70, marginBottom: 0 }}
             searchable={false}
-            onSelectItem={item => { console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value) }}
+            onSelectItem={item => { console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value), global.selectedSound = item.value }}
           />
         </View>
 
@@ -326,22 +326,21 @@ export default function SettingsPage(props) {
   );
 }
 
-export function getSoundVal() {
-  <SettingsPage soundValue = {soundValue}>
-  </SettingsPage>
-  return soundValue;
-}
+// export function getSoundVal() {
+//   <SettingsPage soundValue = {soundValue}>
+//   </SettingsPage>
+//   return soundValue;
+// }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingTop: Constants.statusBarHeight + 135,
     backgroundColor: '#f2f2f2',
     padding: 15,
   },
 
   //used for page title 
-  paragraph: {
+  pageTitle: {
     marginTop: 15,
     marginBottom: 20,
     fontSize: 25,
