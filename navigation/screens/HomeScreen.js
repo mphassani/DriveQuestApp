@@ -149,6 +149,11 @@ export default function HomeScreen() {
           storageKey="USING_FREEWAY"
         />
 
+        <HomeSectionButton
+          title="Other"
+          destination= "other"
+        />
+
       </ScrollView >
 
 
