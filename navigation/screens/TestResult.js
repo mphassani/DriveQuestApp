@@ -284,7 +284,7 @@ export default function TestResults() {
       passedAutoDQ = false;
     }
     
-    totalNumberOfErrors = preDriveMechanicalErrors + preDriveOperationalErrors + totalDrivingErrors + autoDQErrors;
+    totalNumberOfErrors = totalDrivingErrors;
 
 
     if (passedTest) {
@@ -434,7 +434,7 @@ export default function TestResults() {
 
     
     resultsText += "\n\n------------------------------"
-    resultsText += "\nTotal Errors: " + totalNumberOfErrors;
+    resultsText += "\nTotal Driving Errors: " + totalNumberOfErrors;
     resultsText += "\n------------------------------\n"
 
     if (passedTest) {
@@ -1023,7 +1023,7 @@ export default function TestResults() {
 
 
       <View style={[styles.finalResultRow, {backgroundColor: resultBackgroundColor}]}>
-        <Text style={styles.finalResultsText}>{totalNumberOfErrors} Errors</Text>
+        <Text style={styles.finalResultsText}>{totalNumberOfErrors} Driving Errors</Text>
         <Text style={[styles.finalResultsText, {marginTop:0}]}>{finalResultDisplay}</Text>
       </View>
 
