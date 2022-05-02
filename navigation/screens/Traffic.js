@@ -16,123 +16,89 @@ const theme = {
     ...DefaultTheme,
     //roundness: 2,
     colors: {
-        ...DefaultTheme.colors,
-        primary: '#4DB6AC',
-        accent: '#FFFFFF',
+      ...DefaultTheme.colors,
+      primary: '#4DB6AC',
+      accent: '#FFFFFF',
     },
-};
+  };
 
 export default function Traffic({ navigation }) {
     return (
-
         <PaperProvider theme={theme}>
-            <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
-                    <Button mode="contained" color="#12414F">Intersection</Button>
-                </View>
-                <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
-                    <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("lanechangeleft")} >Lane Change</Button>
-                </View>
-
-            </View>
+            {/* <Portal>
+                <CurrentErrorCount/>
+            </Portal> */}
             <ScrollView>
                 <SectionTitle name="Through" />
-                <List.Section>
-
-                    <List.Item
+                    <CounterRow 
                         title="Visual Search"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_THROUGH_VISUAL_SEARCH" />}
+                        icon={require("../../assets/VisualSearch.png")}
+                        storageKey="INTERSECTION_THROUGH_VISUAL_SEARCH"
                     />
-
-                    <List.Item
+                    <CounterRow
                         title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_THROUGH_SPEED" />}
+                        icon={require("../../assets/speed.png")}
+                        storageKey="INTERSECTION_THROUGH_SPEED"
                     />
-
-                    <List.Item
+                    <CounterRow
                         title="Unnecessary Stop"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/UnnecessaryStop.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_THROUGH_UNNECESSARY_STOP" />}
+                        icon={require("../../assets/UnnecessaryStop.png")}
+                        storageKey="INTERSECTION_THROUGH_UNNECESSARY_STOP"
                     />
-                    <List.Item
+                    <CounterRow
                         title="Yield"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/Yield.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_THROUGH_YIELD" />}
+                        icon={require("../../assets/Yield.png")}
+                        storageKey="INTERSECTION_THROUGH_YIELD"
                     />
-                </List.Section>
-
-
-                <SectionTitle name="Stop" />
-                <List.Section>
-                    <List.Item 
-                        title="Approach" 
-                        left={(props) => 
-                            <Avatar.Image {...props}  source={require('../../assets/GapLimitLine.png')}/>}
-                        right={(props)  =><Counter storageKey="INTERSECTION_STOP_APPROACH"/>}
-                            />
-                    <List.Item
+                    <SectionTitle name="Stop" />
+                    <CounterRow
+                        title="Approach"
+                        icon={require('../../assets/GapLimitLine.png')}
+                        storageKey="INTERSECTION_STOP_APPROACH"
+                    />
+                    <CounterRow
                         title="Gap/Limit Line"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/GapLimitLine.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE" />}
+                        icon={require('../../assets/GapLimitLine.png')}
+                        storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
                     />
-                    <List.Item
+                    <CounterRow
                         title="Braking"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/Breaking.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_STOP_BRAKING" />}
+                        icon={require("../../assets/Breaking.png")}
+                        storageKey="INTERSECTION_STOP_BRAKING"
                     />
-                    <List.Item
+                    <CounterRow
                     title="Speed"
-                    left={(props) => 
-                        <Avatar.Image {...props}  source={require("../../assets/speed.png")}/>}
-                    right={(props) =><Counter storageKey="INTERSECTION_STOP_SPEED"/>}
+                    icon={require("../../assets/speed.png")}
+                    storageKey="INTERSECTION_STOP_SPEED"
                     />
-                    <List.Item
-                        title="Visual Search"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_STOP_VISUAL_SEARCH" />}
+                    <CounterRow
+                    title="Visual Search"
+                    icon={require("../../assets/VisualSearch.png")}
+                    storageKey="INTERSECTION_STOP_VISUAL_SEARCH"
                     />
-                    <List.Item
-                        title="Full Stop"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/FullStop.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_STOP_FULL_STOP" />}
+                 <CounterRow
+                    title="Full Stop"
+                    icon={require("../../assets/FullStop.png")}
+                    storageKey="INTERSECTION_STOP_FULL_STOP"
                     />
-                </List.Section>
-
-
                 <SectionTitle name="Start" />
-                <List.Section>
-                    <List.Item
-                        title="Visual Search"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/VisualSearch.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_START_VISUAL_SEARCH" />}
+                    <CounterRow
+                    title="Visual Search"
+                    icon={require("../../assets/VisualSearch.png")}
+                    storageKey="INTERSECTION_START_VISUAL_SEARCH"
                     />
-                    <List.Item
-                        title="Speed"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/speed.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_START_SPEED" />}
+                    <CounterRow
+                    title="Speed"
+                    icon={require("../../assets/speed.png")}
+                    storageKey="INTERSECTION_START_SPEED"
                     />
-                    <List.Item
-                        title="Yield"
-                        left={(props) =>
-                            <Avatar.Image {...props} source={require('../../assets/Yield.png')} />}
-                        right={(props) => <Counter storageKey="INTERSECTION_START_YIELD" />}
+                 <CounterRow
+                    title="Yield"
+                    icon={require("../../assets/Yield.png")}
+                    storageKey="INTERSECTION_START_YIELD"
                     />
-                </List.Section>
-                <View style={{ marginBottom: 25 }}></View>
+                <View style={{marginBottom: 25}}></View>
             </ScrollView>
         </PaperProvider>
     );
-
 }

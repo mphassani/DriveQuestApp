@@ -138,12 +138,6 @@ export default function HomeScreen() {
         />
 
         <HomeSectionButton
-          title="Turns"
-          destination = "turnscreenleft"
-          storageKey="TEST_PROGRESS_4"
-        />
-
-        <HomeSectionButton
           title="Traffic"
           destination = "traffic"
           storageKey="TEST_PROGRESS_5"
@@ -153,6 +147,11 @@ export default function HomeScreen() {
           title="Freeway"
           destination = "Freeway"
           storageKey="USING_FREEWAY"
+        />
+
+        <HomeSectionButton
+          title="Other"
+          destination= "other"
         />
 
       </ScrollView >
