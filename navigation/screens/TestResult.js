@@ -701,18 +701,20 @@ export default function TestResults() {
     const value9 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
     const value10 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL");
     const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH");
+    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_PARALLEL_TO_CURB");
 
-    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL_AWAY");
-    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED_AWAY");
-    const value14 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
-    const value15 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
 
-    const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_PARALLEL");
-    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
-    const value18 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
-    const value19 = await StorageHandler.getData("RESIDENTIAL_REVERSING_VISUAL_SEARCH");
+    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL_AWAY");
+    const value14 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED_AWAY");
+    const value15 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
+    const value16 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
 
-    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19];
+    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_PARALLEL");
+    const value18 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
+    const value19 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
+    const value20 = await StorageHandler.getData("RESIDENTIAL_REVERSING_VISUAL_SEARCH");
+
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19, value20];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
