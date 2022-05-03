@@ -19,6 +19,7 @@ var freewayValues = [];
 var trafficValues = [];
 var turningValues = [];
 var autoDQValues = [];
+var otherValues = [];
 
 var preDriveMechanicalErrors = 0;
 var preDriveOperationalErrors = 0;
@@ -28,6 +29,7 @@ var freewayErrors = 0;
 var trafficErrors = 0;
 var turningErrors = 0;
 var autoDQErrors = 0;
+var otherErrors = 0;
 var totalDrivingErrors = 0;
 
 var passedPredriveMechanical = true;
@@ -37,6 +39,7 @@ var passedAutoDQ = true;
 
 
 var usingFreeway = true;
+var usingOther = true;
 
 var selectedRoute = "selected_route";
 var instructorName = "instructor_name";
@@ -66,6 +69,7 @@ export default function TestResults() {
   const [parkinglotDisplay, setParkinglotDisplay] = useState("Loading...");
   const [residentialDisplay, setResidentialDisplay] = useState("Loading...");
   const [freewayDisplay, setFreewayDisplay] = useState("Loading...");
+  const [otherDisplay, setOtherDisplay] = useState("Loading...");
   const [trafficDisplay, setTrafficDisplay] = useState("Loading...");
   const [turningDisplay, setTurningDisplay] = useState("Loading...");
   const [autoDQDisplay, setAutoDQDisplay] = useState("Loading...");
@@ -93,6 +97,7 @@ export default function TestResults() {
   const trafficNamesArray = ["Intersection Through Visual Search", "Intersection Through Speed", "Intersection Through Unnecessary Stop", "Intersection Through Yield", "Intersection Stop Approach", "Intersection Stop Gap Limit Line", "Intersection Stop Braking", "Intersection Stop Speed", "Intersection Stop Visual Search", "Intersection Stop Full Stop", "Intersection Start Visual Search", "Intersection Start Speed", "Intersection Start Yield", "Lane Change Driver Side Mirror", "Lane Change Rear View Mirror", "Lane Change Passenger Side Mirror", "Lane Change Left Shoulder", "Lane Change Right Shoulder", "Lane Change Signal", "Lane Change Speed", "Lane Change Spacing", "Lane Change Steering Control", "Lane Change Smoothness"];
   const turningNamesArray = ["Left Accelerate/Decelerate Visual Search", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Visual Search", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Accelerate/Decelerate Visual Search", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Visual Search", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
+  const otherNamesArray = ["Error 1","Error 2","Error 3","Error 4"];
 
 
 
@@ -106,6 +111,7 @@ export default function TestResults() {
   const [trafficDetailsValues, setTrafficDetailsValues] = React.useState([]);
   const [turningDetailsValues, setTurningDetailsValues] = React.useState([]);
   const [autoDQDetailsValues, setAutoDQDetailsValues] = React.useState([]);
+  const [otherDetailsValues, setOtherDetailsValues] = React.useState([]);
 
 
 
@@ -187,12 +193,20 @@ export default function TestResults() {
     passedAutoDQ = true;
 
     var freewayFromStorage = await StorageHandler.getData("USING_FREEWAY");
+    var otherFromStorage = await StorageHandler.getData("USING_OTHER");
 
     if (freewayFromStorage == "true") {
       usingFreeway = true;
     }
     else {
       usingFreeway = false;
+    }
+
+    if (otherFromStorage == "true") {
+      usingOther = true;
+    }
+    else {
+      usingOther = false;
     }
 
     predriveValues = await getPredriveValues(); 
@@ -204,6 +218,7 @@ export default function TestResults() {
     trafficValues = await getTrafficValues();
     turningValues = await getTurningValues();
     autoDQValues = await getAutoDQValues();
+    otherValues = await getOtherValues();
 
     // Sets the detailed values for the detailed display 
     setPredriveDetailsValues(predriveValues);
@@ -215,6 +230,7 @@ export default function TestResults() {
     setTrafficDetailsValues(trafficValues);
     setTurningDetailsValues(turningValues);
     setAutoDQDetailsValues(autoDQValues);
+    setOtherDetailsValues(otherValues);
 
 
     // Get number of errors for each section
@@ -227,6 +243,7 @@ export default function TestResults() {
     trafficErrors = await calculateCounterErrors(trafficValues);
     turningErrors = await calculateCounterErrors(turningValues);
     autoDQErrors = await calculateBooleanErrors(autoDQValues, true);
+    otherErrors = await calculateCounterErrors(otherValues);
     
     // Show the scores in the frontend
     setPredriveDisplay(predriveErrors); 
@@ -238,6 +255,7 @@ export default function TestResults() {
     setFreewayDisplay(freewayErrors);
     setTrafficDisplay(trafficErrors);
     setTurningDisplay(turningErrors);
+    setOtherDisplay(otherErrors);
 
     setAutoDQDisplay(autoDQErrors);
 
@@ -271,6 +289,9 @@ export default function TestResults() {
 
     if (usingFreeway == true) {
       totalDrivingErrors += freewayErrors;
+    }
+    if (usingOther == true) {
+      totalDrivingErrors += otherErrors;
     }
 
     if (totalDrivingErrors > 15) {
@@ -421,6 +442,9 @@ export default function TestResults() {
     resultsText += counterTestSection("Residential/Business",residentialErrors, residentialNamesArray, residentialValues);
     if (usingFreeway) {
       resultsText += counterTestSection("Freeway",freewayErrors, freewayNamesArray, freewayValues);
+    }
+    if (usingOther) {
+      resultsText += counterTestSection("Other",otherErrors, otherNamesArray, otherValues);
     }
     resultsText += counterTestSection("Traffic",trafficErrors, trafficNamesArray, trafficValues);
     resultsText += counterTestSection("Turning",turningErrors, turningNamesArray, turningValues);
@@ -914,6 +938,27 @@ export default function TestResults() {
   }
 
   // --------------------------------------
+  // Other (4 items)
+  // --------------------------------------
+  async function getOtherValues() {
+
+    const value1 = await StorageHandler.getData("OTHER_COUNTER_1");
+    const value2 = await StorageHandler.getData("OTHER_COUNTER_2");
+    const value3 = await StorageHandler.getData("OTHER_COUNTER_3");
+    const value4 = await StorageHandler.getData("OTHER_COUNTER_4");
+    
+    const valuesArray = await [value1, value2, value3, value4];
+
+    for (var i in valuesArray) {
+      if (valuesArray[i] == null) {
+        valuesArray[i] = "0";
+      }
+    }
+
+    return valuesArray;
+  }
+
+  // --------------------------------------
   // AutoDQ (8 items)
   // --------------------------------------
   async function getAutoDQValues() {
@@ -993,13 +1038,6 @@ export default function TestResults() {
       </View>
       <DetailedCounterResultsDisplay names={residentialNamesArray} values={residentialDetailsValues}/>
 
-      <View display = {usingFreeway ? "flex" : "none"} >
-        <View style={styles.sectionRow}>
-          <Text style={styles.sectionName}>Freeway</Text>
-          <Text style={styles.sectionResult}>{freewayDisplay}</Text>
-        </View>
-        <DetailedCounterResultsDisplay names={freewayNamesArray} values={freewayDetailsValues}/>
-      </View>
 
       <View style={styles.sectionRow}>
         <Text style={styles.sectionName}>Traffic</Text>
@@ -1013,6 +1051,24 @@ export default function TestResults() {
         <Text style={styles.sectionResult}>{turningDisplay}</Text>
       </View>
       <DetailedCounterResultsDisplay names={turningNamesArray} values={turningDetailsValues}/>
+
+
+      <View display = {usingFreeway ? "flex" : "none"} >
+        <View style={styles.sectionRow}>
+          <Text style={styles.sectionName}>Freeway</Text>
+          <Text style={styles.sectionResult}>{freewayDisplay}</Text>
+        </View>
+        <DetailedCounterResultsDisplay names={freewayNamesArray} values={freewayDetailsValues}/>
+      </View>
+
+
+      <View display = {usingOther ? "flex" : "none"} >
+        <View style={styles.sectionRow}>
+          <Text style={styles.sectionName}>Other</Text>
+          <Text style={styles.sectionResult}>{otherDisplay}</Text>
+        </View>
+        <DetailedCounterResultsDisplay names={otherNamesArray} values={otherDetailsValues}/>
+      </View>
 
 
       <View style={styles.sectionRow}>
