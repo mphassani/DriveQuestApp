@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import {
     View,
     Image,
@@ -9,6 +9,7 @@ import {
 import { Provider as PaperProvider, Button, List, IconButton, Avatar, Appbar, DefaultTheme, TextInput } from "react-native-paper";
 import Counter from '../../components/Counter';
 import CounterRow from '../../components/CounterRow';
+import * as StorageHandler from "../../StorageHandler";
 import SectionTitle from '../../components/SectionTitle';
 
 const theme = {
@@ -21,11 +22,43 @@ const theme = {
     },
 };
 
-export default function ResidentialScreen({ navigation }) {
-    const [item1, setItem1] = useState('');
-    const [item2, setItem2] = useState('');
-    const [item3, setItem3] = useState('');
-    const [item4, setItem4] = useState('');
+export default function OtherScreen({ navigation }) {
+    const [errorText1, setErrorText1] = React.useState("");
+    const [errorText2, setErrorText2] = React.useState("");
+    const [errorText3, setErrorText3] = React.useState("");
+    const [errorText4, setErrorText4] = React.useState("");
+
+    function saveComment(storageKey, text) {
+        StorageHandler.storeStringData(storageKey, text);
+    }
+
+    async function setToInitalSavedValues() {
+
+        const errorText1 = await StorageHandler.getData("OTHER_ERROR_TEXT_1");
+        const errorText2 = await StorageHandler.getData("OTHER_ERROR_TEXT_2");
+        const errorText3 = await StorageHandler.getData("OTHER_ERROR_TEXT_3");
+        const errorText4 = await StorageHandler.getData("OTHER_ERROR_TEXT_4");
+    
+        if (errorText1 != null) {
+          setErrorText1(errorText1);
+        }
+    
+        if (errorText2 != null) {
+          setErrorText2(errorText2);
+        }
+    
+        if (errorText3 != null) {
+          setErrorText3(errorText3);
+        }
+    
+        if (errorText4 != null) {
+          setErrorText4(errorText4);
+        }
+    }
+
+    useEffect(() => {
+        setToInitalSavedValues();
+    }, []);
 
     return (
         <PaperProvider theme={theme}>
@@ -33,55 +66,55 @@ export default function ResidentialScreen({ navigation }) {
                 <SectionTitle name="Other"></SectionTitle>
                 <List.Section>
 
-                <Text style={styles.title}>Item 1</Text>
+                <Text style={styles.title}>Error 1</Text>
                 <View style={styles.row}>
-                    <TextInput 
-                        style={styles.input}
-                        value={item1}
-                        multiline={true}
-                        onChangeText={(text) => setItem1(text)}
-                        storageKey="ITEM1_OTHER_COMMENTS"
-                        />
-                    <Counter storageKey="ITEM1_COUNTER" maxValue={4}/>
+                    <TextInput
+                    editable
+                    multiline
+                    style={styles.input}
+                    value={errorText1}
+                    onChangeText={(text) => {setErrorText1(text); saveComment("OTHER_ERROR_TEXT_1", text);}}
+                    />
+                    <Counter storageKey="OTHER_COUNTER_1" maxValue={4}/>
                 </View>
                 <View style={styles.divider}></View>
 
-                <Text style={styles.title}>Item 2</Text>
+                <Text style={styles.title}>Error 2</Text>
                 <View style={styles.row}>
-                    <TextInput 
-                        style={styles.input}
-                        value={item2}
-                        multiline={true}
-                        onChangeText={(text) => setItem2(text)}
-                        storageKey="ITEM2_OTHER_COMMENTS"
-                        />
-                    <Counter storageKey="ITEM2_COUNTER" maxValue={4}/>
+                    <TextInput
+                    editable
+                    multiline
+                    style={styles.input}
+                    value={errorText2}
+                    onChangeText={(text) => {setErrorText2(text); saveComment("OTHER_ERROR_TEXT_2", text);}}
+                    />
+                    <Counter storageKey="OTHER_COUNTER_2" maxValue={4}/>
                 </View>
                 <View style={styles.divider}></View>
 
-                <Text style={styles.title}>Item 3</Text>
+                <Text style={styles.title}>Error 3</Text>
                 <View style={styles.row}>
-                    <TextInput 
-                        style={styles.input}
-                        value={item3}
-                        multiline={true}
-                        onChangeText={(text) => setItem3(text)}
-                        storageKey="ITEM3_OTHER_COMMENTS"
-                        />
-                    <Counter storageKey="ITEM3_COUNTER" maxValue={4}/>
+                    <TextInput
+                    editable
+                    multiline
+                    style={styles.input}
+                    value={errorText3}
+                    onChangeText={(text) => {setErrorText3(text); saveComment("OTHER_ERROR_TEXT_3", text);}}
+                    />  
+                    <Counter storageKey="OTHER_COUNTER_3" maxValue={4}/>
                 </View>
                 <View style={styles.divider}></View>
 
-                <Text style={styles.title}>Item 4</Text>
+                <Text style={styles.title}>Error 4</Text>
                 <View style={styles.row}>
-                    <TextInput 
-                        style={styles.input}
-                        value={item4}
-                        onChangeText={(text) => setItem4(text)}
-                        multiline={true}
-                        storageKey="ITEM4_OTHER_COMMENTS"
-                        />
-                    <Counter storageKey="ITEM4_COUNTER" maxValue={4}/>
+                    <TextInput
+                    editable
+                    multiline
+                    style={styles.input}
+                    value={errorText4}
+                    onChangeText={(text) => {setErrorText4(text); saveComment("OTHER_ERROR_TEXT_4", text);}}
+                    />
+                    <Counter storageKey="OTHER_COUNTER_4" maxValue={4}/>
                 </View>
                 <View style={styles.divider}></View>
 
