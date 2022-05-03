@@ -11,6 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 var passedTest = true;
 var totalNumberOfErrors = 0;
 
+var predriveValues = [];
 var preDriveMechanicalValues = [];
 var preDriveOperationalValues = [];
 var parkinglotValues = [];
@@ -21,6 +22,7 @@ var turningValues = [];
 var autoDQValues = [];
 var otherValues = [];
 
+var predriveErrors = 0;
 var preDriveMechanicalErrors = 0;
 var preDriveOperationalErrors = 0;
 var parkinglotErrors = 0;
@@ -325,13 +327,13 @@ export default function TestResults() {
       setCommentsForStudentText(commentForStudentFromStorage);
     }
 
-    commentsForInstructorFromStorage = await StorageHandler.getData("COMMENTS_INSTRUCTOR");
+    var commentsForInstructorFromStorage = await StorageHandler.getData("COMMENTS_INSTRUCTOR");
     if (commentsForInstructorFromStorage != null) {
       setCommentsForInstructorText(commentsForInstructorFromStorage);
     }
 
 
-    selectedRouteFromStorage = await StorageHandler.getData("SELECTED_ROUTE");
+    var selectedRouteFromStorage = await StorageHandler.getData("SELECTED_ROUTE");
     if (selectedRouteFromStorage != null) {
       selectedRoute = selectedRouteFromStorage;
     }
@@ -339,22 +341,22 @@ export default function TestResults() {
       selectedRoute = "No Route Selected"
     }
 
-    instructorNameFromStorage = await StorageHandler.getData("INSTRUCTOR_NAME");
+    var instructorNameFromStorage = await StorageHandler.getData("INSTRUCTOR_NAME");
     if (instructorNameFromStorage != null) {
       instructorName = instructorNameFromStorage;
     }
 
-    instructorEmailFromStorage = await StorageHandler.getData("INSTRUCTOR_EMAIL");
+    var instructorEmailFromStorage = await StorageHandler.getData("INSTRUCTOR_EMAIL");
     if (instructorEmailFromStorage != null) {
       instructorEmail = instructorEmailFromStorage;
     }
 
-    studentNameFromStorage = await StorageHandler.getData("STUDENT_NAME");
+    var studentNameFromStorage = await StorageHandler.getData("STUDENT_NAME");
     if (studentNameFromStorage != null) {
       studentName = studentNameFromStorage;
     }
 
-    studentPermitNumberFromStorage = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
+    var studentPermitNumberFromStorage = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
     if (studentPermitNumberFromStorage != null) {
       studentPermitNumber = studentPermitNumberFromStorage;
     }

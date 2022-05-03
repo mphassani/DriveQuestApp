@@ -10,7 +10,7 @@ const CounterRow = (props) => {
 
     useEffect(() =>
     {
-        console.log("Row's MAX VALUE: " + props.maxValue);
+        // console.log("Row's MAX VALUE: " + props.maxValue);
         maxValue = props.maxValue
     }, [])
 
