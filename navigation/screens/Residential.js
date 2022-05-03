@@ -40,11 +40,7 @@ export default function ResidentialScreen({ navigation }) {
             <ScrollView>
                 <SectionTitle name="Residential/Business" />
 
-                    <CounterRow 
-                        title="Gap/Limit Line"
-                        icon={require("../../assets/GapLimitLine.png")}
-                        storageKey="RESIDENTIAL_BUSINESS_GAP_LIMIT_LINE"
-                    />
+                    
                     <CounterRow
                         title="Positioning"
                         icon={require("../../assets/positioning.png")}
@@ -65,6 +61,11 @@ export default function ResidentialScreen({ navigation }) {
                         icon={require("../../assets/speed.png")}
                         storageKey="RESIDENTIAL_BUSINESS_SPEED"
                     />
+                    <CounterRow 
+                            title="Full Stop"
+                            icon={require("../../assets/FullStop.png")}
+                            storageKey="RESIDENTIAL_BUSINESS_FULL_STOP"
+                        />
                     <CounterRow
                         title="Visual Search"
                         icon={require("../../assets/VisualSearch.png")}
@@ -74,12 +75,13 @@ export default function ResidentialScreen({ navigation }) {
 
                 <SectionTitle name="Pulling Up To The Curb" />
                 <List.Section>
-
+                    
                     <CounterRow 
-                        title="Gap/Limit Line"
+                        title="Emergency Brake"
                         icon={require("../../assets/GapLimitLine.png")}
-                        storageKey="RESIDENTIAL_CURB_PULLING_GAP_LIMIT_LINE"
+                        storageKey="RESIDENTIAL_CURB_EMERGENCY_BRAKE"
                     />
+
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
@@ -95,6 +97,7 @@ export default function ResidentialScreen({ navigation }) {
                         icon={require("../../assets/avoidsCurb.png")}
                         storageKey="RESIDENTIAL_CURB_STEERING_CONTROL"
                     />
+
                     <CounterRow
                         title="Visual Search"
                         icon={require("../../assets/VisualSearch.png")}
@@ -111,11 +114,6 @@ export default function ResidentialScreen({ navigation }) {
                 <SectionTitle name="Pulling Away From The Curb" />
                 <List.Section>
 
-                    <CounterRow 
-                        title="Gap/Limit Line"
-                        icon={require("../../assets/GapLimitLine.png")}
-                        storageKey="RESIDENTIAL_CURB_AWAY_GAP_LIMIT_LINE"
-                    />
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
@@ -145,7 +143,7 @@ export default function ResidentialScreen({ navigation }) {
 
                     <CounterRow
                         title="Parallel"
-                        icon={require("../../assets/rightShoulder.png")}
+                        icon={require("../../assets/paralleltoCurb.png")}
                         storageKey="RESIDENTIAL_REVERSING_PARALLEL"
                     />
                     <CounterRow
