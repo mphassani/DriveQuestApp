@@ -88,7 +88,7 @@ export default function TestResults() {
   const mechanicalNamesArray = ["Driver Window", "Windshield", "Rearview Mirrors", "Right Turn Signal", "Left Turn Signal", "Brake Lights", "Tires", "Foot Brake", "Headlights", "Passenger Door", "Glove Box", "Seatbelts"];
   const operationalNamesArray = ["Horn", "Emergency/Parking Prake", "Right Arm Signal", "Left Arm Signal", "Stop Arm Signal", "Windshield Wipers", "Defroster", "Emergency Flasher"];
   const parkinglotNamesArray = ["Gap/Limit Line", "Signal", "Speed", "Visual Search", "Positioning", "Smoothness", "Parking"];
-  const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Visual Search", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search", "Reversing Parallel", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
+  const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Stop", "Visual Search", "Up to Curb Emergency Brake", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search", "Reversing Parallel", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
   const freewayNamesArray = ["Entering Scanning", "Entering Visual Search", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Driving Visual Search", "Driving Speed", "Driving Positioning", "Driving Signal", "Exiting Visual Search", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const trafficNamesArray = ["Intersection Through Visual Search", "Intersection Through Speed", "Intersection Through Unnecessary Stop", "Intersection Through Yield", "Intersection Stop Approach", "Intersection Stop Gap Limit Line", "Intersection Stop Braking", "Intersection Stop Speed", "Intersection Stop Visual Search", "Intersection Stop Full Stop", "Intersection Start Visual Search", "Intersection Start Speed", "Intersection Start Yield", "Lane Change Driver Side Mirror", "Lane Change Rear View Mirror", "Lane Change Passenger Side Mirror", "Lane Change Left Shoulder", "Lane Change Right Shoulder", "Lane Change Signal", "Lane Change Speed", "Lane Change Spacing", "Lane Change Steering Control", "Lane Change Smoothness"];
   const turningNamesArray = ["Left Accelerate/Decelerate Visual Search", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Visual Search", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Accelerate/Decelerate Visual Search", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Visual Search", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
@@ -693,24 +693,26 @@ export default function TestResults() {
     const value2 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SAFE_DISTANCE");
     const value3 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SIGNAL");
     const value4 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_SPEED");
-    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_VISUAL_SEARCH");
+    const value5 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_FULL_STOP");
+    const value6 = await StorageHandler.getData("RESIDENTIAL_BUSINESS_VISUAL_SEARCH");
+    
+    const value7 = await StorageHandler.getData("RESIDENTIAL_CURB_EMERGENCY_BRAKE");
+    const value8 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
+    const value9 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
+    const value10 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL");
+    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH");
 
-    const value6 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL");
-    const value7 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED");
-    const value8 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL");
-    const value9 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH");
+    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL_AWAY");
+    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED_AWAY");
+    const value14 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
+    const value15 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
 
-    const value10 = await StorageHandler.getData("RESIDENTIAL_CURB_SIGNAL_AWAY");
-    const value11 = await StorageHandler.getData("RESIDENTIAL_CURB_SPEED_AWAY");
-    const value12 = await StorageHandler.getData("RESIDENTIAL_CURB_STEERING_CONTROL_AWAY");
-    const value13 = await StorageHandler.getData("RESIDENTIAL_CURB_VISUAL_SEARCH_AWAY");
+    const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_PARALLEL");
+    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
+    const value18 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
+    const value19 = await StorageHandler.getData("RESIDENTIAL_REVERSING_VISUAL_SEARCH");
 
-    const value14 = await StorageHandler.getData("RESIDENTIAL_REVERSING_PARALLEL");
-    const value15 = await StorageHandler.getData("RESIDENTIAL_REVERSING_SPEED");
-    const value16 = await StorageHandler.getData("RESIDENTIAL_REVERSING_STEERING_CONTROL");
-    const value17 = await StorageHandler.getData("RESIDENTIAL_REVERSING_VISUAL_SEARCH");
-
-    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18, value19];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
