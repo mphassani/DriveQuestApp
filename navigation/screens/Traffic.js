@@ -42,6 +42,11 @@ export default function Traffic({ navigation }) {
             </Portal> */}
             <ScrollView>
                 <SectionTitle name="Through" />
+                <CounterRow 
+                        title="Positioning"
+                        icon={require("../../assets/positioning.png")}
+                        storageKey="INTERSECTION_THROUGH_POSITIONING"
+                    />
                     <CounterRow 
                         title="Visual Search"
                         icon={require("../../assets/VisualSearch.png")}
