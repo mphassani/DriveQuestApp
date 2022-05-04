@@ -170,7 +170,7 @@ export default function TestResults() {
   
 
   useEffect(() => {
-    alert("Results page doesn’t always update automatically. Pull down to manually refresh.");
+    // alert("Results page doesn’t always update automatically. Pull down to manually refresh.");
 
     const calculateResultsOnPageLoad = async () => {
       const data = await calculateTestResults();
