@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Provider as PaperProvider, Button, List,IconButton, Avatar, FAB,DefaultTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
-import Counter from '../../components/Counter';
+import CounterRow from '../../components/CounterRow';
 import { useNavigation } from "@react-navigation/native";
 
 const theme = {
@@ -28,7 +28,7 @@ const theme = {
     return (
         <PaperProvider theme={theme}>
            
-        <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+        {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
 
                 <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
                     <Button mode="outlined" color = "#12414F" onPress={() => navigation.navigate("traffic")}>Intersection</Button>
@@ -36,7 +36,7 @@ const theme = {
                 <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
                     <Button mode="contained" color = "#12414F" >Lane Change</Button>
                 </View>
-            </View>
+            </View> */}
             {/* <Portal>
                 <CurrentErrorCount/>
             </Portal> */}
@@ -45,46 +45,55 @@ const theme = {
                         title="Visual Search"
                         icon={require("../../assets/driverSideMirror.png")}
                         storageKey="LANECHANGE_LEFT_DRIVER_SIDE_MIRROR"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Rear View Mirror"
                         icon={require('../../assets/rearViewMirror.png')}
                         storageKey="INTERSECTION_THROUGH_SPEED"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Passenger Side Mirror"
-                        icon={require("'../../assets/passengerSideMirror.png")}
+                        icon={require("../../assets/passengerSideMirror.png")}
                         storageKey="LANECHANGE_LEFT_PASSENGER_SIDE_MIRROR"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Left Shoulder"
                         icon={require("../../assets/leftShoulder.png")}
                         storageKey="LANECHANGE_LEFT_LEFT_SHOULDER"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Right Shoulder"
                         icon={require('../../assets/rightShoulder.png')}
                         storageKey="LANECHANGE_LEFT_RIGHT_SHOULDER"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Signal"
                         icon={require('../../assets/Signal.png')}
                         storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
+                        maxValue={8}
                     />
                     <CounterRow
                         title="Speed"
                         icon={require('../../assets/speed.png')}
                         storageKey="LANECHANGE_LEFT_SPEED"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Spacing"
-                    icon={require("../../assets/spacing.png")}
-                    storageKey="LANECHANGE_LEFT_SPACING"
+                        title="Spacing"
+                        icon={require("../../assets/spacing.png")}
+                        storageKey="LANECHANGE_LEFT_SPACING"
+                        maxValue={8}
                     />
                     <CounterRow
-                    title="Steering Control"
-                    icon={require("../../assets/smoothness.png")}
-                    storageKey="LANECHANGE_LEFT_SMOOTHNESS"
+                        title="Steering Control"
+                        icon={require("../../assets/smoothness.png")}
+                        storageKey="LANECHANGE_LEFT_SMOOTHNESS"
+                        maxValue={8}
                     />
                 <View style={{marginBottom: 25}}></View>
             </ScrollView>

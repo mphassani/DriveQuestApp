@@ -33,9 +33,9 @@ export default function FreewayDriving() {
     return (
         <PaperProvider theme={theme}>
             <ScrollView>
-                <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
+                {/* <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
                 <Button mode='contained' color = "#12414F" onPress={() => navigation.navigate("freelanechange")}>Freeway Lane Change</Button>
-                </View>
+                </View> */}
 
                 <SectionTitle name="Freeway Entering" />
                     <CounterRow
@@ -63,6 +63,11 @@ export default function FreewayDriving() {
                         icon={require("../../assets/Signal.png")}
                         storageKey="FREEWAY_ENTERING_SIGNAL"
                     />
+                    <CounterRow
+                        title="Right of Way"
+                        icon={require("../../assets/rightofway.png")}
+                        storageKey="FREEWAY_ENTERING_RIGHT_OF_WAY"
+                    />
   
                   <SectionTitle name="Freeway Driving" />
                     <CounterRow
@@ -84,6 +89,11 @@ export default function FreewayDriving() {
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
                         storageKey="FREEWAY_DRIVING_SIGNAL"
+                    />
+                    <CounterRow
+                        title="Right of Way"
+                        icon={require("../../assets/rightofway.png")}
+                        storageKey="FREEWAY_DRIVING_RIGHT_OF_WAY"
                     />
   
                   <SectionTitle name="Freeway Exiting" />
@@ -121,6 +131,11 @@ export default function FreewayDriving() {
                         title="Speed"
                         icon={require("../../assets/speed.png")}
                         storageKey="FREEWAY_EXITING_SPEED"
+                    />
+                    <CounterRow
+                        title="Right of Way"
+                        icon={require("../../assets/rightofway.png")}
+                        storageKey="FREEWAY_EXITING_RIGHT_OF_WAY"
                     />
                   <View style={{marginBottom: 25}}></View>
             </ScrollView>

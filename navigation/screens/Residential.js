@@ -26,7 +26,7 @@ const theme = {
 export default function ResidentialScreen({ navigation }) {
     return (
         <PaperProvider theme={theme}>
-            <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+            {/* <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
                 <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
                     <Button mode="contained" color="#12414F">Residential/Business</Button>
                 </View>
@@ -35,16 +35,12 @@ export default function ResidentialScreen({ navigation }) {
                     <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("turnscreenleft")}>Turns</Button>
                 </View>
 
-            </View>
+            </View> */}
 
             <ScrollView>
                 <SectionTitle name="Residential/Business" />
 
-                    <CounterRow 
-                        title="Gap/Limit Line"
-                        icon={require("../../assets/GapLimitLine.png")}
-                        storageKey="RESIDENTIAL_BUSINESS_GAP_LIMIT_LINE"
-                    />
+                    
                     <CounterRow
                         title="Positioning"
                         icon={require("../../assets/positioning.png")}
@@ -65,21 +61,32 @@ export default function ResidentialScreen({ navigation }) {
                         icon={require("../../assets/speed.png")}
                         storageKey="RESIDENTIAL_BUSINESS_SPEED"
                     />
+                    <CounterRow 
+                            title="Full Stop"
+                            icon={require("../../assets/FullStop.png")}
+                            storageKey="RESIDENTIAL_BUSINESS_FULL_STOP"
+                        />
                     <CounterRow
                         title="Visual Search"
                         icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_BUSINESS_VISUAL_SEARCH"
                     />
+                    <CounterRow
+                        title="Right of Way"
+                        icon={require("../../assets/rightofway.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_RIGHT_OF_WAY"
+                    />
 
 
                 <SectionTitle name="Pulling Up To The Curb" />
                 <List.Section>
-
+                    
                     <CounterRow 
-                        title="Gap/Limit Line"
-                        icon={require("../../assets/GapLimitLine.png")}
-                        storageKey="RESIDENTIAL_CURB_PULLING_GAP_LIMIT_LINE"
+                        title="Emergency Brake"
+                        icon={require("../../assets/ParkingBreak.png")}
+                        storageKey="RESIDENTIAL_CURB_EMERGENCY_BRAKE"
                     />
+
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}
@@ -95,6 +102,7 @@ export default function ResidentialScreen({ navigation }) {
                         icon={require("../../assets/avoidsCurb.png")}
                         storageKey="RESIDENTIAL_CURB_STEERING_CONTROL"
                     />
+
                     <CounterRow
                         title="Visual Search"
                         icon={require("../../assets/VisualSearch.png")}
@@ -111,11 +119,6 @@ export default function ResidentialScreen({ navigation }) {
                 <SectionTitle name="Pulling Away From The Curb" />
                 <List.Section>
 
-                    <CounterRow 
-                        title="Gap/Limit Line"
-                        icon={require("../../assets/GapLimitLine.png")}
-                        storageKey="RESIDENTIAL_CURB_AWAY_GAP_LIMIT_LINE"
-                    />
                     <CounterRow
                         title="Signal"
                         icon={require("../../assets/Signal.png")}

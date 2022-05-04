@@ -2,19 +2,15 @@ import * as React from "react";
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   Dimensions,
-  ImageBackground,
   ScrollView,
 } from "react-native";
-import { Provider as PaperProvider, Button, Card, Title, Paragraph, Avatar, FAB, Portal, RefreshControl, DefaultTheme, BottomNavigation } from "react-native-paper";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Provider as PaperProvider, DefaultTheme, BottomNavigation } from "react-native-paper";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
-import * as StorageHandler from "../../StorageHandler";
-import { StylesProvider } from "@chakra-ui/react";
+// import { StylesProvider } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import TestResult from './TestResult';
 import AutoDQ from './AutoDQ';
@@ -59,65 +55,8 @@ export default function HomeScreen() {
   return (
 
     <PaperProvider theme={theme}>
-      <ScrollView 
-      // refreshControl={
-      //   <RefreshControl
-      //     refreshing={refreshing}
-      //     onRefresh={onRefresh}
-      //   />
-      // }
-      >
-      {/* <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-        <Card.Actions>
-              <Button style={{width: 250}} color="#90C96A" mode="contained" onPress={() => navigation.navigate('PreDrive')} >Pre-Drive Checklist</Button>
-          </Card.Actions>
-        </View>
-      </Card>
-      <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-        <Card.Actions>
-              <Button style={{width: 250}} color="#90C96A" mode="contained" onPress={() => navigation.navigate('parkinglot')} >Parking Lot</Button>
-          </Card.Actions>
-        </View>
-        </Card>
-        <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-          <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Residential')}>Residential/Business</Button>
-          </Card.Actions>
-          </View>
-        </Card>
-        <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-          <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('turnscreenleft')}>Turns</Button>
-          </Card.Actions>
-          </View>
-        </Card>
-        <View style={{padding: "2%"}}/>
-        <Card>
-        <View style={styles.buttonView}>
-          <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('traffic')}>Traffic</Button>
-          </Card.Actions>
-          </View>
-        </Card>
-        <View style={{padding: "2%"}}/>
-        <Card style={{display: freewayDisplay}}>
-        <View style={styles.buttonView}>
-          <Card.Actions>
-            <Button style={{width: 250}} mode="contained" color="#90C96A" onPress={() => navigation.navigate('Freeway')}>Freeway</Button>
-          </Card.Actions>
-          </View>
-        </Card> */}
-
+      <ScrollView>
         
-        {/* This is my proposed solution for improved test navigation, if it doesn't work, the old buttons are still up above */}
         <View style={{marginTop: 30}}/>
         <HomeSectionButton 
           title="Pre-Drive"
@@ -152,12 +91,11 @@ export default function HomeScreen() {
         <HomeSectionButton
           title="Other"
           destination= "other"
+          storageKey="USING_OTHER"
         />
 
       </ScrollView >
 
-
-      {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={{ width: 200, height: 300 }} onPress={() => Restart()}/> */}
     </PaperProvider>
   );
 }

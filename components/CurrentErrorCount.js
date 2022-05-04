@@ -10,16 +10,6 @@ const CurrentErrorCount = (props) => {
     // React.useEffect(() => {
     //     setErrors(global.currentErrorCount);
     //   }, [errors]);
-    // setErrors(global.currentErrorCount);
-
-    // componentDidUpdate(prevProps) {
-    //     // Typical usage (don't forget to compare props):
-    //      setErrors(global.currentErrorCount);
-    //   }
-
-    // changeState = () => {
-    //  return setErrors(global.currentErrorCount);
-    // }
 
     return (
         
