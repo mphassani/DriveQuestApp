@@ -168,7 +168,7 @@ function TestPages() {
             <Stack.Screen name="PreDrive" options={{ title: 'Pre-Drive Checklist' }} component={PreDriveScreen} />
             <Stack.Screen name="freelanechange" options={{ title: 'Freeway Lane Change Left' }} component={FreewayLaneChangeScreen} />
             <Stack.Screen name="freelanechangeRight" options={{ title: 'Freeway Lane Change Right' }} component={FreewayLaneChangeRightScreen} />
-            <Stack.Screen name="testresult" options={{ title: 'Test Results' }} component={TestResult} />
+            <Stack.Screen name="testresult" options={{ title: 'Results' }} component={TestResult} />
             <Stack.Screen name="parkinglot" options={{ title: 'Parking Lot' }} component={ParkingLot} />
             <Stack.Screen name="Freeway" options={{ title: 'Freeway' }} component={FreewayTabs} />
             <Stack.Screen name="Residential" options={{ title: 'Residential/Business' }} component={ResidentialTabs} />
@@ -243,7 +243,7 @@ function TestResultsStack() {
                 gestureEnabled: false
               })}
           >
-        <Stack.Screen name='testresult' options = {{ title: 'Test Results' }} component={TestResult}/>
+        <Stack.Screen name='testresult' options = {{ title: 'Results' }} component={TestResult}/>
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -318,7 +318,7 @@ function App() {
               })}
           >
             <Stack.Screen name="LogIn" options={{ title: 'Login' }} component={LogIn} />
-            <Stack.Screen name="StartTest" options={{ title: 'Start/Resume Test' }} component={StartTest} />
+            <Stack.Screen name="StartTest" options={{ title: 'Start/Resume Driving Evaluation' }} component={StartTest} />
         </Stack.Group>
 
         <Stack.Group style={ { backgroundColor: '#6a51ae' }}
@@ -331,7 +331,7 @@ function App() {
               })}
           >
           <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
-          <Stack.Screen name="TestConfig" options={{ title: 'Test Configuration' }} component={TestConfig} />
+          <Stack.Screen name="TestConfig" options={{ title: 'Driving Evaluation Configuration' }} component={TestConfig} />
           <Stack.Screen name="InstructorInfo" options={{ title: 'Instructor Info' }} component={InstructorInfo} />
         </Stack.Group>
 

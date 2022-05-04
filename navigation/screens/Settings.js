@@ -197,7 +197,7 @@ export default function SettingsPage(props) {
 
   useEffect(() => {
 
-    if (props.pageTitle == "Test Configuraton") {
+    if (props.pageTitle == "Driving Evaluation Configuraton") {
       setIsOnTestConfig(true);
       global.selectedSound = 0;
     }
@@ -316,7 +316,7 @@ export default function SettingsPage(props) {
           style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' }, styles.Button]}
           display={isOnTestConfig ? "flex" : "none"}
         >
-          <Text style={styles.ButtonText}>Start Test</Text>
+          <Text style={styles.ButtonText}>Start Driving Evaluation</Text>
 
         </Pressable>
 

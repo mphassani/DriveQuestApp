@@ -9,7 +9,7 @@ export default function TestConfig({ navigation }) {
     return (
         <PaperProvider>
       
-            <Settings pageTitle="Test Configuraton"/>
+            <Settings pageTitle="Driving Evaluation Configuraton"/>
 
         </PaperProvider>
     );
