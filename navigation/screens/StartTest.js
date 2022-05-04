@@ -16,7 +16,7 @@ export default function StartTest({ navigation }) {
 
     const startNewTestConfirmation = () =>
     Alert.alert(
-    "Start New Test",
+    "Start New Driving Evaluation",
     "This will erase your current test progress. Are you sure you want to continue?",
     [
         {
@@ -51,7 +51,7 @@ export default function StartTest({ navigation }) {
             onPress={startNewTestConfirmation}
             style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
             >
-            <Text style={styles.ButtonText}>Start New Test</Text>
+            <Text style={styles.ButtonText}>Start New Driving Evaluation</Text>
 
             </Pressable>
         </View>
@@ -61,7 +61,7 @@ export default function StartTest({ navigation }) {
             onPress={() => navigation.navigate("MainTestPages") }
             style={({ pressed }) => [{ backgroundColor: pressed ? '#1c667d' : '#12414F' } , styles.Button]}
             >
-            <Text style={styles.ButtonText}>Resume Test</Text>
+            <Text style={styles.ButtonText}>Resume Driving Evaluation</Text>
 
             </Pressable>
         </View>
