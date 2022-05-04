@@ -66,6 +66,12 @@ export default function Traffic({ navigation }) {
                         storageKey="INTERSECTION_THROUGH_YIELD"
                         maxValue={8}
                     />
+                    <CounterRow
+                        title="Right of Way"
+                        icon={require("../../assets/rightofway.png")}
+                        storageKey="INTERSECTION_THROUGH_RIGHT_OF_WAY"
+                        maxValue={8}
+                    />
                     
                     <SectionTitle name="Stop" />
 

@@ -71,6 +71,11 @@ export default function ResidentialScreen({ navigation }) {
                         icon={require("../../assets/VisualSearch.png")}
                         storageKey="RESIDENTIAL_BUSINESS_VISUAL_SEARCH"
                     />
+                    <CounterRow
+                        title="Right of Way"
+                        icon={require("../../assets/rightofway.png")}
+                        storageKey="RESIDENTIAL_BUSINESS_RIGHT_OF_WAY"
+                    />
 
 
                 <SectionTitle name="Pulling Up To The Curb" />
