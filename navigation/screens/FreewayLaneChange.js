@@ -21,15 +21,15 @@ export default function FreewayLaneChangeScreen({ navigation }) {
     return (
         <PaperProvider theme={theme}>
             <ScrollView>
-            <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+            {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
                         <Button mode="contained" color = "#12414F" disabled="true" >Left</Button>
                     </View>
                     <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
                         <Button mode="contained" color = "#12414F" onPress={() => navigation.navigate("freelanechangeRight")}>Right</Button>
                     </View>
-                </View> 
-                <SectionTitle name="Freeway Lane Change Right" />
+                </View>  */}
+                <SectionTitle name="Freeway Lane Change Left" />
 
                     <CounterRow
                         title="Driver Side Mirror"

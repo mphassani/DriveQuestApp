@@ -28,7 +28,7 @@ const theme = {
     return (
         <PaperProvider theme={theme}>
            
-        <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
+        {/* <View style={{ flexDirection:"row", justifyContent: "space-around" }}>
 
                 <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft: 5, paddingRight: 5}}>
                     <Button mode="outlined" color = "#12414F" onPress={() => navigation.navigate("traffic")}>Intersection</Button>
@@ -36,7 +36,7 @@ const theme = {
                 <View style={{paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%",marginTop: 10, paddingLeft : 5, paddingRight: 5}}>
                     <Button mode="contained" color = "#12414F" >Lane Change</Button>
                 </View>
-            </View>
+            </View> */}
             {/* <Portal>
                 <CurrentErrorCount/>
             </Portal> */}

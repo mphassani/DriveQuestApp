@@ -125,7 +125,7 @@ export default function SettingsPage(props) {
       if (studentPermitNumberText.length != 8) {
         alert("Student permit number must be 8 characters!")
       } else {
-        navigation.navigate("Home");
+        navigation.navigate("MainTestPages");
       }
     }
     else {
