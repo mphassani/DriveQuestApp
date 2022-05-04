@@ -45,6 +45,12 @@ export default function ParkingLot({ navigation }) {
                         icon={require("../../assets/speed.png")}
                         storageKey="PARKINGLOT_SPEED"
                     />
+
+                    <CounterRow
+                        title = "Full Stop"
+                        icon ={require("../../assets/FullStop.png")}
+                        storageKey = "PARKINGLOT_FULL_STOP"
+                    />
                     <CounterRow
                         title="Visual Search"
                         icon={require("../../assets/rearViewMirror.png")}
