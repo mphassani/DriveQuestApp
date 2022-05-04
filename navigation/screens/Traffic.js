@@ -25,7 +25,7 @@ const theme = {
 export default function Traffic({ navigation }) {
     return (
         <PaperProvider theme={theme}>
-                        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+                        {/* <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
                 <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "30%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
                     <Button mode="contained" color="#12414F">Intersection</Button>
                 </View>
@@ -36,7 +36,7 @@ export default function Traffic({ navigation }) {
                     <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("turnscreenleft")} >Turns</Button>
                 </View>
 
-            </View>
+            </View> */}
             {/* <Portal>
                 <CurrentErrorCount/>
             </Portal> */}

@@ -33,9 +33,9 @@ export default function FreewayDriving() {
     return (
         <PaperProvider theme={theme}>
             <ScrollView>
-                <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
+                {/* <View style={{justifyContent: "center", alignContent:'center', flexDirection: "row", paddingTop:"8%"}}>
                 <Button mode='contained' color = "#12414F" onPress={() => navigation.navigate("freelanechange")}>Freeway Lane Change</Button>
-                </View>
+                </View> */}
 
                 <SectionTitle name="Freeway Entering" />
                     <CounterRow

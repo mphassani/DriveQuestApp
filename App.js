@@ -37,11 +37,13 @@ import FreewayLaneChangeRightScreen from './navigation/screens/FreewayLaneChange
 import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import HomeScreen from './navigation/screens/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const MaterialTopTab = createMaterialTopTabNavigator();
 
 global.test = true;
 
@@ -75,8 +77,51 @@ global.currentErrorCount = 0;
 //   );
 // }
 
+function TurnsTabs() {
+  return (
+    <MaterialTopTab.Navigator>
+      <MaterialTopTab.Screen name="turnscreenleft" options={{ title: 'Left' }} component={TurnScreenLeft} />
+      <MaterialTopTab.Screen name="turnscreenright" options={{ title: 'Right' }} component={TurnScreenRight} />
+    </MaterialTopTab.Navigator>
+  );
+}
 
+function TrafficTabs() {
+  return (
+    <MaterialTopTab.Navigator>
+      <MaterialTopTab.Screen name="intersection" options={{ title: 'Intersection' }} component={Traffic} />
+      <MaterialTopTab.Screen name="lanechangeleft" options={{ title: 'Lane Change' }} component={LaneChangeScreenLeft} />
+      <MaterialTopTab.Screen name="turns" options={{ title: 'Turns' }} component={TurnsTabs} />
+    </MaterialTopTab.Navigator>
+  );
+}
 
+function ResidentialTabs() {
+  return (
+    <MaterialTopTab.Navigator>
+      <MaterialTopTab.Screen name="residentialbusiness" options={{ title: 'Residential/Business' }} component={Residential} />
+      <MaterialTopTab.Screen name="turns" options={{ title: 'Turns' }} component={TurnsTabs} />
+    </MaterialTopTab.Navigator>
+  );
+}
+
+function FreewayTabs() {
+  return (
+    <MaterialTopTab.Navigator>
+      <MaterialTopTab.Screen name="freeway" options={{ title: 'Driving' }} component={FreewayDriving} />
+      <MaterialTopTab.Screen name="freewaylanechange" options={{ title: 'Lane Change' }} component={FreewayLaneChangeTabs} />
+    </MaterialTopTab.Navigator>
+  );
+}
+
+function FreewayLaneChangeTabs() {
+  return (
+    <MaterialTopTab.Navigator>
+      <MaterialTopTab.Screen name="freewaylanechangeleft" options={{ title: 'Left' }} component={FreewayLaneChangeScreen} />
+      <MaterialTopTab.Screen name="freewaylanechangeright" options={{ title: 'Right' }} component={FreewayLaneChangeRightScreen} />
+    </MaterialTopTab.Navigator>
+  );
+}
 
 function TestPages() {
 	return (
@@ -125,14 +170,14 @@ function TestPages() {
             <Stack.Screen name="freelanechangeRight" options={{ title: 'Freeway Lane Change Right' }} component={FreewayLaneChangeRightScreen} />
             <Stack.Screen name="testresult" options={{ title: 'Test Results' }} component={TestResult} />
             <Stack.Screen name="parkinglot" options={{ title: 'Parking Lot' }} component={ParkingLot} />
-            <Stack.Screen name="Freeway" options={{ title: 'Freeway' }} component={FreewayDriving} />
-            <Stack.Screen name="Residential" options={{ title: 'Residential/Business' }} component={Residential} />
+            <Stack.Screen name="Freeway" options={{ title: 'Freeway' }} component={FreewayTabs} />
+            <Stack.Screen name="Residential" options={{ title: 'Residential/Business' }} component={ResidentialTabs} />
             <Stack.Screen name="autodq" options={{ title: 'Automatic Disqualification' }} component={AutoDQ} />
             <Stack.Screen name="turnscreenleft" options={{ title: 'Left Turns' }} component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" options={{ title: 'Right Turns' }} component={TurnScreenRight} />
             <Stack.Screen name='lanechangeleft' options={{ title: 'Lane Change' }} component={LaneChangeScreenLeft}/>
             <Stack.Screen name='intersection' options={{ title: 'Intersection' }} component={IntersectionScreen}/>
-            <Stack.Screen name='traffic' options={{ title: 'Traffic' }} component={Traffic}/>
+            <Stack.Screen name='traffic' options={{ title: 'Traffic' }} component={TrafficTabs}/>
             <Stack.Screen name='other' options = {{ title: 'Other' }} component={OtherScreen}/>
             
           </Stack.Group>

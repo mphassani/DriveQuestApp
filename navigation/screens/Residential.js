@@ -26,7 +26,7 @@ const theme = {
 export default function ResidentialScreen({ navigation }) {
     return (
         <PaperProvider theme={theme}>
-            <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+            {/* <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
                 <View style={{ paddingBottom: 10, paddingTop: 10, marginBottom: 10, width: "40%", marginTop: 10, paddingLeft: 5, paddingRight: 5 }}>
                     <Button mode="contained" color="#12414F">Residential/Business</Button>
                 </View>
@@ -35,7 +35,7 @@ export default function ResidentialScreen({ navigation }) {
                     <Button mode="outlined" color="#12414F" onPress={() => navigation.navigate("turnscreenleft")}>Turns</Button>
                 </View>
 
-            </View>
+            </View> */}
 
             <ScrollView>
                 <SectionTitle name="Residential/Business" />
