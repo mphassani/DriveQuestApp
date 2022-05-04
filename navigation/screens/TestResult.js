@@ -1225,11 +1225,10 @@ const styles = StyleSheet.create({
       
       paddingLeft: 15,
       paddingRight: 15,
-      paddingTop: 15,
-      paddingBottom: 5,
-      alignItems: 'baseline',
-      flexDirection:'row', 
-      flexWrap:'wrap',
+      paddingVertical: 8,
+
+      alignItems: 'center',
+      flexDirection: "row",
 
       shadowColor: 'black',
       shadowOffset: {width: 0, height: 5},
@@ -1240,13 +1239,11 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "left",
     fontSize: 22,
-    marginTop: -6,
     fontWeight: '500',
   },
   sectionResult: {
     textAlign: "right",
     fontSize: 22,
-    marginTop: -6,
     fontWeight: "500"
   },
   sendButtonContainer: {
@@ -1300,21 +1297,17 @@ const styles = StyleSheet.create({
   detailedResultsRow: {
     borderRadius: 10,
     minHeight: 40,
-    // backgroundColor: '#e0e0e0',
     backgroundColor: 'white',
     paddingLeft: 15,
     paddingRight: 15,
-    paddingTop: 13,
-    // paddingBottom: 2,
+    paddingVertical: 8,
 
     marginLeft: 45,
     marginRight: 15,
     marginTop: 5,
 
-    // alignItems: 'baseline',
-    // alignItems: 'center',
-    flexDirection:'row', 
-    flexWrap:'wrap',
+    alignItems: 'center',
+    flexDirection: "row",
 
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 5},
@@ -1325,8 +1318,8 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "left",
     fontSize: 22,
-    marginTop: -6,
-    fontWeight: '300'
+    fontWeight: '300',
+    paddingRight: 5,
   },
   detailedResultsContainer: {
 

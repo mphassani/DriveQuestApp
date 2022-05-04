@@ -17,7 +17,7 @@ export default function StartTest({ navigation }) {
     const startNewTestConfirmation = () =>
     Alert.alert(
     "Start New Driving Evaluation",
-    "This will erase your current test progress. Are you sure you want to continue?",
+    "This will erase your current Evaluation progress. Are you sure you want to continue?",
     [
         {
         text: "Cancel",
