@@ -83,7 +83,7 @@ export default function ResidentialScreen({ navigation }) {
                     
                     <CounterRow 
                         title="Emergency Brake"
-                        icon={require("../../assets/GapLimitLine.png")}
+                        icon={require("../../assets/ParkingBreak.png")}
                         storageKey="RESIDENTIAL_CURB_EMERGENCY_BRAKE"
                     />
 
