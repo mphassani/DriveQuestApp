@@ -70,7 +70,7 @@ const HomeSectionButton = (props) => {
 
 const styles = StyleSheet.create({
     mainContainer: {
-        height: 60,
+        minHeight: 50,
         // alignSelf: 'stretch',
         // alignItems: 'baseline',
         flexDirection:'row', 
@@ -84,16 +84,15 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        alignSelf: 'stretch',
         paddingVertical: 15,
         paddingHorizontal: 32,
         borderRadius: 10,
         elevation: 3,
-        height: 50,
+        minHeight: 50,
     },
     sectionButtonText: {
         fontSize: 16,
-        lineHeight: 16,
+        lineHeight: 0,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',

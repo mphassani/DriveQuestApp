@@ -1264,7 +1264,6 @@ const styles = StyleSheet.create({
   },
   sendButtonText: {
     fontSize: 16,
-    lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
