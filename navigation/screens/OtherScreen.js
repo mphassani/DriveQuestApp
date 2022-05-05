@@ -40,19 +40,19 @@ export default function OtherScreen({ navigation }) {
         const errorText4 = await StorageHandler.getData("OTHER_ERROR_TEXT_4");
     
         if (errorText1 != null) {
-          setErrorText1(errorText1);
+            setErrorText1(errorText1);
         }
     
         if (errorText2 != null) {
-          setErrorText2(errorText2);
+            setErrorText2(errorText2);
         }
     
         if (errorText3 != null) {
-          setErrorText3(errorText3);
+            setErrorText3(errorText3);
         }
     
         if (errorText4 != null) {
-          setErrorText4(errorText4);
+            setErrorText4(errorText4);
         }
     }
 
@@ -65,6 +65,48 @@ export default function OtherScreen({ navigation }) {
             <ScrollView>
                 <SectionTitle name="Other"></SectionTitle>
                 <List.Section>
+
+                <CounterRow 
+                    title="Engine Not On"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_ENGINE_NOT_ON"
+                />
+
+                <CounterRow 
+                    title="Parking Brake"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_PARKING_BRAKE"
+                />
+
+                <CounterRow 
+                    title="Concentration"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_CONCENTRATION"
+                />
+
+                <CounterRow 
+                    title="Judgement"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_JUDGEMENT"
+                />
+
+                <CounterRow 
+                    title="Mindful of Signals"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_MINDFUL_OF_SIGNALS"
+                />
+
+                <CounterRow 
+                    title="Off Course"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_OFF_COURSE"
+                />
+
+                <CounterRow 
+                    title="Late Reaction to Hazards"
+                    icon={require("../../assets/brakeLights.png")}
+                    storageKey="OTHER_ERROR_LATE_REACTION_TO_HAZARDS"
+                />
 
                 <Text style={styles.title}>Error 1</Text>
                 <View style={styles.row}>
@@ -100,7 +142,7 @@ export default function OtherScreen({ navigation }) {
                     style={styles.input}
                     value={errorText3}
                     onChangeText={(text) => {setErrorText3(text); saveComment("OTHER_ERROR_TEXT_3", text);}}
-                    />  
+                    />
                     <Counter storageKey="OTHER_COUNTER_3" maxValue={4}/>
                 </View>
                 <View style={styles.divider}></View>
