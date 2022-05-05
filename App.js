@@ -305,6 +305,9 @@ function MyTabs() {
 function App() {
   return (
 		<NavigationContainer>
+      {/* Sets the iOS status bar to white, instead of the default black */}
+      <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
+
 			<Stack.Navigator initialRouteName="LogIn" >
 
         <Stack.Group style={ { backgroundColor: '#6a51ae' }}
@@ -361,8 +364,8 @@ function App() {
 //       <NavigationContainer>
 
 
-//       {/* Sets the iOS status bar to white, instead of the default black */}
-//       <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
+      // {/* Sets the iOS status bar to white, instead of the default black */}
+      // <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
 
 //         <Stack.Navigator initialRouteName="LogIn">
 
