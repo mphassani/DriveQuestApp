@@ -89,8 +89,8 @@ export default function TurnScreenRight({ navigation }) {
                             storageKey="TURNS_RIGHT_STOP_APPROACH"
                         />
                 <CounterRow 
-                            title="Gap/Limit Line"
-                            icon={require("../../assets/GapLimitLine.png")}
+                            title="Limit Line"
+                            icon={require("../../assets/LimitLine.png")}
                             storageKey="TURNS_RIGHT_STOP_GAP_LIMIT_LINE"
                         />
                 <CounterRow 

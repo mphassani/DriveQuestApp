@@ -45,7 +45,7 @@ export default function FreewayDriving() {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/TrafficCheck.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="FREEWAY_ENTERING_VISUAL_SEARCH"
                     />
                     <CounterRow
@@ -72,7 +72,7 @@ export default function FreewayDriving() {
                   <SectionTitle name="Freeway Driving" />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/TrafficCheck.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="FREEWAY_DRIVING_VISUAL_SEARCH"
                     />
                     <CounterRow
@@ -99,7 +99,7 @@ export default function FreewayDriving() {
                   <SectionTitle name="Freeway Exiting" />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/TrafficCheck.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="FREEWAY_EXITING_VISUAL_SEARCH"
                     />
                     <CounterRow

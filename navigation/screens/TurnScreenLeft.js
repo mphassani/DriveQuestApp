@@ -91,8 +91,8 @@ export default function TurnScreenLeft({ navigation }) {
                             storageKey="TURNS_LEFT_STOP_APPROACH"
                         />
                 <CounterRow 
-                            title="Gap/Limit Line"
-                            icon={require("../../assets/GapLimitLine.png")}
+                            title="Limit Line"
+                            icon={require("../../assets/LimitLine.png")}
                             storageKey="TURNS_LEFT_STOP_GAP_LIMIT_LINE"
                         />
                 <CounterRow 

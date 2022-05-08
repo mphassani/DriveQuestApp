@@ -32,7 +32,7 @@ export default function ParkingLot({ navigation }) {
                 <SectionTitle name="Parking Lot" />
                     <CounterRow 
                         title="Gap/Limit Line"
-                        icon={require("../../assets/GapLimitLine.png")}
+                        icon={require("../../assets/LimitLine.png")}
                         storageKey="PARKINGLOT_GAP_LIMIT_LINE"
                     />
                     <CounterRow
@@ -53,7 +53,7 @@ export default function ParkingLot({ navigation }) {
                     />
                     <CounterRow
                         title="Visual Search"
-                        icon={require("../../assets/rearViewMirror.png")}
+                        icon={require("../../assets/VisualSearch.png")}
                         storageKey="PARKINGLOT_VISUAL_SEARCH"
                     />
                     <CounterRow

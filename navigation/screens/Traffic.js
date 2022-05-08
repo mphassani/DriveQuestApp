@@ -87,8 +87,8 @@ export default function Traffic({ navigation }) {
                         maxValue={8}
                     />
                     <CounterRow
-                        title="Gap/Limit Line"
-                        icon={require('../../assets/GapLimitLine.png')}
+                        title="Limit Line"
+                        icon={require('../../assets/LimitLine.png')}
                         storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
                         maxValue={8}
                     />
