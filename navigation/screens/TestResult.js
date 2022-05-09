@@ -45,9 +45,13 @@ var usingOther = true;
 
 var selectedRoute = "selected_route";
 var instructorName = "instructor_name";
-var instructorEmail = ""
+var instructorEmail = "";
 var studentName = "student_name";
-var studentPermitNumber = "A0000000"
+var studentPermitNumber = "A0000000";
+var otherErrorText1 = "Other Error 1";
+var otherErrorText2 = "Other Error 2";
+var otherErrorText3 = "Other Error 3";
+var otherErrorText4 = "Other Error 4";
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -99,7 +103,7 @@ export default function TestResults() {
   const trafficNamesArray = ["Intersection Through Positioning", "Intersection Through Visual Search", "Intersection Through Speed", "Intersection Through Unnecessary Stop", "Intersection Through Yield", "Intersection Through Right of Way", "Intersection Stop Approach", "Intersection Stop Gap Limit Line", "Intersection Stop Braking", "Intersection Stop Speed", "Intersection Stop Visual Search", "Intersection Stop Full Stop", "Intersection Start Visual Search", "Intersection Start Speed", "Intersection Start Yield", "Lane Change Driver Side Mirror", "Lane Change Rear View Mirror", "Lane Change Passenger Side Mirror", "Lane Change Left Shoulder", "Lane Change Right Shoulder", "Lane Change Signal", "Lane Change Speed", "Lane Change Spacing", "Lane Change Steering Control", "Lane Change Smoothness"];
   const turningNamesArray = ["Left Accelerate/Decelerate Visual Search", "Left Accelerate/Decelerate Signal", "Left Accelerate/Decelerate Braking", "Left Accelerate/Decelerate Yield", "Left Accelerate/Decelerate Lane Use", "Left Accelerate/Decelerate Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Visual Search", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Accelerate/Decelerate Visual Search", "Right Accelerate/Decelerate Signal", "Right Accelerate/Decelerate Braking", "Right Accelerate/Decelerate Yield", "Right Accelerate/Decelerate Lane Use", "Right Accelerate/Decelerate Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Visual Search", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
-  var otherNamesArray = ["Error 1", "Error 2", "Error 3", "Error 4"];
+  const otherNamesArray = ["Engine Not On", "Parking Brake", "Concentration", "Judgement", "Mindful of Signal", "Off Course", "Late Reaction to Hazard", otherErrorText1, otherErrorText2, otherErrorText3, otherErrorText4];
 
 
 
@@ -363,6 +367,26 @@ export default function TestResults() {
     var studentPermitNumberFromStorage = await StorageHandler.getData("STUDENT_PERMIT_NUMBER");
     if (studentPermitNumberFromStorage != null) {
       studentPermitNumber = studentPermitNumberFromStorage;
+    }
+
+    var otherErrorFromStorage1 = await StorageHandler.getData("OTHER_ERROR_TEXT_1");
+    if (otherErrorFromStorage1 != null) {
+      otherErrorText1 = otherErrorFromStorage1;
+    }
+
+    var otherErrorFromStorage2 = await StorageHandler.getData("OTHER_ERROR_TEXT_2");
+    if (otherErrorFromStorage2 != null) {
+      otherErrorText2 = otherErrorFromStorage2;
+    }
+
+    var otherErrorFromStorage3 = await StorageHandler.getData("OTHER_ERROR_TEXT_3");
+    if (otherErrorFromStorage3 != null) {
+      otherErrorText3 = otherErrorFromStorage3;
+    }
+
+    var otherErrorFromStorage4 = await StorageHandler.getData("OTHER_ERROR_TEXT_4");
+    if (otherErrorFromStorage4 != null) {
+      otherErrorText4 = otherErrorFromStorage4;
     }
 
     // console.log("comments for student: ", commentsForStudent);
@@ -967,13 +991,20 @@ export default function TestResults() {
   // Other (4 items)
   // --------------------------------------
   async function getOtherValues() {
+    const value1 = await StorageHandler.getData("OTHER_ERROR_ENGINE_NOT_ON");
+    const value2 = await StorageHandler.getData("OTHER_ERROR_PARKING_BRAKE");
+    const value3 = await StorageHandler.getData("OTHER_ERROR_CONCENTRATION");
+    const value4 = await StorageHandler.getData("OTHER_ERROR_JUDGEMENT");
+    const value5 = await StorageHandler.getData("OTHER_ERROR_MINDFUL_OF_SIGNALS");
+    const value6 = await StorageHandler.getData("OTHER_ERROR_OFF_COURSE");
+    const value7 = await StorageHandler.getData("OTHER_ERROR_LATE_REACTION_TO_HAZARDS");
 
-    const value1 = await StorageHandler.getData("OTHER_COUNTER_1");
-    const value2 = await StorageHandler.getData("OTHER_COUNTER_2");
-    const value3 = await StorageHandler.getData("OTHER_COUNTER_3");
-    const value4 = await StorageHandler.getData("OTHER_COUNTER_4");
+    const value8 = await StorageHandler.getData("OTHER_COUNTER_1");
+    const value9 = await StorageHandler.getData("OTHER_COUNTER_2");
+    const value10 = await StorageHandler.getData("OTHER_COUNTER_3");
+    const value11 = await StorageHandler.getData("OTHER_COUNTER_4");
     
-    const valuesArray = await [value1, value2, value3, value4];
+    const valuesArray = await [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {

@@ -6,13 +6,12 @@ import { Appbar, BottomNavigation } from 'react-native-paper';
 
 // Screens
 import HomeScreen from './screens/HomeScreen';
-import IntersectionScreen from './screens/IntersectionScreen';
 import LaneChangeScreen from './screens/LaneChangeScreen';
 import TurnScreenLeft from './screens/TurnScreenLeft';
 
 //Screen names
 const homeName = "Home";
-const intersectionName = "Intersection";
+// const intersectionName = "Intersection";
 const laneChangeName = "LaneChange";
 const turnName = "Turn"
 
