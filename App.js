@@ -34,6 +34,7 @@ import Traffic from './navigation/screens/Traffic';
 
 import FreewayLaneChangeRightScreen from './navigation/screens/FreewayLaneChangeRight';
 
+import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import HomeScreen from './navigation/screens/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -88,7 +89,7 @@ function TurnsTabs() {
 function TrafficTabs() {
   return (
     <MaterialTopTab.Navigator>
-      {/* <MaterialTopTab.Screen name="intersection" options={{ title: 'Intersection' }} component={Traffic} /> */}
+      <MaterialTopTab.Screen name="intersection" options={{ title: 'Intersection' }} component={Traffic} />
       <MaterialTopTab.Screen name="lanechangeleft" options={{ title: 'Lane Change' }} component={LaneChangeScreenLeft} />
       <MaterialTopTab.Screen name="turns" options={{ title: 'Turns' }} component={TurnsTabs} />
     </MaterialTopTab.Navigator>
@@ -175,7 +176,7 @@ function TestPages() {
             <Stack.Screen name="turnscreenleft" options={{ title: 'Left Turns' }} component={TurnScreenLeft} />
             <Stack.Screen name="turnscreenright" options={{ title: 'Right Turns' }} component={TurnScreenRight} />
             <Stack.Screen name='lanechangeleft' options={{ title: 'Lane Change' }} component={LaneChangeScreenLeft}/>
-            {/* <Stack.Screen name='intersection' options={{ title: 'Intersection' }} component={IntersectionScreen}/> */}
+            <Stack.Screen name='intersection' options={{ title: 'Intersection' }} component={IntersectionScreen}/>
             <Stack.Screen name='traffic' options={{ title: 'Traffic' }} component={TrafficTabs}/>
             <Stack.Screen name='other' options = {{ title: 'Other' }} component={OtherScreen}/>
             

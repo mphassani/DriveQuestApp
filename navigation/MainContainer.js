@@ -11,7 +11,7 @@ import TurnScreenLeft from './screens/TurnScreenLeft';
 
 //Screen names
 const homeName = "Home";
-// const intersectionName = "Intersection";
+const intersectionName = "Intersection";
 const laneChangeName = "LaneChange";
 const turnName = "Turn"
 

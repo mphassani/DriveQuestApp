@@ -8,6 +8,7 @@ import { clearAllStoredData } from './StorageHandler';
 
 
 import HomeScreen from './navigation/screens/HomeScreen';
+import IntersectionScreen from './navigation/screens/IntersectionScreen';
 import LaneChangeScreenLeft from './navigation/screens/LaneChangeScreenLeft';
 import TurnScreenLeft from './navigation/screens/TurnScreenLeft';
 import TurnScreen from './navigation/screens/TurnScreenLeft';
