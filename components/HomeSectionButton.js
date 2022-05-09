@@ -88,11 +88,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 10,
         elevation: 3,
-        minHeight: 50,
     },
     sectionButtonText: {
         fontSize: 16,
-        lineHeight: 0,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',
