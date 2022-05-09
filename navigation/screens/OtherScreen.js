@@ -5,8 +5,11 @@ import {
     Text,
     StyleSheet,
     ScrollView, 
+    TextInput,
+    KeyboardAvoidingView,
 } from 'react-native';
-import { Provider as PaperProvider, Button, List, IconButton, Avatar, Appbar, DefaultTheme, TextInput } from "react-native-paper";
+import { Provider as PaperProvider, Button, List, IconButton, Avatar, Appbar, DefaultTheme } from "react-native-paper";
+import {useHeaderHeight} from '@react-navigation/elements';
 import Counter from '../../components/Counter';
 import CounterRow from '../../components/CounterRow';
 import * as StorageHandler from "../../StorageHandler";
@@ -23,6 +26,8 @@ const theme = {
 };
 
 export default function OtherScreen({ navigation }) {
+    const headerHeight = useHeaderHeight();
+
     const [errorText1, setErrorText1] = React.useState("");
     const [errorText2, setErrorText2] = React.useState("");
     const [errorText3, setErrorText3] = React.useState("");
@@ -62,9 +67,12 @@ export default function OtherScreen({ navigation }) {
 
     return (
         <PaperProvider theme={theme}>
+        <KeyboardAvoidingView 
+        keyboardVerticalOffset={headerHeight}
+        behavior="position" 
+        >
             <ScrollView>
                 <SectionTitle name="Other"></SectionTitle>
-                <List.Section>
 
                 <CounterRow 
                     title="Engine Not On"
@@ -108,60 +116,80 @@ export default function OtherScreen({ navigation }) {
                     storageKey="OTHER_ERROR_LATE_REACTION_TO_HAZARDS"
                 />
 
+                <SectionTitle name="Custom Errors"></SectionTitle>
+
                 <Text style={styles.title}>Error 1</Text>
                 <View style={styles.row}>
-                    <TextInput
-                    editable
-                    multiline
-                    style={styles.input}
-                    value={errorText1}
-                    onChangeText={(text) => {setErrorText1(text); saveComment("OTHER_ERROR_TEXT_1", text);}}
-                    />
+                    <View style={styles.left}>
+                        <TextInput
+                            editable
+                            multiline
+                            style={styles.textInput}
+                            value={errorText1}
+                            onChangeText={(text) => {setErrorText1(text); saveComment("OTHER_ERROR_TEXT_1", text);}}
+                        />
+                    </View>
                     <Counter storageKey="OTHER_COUNTER_1" maxValue={4}/>
                 </View>
+
                 <View style={styles.divider}></View>
+
 
                 <Text style={styles.title}>Error 2</Text>
                 <View style={styles.row}>
-                    <TextInput
-                    editable
-                    multiline
-                    style={styles.input}
-                    value={errorText2}
-                    onChangeText={(text) => {setErrorText2(text); saveComment("OTHER_ERROR_TEXT_2", text);}}
-                    />
+                    <View style={styles.left}>
+                        <TextInput
+                            editable
+                            multiline
+                            style={styles.textInput}
+                            value={errorText2}
+                            onChangeText={(text) => {setErrorText2(text); saveComment("OTHER_ERROR_TEXT_2", text);}}
+                        />
+                    </View>
                     <Counter storageKey="OTHER_COUNTER_2" maxValue={4}/>
                 </View>
+
                 <View style={styles.divider}></View>
+
 
                 <Text style={styles.title}>Error 3</Text>
                 <View style={styles.row}>
-                    <TextInput
-                    editable
-                    multiline
-                    style={styles.input}
-                    value={errorText3}
-                    onChangeText={(text) => {setErrorText3(text); saveComment("OTHER_ERROR_TEXT_3", text);}}
-                    />
+                    <View style={styles.left}>
+                        <TextInput
+                            editable
+                            multiline
+                            style={styles.textInput}
+                            value={errorText3}
+                            onChangeText={(text) => {setErrorText3(text); saveComment("OTHER_ERROR_TEXT_3", text);}}
+                        />
+                    </View>
                     <Counter storageKey="OTHER_COUNTER_3" maxValue={4}/>
                 </View>
+
                 <View style={styles.divider}></View>
+
 
                 <Text style={styles.title}>Error 4</Text>
                 <View style={styles.row}>
-                    <TextInput
-                    editable
-                    multiline
-                    style={styles.input}
-                    value={errorText4}
-                    onChangeText={(text) => {setErrorText4(text); saveComment("OTHER_ERROR_TEXT_4", text);}}
-                    />
+                    <View style={styles.left}>
+                        <TextInput
+                            editable
+                            multiline
+                            style={styles.textInput}
+                            value={errorText4}
+                            onChangeText={(text) => {setErrorText4(text); saveComment("OTHER_ERROR_TEXT_4", text);}}
+                        />
+                    </View>
                     <Counter storageKey="OTHER_COUNTER_4" maxValue={4}/>
                 </View>
+
                 <View style={styles.divider}></View>
 
-                </List.Section>
+
+
+
             </ScrollView>
+        </KeyboardAvoidingView>
         </PaperProvider>
     )
 }
@@ -174,21 +202,23 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "500",
         alignItems: 'center', //Centered vertically
+        marginRight: 10,
       },
 
       row: {
         flexDirection: 'row',
         alignItems: 'center', 
-        marginBottom: 10
+        marginBottom: 10,
+        marginHorizontal: 10,
       },
 
     title: {
-        marginHorizontal: 8,
+        marginLeft: 10,
         alignItems: 'center',
         flex: 1,
         fontSize: 18,
         fontWeight: "500",
-        marginTop: 10
+        marginVertical: 10,
     },
 
     divider: {
@@ -196,15 +226,26 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
     input: {
+        flex: 1,
         borderRadius: 10,
         backgroundColor: 'white',
         minHeight: 50,
-        minWidth: 200,
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.05,
         shadowRadius: 25,           
         margin: 10,
-        maxWidth: 200
-    }
+    },
+    textInput: {
+        flex: 1,
+        borderRadius: 10,
+        backgroundColor: 'white',
+        minHeight: 50,
+        padding: 15,
+        fontSize: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.05,
+        shadowRadius: 25,
+      },
 });
