@@ -93,8 +93,8 @@ export default function OtherScreen({ navigation }) {
                 />
 
                 <CounterRow 
-                    title="Judgement"
-                    icon={require("../../assets/brakeLights.png")}
+                    title="Judgment"
+                    icon={require("../../assets/Judgment.png")}
                     storageKey="OTHER_ERROR_JUDGEMENT"
                 />
 
