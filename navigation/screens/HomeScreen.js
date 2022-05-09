@@ -14,7 +14,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from "react";
 import TestResult from './TestResult';
 import AutoDQ from './AutoDQ';
-
 import HomeSectionButton from "../../components/HomeSectionButton";
 
 // import {Restart} from 'fiction-expo-restart';

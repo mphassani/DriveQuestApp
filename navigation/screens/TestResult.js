@@ -1357,10 +1357,7 @@ const styles = StyleSheet.create({
   textInput: {
     borderRadius: 10,
     backgroundColor: 'white',
-    // borderBottomColor: '#000000',
-    // borderBottomWidth: 1,
     minHeight: 90,
-    // borderWidth: 1,
     padding: 12,
 
     shadowColor: 'black',
