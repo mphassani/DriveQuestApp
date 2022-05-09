@@ -170,13 +170,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 5,
         borderRadius: 10,
-        borderColor: '#00677F',
+        borderColor: '#87181A',
         backgroundColor: 'transparent',
     },
 
     /* Creates filled in checkbox, used when item is marked correct */
     checkboxCheckedBad: { //checkbox color 
-        backgroundColor: '#00677F',
+        backgroundColor: '#87181A',
     },
 
 });
