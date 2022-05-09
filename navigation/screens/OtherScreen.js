@@ -98,13 +98,13 @@ export default function OtherScreen({ navigation }) {
 
                 <CounterRow 
                     title="Off Course"
-                    icon={require("../../assets/brakeLights.png")}
+                    icon={require("../../assets/car-traction-control.png")}
                     storageKey="OTHER_ERROR_OFF_COURSE"
                 />
 
                 <CounterRow 
                     title="Late Reaction to Hazards"
-                    icon={require("../../assets/brakeLights.png")}
+                    icon={require("../../assets/exclamationpoint.png")}
                     storageKey="OTHER_ERROR_LATE_REACTION_TO_HAZARDS"
                 />
 
