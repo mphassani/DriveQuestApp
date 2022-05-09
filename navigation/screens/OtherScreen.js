@@ -82,13 +82,13 @@ export default function OtherScreen({ navigation }) {
 
                 <CounterRow 
                     title="Parking Brake"
-                    icon={require("../../assets/brakeLights.png")}
+                    icon={require("../../assets/parkingBrake.png")}
                     storageKey="OTHER_ERROR_PARKING_BRAKE"
                 />
 
                 <CounterRow 
                     title="Concentration"
-                    icon={require("../../assets/brakeLights.png")}
+                    icon={require("../../assets/Concentration.png")}
                     storageKey="OTHER_ERROR_CONCENTRATION"
                 />
 
@@ -100,19 +100,19 @@ export default function OtherScreen({ navigation }) {
 
                 <CounterRow 
                     title="Mindful of Signals"
-                    icon={require("../../assets/brakeLights.png")}
+                    icon={require("../../assets/icons8-traffic-light-100.png")}
                     storageKey="OTHER_ERROR_MINDFUL_OF_SIGNALS"
                 />
 
                 <CounterRow 
                     title="Off Course"
-                    icon={require("../../assets/car-traction-control.png")}
+                    icon={require("../../assets/OffCourse.png")}
                     storageKey="OTHER_ERROR_OFF_COURSE"
                 />
 
                 <CounterRow 
                     title="Late Reaction to Hazards"
-                    icon={require("../../assets/exclamationpoint.png")}
+                    icon={require("../../assets/LateReaction.png")}
                     storageKey="OTHER_ERROR_LATE_REACTION_TO_HAZARDS"
                 />
 
