@@ -76,7 +76,7 @@ export default function OtherScreen({ navigation }) {
 
                 <CounterRow 
                     title="Engine Not On"
-                    icon={require("../../assets/brakeLights.png")}
+                    icon={require("../../assets/engineOff.png")}
                     storageKey="OTHER_ERROR_ENGINE_NOT_ON"
                 />
 
