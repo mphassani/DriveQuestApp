@@ -186,7 +186,7 @@ export default function OtherScreen({ navigation }) {
                 <View style={styles.divider}></View>
 
 
-
+                <View style={{ marginBottom: 25 }}></View>
 
             </ScrollView>
         </KeyboardAvoidingView>
