@@ -268,7 +268,7 @@ export default function SettingsPage(props) {
         </Text>
 
         {/* Creates searchable sound dropdown */}
-        <View style={{ zIndex: 2 }}> 
+        <View style={{ zIndex: 1 }}> 
           <DropDownPicker
             allowFontScaling={false}
             showArrowIcon={true}
@@ -283,6 +283,7 @@ export default function SettingsPage(props) {
             containerStyle={{ height: 70, marginBottom: 0 }}
             searchable={false}
             onSelectItem={item => { console.log(item.label, item.value, item.sound), playSound(item.value), saveErrorSounds(item.value), global.selectedSound = item.value }}
+            dropDownDirection="TOP"
           />
         </View>
 
@@ -291,7 +292,7 @@ export default function SettingsPage(props) {
         </Text>
 
         {/* Creates searchable route dropdown */}
-        <View style={{ zIndex: 1 }}>
+        <View style={{ zIndex: 100 }}>
           <DropDownPicker
             allowFontScaling={false}
             showArrowIcon={true}
