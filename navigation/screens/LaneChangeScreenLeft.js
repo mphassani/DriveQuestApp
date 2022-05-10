@@ -42,7 +42,7 @@ const theme = {
             </Portal> */}
             <ScrollView>
                     <CounterRow 
-                        title="Visual Search"
+                        title="Driver Side Mirror"
                         icon={require("../../assets/driverSideMirror.png")}
                         storageKey="LANECHANGE_LEFT_DRIVER_SIDE_MIRROR"
                         maxValue={8}
@@ -50,7 +50,7 @@ const theme = {
                     <CounterRow
                         title="Rear View Mirror"
                         icon={require('../../assets/rearViewMirror.png')}
-                        storageKey="INTERSECTION_THROUGH_SPEED"
+                        storageKey="LANECHANGE_LEFT_REAR_VIEW_MIRROR"
                         maxValue={8}
                     />
                     <CounterRow
@@ -74,7 +74,7 @@ const theme = {
                     <CounterRow
                         title="Signal"
                         icon={require('../../assets/Signal.png')}
-                        storageKey="INTERSECTION_STOP_GAP_LIMIT_LINE"
+                        storageKey="LANECHANGE_LEFT_SIGNAL"
                         maxValue={8}
                     />
                     <CounterRow
@@ -91,6 +91,12 @@ const theme = {
                     />
                     <CounterRow
                         title="Steering Control"
+                        icon={require("../../assets/SteeringControl.png")}
+                        storageKey="LANECHANGE_LEFT_STEERING_CONTROL"
+                        maxValue={8}
+                    />
+                    <CounterRow
+                        title="Smoothness"
                         icon={require("../../assets/smoothness.png")}
                         storageKey="LANECHANGE_LEFT_SMOOTHNESS"
                         maxValue={8}
