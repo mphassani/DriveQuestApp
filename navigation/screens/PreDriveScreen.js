@@ -54,7 +54,7 @@ export default function PreDriveScreen({ navigation }) {
 
                     <CheckboxRow
                         title="Foot Brake"
-                        icon={require("../../assets/Breaking.png")}
+                        icon={require("../../assets/Breaking2.png")}
                         storageKey="PREDRIVE_FOOT_BRAKES"
                     />
 
