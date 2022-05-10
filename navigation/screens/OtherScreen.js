@@ -66,12 +66,14 @@ export default function OtherScreen({ navigation }) {
     }, []);
 
     return (
-        <PaperProvider theme={theme}>
         <KeyboardAvoidingView 
         keyboardVerticalOffset={headerHeight}
         behavior="position" 
         >
             <ScrollView>
+        <PaperProvider theme={theme}>
+
+            
                 <SectionTitle name="Other"></SectionTitle>
 
                 <CounterRow 
@@ -188,9 +190,11 @@ export default function OtherScreen({ navigation }) {
 
                 <View style={{ marginBottom: 25 }}></View>
 
+            
+            </PaperProvider>
             </ScrollView>
         </KeyboardAvoidingView>
-        </PaperProvider>
+        
     )
 }
 
