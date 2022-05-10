@@ -88,7 +88,7 @@ export default function TurnScreenLeft({ navigation }) {
                 <CounterRow 
                             title="Approach"
                             icon={require("../../assets/GapLimitLine.png")}
-                            storageKey="TURNS_LEFT_STOP_APPROACH"
+                            storageKey="TURNS_LEFT_STOP_APPROACH" 
                         />
                 <CounterRow 
                             title="Limit Line"
@@ -103,7 +103,7 @@ export default function TurnScreenLeft({ navigation }) {
                 <CounterRow 
                             title="Speed"
                             icon={require("../../assets/speed.png")}
-                            storageKey="TURNS_LEFT_STOP_SPEED"
+                            storageKey="TURNS_LEFT_STOP_SPEED" 
                         />
                 <CounterRow 
                             title="Visual Search"
