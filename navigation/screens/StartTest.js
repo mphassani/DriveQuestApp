@@ -6,13 +6,14 @@ import {
   ScrollView,
   Pressable,
   Alert,
-  Image
+  Image,
 } from "react-native";
 
 import * as StorageHandler from "../../StorageHandler";
 
 export default function StartTest({ navigation }) {
 
+    var creditsCount = 0;
 
     const startNewTestConfirmation = () =>
     Alert.alert(
@@ -33,14 +34,25 @@ export default function StartTest({ navigation }) {
         navigation.navigate("TestConfig");
     }
 
+    function creditsCounter() {
+        creditsCount += 1;
+
+        if (creditsCount > 10) {
+            creditsCount = 0;
+            navigation.navigate("credits")
+        }
+    }
+
 
   return (
 
     <ScrollView>
         <View style={{alignItems: 'center', justifyContent:'center', paddingVertical:'12%'}}>
-            <Image
-            source={require('../../assets/logo.png')}
-            />
+            <Pressable onPress={() => creditsCounter()}>
+                <Image
+                source={require('../../assets/logo.png')}
+                />
+            </Pressable>
         </View>
         {/* <View style={{alignItems: 'center', justifyContent: 'center', padding: 20, marginBottom: 30 }}>
             <Text style={styles.title}>Start Test</Text>

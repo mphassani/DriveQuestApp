@@ -29,6 +29,7 @@ import { clearAllStoredData } from './StorageHandler';
 import Settings from './navigation/screens/Settings';
 import OtherScreen from './navigation/screens/OtherScreen.js'
 import InstructorInfo from './navigation/screens/InstructorInfo';
+import Credits from './navigation/screens/Credits.js'
 
 import Traffic from './navigation/screens/Traffic';
 
@@ -336,6 +337,7 @@ function App() {
           <Stack.Screen name='settings' options={{ title: 'Settings' }} component={Settings}/>
           <Stack.Screen name="TestConfig" options={{ title: 'Driving Evaluation Configuration' }} component={TestConfig} />
           <Stack.Screen name="InstructorInfo" options={{ title: 'Instructor Info' }} component={InstructorInfo} />
+          <Stack.Screen name="credits" options={{ title: 'Credits' }} component={Credits} />
         </Stack.Group>
 
         {/* <Stack.Group style={ { backgroundColor: '#6a51ae' }}
