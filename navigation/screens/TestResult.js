@@ -101,7 +101,7 @@ export default function TestResults() {
   const residentialNamesArray = ["Positioning", "Safe Distance", "Signal", "Speed", "Stop", "Visual Search", "Right of Way", "Up to Curb Emergency Brake", "Up to Curb Signal", "Up to Curb Speed", "Up to Curb Steering Control", "Up to Curb Visual Search",  "Away from Curb Signal", "Away from Curb Speed", "Away from Curb Steering Control", "Away from Curb Visual Search", "Reversing Parallel", "Reversing Speed", "Reversing Steering Control", "Reversing Visual Search"];
   const freewayNamesArray = ["Entering Scanning", "Entering Visual Search", "Entering Enter Speed", "Entering Positioning", "Entering Signal", "Entering Right of Way", "Driving Visual Search", "Driving Speed", "Driving Positioning", "Driving Signal", "Driving Right of Way", "Exiting Visual Search", "Exiting Exit Speed", "Exiting Positioning", "Exiting Signal", "Exiting Yield", "Exiting Correct Lane", "Exiting Speed", "Exiting Right of Way", "Lane Change Left Driver Side Mirror", "Lane Change Left Rear View Mirror", "Lane Change Left Passenger Side Mirror", "Lane Change Left Left Shoulder", "Lane Change Left Right Shoulder", "Lane Change Left Signal", "Lane Change Left Speed", "Lane Change Left Spacing", "Lane Change Left Steering Control", "Lane Change Right Driver Side Mirror", "Lane Change Right Rear View Mirror", "Lane Change Right Passenger Side Mirror", "Lane Change Right Left Shoulder", "Lane Change Right Right Shoulder", "Lane Change Right Signal", "Lane Change Right Speed", "Lane Change Right Spacing", "Lane Change Right Steering Control"];
   const trafficNamesArray = ["Intersection Through Positioning", "Intersection Through Visual Search", "Intersection Through Speed", "Intersection Through Unnecessary Stop", "Intersection Through Yield", "Intersection Through Right of Way", "Intersection Stop Approach", "Intersection Stop Gap Limit Line", "Intersection Stop Braking", "Intersection Stop Speed", "Intersection Stop Visual Search", "Intersection Stop Full Stop", "Intersection Start Visual Search", "Intersection Start Speed", "Intersection Start Yield", "Lane Change Driver Side Mirror", "Lane Change Rear View Mirror", "Lane Change Passenger Side Mirror", "Lane Change Left Shoulder", "Lane Change Right Shoulder", "Lane Change Signal", "Lane Change Speed", "Lane Change Spacing", "Lane Change Steering Control", "Lane Change Smoothness"];
-  const turningNamesArray = ["Left Approach Visual Search", "Left Approach Signal", "Left Approach Braking", "Left Approach Yield", "Left Approach Lane Use", "Left Approach Unnecessary Stop" , "Left Stop Gap Limit Line", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left Stop Full Stop", "Left During Visual Search", "Left During Steering Control", "Left During Too Wide", "Left During Too Short", "Left During Yield", "Left During Correct Lane", "Left During Speed", "Left During Signal", "Left Smoothness", "Right Approach Visual Search", "Right Approach Signal", "Right Approach Braking", "Right Approach Yield", "Right Approach Lane Use", "Right Approach Unnecessary Stop", "Right Stop Gap Limit Line", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right Stop Full Stop", "Right During Visual Search", "Right During Steering Control", "Right During Too Wide", "Right During Too Short", "Right During Yield", "Right During Correct Lane", "Right During Speed", "Right During Signal", "Right Smoothness"];
+  const turningNamesArray = ["Left Approach Braking", "Left Approach Lane Use", "Left Approach Speed", "Left Approach Signal", "Left Approach Visual Search", "Left Approach Unnecessary Stop" , "Left Approach Yield", "Left Stop Approach", "Left Stop Gap Limit Line", "Left Stop Full Stop", "Left Stop Speed", "Left Stop Visual Search", "Left Stop Wheels Straight", "Left During Correct Lane", "Left During Signal", "Left During Speed", "Left During Steering Control", "Left During Visual Search", "Left During Too Short", "Left During Too Wide", "Left During Yield", "Left During Smoothness", "Right Approach Braking", "Right Approach Lane Use", "Right Approach Speed", "Right Approach Signal", "Right Approach Visual Search", "Right Approach Unnecessary Stop" , "Right Approach Yield", "Right Stop Approach", "Right Stop Gap Limit Line", "Right Stop Full Stop", "Right Stop Speed", "Right Stop Visual Search", "Right Stop Wheels Straight", "Right During Correct Lane", "Right During Signal", "Right During Speed", "Right During Steering Control", "Right During Visual Search", "Right During Too Short", "Right During Too Wide", "Right During Yield", "Right DuringSmoothness"];
   const autoDQNamesArray = ["Examiner Intervention", "Dangerous Maneuver", "Strikes Object", "Driving Speed", "Disobeys Traffic Signage", "Aux Equipment Use", "Disobeys Examiner", "Lane Violation"];
   const otherNamesArray = ["Engine Not On", "Parking Brake", "Concentration", "Judgement", "Mindful of Signal", "Off Course", "Late Reaction to Hazard", otherErrorText1, otherErrorText2, otherErrorText3, otherErrorText4];
 
@@ -894,53 +894,57 @@ export default function TestResults() {
   }
 
   // --------------------------------------
-  // Turning (38 items)
+  // Turning (44 items)
   // --------------------------------------
   async function getTurningValues() {
 
-    const value1 = await StorageHandler.getData("TURNS_LEFT_APPROACH_VISUAL_SEARCH");
-    const value2 = await StorageHandler.getData("TURNS_LEFT_APPROACH_SIGNAL");
-    const value3 = await StorageHandler.getData("TURNS_LEFT_APPROACH_BRAKING");
-    const value4 = await StorageHandler.getData("TURNS_LEFT_APPROACH_YIELD");
-    const value5 = await StorageHandler.getData("TURNS_LEFT_APPROACH_LANE_USE");
+    const value1 = await StorageHandler.getData("TURNS_LEFT_APPROACH_BRAKING");
+    const value2 = await StorageHandler.getData("TURNS_LEFT_APPROACH_LANE_USE");
+    const value3 = await StorageHandler.getData("TURNS_LEFT_APPROACH_SPEED");
+    const value4 = await StorageHandler.getData("TURNS_LEFT_APPROACH_SIGNAL");
+    const value5 = await StorageHandler.getData("TURNS_LEFT_APPROACH_VISUAL_SEARCH");
     const value6 = await StorageHandler.getData("TURNS_LEFT_APPROACH_UNNECESSARY_STOP");
-    const value7 = await StorageHandler.getData("TURNS_LEFT_STOP_GAP_LIMIT_LINE");
-    const value8 = await StorageHandler.getData("TURNS_LEFT_STOP_VISUAL_SEARCH");
-    const value9 = await StorageHandler.getData("TURNS_LEFT_STOP_WHEELS_STRAIGHT");
+    const value7 = await StorageHandler.getData("TURNS_LEFT_APPROACH_YIELD");
+    const value8 = await StorageHandler.getData("TURNS_LEFT_STOP_APPROACH");
+    const value9 = await StorageHandler.getData("TURNS_LEFT_STOP_GAP_LIMIT_LINE");
     const value10 = await StorageHandler.getData("TURNS_LEFT_STOP_FULL_STOP");
-    const value11 = await StorageHandler.getData("TURNS_LEFT_DURING_VISUAL_SEARCH");
-    const value12 = await StorageHandler.getData("TURNS_LEFT_DURING_STEERING_CONTROL");
-    const value13 = await StorageHandler.getData("TURNS_LEFT_DURING_TOO_WIDE");
-    const value14 = await StorageHandler.getData("TURNS_LEFT_DURING_TOO_SHORT");
-    const value15 = await StorageHandler.getData("TURNS_LEFT_DURING_YIELD");
-    const value16 = await StorageHandler.getData("TURNS_LEFT_DURING_CORRECT_LANE");
-    const value17 = await StorageHandler.getData("TURNS_LEFT_DURING_SPEED");
-    const value18 = await StorageHandler.getData("TURNS_LEFT_DURING_SIGNAL");
-    const value19 = await StorageHandler.getData("TURNS_LEFT_SMOOTHNESS");
+    const value11 = await StorageHandler.getData("TURNS_LEFT_STOP_SPEED");
+    const value12 = await StorageHandler.getData("TURNS_LEFT_STOP_VISUAL_SEARCH");
+    const value13 = await StorageHandler.getData("TURNS_LEFT_STOP_WHEELS_STRAIGHT");
+    const value14 = await StorageHandler.getData("TURNS_LEFT_DURING_CORRECT_LANE");
+    const value15 = await StorageHandler.getData("TURNS_LEFT_DURING_SIGNAL");
+    const value16 = await StorageHandler.getData("TURNS_LEFT_DURING_SPEED");
+    const value17 = await StorageHandler.getData("TURNS_LEFT_DURING_STEERING_CONTROL");
+    const value18 = await StorageHandler.getData("TURNS_LEFT_DURING_VISUAL_SEARCH");
+    const value19 = await StorageHandler.getData("TURNS_LEFT_DURING_TOO_SHORT");
+    const value20 = await StorageHandler.getData("TURNS_LEFT_DURING_TOO_WIDE");
+    const value21 = await StorageHandler.getData("TURNS_LEFT_DURING_YIELD");
+    const value22 = await StorageHandler.getData("TURNS_LEFT_DURING_SMOOTHNESS");
 
-    const value20 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_VISUAL_SEARCH");
-    const value21 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_SIGNAL");
-    const value22 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_BRAKING");
-    const value23 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_YIELD");
+    const value23 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_BRAKING");
     const value24 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_LANE_USE");
-    const value25 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_UNNECESSARY_STOP");
-    const value26 = await StorageHandler.getData("TURNS_RIGHT_STOP_GAP_LIMIT_LINE");
-    const value27 = await StorageHandler.getData("TURNS_RIGHT_STOP_VISUAL_SEARCH");
-    const value28 = await StorageHandler.getData("TURNS_RIGHT_STOP_WHEELS_STRAIGHT");
-    const value29 = await StorageHandler.getData("TURNS_RIGHT_STOP_FULL_STOP");
-    const value30 = await StorageHandler.getData("TURNS_RIGHT_DURING_VISUAL_SEARCH");
-    const value31 = await StorageHandler.getData("TURNS_RIGHT_DURING_STEERING_CONTROL");
-    const value32 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_WIDE");
-    const value33 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_SHORT");
-    const value34 = await StorageHandler.getData("TURNS_RIGHT_DURING_YIELD");
-    const value35 = await StorageHandler.getData("TURNS_RIGHT_DURING_CORRECT_LANE");
-    const value36 = await StorageHandler.getData("TURNS_RIGHT_DURING_SPEED");
+    const value25 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_SPEED");
+    const value26 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_SIGNAL");
+    const value27 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_VISUAL_SEARCH");
+    const value28 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_UNNECESSARY_STOP");
+    const value29 = await StorageHandler.getData("TURNS_RIGHT_APPROACH_YIELD");
+    const value30 = await StorageHandler.getData("TURNS_RIGHT_STOP_APPROACH");
+    const value31 = await StorageHandler.getData("TURNS_RIGHT_STOP_GAP_LIMIT_LINE");
+    const value32 = await StorageHandler.getData("TURNS_RIGHT_STOP_FULL_STOP");
+    const value33 = await StorageHandler.getData("TURNS_RIGHT_STOP_SPEED");
+    const value34 = await StorageHandler.getData("TURNS_RIGHT_STOP_VISUAL_SEARCH");
+    const value35 = await StorageHandler.getData("TURNS_RIGHT_STOP_WHEELS_STRAIGHT");
+    const value36 = await StorageHandler.getData("TURNS_RIGHT_DURING_CORRECT_LANE");
     const value37 = await StorageHandler.getData("TURNS_RIGHT_DURING_SIGNAL");
-    const value38 = await StorageHandler.getData("TURNS_RIGHT_SMOOTHNESS");
-    const value39 = await StorageHandler.getData("TURNS_LEFT_STOP_APPROACH");
-    const value40 = await StorageHandler.getData("TURNS_LEFT_STOP_SPEED")
+    const value38 = await StorageHandler.getData("TURNS_RIGHT_DURING_SPEED");
+    const value39 = await StorageHandler.getData("TURNS_RIGHT_DURING_STEERING_CONTROL");
+    const value40 = await StorageHandler.getData("TURNS_RIGHT_DURING_VISUAL_SEARCH");
+    const value41 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_SHORT");
+    const value42 = await StorageHandler.getData("TURNS_RIGHT_DURING_TOO_WIDE");
+    const value43 = await StorageHandler.getData("TURNS_RIGHT_DURING_YIELD");
+    const value44 = await StorageHandler.getData("TURNS_RIGHT_DURING_SMOOTHNESS");
     
-    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36,value37,value38,value39,value40];
+    const valuesArray = await [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36,value37,value38,value39,value40,value41,value42,value43,value44];
 
     for (var i in valuesArray) {
       if (valuesArray[i] == null) {
@@ -990,7 +994,7 @@ export default function TestResults() {
   }
 
   // --------------------------------------
-  // Other (4 items)
+  // Other (11 items)
   // --------------------------------------
   async function getOtherValues() {
     const value1 = await StorageHandler.getData("OTHER_ERROR_ENGINE_NOT_ON");

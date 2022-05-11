@@ -69,7 +69,7 @@ export default function TurnScreenRight({ navigation }) {
                     <CounterRow 
                             title="Unnecessary Stop"
                             icon={require("../../assets/UnnecessaryStop.png")}
-                            storageKey="TURNS_RIGHT_APPROACH_UNNECCESSARY_STOP"
+                            storageKey="TURNS_RIGHT_APPROACH_UNNECESSARY_STOP"
                         />
                     <CounterRow 
                             title="Yield"
@@ -155,12 +155,12 @@ export default function TurnScreenRight({ navigation }) {
                 <CounterRow 
                             title="Yield"
                             icon={require("../../assets/Yield.png")}
-                            storageKey="TURNS_RIGHT_DURIN_YIELD"
+                            storageKey="TURNS_RIGHT_DURING_YIELD"
                         />
                 <CounterRow 
                             title="Smoothness"
                             icon={require("../../assets/smoothness.png")}
-                            storageKey="TURNS_RIGHT_SMOOTHNESS"
+                            storageKey="TURNS_RIGHT_DURING_SMOOTHNESS"
                         />
 
 
